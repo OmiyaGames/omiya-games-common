@@ -1,15 +1,13 @@
-using UnityEngine;
-using UnityEditor;
-using UnityEditor.AnimatedValues;
-using System.Collections.Generic;
+﻿using UnityEngine;
+using System;
 
-namespace OmiyaGames.Editor.Tests
+namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
-    /// <copyright file="EditorExampleTest.cs" company="Omiya Games">
+    /// <copyright file="DefaultObjectAttribute.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2019-2020 Omiya Games
+    /// Copyright (c) 2014-2018 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -30,34 +28,38 @@ namespace OmiyaGames.Editor.Tests
     /// THE SOFTWARE.
     /// </copyright>
     /// <author>Taro Omiya</author>
-    /// <date>12/31/2019</date>
+    /// <date>6/26/2018</date>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// This is an example script for testing a package's editor script.
+    /// Creates a checkbox in the editor.
+    /// If unchecked, this value is set to null.
+    /// If checked, reveals an object field, allowing the user to change this value.
     /// </summary>
-    /// 
-    /// <seealso cref="RuntimeExample"/>
-    /// <seealso cref="EditorExampleTest"/>
-    /// 
     /// <remarks>
     /// Revision History:
     /// <list type="table">
     /// <listheader>
-    ///   <description>Date</description>
-    ///   <description>Author</description>
-    ///   <description>Description</description>
+    /// <description>Date</description>
+    /// <description>Name</description>
+    /// <description>Description</description>
     /// </listheader>
     /// <item>
-    ///   <description>12/31/2019</description>
-    ///   <description>Taro</description>
-    ///   <description>Initial verison</description>
+    /// <description>6/26/2018</description>
+    /// <description>Taro</description>
+    /// <description>Initial verison</description>
     /// </item>
     /// </list>
     /// </remarks>
-    /// 
-    /// FIXME: Look into how to actually setup editor tests in Unity.
-    //[CustomEditor(typeof(RuntimeExample))]
-    public class EditorExampleTest
+    [AttributeUsage(AttributeTargets.Field, Inherited = true, AllowMultiple = false)]
+    public class DefaultObjectAttribute : PropertyAttribute
     {
+        /// <summary>
+        /// Creates a checkbox in the editor.
+        /// If unchecked, this value is set to null.
+        /// If checked, reveals an object field, allowing the user to change this value.
+        /// </summary>
+        public DefaultObjectAttribute()
+        {
+        }
     }
 }

@@ -1,6 +1,8 @@
 {
-    "name": "OmiyaGames.Common.Editor",
-    "references": [],
+    "name": "OmiyaGames.Editor",
+    "references": [
+        "GUID:cdda17712c724478898665290e9a02cc"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
@@ -8,5 +10,6 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }

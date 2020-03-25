@@ -1,15 +1,13 @@
-using UnityEngine;
-using UnityEditor;
-using UnityEditor.AnimatedValues;
-using System.Collections.Generic;
+﻿using UnityEngine;
+using System;
 
-namespace OmiyaGames.Editor.Tests
+namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
-    /// <copyright file="EditorExampleTest.cs" company="Omiya Games">
+    /// <copyright file="FolderPathAttribute.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2019-2020 Omiya Games
+    /// Copyright (c) 2014-2018 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -30,34 +28,45 @@ namespace OmiyaGames.Editor.Tests
     /// THE SOFTWARE.
     /// </copyright>
     /// <author>Taro Omiya</author>
-    /// <date>12/31/2019</date>
+    /// <date>6/26/2018</date>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// This is an example script for testing a package's editor script.
+    /// Creates a checkbox in the editor.
+    /// If unchecked, the default value is set to this value.
+    /// If checked, reveals a number field, allowing the user to change this value.
     /// </summary>
-    /// 
-    /// <seealso cref="RuntimeExample"/>
-    /// <seealso cref="EditorExampleTest"/>
-    /// 
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    /// <listheader>
-    ///   <description>Date</description>
-    ///   <description>Author</description>
-    ///   <description>Description</description>
-    /// </listheader>
-    /// <item>
-    ///   <description>12/31/2019</description>
-    ///   <description>Taro</description>
-    ///   <description>Initial verison</description>
-    /// </item>
-    /// </list>
-    /// </remarks>
-    /// 
-    /// FIXME: Look into how to actually setup editor tests in Unity.
-    //[CustomEditor(typeof(RuntimeExample))]
-    public class EditorExampleTest
+    [AttributeUsage(AttributeTargets.Field, Inherited = true, AllowMultiple = false)]
+    public class FolderPathAttribute : PropertyAttribute
     {
+        public const string DefaultLocalPath = "Assets";
+
+        public enum RelativeTo
+        {
+            None,
+            ProjectDirectory,
+            //ResourcesFolder
+        }
+
+        public FolderPathAttribute(string defaultPath = DefaultLocalPath, RelativeTo relativeTo = RelativeTo.None, bool displayWarning = true)
+        {
+            DefaultPath = defaultPath;
+            PathRelativeTo = relativeTo;
+            IsWarningDisplayed = displayWarning;
+        }
+
+        public RelativeTo PathRelativeTo
+        {
+            get;
+        }
+
+        public string DefaultPath
+        {
+            get;
+        }
+
+        public bool IsWarningDisplayed
+        {
+            get;
+        }
     }
 }
