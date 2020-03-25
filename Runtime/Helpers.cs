@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
-    /// <copyright file="OmiyaGamesUtility.cs" company="Omiya Games">
+    /// <copyright file="Helpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games

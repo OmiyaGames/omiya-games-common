@@ -5,7 +5,7 @@ using UnityEditor.AnimatedValues;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
-    /// <copyright file="OmiyaGamesEditorUtility.cs" company="Omiya Games">
+    /// <copyright file="EditorHelpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games

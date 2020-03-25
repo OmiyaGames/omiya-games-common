@@ -8,7 +8,7 @@ namespace OmiyaGames.Common.Editor
     /// <copyright file="FolderPathDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2014-2018 Omiya Games
+    /// Copyright (c) 2014-2020 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -35,6 +35,26 @@ namespace OmiyaGames.Common.Editor
     /// Editor for <code>FolderPathAttribute</code>.
     /// </summary>
     /// <seealso cref="FolderPathAttribute"/>
+    /// <remarks>
+    /// Revision History:
+    /// <list type="table">
+    ///   <listheader>
+    ///     <description>Date</description>
+    ///     <description>Name</description>
+    ///     <description>Description</description>
+    ///   </listheader>
+    ///   <item>
+    ///     <description>11/01/2018</description>
+    ///     <description>Taro</description>
+    ///     <description>Initial verison</description>
+    ///   </item>
+    ///   <item>
+    ///     <description>3/25/2020</description>
+    ///     <description>Taro</description>
+    ///     <description>Converted the class to a package</description>
+    ///   </item>
+    /// </list>
+    /// </remarks>
     [CustomPropertyDrawer(typeof(FolderPathAttribute))]
     public class FolderPathDrawer : PropertyDrawer
     {
@@ -93,7 +113,7 @@ namespace OmiyaGames.Common.Editor
                     {
                         // Draw the message box
                         position.height -= textPosition.height;
-                        position.height -= EditorUiUtility.VerticalMargin;
+                        position.height -= EditorHelpers.VerticalMargin;
                         EditorGUI.HelpBox(position, WrongPathMessage, MessageType.Error);
                     }
                     EditorGUI.EndProperty();
@@ -144,12 +164,12 @@ namespace OmiyaGames.Common.Editor
         {
             // Calculate text positioning
             textPosition = position;
-            textPosition.width -= buttonWidth + EditorUiUtility.VerticalMargin;
+            textPosition.width -= buttonWidth + EditorHelpers.VerticalMargin;
 
             // Calculate button positioning
             buttonPosition = position;
             buttonPosition.x += textPosition.width;
-            buttonPosition.x += EditorUiUtility.VerticalMargin;
+            buttonPosition.x += EditorHelpers.VerticalMargin;
             buttonPosition.width = buttonWidth;
 
             // Draw message box
