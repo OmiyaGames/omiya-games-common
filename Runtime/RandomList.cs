@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace OmiyaGames
 {
@@ -30,7 +32,7 @@ namespace OmiyaGames
     /// <date>8/18/2015</date>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// A list that shuffles its elements to randomize its content.
+    /// A list that shuffles its elements.
     /// </summary>
     /// <remarks>
     /// Revision History:
@@ -52,54 +54,112 @@ namespace OmiyaGames
     ///   </item>
     /// </list>
     /// </remarks>
-    public class RandomList<T>
+    public class RandomList<T> : ICollection<T>, IEnumerable<T>
     {
-        readonly List<T> originalList;
-        readonly List<int> randomizedIndexes;
-        int index = int.MinValue;
-
-        public RandomList(T[] array)
+        /// <summary>
+        /// Indicates the frequency an element is going to be added into the index list,
+        /// The higher the frequency, the more often an element appears.
+        /// </summary>
+        [System.Serializable]
+        public struct ElementFrequency
         {
-            if (array == null)
+            [SerializeField]
+            T value;
+            [SerializeField]
+            int frequency;
+
+            public T Value
             {
-                throw new System.ArgumentNullException("array");
+                get => value;
+                set => this.value = value;
             }
 
-            // Cache list size
-            if (array.Length > 0)
+            public int Frequency
             {
-                // Setup member variables
-                originalList = new List<T>(array.Length);
-                randomizedIndexes = new List<int>(array.Length);
-
-                // Popualte list
-                originalList.AddRange(array);
+                get => frequency;
+                set
+                {
+                    // Prevent ferquency from going below zero
+                    frequency = value;
+                    if(frequency < 1)
+                    {
+                        frequency = 1;
+                    }
+                }
             }
-            else
+
+            public ElementFrequency(T value, int frequency = 1)
             {
-                // Setup member variables
-                originalList = new List<T>();
-                randomizedIndexes = new List<int>();
+                this.value = value;
+                this.frequency = frequency;
+                if(frequency < 1)
+                {
+                    frequency = 1;
+                }
             }
         }
 
-        public RandomList(List<T> list)
+        readonly List<ElementFrequency> originalList;
+        readonly List<int> randomizedIndexes;
+        int index = int.MinValue;
+
+        public RandomList()
+        {
+            // Setup member variables
+            originalList = new List<ElementFrequency>();
+            randomizedIndexes = new List<int>();
+        }
+
+        public RandomList(IList<T> list)
         {
             if(list == null)
             {
                 throw new System.ArgumentNullException("list");
             }
 
-            // Setup member variables
-            originalList = list;
+            // Cache list size
+            if(list.Count > 0)
+            {
+                // Setup member variables
+                originalList = new List<ElementFrequency>(list.Count);
+                randomizedIndexes = new List<int>(list.Count);
+
+                // Populate list
+                for(int index = 0; index < list.Count; ++index)
+                {
+                    originalList.Add(new ElementFrequency(list[index]));
+                }
+            }
+            else
+            {
+                originalList = new List<ElementFrequency>();
+                randomizedIndexes = new List<int>();
+            }
+        }
+
+        public RandomList(IList<ElementFrequency> list)
+        {
+            if(list == null)
+            {
+                throw new System.ArgumentNullException("list");
+            }
 
             // Cache list size
             if(list.Count > 0)
             {
+                // Setup member variables
+                originalList = new List<ElementFrequency>(list.Count);
                 randomizedIndexes = new List<int>(list.Count);
+
+                // Populate list
+                for(int index = 0; index < list.Count; ++index)
+                {
+                    originalList.Add(list[index]);
+                }
             }
             else
             {
+                originalList = new List<ElementFrequency>();
                 randomizedIndexes = new List<int>();
             }
         }
@@ -122,13 +182,13 @@ namespace OmiyaGames
                     // Grab the only element
                     if (originalList != null)
                     {
-                        returnElement = originalList[0];
+                        returnElement = originalList[0].Value;
                     }
                 }
                 else if (Count > 1)
                 {
                     // Check if I need to setup a list
-                    if ((randomizedIndexes == null) || (randomizedIndexes.Count != Count))
+                    if (randomizedIndexes.Count <= 0)
                     {
                         SetupList();
                         Helpers.ShuffleList<int>(randomizedIndexes);
@@ -144,7 +204,7 @@ namespace OmiyaGames
                     // Grab the current element
                     if (originalList != null)
                     {
-                        returnElement = originalList[randomizedIndexes[index]];
+                        returnElement = originalList[randomizedIndexes[index]].Value;
                     }
                 }
                 return returnElement;
@@ -168,18 +228,110 @@ namespace OmiyaGames
             index = int.MinValue;
         }
 
+        #region Interface Implementation
+        /// <summary>
+        /// Always returns true.
+        /// </summary>
+        /// <returns>true</returns>
+        public bool IsReadOnly => true;
+
+        /// <summary>
+        /// Goes through, front-to-back, the list in shuffled form.
+        /// Each element will appear 
+        /// </summary>
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Appends an item to the end of the list.
+        /// This method does *not* shuffle the list, thus making the item appear at the end of enumeration consistently.
+        /// Remember to run <see cref="Reshuffle()"> after this method.
+        /// </summary>
+        public void Add(T item)
+        {
+            Add(new ElementFrequency(item));
+        }
+
+        /// <summary>
+        /// Appends an item to the end of the list.
+        /// This method does *not* shuffle the list, thus making the item appear at the end of enumeration consistently.
+        /// Remember to run <see cref="Reshuffle()"> after this method.
+        /// </summary>
+        public void Add(T item, int frequency)
+        {
+            Add(new ElementFrequency(item, frequency));
+        }
+
+        /// <summary>
+        /// Appends an item to the end of the list.
+        /// This method does *not* shuffle the list, thus making the item appear at the end of enumeration consistently.
+        /// Remember to run <see cref="Reshuffle()"> after this method.
+        /// </summary>
+        public void Add(ElementFrequency item)
+        {
+            originalList.Add(item);
+            if (randomizedIndexes.Count > 0)
+            {
+                int newIndex = originalList.Count - 1;
+                for (int numAdded = 0; numAdded < item.Frequency; ++numAdded)
+                {
+                    randomizedIndexes.Add(newIndex);
+                }
+            }
+        }
+
+        public void Clear()
+        {
+            originalList.Clear();
+            randomizedIndexes.Clear();
+        }
+
+        public bool Contains(T item)
+        {
+            bool returnFlag = false;
+            for (int checkIndex = 0; checkIndex < originalList.Count; ++checkIndex)
+            {
+                if (Comparer<T>.Default.Compare(item, originalList[checkIndex].Value) == 0)
+                {
+                    returnFlag = true;
+                    break;
+                }
+            }
+            return returnFlag;
+        }
+
+		public void CopyTo(T[] array, int arrayIndex)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public bool Remove(T item)
+		{
+			throw new System.NotImplementedException();
+		}
+        #endregion
+
         #region Helper Methods
 
         void SetupList()
         {
             // Generate a new list, populated with entries based on frequency
             randomizedIndexes.Clear();
-            for (index = 0; index < Count; ++index)
+            for(index = 0; index < Count; ++index)
             {
-                randomizedIndexes.Add(index);
+                for(int numAdded = 0; numAdded < originalList[index].Frequency; ++numAdded)
+                {
+                    randomizedIndexes.Add(index);
+                }
             }
         }
-
-        #endregion
-    }
+		#endregion
+	}
 }
