@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.AnimatedValues;
 using System.Collections.Generic;
 
-namespace OmiyaGames.Common.Editor
+namespace OmiyaGames.Editor.Tests
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="EditorExampleTest.cs" company="Omiya Games">
