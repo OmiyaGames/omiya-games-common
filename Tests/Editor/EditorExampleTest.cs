@@ -56,7 +56,7 @@ namespace OmiyaGames.Common.Editor
     /// </remarks>
     /// 
     /// FIXME: Look into how to actually setup editor tests in Unity.
-    [CustomEditor(typeof(RuntimeExample))]
+    //[CustomEditor(typeof(RuntimeExample))]
     public class EditorExampleTest
     {
     }
