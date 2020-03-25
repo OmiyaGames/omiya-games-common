@@ -7,7 +7,7 @@ namespace OmiyaGames
     /// <copyright file="OmiyaGamesUtility.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2014-2018 Omiya Games
+    /// Copyright (c) 2014-2020 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ namespace OmiyaGames
     /// THE SOFTWARE.
     /// </copyright>
     /// <author>Taro Omiya</author>
-    /// <date>8/18/2015</date>
+    /// <date>3/25/2020</date>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// A series of utilities used throughout the <code>OmiyaGames</code> namespace.
@@ -36,23 +36,29 @@ namespace OmiyaGames
     /// <remarks>
     /// Revision History:
     /// <list type="table">
-    /// <listheader>
-    /// <description>Date</description>
-    /// <description>Name</description>
-    /// <description>Description</description>
-    /// </listheader>
-    /// <item>
-    /// <description>8/18/2015</description>
-    /// <description>Taro</description>
-    /// <description>Initial verison</description>
-    /// 
-    /// <description>6/4/2018</description>
-    /// <description>Taro</description>
-    /// <description>Added method for shortening URL</description>
-    /// </item>
+    ///   <listheader>
+    ///     <description>Date</description>
+    ///     <description>Name</description>
+    ///     <description>Description</description>
+    ///   </listheader>
+    ///   <item>
+    ///     <description>8/18/2015</description>
+    ///     <description>Taro</description>
+    ///     <description>Initial verison</description>
+    ///   </item>
+    ///   <item>
+    ///     <description>6/4/2018</description>
+    ///     <description>Taro</description>
+    ///     <description>Added method for shortening URL</description>
+    ///   </item>
+    ///   <item>
+    ///     <description>3/25/2020</description>
+    ///     <description>Taro</description>
+    ///     <description>Converted the class to a package</description>
+    ///   </item>
     /// </list>
     /// </remarks>
-    public static class Utility
+    public static class Helpers
     {
         public const char PathDivider = '/';
         public const float SnapToThreshold = 0.01f;

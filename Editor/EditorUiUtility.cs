@@ -8,7 +8,7 @@ namespace OmiyaGames.Common.Editor
     /// <copyright file="OmiyaGamesEditorUtility.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2014-2016 Omiya Games
+    /// Copyright (c) 2014-2020 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +34,27 @@ namespace OmiyaGames.Common.Editor
     /// <summary>
     /// A series of utilities used throughout the <code>OmiyaGames</code> namespace.
     /// </summary>
-    public static class EditorUiUtility
+    /// <remarks>
+    /// Revision History:
+    /// <list type="table">
+    ///   <listheader>
+    ///     <description>Date</description>
+    ///     <description>Name</description>
+    ///     <description>Description</description>
+    ///   </listheader>
+    ///   <item>
+    ///     <description>9/20/2018</description>
+    ///     <description>Taro</description>
+    ///     <description>Initial verison</description>
+    ///   </item>
+    ///   <item>
+    ///     <description>3/25/2020</description>
+    ///     <description>Taro</description>
+    ///     <description>Converted the class to a package</description>
+    ///   </item>
+    /// </list>
+    /// </remarks>
+    public static class EditorHelpers
     {
         public const float MinHelpBoxHeight = 30f;
         public const float VerticalMargin = 2f;
@@ -114,7 +134,7 @@ namespace OmiyaGames.Common.Editor
             for(int index = 0; index < supportedEnums.Length; ++index)
             {
                 enumNames[index] = ObjectNames.NicifyVariableName(supportedEnums[index].ToString());
-                enumValues[index] = Utility.ConvertToInt(supportedEnums[index]);
+                enumValues[index] = Helpers.ConvertToInt(supportedEnums[index]);
             }
 
             // Disable the pop-up if there's only one option
@@ -128,11 +148,11 @@ namespace OmiyaGames.Common.Editor
             GUI.enabled = wasEnabled;
 
             // Verify the selected value is within range
-            ENUM selectedValue = Utility.ConvertToEnum<ENUM>(property.enumValueIndex);
+            ENUM selectedValue = Helpers.ConvertToEnum<ENUM>(property.enumValueIndex);
             if(ArrayUtility.Contains(supportedEnums, selectedValue) == false)
             {
                 // If not, select the default option
-                property.enumValueIndex = Utility.ConvertToInt(defaultEnum);
+                property.enumValueIndex = Helpers.ConvertToInt(defaultEnum);
             }
         }
 
@@ -148,10 +168,10 @@ namespace OmiyaGames.Common.Editor
         public static void DrawEnum<ENUM>(SerializedProperty property, ENUM[] supportedEnums, ENUM defaultEnum, ENUM targetsEnum, string message = "\"{0}\" is not supported; \"{1}\" will be used instead.") where ENUM : System.Enum
         {
             // Check if we need to display the warning
-            int targetEnumValueIndex = Utility.ConvertToInt(targetsEnum);
+            int targetEnumValueIndex = Helpers.ConvertToInt(targetsEnum);
             if (property.enumValueIndex != targetEnumValueIndex)
             {
-                ENUM selectedValue = Utility.ConvertToEnum<ENUM>(property.enumValueIndex);
+                ENUM selectedValue = Helpers.ConvertToEnum<ENUM>(property.enumValueIndex);
                 string formattedMessage = string.Format(message,
                     ObjectNames.NicifyVariableName(selectedValue.ToString()),
                     ObjectNames.NicifyVariableName(targetsEnum.ToString()));
