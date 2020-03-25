@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using OmiyaGames;
 
-namespace OmiyaGames.Editor
+namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="DefaultNumberDrawer.cs" company="Omiya Games">

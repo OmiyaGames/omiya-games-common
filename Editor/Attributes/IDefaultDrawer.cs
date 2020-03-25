@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace OmiyaGames.Editor
+namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="IDefaultDrawer.cs" company="Omiya Games">

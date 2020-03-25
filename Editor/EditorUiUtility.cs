@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using UnityEditor.AnimatedValues;
-using OmiyaGames;
 
-namespace OmiyaGames.Editor
+namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="OmiyaGamesEditorUtility.cs" company="Omiya Games">
