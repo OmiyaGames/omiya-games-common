@@ -19,3 +19,15 @@ Source: http://answers.unity3d.com/questions/489942/how-to-make-a-readonly-prope
 ### Credits
 Author: Aqibsadiq
 Source: https://forum.unity.com/threads/multiple-enum-select-from-inspector.184729/
+
+## Component Name: HSV Color
+
+Some modifications were made to utilize Unity's own helper functions, shortening the code significantly.
+
+### Relevant Files
+- [HsvColor.cs](/Runtime/HsvColor.cs)
+
+### Credits
+Author: Jonathan Czeck
+Source: http://wiki.unity3d.com/index.php/HSBColor
+License: [Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](http://creativecommons.org/licenses/by-sa/3.0/)
