@@ -12,6 +12,7 @@ namespace OmiyaGames
     /// </copyright>
     /// <author>Jonathan Czeck</author>
     /// <author>Taro Omiya</author>
+    /// <date>9/3/2015</date>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Displays the frame-rate in the upper-left hand corner of the screen.
