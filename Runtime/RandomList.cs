@@ -236,17 +236,25 @@ namespace OmiyaGames
         public bool IsReadOnly => true;
 
         /// <summary>
-        /// Goes through, front-to-back, the list in shuffled form.
-        /// Each element will appear 
+        /// Enumerates through all items. This order is neither affected by frequency or shuffling.
         /// </summary>
         public IEnumerator<T> GetEnumerator()
         {
-            throw new System.NotImplementedException();
+            foreach (ElementFrequency item in originalList)
+            {
+                yield return item.Value;
+            }
         }
 
+        /// <summary>
+        /// Enumerates through all items. This order is neither affected by frequency or shuffling.
+        /// </summary>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new System.NotImplementedException();
+            foreach (ElementFrequency item in originalList)
+            {
+                yield return item.Value;
+            }
         }
 
         /// <summary>
@@ -287,6 +295,9 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// Empties the list
+        /// </summary>
         public void Clear()
         {
             originalList.Clear();
@@ -307,15 +318,79 @@ namespace OmiyaGames
             return returnFlag;
         }
 
-		public void CopyTo(T[] array, int arrayIndex)
-		{
-			throw new System.NotImplementedException();
-		}
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            if (array == null)
+            {
+                throw new System.ArgumentNullException("array");
+            }
+            else if (arrayIndex < 0)
+            {
+                throw new System.ArgumentOutOfRangeException("arrayIndex");
+            }
+            else if (array.Rank > 1)
+            {
+                throw new System.ArgumentException("array isn't one-dimensional");
+            }
+            else if (array.Length < (originalList.Count + arrayIndex))
+            {
+                throw new System.ArgumentException("array is too small to copy to");
+            }
 
-		public bool Remove(T item)
-		{
-			throw new System.NotImplementedException();
-		}
+            for (int offsetIndex = 0; offsetIndex < originalList.Count; ++offsetIndex)
+            {
+                array[arrayIndex + offsetIndex] = originalList[offsetIndex].Value;
+            }
+        }
+
+        public bool Remove(T item)
+        {
+            bool returnFlag = false;
+
+            // Actually check where the first instance of item is in the original list
+            int removeIndex = 0;
+            for (; removeIndex < originalList.Count; ++removeIndex)
+            {
+                if (Comparer<T>.Default.Compare(item, originalList[removeIndex].Value) == 0)
+                {
+                    returnFlag = true;
+                    break;
+                }
+            }
+
+            // Check if this item is found
+            if (returnFlag == true)
+            {
+                // If so, remove the element
+                originalList.RemoveAt(removeIndex);
+
+                // Shift every index in the indexes list
+                int check = 0;
+                while (check < randomizedIndexes.Count)
+                {
+                    // Compare indexes
+                    if (randomizedIndexes[check] > removeIndex)
+                    {
+                        // Since an element is removed, shift the indexes down one
+                        randomizedIndexes[check] -= 1;
+
+                        // Skip to the next index
+                        ++check;
+                    }
+                    else if (randomizedIndexes[check] < removeIndex)
+                    {
+                        // Skip to the next index
+                        ++check;
+                    }
+                    else
+                    {
+                        // Remove this index; don't change check
+                        randomizedIndexes.RemoveAt(check);
+                    }
+                }
+            }
+            return returnFlag;
+        }
         #endregion
 
         #region Helper Methods
@@ -324,9 +399,9 @@ namespace OmiyaGames
         {
             // Generate a new list, populated with entries based on frequency
             randomizedIndexes.Clear();
-            for(index = 0; index < Count; ++index)
+            for (index = 0; index < Count; ++index)
             {
-                for(int numAdded = 0; numAdded < originalList[index].Frequency; ++numAdded)
+                for (int numAdded = 0; numAdded < originalList[index].Frequency; ++numAdded)
                 {
                     randomizedIndexes.Add(index);
                 }
