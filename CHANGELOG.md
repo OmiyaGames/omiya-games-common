@@ -1,5 +1,5 @@
-# Change Log:
+# Change Log
 
-## 0.0.0
+## 0.1.0-preview
 
-* Initial Commit
+* Initial commit, split off from the [Template Unity Project](https://github.com/OmiyaGames/template-unity-project).
