@@ -1,4 +1,6 @@
-﻿namespace OmiyaGames
+﻿using System.Collections.Generic;
+
+namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="ThreadSafe.cs" company="Omiya Games">
@@ -64,6 +66,9 @@
             this.value = value;
         }
 
+        /// <summary>
+        /// The lock
+        /// </summary>
         protected object ThreadLock
         {
             get;
@@ -87,6 +92,57 @@
                 {
                     this.value = value;
                 }
+            }
+        }
+
+        public override string ToString()
+        {
+            lock (ThreadLock)
+            {
+                return value.ToString();
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            lock (ThreadLock)
+            {
+                return value.GetHashCode();
+            }
+        }
+
+        /// <summary>
+        /// Checks the type of argument.
+        /// If it's another <see cref="ThreadSafe{T}"/>, compares the two <see cref="Value"/>.
+        /// If it's <typeparamref name="T"/>, compares it with <see cref="Value"/> in a thread-safe manner.
+        /// </summary>
+        /// <param name="obj">The object to compare to.</param>
+        /// <returns>
+        /// If it's another <see cref="ThreadSafe{T}"/>, returns true
+        /// if two wrapper's <see cref="Value"/> matches.
+        /// If it's <typeparamref name="T"/>, returns true
+        /// if <see cref="Vlaue"/> matches with the argument.
+        /// Otherwise, false.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is ThreadSafe<T> otherWrapper)
+            {
+                lock (ThreadLock)
+                {
+                    return (Comparer<T>.Default.Compare(otherWrapper.Value, this.value) == 0);
+                }
+            }
+            else if (obj is T otherValue)
+            {
+                lock (ThreadLock)
+                {
+                    return (Comparer<T>.Default.Compare(otherValue, this.value) == 0);
+                }
+            }
+            else
+            {
+                return false;
             }
         }
     }

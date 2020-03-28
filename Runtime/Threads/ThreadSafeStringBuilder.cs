@@ -67,14 +67,6 @@ namespace OmiyaGames
             }
         }
 
-        public override string ToString()
-        {
-            lock (ThreadLock)
-            {
-                return value.ToString();
-            }
-        }
-
         public void Clear()
         {
             lock (ThreadLock)
