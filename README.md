@@ -1,5 +1,7 @@
 # [Omiya Games](https://www.omiyagames.com/) - Common
 
+[![openupm](https://img.shields.io/npm/v/com.littlebigfun.addressable-importer?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.littlebigfun.addressable-importer/)
+
 Common scripts used within [Omiya Games](https://www.omiyagames.com/)' many tools and libraries.
 
 ## Install
