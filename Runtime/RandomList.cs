@@ -68,12 +68,18 @@ namespace OmiyaGames
             [SerializeField]
             int frequency;
 
+            /// <summary>
+            /// The element this struct is representing.
+            /// </summary>
             public T Element
             {
                 get => element;
                 set => this.element = value;
             }
 
+            /// <summary>
+            /// The number of times this element appears in the shuffled index list.
+            /// </summary>
             public int Frequency
             {
                 get => frequency;
@@ -105,10 +111,10 @@ namespace OmiyaGames
 
             /// <summary>
             /// Checks the type of argument.
-            /// If it's another <see cref="ElementFrequency"/>, returns true
-            /// if both <see cref="Element"/> and <see cref="Frequency"/> matches.
-            /// If it's <typeparamref name="T"/>, returns true
-            /// if <see cref="Element"/> matches with the argument.
+            /// If it's another <see cref="ElementFrequency"/>, compares both
+            /// <see cref="Element"/> and <see cref="Frequency"/>.
+            /// If it's <typeparamref name="T"/>, compares if
+            /// <see cref="Element"/> matches with the argument.
             /// </summary>
             /// <param name="obj">The object to compare to.</param>
             /// <returns>
