@@ -1,6 +1,6 @@
 # [Omiya Games](https://www.omiyagames.com/) - Common
 
-[![openupm](https://img.shields.io/npm/v/com.littlebigfun.addressable-importer?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.littlebigfun.addressable-importer/)
+[![openupm](https://img.shields.io/npm/v/com.omiyagames.common?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.omiyagames.common/)
 
 Common scripts used within [Omiya Games](https://www.omiyagames.com/)' many tools and libraries.
 
