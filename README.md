@@ -14,10 +14,10 @@ openupm add com.omiyagames.common
 
 ## Documentation
 
-See [documentation](/Documentation~/index.md) and [change log](/CHANGELOG.md).
+See [documentation](/Documentation~/Common.md) and [change log](/CHANGELOG.md).
 
 ## LICENSE
 
-Overall pckage is licensed under [MIT](/LICENSE.md), unless otherwise noted in the [3rd party licenses](/THIRD%20PARTY%20NOTICES.md) file and/or source code.
+Overall package is licensed under [MIT](/LICENSE.md), unless otherwise noted in the [3rd party licenses](/THIRD%20PARTY%20NOTICES.md) file and/or source code.
 
 Copyright (c) 2014-2020 Omiya Games
