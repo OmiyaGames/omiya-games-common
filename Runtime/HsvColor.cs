@@ -28,7 +28,7 @@ namespace OmiyaGames
     ///   <item>
     ///     <description>9/3/2015</description>
     ///     <description>Jonathan Czeck</description>
-    ///     <description>Wiki verison</description>
+    ///     <description>Wiki version</description>
     ///   </item>
     ///   <item>
     ///     <description>3/25/2020</description>

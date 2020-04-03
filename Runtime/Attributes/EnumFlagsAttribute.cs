@@ -25,7 +25,7 @@ namespace OmiyaGames
     ///   <item>
     ///     <description>11/20/2017</description>
     ///     <description>Aqibsadiq</description>
-    ///     <description>Initial verison</description>
+    ///     <description>Initial version</description>
     ///   </item>
     ///   <item>
     ///     <description>3/25/2020</description>

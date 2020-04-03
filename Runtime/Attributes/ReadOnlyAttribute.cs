@@ -25,7 +25,7 @@ namespace OmiyaGames
     ///   <item>
     ///     <description>10/1/2014</description>
     ///     <description>It3ration</description>
-    ///     <description>Initial verison</description>
+    ///     <description>Initial version</description>
     ///   </item>
     ///   <item>
     ///     <description>3/25/2020</description>
