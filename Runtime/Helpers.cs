@@ -44,7 +44,7 @@ namespace OmiyaGames
     ///   <item>
     ///     <description>8/18/2015</description>
     ///     <description>Taro</description>
-    ///     <description>Initial verison</description>
+    ///     <description>Initial version</description>
     ///   </item>
     ///   <item>
     ///     <description>6/4/2018</description>

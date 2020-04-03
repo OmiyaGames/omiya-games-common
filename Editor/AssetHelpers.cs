@@ -47,7 +47,7 @@ namespace OmiyaGames.Common.Editor
     ///   <item>
     ///     <description>8/18/2015</description>
     ///     <description>Taro</description>
-    ///     <description>Initial verison</description>
+    ///     <description>Initial version</description>
     ///   </item>
     ///   <item>
     ///     <description>3/25/2020</description>

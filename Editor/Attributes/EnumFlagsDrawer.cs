@@ -26,7 +26,7 @@ namespace OmiyaGames.Common.Editor
     ///   <item>
     ///     <description>6/26/2018</description>
     ///     <description>Taro</description>
-    ///     <description>Initial verison</description>
+    ///     <description>Initial version</description>
     ///   </item>
     ///   <item>
     ///     <description>3/25/2020</description>
