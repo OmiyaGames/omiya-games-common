@@ -1,6 +1,6 @@
 # [Omiya Games](https://www.omiyagames.com/) - Common
 
-[![openupm](https://img.shields.io/npm/v/com.omiyagames.common?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.omiyagames.common/)
+[![openupm](https://img.shields.io/npm/v/com.omiyagames.common?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.omiyagames.common/) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
 
 Common scripts used within [Omiya Games](https://www.omiyagames.com/)' many tools and libraries.
 
