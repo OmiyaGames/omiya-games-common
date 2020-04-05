@@ -69,7 +69,7 @@ namespace OmiyaGames
     /// </list>
     /// </remarks>
     [System.Serializable]
-    public class RandomList<T> : ICollection<T>, IEnumerable<T>, ICollection<RandomList<T>.ElementFrequency>, IEnumerable<RandomList<T>.ElementFrequency>
+    public class RandomList<T> : ICollection<T>, IEnumerable<T>, IEnumerable<RandomList<T>.ElementFrequency>
     {
         /// <summary>
         /// Indicates the frequency an element is going to be added into the index list,
@@ -153,6 +153,7 @@ namespace OmiyaGames
             /// if <see cref="Element"/> matches with the argument.
             /// Otherwise, false.
             /// </returns>
+            /// FIXME: look into whether we want to phase this override out
             public override bool Equals(object obj)
             {
                 if (obj is ElementFrequency other)
@@ -176,23 +177,42 @@ namespace OmiyaGames
         [SerializeField]
         List<ElementFrequency> elementsList;
         /// <summary>
-        /// Dictionary mapping an element to the index in <see cref="elementsList"/>.
-        /// </summary>
-        readonly Dictionary<T, int> elementToIndexMap;
-        /// <summary>
-        /// Contains a list of whole numbers corresponding to an index
-        /// in <see cref="elementsList"/>. Note that the <see cref="ElementFrequency.Frequency"/>
-        /// will affect the number of times an index is duplicated in this list.
-        /// </summary>
-        readonly List<int> randomizedIndexes;
-        /// <summary>
-        /// An index within <see cref="randomizedIndexes"/>.
-        /// If it's *not* within, <see cref="randomizedIndexes"/>,
+        /// An index within <see cref="ShuffledIndexes"/>.
+        /// If it's *not* within, <see cref="ShuffledIndexes"/>,
         /// the next time <see cref="CurrentElement"/> is called,
-        /// it'll shuffle <see cref="randomizedIndexes"/>.
+        /// it'll shuffle <see cref="ShuffledIndexes"/>.
         /// </summary>
         int index = int.MinValue;
+        /// <summary>
+        /// IMPORTANT: do NOT access this member variable directly;
+        /// use <see cref="ElementToIndexMap"/> property, instead.
+        /// Dictionary mapping an element to the index in <see cref="elementsList"/>.
+        /// Lazy-loaded by the property, <see cref="ElementToIndexMap"/> to
+        /// support Unity serialization.
+        /// </summary>
+        /// <seealso cref="ElementToIndexMap"/>
+        /// <seealso cref="SyncAllMapsAndLists"/>
+        Dictionary<T, int> elementToIndexMap = null;
+        /// <summary>
+        /// IMPORTANT: do NOT access this member variable directly;
+        /// use <see cref="ShuffledIndexes"/> property, instead.
+        /// Contains a list of whole numbers corresponding to an index
+        /// in <see cref="elementsList"/>, shuffled. Note that the <see cref="ElementFrequency.Frequency"/>
+        /// will affect the number of times an index appears in this list.
+        /// Lazy-loaded by the property, <see cref="ShuffledIndexes"/> to
+        /// support Unity serialization.
+        /// </summary>
+        /// <seealso cref="ShuffledIndexes"/>
+        /// <seealso cref="SyncAllMapsAndLists"/>
+        List<int> shuffledIndexes = null;
+        /// <summary>
+        /// <see cref="ElementToIndexMap"/>'s comparer,
+        /// when it finally gets constructed from lazy-loading.
+        /// </summary>
+        /// <seealso cref="SyncAllMapsAndLists"/>
+        IEqualityComparer<T> elementComparer = null;
 
+        #region Constructors
         /// <summary>
         /// Creates an empty list.
         /// </summary>
@@ -200,34 +220,50 @@ namespace OmiyaGames
         {
             // Setup member variables
             elementsList = new List<ElementFrequency>();
-            randomizedIndexes = new List<int>();
         }
+
+        /// <summary>
+        /// Creates an empty list, utilizing a comparer
+        /// to detect overlap when running <see cref="Add(T, int)"/> and <see cref="Remove(T, int)"/>.
+        /// </summary>
+        /// <param name="comparer">The comparer used to detect if an element already exists in this list.</param>
+        public RandomList(IEqualityComparer<T> comparer) : this()
+        {
+            // Setup member variables
+            elementComparer = comparer;
+        }
+
+        /// <summary>
+        /// Creates an empty list, starting with the defined capacity and utilizing a comparer
+        /// to detect overlap when running <see cref="Add(T, int)"/> and <see cref="Remove(T, int)"/>.
+        /// </summary>
+        /// <param name="initialCapacity">Initial size of this list</param>
+        /// <param name="comparer">The comparer used to detect if an element already exists in this list.</param>
+        public RandomList(int initialCapacity, IEqualityComparer<T> comparer)
+        {
+            // Setup member variables
+            elementsList = new List<ElementFrequency>(initialCapacity);
+            elementComparer = comparer;
+        }
+
+        /// <summary>
+        /// Creates an empty list, starting with the defined capacity.
+        /// </summary>
+        /// <param name="initialCapacity">Initial size of this list</param>
+        public RandomList(int initialCapacity) : this(initialCapacity, null) { }
 
         /// <summary>
         /// Copies the elements of the list,
         /// each with equal frequency of appearance,
         /// into a new <see cref="RandomList{T}"/>.
         /// </summary>
-        public RandomList(IList<T> list)
+        /// <param name="list">List of elements to copy over into this list.</param>
+        public RandomList(IList<T> list) : this(list.Count)
         {
-            // Check the validity of the argument
-            if ((list != null) && (list.Count > 0))
+            // Populate list
+            for (int index = 0; index < list.Count; ++index)
             {
-                // Setup member variables
-                elementsList = new List<ElementFrequency>(list.Count);
-                randomizedIndexes = new List<int>(list.Count);
-
-                // Populate list
-                for (int index = 0; index < list.Count; ++index)
-                {
-                    Add(list[index]);
-                }
-                SetupIndexList();
-            }
-            else
-            {
-                elementsList = new List<ElementFrequency>();
-                randomizedIndexes = new List<int>();
+                Add(list[index]);
             }
         }
 
@@ -235,27 +271,77 @@ namespace OmiyaGames
         /// Copies the elements of a list into
         /// a new <see cref="RandomList{T}"/>.
         /// </summary>
-        /// <param name="list"></param>
-        public RandomList(IList<ElementFrequency> list)
+        /// <param name="list">List of elements to copy over into this list.</param>
+        public RandomList(IList<ElementFrequency> list) : this(list.Count)
         {
-            // Check the validity of the argument
-            if ((list != null) && (list.Count > 0))
+            // Populate list
+            for (int index = 0; index < list.Count; ++index)
             {
-                // Setup member variables
-                elementsList = new List<ElementFrequency>(list.Count);
-                randomizedIndexes = new List<int>(list.Count);
-
-                // Populate list
-                for (int index = 0; index < list.Count; ++index)
-                {
-                    Add(list[index]);
-                }
-                SetupIndexList();
+                Add(list[index].Element, list[index].Frequency);
             }
-            else
+        }
+
+        /// <summary>
+        /// Copies the elements of the list,
+        /// each with equal frequency of appearance,
+        /// into a new <see cref="RandomList{T}"/>.
+        /// </summary>
+        /// <param name="list">List of elements to copy over into this list.</param>
+        /// <param name="comparer">The comparer used to detect if an element already exists in this list.</param>
+        public RandomList(IList<T> list, IEqualityComparer<T> comparer) : this(list.Count, comparer)
+        {
+            // Populate list
+            for (int index = 0; index < list.Count; ++index)
             {
-                elementsList = new List<ElementFrequency>();
-                randomizedIndexes = new List<int>();
+                Add(list[index]);
+            }
+        }
+
+        /// <summary>
+        /// Copies the elements of a list into
+        /// a new <see cref="RandomList{T}"/>.
+        /// </summary>
+        /// <param name="list">List of elements to copy over into this list.</param>
+        /// <param name="comparer">The comparer used to detect if an element already exists in this list.</param>
+        public RandomList(IList<ElementFrequency> list, IEqualityComparer<T> comparer) : this(list.Count, comparer)
+        {
+            // Populate list
+            for (int index = 0; index < list.Count; ++index)
+            {
+                Add(list[index].Element, list[index].Frequency);
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// Dictionary mapping an element to the index in <see cref="elementsList"/>.
+        /// </summary>
+        protected Dictionary<T, int> ElementToIndexMap
+        {
+            get
+            {
+                if ((elementToIndexMap == null) || (shuffledIndexes == null))
+                {
+                    SyncAllMapsAndLists();
+                }
+                return elementToIndexMap;
+            }
+        }
+
+        /// <summary>
+        /// Contains a list of whole numbers corresponding to an index
+        /// in <see cref="elementsList"/>, shuffled. Note that the <see cref="ElementFrequency.Frequency"/>
+        /// will affect the number of times an index appears in this list.
+        /// </summary>
+        protected List<int> ShuffledIndexes
+        {
+            get
+            {
+                if ((shuffledIndexes == null) || (elementToIndexMap == null))
+                {
+                    SyncAllMapsAndLists();
+                }
+                return shuffledIndexes;
             }
         }
 
@@ -275,7 +361,7 @@ namespace OmiyaGames
         /// Grabs the currently focused element in the list.
         /// </summary>
         /// <remarks>
-        /// This method shuffles <see cref="randomizedIndexes"/>
+        /// This method shuffles <see cref="ShuffledIndexes"/>
         /// if <see cref="index"/> is outside of the list's range.
         /// </remarks>
         /// <seealso cref="NextRandomElement"/>
@@ -283,36 +369,29 @@ namespace OmiyaGames
         {
             get
             {
-                T returnElement = default(T);
-                if (Count == 1)
+                // Get the default return variable
+                T returnElement = default;
+
+                // Check how many elements are in the list
+                if (Count > 1)
                 {
-                    // Grab the only element
-                    if (elementsList != null)
+                    // Check if the index is out of bounds
+                    if ((index < 0) || (index >= ShuffledIndexes.Count))
                     {
-                        returnElement = elementsList[0].Element;
-                    }
-                }
-                else if (Count > 1)
-                {
-                    // Check if I need to setup a list
-                    if (randomizedIndexes.Count <= 0)
-                    {
-                        SetupIndexList();
-                        Helpers.ShuffleList<int>(randomizedIndexes);
-                        index = 0;
-                    }
-                    else if ((index >= randomizedIndexes.Count) || (index < 0))
-                    {
-                        // Shuffle the list if we got to the last element
-                        Helpers.ShuffleList<int>(randomizedIndexes);
+                        // Shuffle the list
+                        Helpers.ShuffleList<int>(ShuffledIndexes);
+
+                        // Reset the index
                         index = 0;
                     }
 
                     // Grab the current element
-                    if (elementsList != null)
-                    {
-                        returnElement = elementsList[randomizedIndexes[index]].Element;
-                    }
+                    returnElement = elementsList[ShuffledIndexes[index]].Element;
+                }
+                else if (Count == 1)
+                {
+                    // Grab the only element
+                    returnElement = elementsList[0].Element;
                 }
                 return returnElement;
             }
@@ -335,6 +414,14 @@ namespace OmiyaGames
         }
 
         /// <summary>
+        /// Comparer used to check whether the list already contains an item or not.
+        /// </summary>
+        public IEqualityComparer<T> Comparer
+        {
+            get => ElementToIndexMap.Comparer;
+        }
+
+        /// <summary>
         /// Flags the list to reshuffle next time when
         /// <see cref="CurrentElement"/> or
         /// <see cref="NextRandomElement"/> gets called.
@@ -349,9 +436,122 @@ namespace OmiyaGames
         /// This method does *not* shuffle the list, thus making the item appear at the end of enumeration consistently.
         /// Remember to run <see cref="Reshuffle()"> after this method.
         /// </summary>
-        public void Add(T item, int frequency)
+        /// <param name="item">Item to add into the list</param>
+        /// <param name="numberOfItemsToAdd">Number of times to add this item to the list.</param>
+        public virtual void Add(T item, int numberOfItemsToAdd)
         {
-            Add(new ElementFrequency(item, frequency));
+            // Make sure the frequency is a number larger than zero
+            if (numberOfItemsToAdd <= 0)
+            {
+                throw new ArgumentOutOfRangeException("numberOfItemsToAdd");
+            }
+
+            // Check if the item is already in the list
+            int itemIndex = IndexOf(item);
+            if (itemIndex >= 0)
+            {
+                // If so, just increment the frequency of the item
+                IncrementFrequency(itemIndex, numberOfItemsToAdd);
+            }
+            else
+            {
+                // If not, create a new struct
+                ElementFrequency element = new ElementFrequency(item, numberOfItemsToAdd);
+
+                // Set the item index
+                itemIndex = elementsList.Count;
+
+                // Add the item to both the list and the map
+                elementsList.Add(element);
+                elementToIndexMap.Add(item, itemIndex);
+            }
+
+            // Populate the ShuffledIndexes with the newly added index
+            for (int numAdded = 0; numAdded < numberOfItemsToAdd; ++numAdded)
+            {
+                ShuffledIndexes.Add(itemIndex);
+            }
+        }
+
+        /// <summary>
+        /// Removes the first instance of the item from the list.
+        /// This method does *not* shuffle the list: remember to run
+        /// <see cref="Reshuffle()"> after this method.
+        /// </summary>
+        /// <param name="item">Item to remove from the list</param>
+        /// <param name="numberOfItemsToRemove">Number of times to remove from the item from the list.</param>
+        /// <return>Actual number of items removed from the list.</return>
+        public virtual int Remove(T item, int numberOfItemsToRemove)
+        {
+            // Make sure the frequency is a number larger than zero
+            if (numberOfItemsToRemove <= 0)
+            {
+                throw new ArgumentOutOfRangeException("numberOfItemsToRemove");
+            }
+
+            // Setup default return value
+            int returnNumRemoved = 0;
+
+            // Check if the item is already in the list
+            int removeIndex = IndexOf(item);
+            if (removeIndex >= 0)
+            {
+                // If so, get the frequency in the list
+                returnNumRemoved = elementsList[removeIndex].Frequency;
+
+                // Check if this value exceeds the number of elements we're removing
+                if (returnNumRemoved > numberOfItemsToRemove)
+                {
+                    // If not, decrement the frequency.
+                    // Return the difference between old frequency, and the new one
+                    returnNumRemoved -= IncrementFrequency(removeIndex, -numberOfItemsToRemove);
+                }
+                else
+                {
+                    // If not, remove the item from all member variables
+                    // Remove the element from the list
+                    elementsList.RemoveAt(removeIndex);
+
+                    // Remove the element from the map
+                    elementToIndexMap.Remove(item);
+                }
+                RemoveFromIndexList(removeIndex, returnNumRemoved);
+            }
+            return returnNumRemoved;
+        }
+
+        public int RemoveAll(T item)
+        {
+            // Setup default return value
+            int returnFrequency = GetFrequency(item);
+
+            // Check if there are any items to remove
+            if (returnFrequency > 0)
+            {
+                // Run the remove operation, taking out all instances
+                returnFrequency = Remove(item, returnFrequency);
+            }
+            return returnFrequency;
+        }
+
+        /// <summary>
+        /// Gets the number of instances an item appears in this list.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns>Number of instances an item appears in this list.</returns>
+        public int GetFrequency(T item)
+        {
+            // Setup default return value
+            int returnFrequency = 0;
+
+            // Check if the item is already in the list
+            int removeIndex = IndexOf(item);
+            if (removeIndex >= 0)
+            {
+                // If so, get the frequency in the list
+                returnFrequency = elementsList[removeIndex].Frequency;
+            }
+            return returnFrequency;
         }
 
         #region Interface Implementation
@@ -359,7 +559,7 @@ namespace OmiyaGames
         /// Always returns true.
         /// </summary>
         /// <returns>true</returns>
-        public bool IsReadOnly => false;
+        public bool IsReadOnly => ((IList<T>)elementsList).IsReadOnly;
 
         /// <summary>
         /// Enumerates through all items, in order of appended elements.
@@ -396,27 +596,10 @@ namespace OmiyaGames
         /// This method does *not* shuffle the list, thus making the item appear at the end of enumeration consistently.
         /// Remember to run <see cref="Reshuffle()"> after this method.
         /// </summary>
+        /// <param name="item">A single item to add into the list</param>
         public void Add(T item)
         {
-            Add(new ElementFrequency(item));
-        }
-
-        /// <summary>
-        /// Appends an item to the end of the list.
-        /// This method does *not* shuffle the list, thus making the item appear at the end of enumeration consistently.
-        /// Remember to run <see cref="Reshuffle()"> after this method.
-        /// </summary>
-        public void Add(ElementFrequency item)
-        {
-            elementsList.Add(item);
-            if (randomizedIndexes.Count > 0)
-            {
-                int newIndex = elementsList.Count - 1;
-                for (int numAdded = 0; numAdded < item.Frequency; ++numAdded)
-                {
-                    randomizedIndexes.Add(newIndex);
-                }
-            }
+            Add(item, 1);
         }
 
         /// <summary>
@@ -425,37 +608,33 @@ namespace OmiyaGames
         public void Clear()
         {
             elementsList.Clear();
-            randomizedIndexes.Clear();
+            ElementToIndexMap.Clear();
+            ShuffledIndexes.Clear();
             Reshuffle();
         }
 
         public bool Contains(T item)
         {
-            return (IndexOf(item) >= 0);
-        }
-
-        public bool Contains(ElementFrequency item)
-        {
-            return (IndexOf(item) >= 0);
+            return ElementToIndexMap.ContainsKey(item);
         }
 
         public void CopyTo(T[] array, int arrayIndex)
         {
             if (array == null)
             {
-                throw new System.ArgumentNullException("array");
+                throw new ArgumentNullException("array");
             }
             else if (arrayIndex < 0)
             {
-                throw new System.ArgumentOutOfRangeException("arrayIndex");
+                throw new ArgumentOutOfRangeException("arrayIndex");
             }
             else if (array.Rank > 1)
             {
-                throw new System.ArgumentException("array isn't one-dimensional");
+                throw new ArgumentException("array isn't one-dimensional");
             }
             else if (array.Length < (elementsList.Count + arrayIndex))
             {
-                throw new System.ArgumentException("array is too small to copy to");
+                throw new ArgumentException("array is too small to copy to");
             }
 
             for (int offsetIndex = 0; offsetIndex < elementsList.Count; ++offsetIndex)
@@ -468,19 +647,19 @@ namespace OmiyaGames
         {
             if (array == null)
             {
-                throw new System.ArgumentNullException("array");
+                throw new ArgumentNullException("array");
             }
             else if (arrayIndex < 0)
             {
-                throw new System.ArgumentOutOfRangeException("arrayIndex");
+                throw new ArgumentOutOfRangeException("arrayIndex");
             }
             else if (array.Rank > 1)
             {
-                throw new System.ArgumentException("array isn't one-dimensional");
+                throw new ArgumentException("array isn't one-dimensional");
             }
             else if (array.Length < (elementsList.Count + arrayIndex))
             {
-                throw new System.ArgumentException("array is too small to copy to");
+                throw new ArgumentException("array is too small to copy to");
             }
 
             for (int offsetIndex = 0; offsetIndex < elementsList.Count; ++offsetIndex)
@@ -496,41 +675,7 @@ namespace OmiyaGames
         /// </summary>
         public bool Remove(T item)
         {
-            // Actually check where the first instance of item is in the original list
-            int removeIndex = IndexOf(item);
-
-            // Check if this item is found
-            bool returnFlag = false;
-            if (removeIndex >= 0)
-            {
-                // If so, remove the element
-                elementsList.RemoveAt(removeIndex);
-                RemoveAllFromIndexList(removeIndex);
-                returnFlag = true;
-            }
-            return returnFlag;
-        }
-
-        /// <summary>
-        /// Removes the first instance of the item from the list.
-        /// This method does *not* shuffle the list: remember to run
-        /// <see cref="Reshuffle()"> after this method.
-        /// </summary>
-        public bool Remove(ElementFrequency item)
-        {
-            // Actually check where the first instance of item is in the original list
-            int removeIndex = IndexOf(item);
-
-            // Check if this item is found
-            bool returnFlag = false;
-            if (removeIndex >= 0)
-            {
-                // If so, remove the element
-                elementsList.RemoveAt(removeIndex);
-                RemoveAllFromIndexList(removeIndex);
-                returnFlag = true;
-            }
-            return returnFlag;
+            return Remove(item, 1) > 0;
         }
         #endregion
 
@@ -540,50 +685,95 @@ namespace OmiyaGames
         /// </summary>
         /// <param name="item">Element in <see cref="elementsList"/> to search for.</param>
         /// <returns>Index of item in  <see cref="elementsList"/>, or -1 if not found.</returns>
-        int IndexOf(T item)
+        protected int IndexOf(T item)
         {
-            for (int removeIndex = 0; removeIndex < elementsList.Count; ++removeIndex)
+            int returnIndex;
+            if (ElementToIndexMap.TryGetValue(item, out returnIndex) == false)
             {
-                if (elementsList[removeIndex].Equals(item) == true)
-                {
-                    return removeIndex;
-                }
+                returnIndex = -1;
             }
-            return -1;
+            return returnIndex;
         }
 
         /// <summary>
-        /// Gets index of the first instance of item from <see cref="elementsList"/>.
+        /// Syncs the information in <see cref="elementsList"/>
+        /// to <see cref="ElementToIndexMap"/> and <see cref="ShuffledIndexes"/>.
+        /// As the name of the method implies, this is potentially a costly operation;
+        /// use it sparringly!
         /// </summary>
-        /// <param name="item">Item in <see cref="elementsList"/> to search for.</param>
-        /// <returns>Index of item in  <see cref="elementsList"/>, or -1 if not found.</returns>
-        int IndexOf(ElementFrequency item)
+        protected virtual void SyncAllMapsAndLists()
         {
-            for (int removeIndex = 0; removeIndex < elementsList.Count; ++removeIndex)
-            {
-                if (elementsList[removeIndex].Equals(item) == true)
-                {
-                    return removeIndex;
-                }
-            }
-            return -1;
-        }
+            // IMPORTANT: this is the only method that can (and must, to avoid stack overflow)
+            // access member variables shuffledIndexes and elementToIndexMap directly.
 
-        /// <summary>
-        /// Clears the index list, and repopulates it with corresponding indexes
-        /// to <see cref="elementsList"/>. Note this method does duplicate indexes,
-        /// based on <see cref="ElementFrequency.Frequency"/>.
-        /// </summary>
-        /// 
-        void SetupIndexList()
-        {
-            // Generate a new list, populated with entries based on frequency
-            randomizedIndexes.Clear();
-            for (index = 0; index < Count; ++index)
+            // Because elementList is serialized, it may be already pre-populated.
+            // This method will sync.
+
+            // Check if shuffledIndexes is already created
+            if (shuffledIndexes != null)
             {
-                for (int numAdded = 0; numAdded < elementsList[index].Frequency; ++numAdded)
+                // Empty shuffledIndexes
+                shuffledIndexes.Clear();
+            }
+            else
+            {
+                // Initialize an empty shuffledIndexes
+                shuffledIndexes = new List<int>(elementsList.Capacity);
+            }
+
+            // Check if elementToIndexMap is already created
+            if (elementToIndexMap != null)
+            {
+                // Empty elementToIndexMap
+                elementToIndexMap.Clear();
+            }
+            else if (elementComparer != null)
+            {
+                // Initialize an empty shuffledIndexes, using the constructor's comparer
+                elementToIndexMap = new Dictionary<T, int>(elementsList.Capacity, elementComparer);
+            }
+            else
+            {
+                // Initialize an empty shuffledIndexes
+                elementToIndexMap = new Dictionary<T, int>(elementsList.Capacity);
+            }
+
+            // Setup loop variables
+            index = 0;
+            int updatedIndex;
+            ElementFrequency currentItem;
+
+            // Go through all the elements in the elementList
+            while (index < elementsList.Count)
+            {
+                // Grab the element from the list
+                currentItem = elementsList[index];
+
+                // Check if, due to user error, this item is duplicated or not
+                if (elementToIndexMap.TryGetValue(currentItem.Element, out updatedIndex) == false)
                 {
-                    randomizedIndexes.Add(index);
+                    // If not (which is most cases), add a mapping from element to index
+                    elementToIndexMap.Add(currentItem.Element, index);
+
+                    // Flag that the current index is the one we want to add to shuffledIndexes
+                    updatedIndex = index;
+
+                    // In the next loop, move on to the next elementsList item
+                    ++index;
+                }
+                else
+                {
+                    // If so, increment the existing element
+                    IncrementFrequency(updatedIndex, currentItem.Frequency);
+
+                    // Then remove the element from the list
+                    elementsList.RemoveAt(index);
+                }
+
+                // Add updatedIndex by item.Frequency times
+                for (int numAdded = 0; numAdded < currentItem.Frequency; ++numAdded)
+                {
+                    shuffledIndexes.Add(updatedIndex);
                 }
             }
 
@@ -592,43 +782,62 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// Removes all instances of a value from <see cref="randomizedIndexes"/>,
+        /// Removes all instances of a value from <see cref="ShuffledIndexes"/>,
         /// and decrements any other value greater than removeIndex.
         /// </summary>
-        /// <param name="removeIndex">The value to remove from  <see cref="randomizedIndexes"/>.</param>
-        void RemoveAllFromIndexList(int removeIndex)
+        /// <param name="removeIndex">The value to remove from  <see cref="ShuffledIndexes"/>.</param>
+        protected virtual void RemoveFromIndexList(int removeIndex, int numberOfItemsToRemove)
         {
             // Shift every index in the indexes list
-            int check = 0;
-            while (check < randomizedIndexes.Count)
+            int checkIndex = 0, numRemovedSoFar = 0;
+            while ((checkIndex < ShuffledIndexes.Count) && (numRemovedSoFar < numberOfItemsToRemove))
             {
                 // Compare indexes
                 // Note: doing less-than and greater-than comparisons first,
                 // as they're more likely to occur, and it's (slightly) more
                 // efficient to hit the earlier conditionals first.
-                if (randomizedIndexes[check] < removeIndex)
+                if (ShuffledIndexes[checkIndex] < removeIndex)
                 {
                     // If less, skip to the next index
-                    ++check;
+                    ++checkIndex;
                 }
-                else if (randomizedIndexes[check] > removeIndex)
+                else if (ShuffledIndexes[checkIndex] > removeIndex)
                 {
                     // If greater, shift this index down one
-                    randomizedIndexes[check] -= 1;
+                    ShuffledIndexes[checkIndex] -= 1;
 
                     // Skip to the next index
-                    ++check;
+                    ++checkIndex;
                 }
                 else
                 {
                     // Remove this index
-                    randomizedIndexes.RemoveAt(check);
+                    ShuffledIndexes.RemoveAt(checkIndex);
 
-                    // Don't change check; the line above will shift
+                    // Increment the number of items removed so far
+                    ++numRemovedSoFar;
+
+                    // Don't change checkIndex; the line above will shift
                     // all elements by one, so we don't want to miss
                     // the next element.
                 }
             }
+        }
+
+        /// <summary>
+        /// Increments the frequency in an element in <see cref="elementsList"/>.
+        /// Accepts negative frequency values (which, of course, causes the method to
+        /// decrement the item's frequency).
+        /// </summary>
+        /// <param name="itemIndex">Index of the element to increment frequency of.</param>
+        /// <param name="frequency">The change in frequency.</param>
+        /// <returns>The sum of the old and new frequency values.</returns>
+        protected int IncrementFrequency(int itemIndex, int frequency)
+        {
+            ElementFrequency existingItem = elementsList[itemIndex];
+            existingItem.Frequency += frequency;
+            elementsList[itemIndex] = existingItem;
+            return existingItem.Frequency;
         }
         #endregion
     }
