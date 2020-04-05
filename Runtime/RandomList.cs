@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 namespace OmiyaGames
 {
@@ -32,7 +33,15 @@ namespace OmiyaGames
     /// <date>8/18/2015</date>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// A list that shuffles its elements.
+    /// A list that shuffles its elements. A common example:
+    /// <code>
+    /// int[] allNumbers = new int[] { 1, 2, 3, 4 };
+    /// RandomList<int> shuffledNumbers = new RandomList<int>(allNumbers);
+    /// for(int i = 0; i < allNumbers.Length; ++i)
+    /// {
+    ///     Debug.Log(shuffledNumbers.NextRandomElement);
+    /// }
+    /// </code>
     /// </summary>
     /// <remarks>
     /// Revision History:
@@ -52,8 +61,14 @@ namespace OmiyaGames
     ///     <description>Taro</description>
     ///     <description>Converted the class to a package</description>
     ///   </item>
+    ///   <item>
+    ///     <description>4/5/2020</description>
+    ///     <description>Taro</description>
+    ///     <description>Updating to be serializable...albeit, in Unity 2020.1</description>
+    ///   </item>
     /// </list>
     /// </remarks>
+    [System.Serializable]
     public class RandomList<T> : ICollection<T>, IEnumerable<T>, ICollection<RandomList<T>.ElementFrequency>, IEnumerable<RandomList<T>.ElementFrequency>
     {
         /// <summary>
@@ -64,8 +79,10 @@ namespace OmiyaGames
         public struct ElementFrequency
         {
             [SerializeField]
+            [Tooltip("An element in the RandomList.")]
             T element;
             [SerializeField]
+            [Tooltip("Number of times the element is shuffled into the RandomList.")]
             int frequency;
 
             /// <summary>
@@ -74,15 +91,25 @@ namespace OmiyaGames
             public T Element
             {
                 get => element;
-                set => this.element = value;
+                set => element = value;
             }
 
             /// <summary>
             /// The number of times this element appears in the shuffled index list.
+            /// This value is never below 1
             /// </summary>
             public int Frequency
             {
-                get => frequency;
+                get
+                {
+                    // If somehow the frequency is below 1, force frequency to 1.
+                    // Basically safe-guareding from Unity's serializion.
+                    if (frequency < 1)
+                    {
+                        frequency = 1;
+                    }
+                    return frequency;
+                }
                 set
                 {
                     // Prevent ferquency from going below zero
@@ -94,13 +121,15 @@ namespace OmiyaGames
                 }
             }
 
-            public ElementFrequency(T value, int frequency = 1)
+            public ElementFrequency(T element, int frequency = 1)
             {
-                this.element = value;
+                this.element = element;
                 this.frequency = frequency;
-                if (frequency < 1)
+
+                // Force frequency to be floored to 1
+                if (this.frequency < 1)
                 {
-                    frequency = 1;
+                    this.frequency = 1;
                 }
             }
 
@@ -141,10 +170,18 @@ namespace OmiyaGames
             }
         }
 
-        readonly List<ElementFrequency> originalList;
+        /// <summary>
+        /// The serialized list of elements.
+        /// </summary>
+        [SerializeField]
+        List<ElementFrequency> elementsList;
+        /// <summary>
+        /// Dictionary mapping an element to the index in <see cref="elementsList"/>.
+        /// </summary>
+        readonly Dictionary<T, int> elementToIndexMap;
         /// <summary>
         /// Contains a list of whole numbers corresponding to an index
-        /// in <see cref="originalList"/>. Note that the <see cref="ElementFrequency.Frequency"/>
+        /// in <see cref="elementsList"/>. Note that the <see cref="ElementFrequency.Frequency"/>
         /// will affect the number of times an index is duplicated in this list.
         /// </summary>
         readonly List<int> randomizedIndexes;
@@ -162,7 +199,7 @@ namespace OmiyaGames
         public RandomList()
         {
             // Setup member variables
-            originalList = new List<ElementFrequency>();
+            elementsList = new List<ElementFrequency>();
             randomizedIndexes = new List<int>();
         }
 
@@ -177,19 +214,19 @@ namespace OmiyaGames
             if ((list != null) && (list.Count > 0))
             {
                 // Setup member variables
-                originalList = new List<ElementFrequency>(list.Count);
+                elementsList = new List<ElementFrequency>(list.Count);
                 randomizedIndexes = new List<int>(list.Count);
 
                 // Populate list
                 for (int index = 0; index < list.Count; ++index)
                 {
-                    originalList.Add(new ElementFrequency(list[index]));
+                    Add(list[index]);
                 }
                 SetupIndexList();
             }
             else
             {
-                originalList = new List<ElementFrequency>();
+                elementsList = new List<ElementFrequency>();
                 randomizedIndexes = new List<int>();
             }
         }
@@ -205,19 +242,19 @@ namespace OmiyaGames
             if ((list != null) && (list.Count > 0))
             {
                 // Setup member variables
-                originalList = new List<ElementFrequency>(list.Count);
+                elementsList = new List<ElementFrequency>(list.Count);
                 randomizedIndexes = new List<int>(list.Count);
 
                 // Populate list
                 for (int index = 0; index < list.Count; ++index)
                 {
-                    originalList.Add(list[index]);
+                    Add(list[index]);
                 }
                 SetupIndexList();
             }
             else
             {
-                originalList = new List<ElementFrequency>();
+                elementsList = new List<ElementFrequency>();
                 randomizedIndexes = new List<int>();
             }
         }
@@ -230,7 +267,7 @@ namespace OmiyaGames
         {
             get
             {
-                return originalList.Count;
+                return elementsList.Count;
             }
         }
 
@@ -250,9 +287,9 @@ namespace OmiyaGames
                 if (Count == 1)
                 {
                     // Grab the only element
-                    if (originalList != null)
+                    if (elementsList != null)
                     {
-                        returnElement = originalList[0].Element;
+                        returnElement = elementsList[0].Element;
                     }
                 }
                 else if (Count > 1)
@@ -272,9 +309,9 @@ namespace OmiyaGames
                     }
 
                     // Grab the current element
-                    if (originalList != null)
+                    if (elementsList != null)
                     {
-                        returnElement = originalList[randomizedIndexes[index]].Element;
+                        returnElement = elementsList[randomizedIndexes[index]].Element;
                     }
                 }
                 return returnElement;
@@ -329,7 +366,7 @@ namespace OmiyaGames
         /// </summary>
         IEnumerator<ElementFrequency> IEnumerable<ElementFrequency>.GetEnumerator()
         {
-            return originalList.GetEnumerator();
+            return elementsList.GetEnumerator();
         }
 
         /// <summary>
@@ -337,7 +374,7 @@ namespace OmiyaGames
         /// </summary>
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
-            foreach (ElementFrequency item in originalList)
+            foreach (ElementFrequency item in elementsList)
             {
                 yield return item.Element;
             }
@@ -348,7 +385,7 @@ namespace OmiyaGames
         /// </summary>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            foreach (ElementFrequency item in originalList)
+            foreach (ElementFrequency item in elementsList)
             {
                 yield return item.Element;
             }
@@ -371,10 +408,10 @@ namespace OmiyaGames
         /// </summary>
         public void Add(ElementFrequency item)
         {
-            originalList.Add(item);
+            elementsList.Add(item);
             if (randomizedIndexes.Count > 0)
             {
-                int newIndex = originalList.Count - 1;
+                int newIndex = elementsList.Count - 1;
                 for (int numAdded = 0; numAdded < item.Frequency; ++numAdded)
                 {
                     randomizedIndexes.Add(newIndex);
@@ -387,7 +424,7 @@ namespace OmiyaGames
         /// </summary>
         public void Clear()
         {
-            originalList.Clear();
+            elementsList.Clear();
             randomizedIndexes.Clear();
             Reshuffle();
         }
@@ -416,14 +453,14 @@ namespace OmiyaGames
             {
                 throw new System.ArgumentException("array isn't one-dimensional");
             }
-            else if (array.Length < (originalList.Count + arrayIndex))
+            else if (array.Length < (elementsList.Count + arrayIndex))
             {
                 throw new System.ArgumentException("array is too small to copy to");
             }
 
-            for (int offsetIndex = 0; offsetIndex < originalList.Count; ++offsetIndex)
+            for (int offsetIndex = 0; offsetIndex < elementsList.Count; ++offsetIndex)
             {
-                array[arrayIndex + offsetIndex] = originalList[offsetIndex].Element;
+                array[arrayIndex + offsetIndex] = elementsList[offsetIndex].Element;
             }
         }
 
@@ -441,14 +478,14 @@ namespace OmiyaGames
             {
                 throw new System.ArgumentException("array isn't one-dimensional");
             }
-            else if (array.Length < (originalList.Count + arrayIndex))
+            else if (array.Length < (elementsList.Count + arrayIndex))
             {
                 throw new System.ArgumentException("array is too small to copy to");
             }
 
-            for (int offsetIndex = 0; offsetIndex < originalList.Count; ++offsetIndex)
+            for (int offsetIndex = 0; offsetIndex < elementsList.Count; ++offsetIndex)
             {
-                array[arrayIndex + offsetIndex] = originalList[offsetIndex];
+                array[arrayIndex + offsetIndex] = elementsList[offsetIndex];
             }
         }
 
@@ -467,7 +504,7 @@ namespace OmiyaGames
             if (removeIndex >= 0)
             {
                 // If so, remove the element
-                originalList.RemoveAt(removeIndex);
+                elementsList.RemoveAt(removeIndex);
                 RemoveAllFromIndexList(removeIndex);
                 returnFlag = true;
             }
@@ -489,7 +526,7 @@ namespace OmiyaGames
             if (removeIndex >= 0)
             {
                 // If so, remove the element
-                originalList.RemoveAt(removeIndex);
+                elementsList.RemoveAt(removeIndex);
                 RemoveAllFromIndexList(removeIndex);
                 returnFlag = true;
             }
@@ -499,15 +536,15 @@ namespace OmiyaGames
 
         #region Helper Methods
         /// <summary>
-        /// Gets index of the first instance of item from <see cref="originalList"/>.
+        /// Gets index of the first instance of item from <see cref="elementsList"/>.
         /// </summary>
-        /// <param name="item">Element in <see cref="originalList"/> to search for.</param>
-        /// <returns>Index of item in  <see cref="originalList"/>, or -1 if not found.</returns>
+        /// <param name="item">Element in <see cref="elementsList"/> to search for.</param>
+        /// <returns>Index of item in  <see cref="elementsList"/>, or -1 if not found.</returns>
         int IndexOf(T item)
         {
-            for (int removeIndex = 0; removeIndex < originalList.Count; ++removeIndex)
+            for (int removeIndex = 0; removeIndex < elementsList.Count; ++removeIndex)
             {
-                if (originalList[removeIndex].Equals(item) == true)
+                if (elementsList[removeIndex].Equals(item) == true)
                 {
                     return removeIndex;
                 }
@@ -516,15 +553,15 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// Gets index of the first instance of item from <see cref="originalList"/>.
+        /// Gets index of the first instance of item from <see cref="elementsList"/>.
         /// </summary>
-        /// <param name="item">Item in <see cref="originalList"/> to search for.</param>
-        /// <returns>Index of item in  <see cref="originalList"/>, or -1 if not found.</returns>
+        /// <param name="item">Item in <see cref="elementsList"/> to search for.</param>
+        /// <returns>Index of item in  <see cref="elementsList"/>, or -1 if not found.</returns>
         int IndexOf(ElementFrequency item)
         {
-            for (int removeIndex = 0; removeIndex < originalList.Count; ++removeIndex)
+            for (int removeIndex = 0; removeIndex < elementsList.Count; ++removeIndex)
             {
-                if (originalList[removeIndex].Equals(item) == true)
+                if (elementsList[removeIndex].Equals(item) == true)
                 {
                     return removeIndex;
                 }
@@ -534,7 +571,7 @@ namespace OmiyaGames
 
         /// <summary>
         /// Clears the index list, and repopulates it with corresponding indexes
-        /// to <see cref="originalList"/>. Note this method does duplicate indexes,
+        /// to <see cref="elementsList"/>. Note this method does duplicate indexes,
         /// based on <see cref="ElementFrequency.Frequency"/>.
         /// </summary>
         /// 
@@ -544,7 +581,7 @@ namespace OmiyaGames
             randomizedIndexes.Clear();
             for (index = 0; index < Count; ++index)
             {
-                for (int numAdded = 0; numAdded < originalList[index].Frequency; ++numAdded)
+                for (int numAdded = 0; numAdded < elementsList[index].Frequency; ++numAdded)
                 {
                     randomizedIndexes.Add(index);
                 }
