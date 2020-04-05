@@ -353,5 +353,30 @@ namespace OmiyaGames
             return ((IDictionary<KEY, VALUE>)KeyToValueMap).GetEnumerator();
         }
         #endregion
+
+        #region Overrides
+        public override string ToString()
+        {
+            return KeyToValueMap.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return KeyToValueMap.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is BidirectionalDictionary<KEY, VALUE> other)
+            {
+                // Comparing the KeyToValueMap is really the only thing necessary for this
+                return KeyToValueMap.Equals(other.KeyToValueMap);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }
