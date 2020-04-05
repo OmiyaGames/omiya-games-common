@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 
 namespace OmiyaGames
 {
@@ -33,6 +34,7 @@ namespace OmiyaGames
     ///-----------------------------------------------------------------------
     /// <summary>
     /// A two-direction dictionary where a key maps to a value, and vice versa.
+    /// This does mean both keys and values must be unique.
     /// </summary>
     /// <remarks>
     /// Revision History:
@@ -59,6 +61,7 @@ namespace OmiyaGames
         {
             get;
         }
+
         /// <summary>
         /// The dictionary mapping from value to key.
         /// </summary>
@@ -95,9 +98,9 @@ namespace OmiyaGames
 
         public BidirectionalDictionary(IDictionary<KEY, VALUE> dictionary) : this()
         {
-            foreach(KeyValuePair<KEY, VALUE> pair in dictionary)
+            foreach (KeyValuePair<KEY, VALUE> pair in dictionary)
             {
-                Add(pair);
+                Add(pair.Key, pair.Value);
             }
         }
 
@@ -105,48 +108,234 @@ namespace OmiyaGames
         {
             foreach (KeyValuePair<KEY, VALUE> pair in dictionary)
             {
-                Add(pair);
+                Add(pair.Key, pair.Value);
             }
         }
         #endregion
 
+        /// <summary>
+        /// The comparer used to check whether two keys equal each other.
+        /// </summary>
+        public IEqualityComparer<KEY> KeyComparer => KeyToValueMap.Comparer;
+
+        /// <summary>
+        /// The comparer used to check whether two values equal each other.
+        /// </summary>
+        public IEqualityComparer<VALUE> ValueComparer => ValueToKeyMap.Comparer;
+
+        #region Implemented Properties
+        /// <summary>
+        /// Same as <see cref="GetValue(KEY)"/> and <see cref="SetKey(VALUE, KEY)"/>:
+        /// gets and sets a corresponding value.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public VALUE this[KEY key]
         {
-            get => KeyToValueMap[key];
-            set => KeyToValueMap[key] = value;
+            get => GetValue(key);
+            set => SetValue(key, value);
         }
 
         public ICollection<KEY> Keys => KeyToValueMap.Keys;
 
-        public ICollection<VALUE> Values => KeyToValueMap.Values;
+        public ICollection<VALUE> Values => ValueToKeyMap.Keys;
 
         public int Count => KeyToValueMap.Count;
 
         public bool IsReadOnly => ((IDictionary<KEY, VALUE>)KeyToValueMap).IsReadOnly;
+        #endregion
 
+        /// <summary>
+        /// Adds a new key and value combo, if and only if the key and the values are both unique.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         public void Add(KEY key, VALUE value)
         {
-            KeyToValueMap.Add(key, value);
+            // Make sure the key and the value isn't already in their respective dictionaries.
+            if ((ContainsKey(key) == false) && (ContainsValue(value) == false))
+            {
+                KeyToValueMap.Add(key, value);
+                ValueToKeyMap.Add(value, key);
+            }
         }
 
-        public void Add(KeyValuePair<KEY, VALUE> item)
+        /// <summary>
+        /// Gets a corresponding value that's paired with a key.
+        /// </summary>
+        public VALUE GetValue(KEY key)
         {
-            ((IDictionary<KEY, VALUE>)KeyToValueMap).Add(item);
+            return KeyToValueMap[key];
         }
 
-        public void Clear()
+        /// <summary>
+        /// Gets a corresponding key that's paired with a value.
+        /// </summary>
+        public KEY GetKey(VALUE value)
         {
-            KeyToValueMap.Clear();
+            return ValueToKeyMap[value];
         }
 
-        public bool Contains(KeyValuePair<KEY, VALUE> item)
+        /// <summary>
+        /// Checks if a key exists, and if so, returns the corresponding value.
+        /// </summary>
+        public bool TryGetValue(KEY key, out VALUE value)
         {
-            return ((IDictionary<KEY, VALUE>)KeyToValueMap).Contains(item);
+            return KeyToValueMap.TryGetValue(key, out value);
+        }
+
+        /// <summary>
+        /// Checks if a value exists, and if so, returns the corresponding key.
+        /// </summary>
+        public bool TryGetKey(VALUE value, out KEY key)
+        {
+            return ValueToKeyMap.TryGetValue(value, out key);
+        }
+
+        /// <summary>
+        /// Checks if a key exists, and the newValue doesn't;
+        /// if so, replaces the key's pairing to newValue.
+        /// </summary>
+        public bool SetValue(KEY key, VALUE newValue)
+        {
+            // First make sure the key is already in the dictionary, AND newValue isn't
+            bool returnFlag = false;
+            if ((ContainsKey(key) == true) && (ContainsValue(newValue) == false))
+            {
+                // If so, first remove the old value from the value map
+                ValueToKeyMap.Remove(KeyToValueMap[key]);
+
+                // Remap the key to newValue
+                KeyToValueMap[key] = newValue;
+
+                // Add the new key to the value map
+                ValueToKeyMap.Add(newValue, key);
+
+                // Return true
+                returnFlag = true;
+            }
+            return returnFlag;
+        }
+
+        /// <summary>
+        /// Checks if a value exists, and if so, returns the corresponding key.
+        /// </summary>
+        public bool SetKey(VALUE value, KEY newKey)
+        {
+            // First make sure the key is already in the dictionary, AND newKey isn't
+            bool returnFlag = false;
+            if ((ContainsValue(value) == true) && (ContainsKey(newKey) == false))
+            {
+                // If so, first remove the old key from the key map
+                KeyToValueMap.Remove(ValueToKeyMap[value]);
+
+                // Remap the value to newKey
+                ValueToKeyMap[value] = newKey;
+
+                // Add the new value to the key map
+                KeyToValueMap.Add(newKey, value);
+
+                // Return true
+                returnFlag = true;
+            }
+            return returnFlag;
+        }
+
+        public bool RemoveKey(KEY key)
+        {
+            // Check if the key exists
+            bool returnFlag = false;
+            if (ContainsKey(key) == true)
+            {
+                // If so, remove from the value map first (this is to keep the mapping)
+                ValueToKeyMap.Remove(KeyToValueMap[key]);
+
+                // Then remove from the key map
+                KeyToValueMap.Remove(key);
+                returnFlag = true;
+            }
+            return returnFlag;
+        }
+
+        public bool RemoveValue(VALUE value)
+        {
+            // Check if the key exists
+            bool returnFlag = false;
+            if (ContainsValue(value) == true)
+            {
+                // If so, remove from the key map first (this is to keep the mapping)
+                KeyToValueMap.Remove(ValueToKeyMap[value]);
+
+                // Then remove from the value map
+                ValueToKeyMap.Remove(value);
+                returnFlag = true;
+            }
+            return returnFlag;
         }
 
         public bool ContainsKey(KEY key)
         {
             return KeyToValueMap.ContainsKey(key);
+        }
+
+        public bool ContainsValue(VALUE value)
+        {
+            return ValueToKeyMap.ContainsKey(value);
+        }
+
+        #region Implemented Methods
+        public void Clear()
+        {
+            KeyToValueMap.Clear();
+            ValueToKeyMap.Clear();
+        }
+
+        public void Add(KeyValuePair<KEY, VALUE> item)
+        {
+            Add(item.Key, item.Value);
+        }
+
+        /// <summary>
+        /// Same as <see cref="RemoveKey(KEY)"/>: removes a key and its corresponding value from the dictionary.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        /// <seealso cref="RemoveKey(KEY)"/>
+        public bool Remove(KEY key)
+        {
+            return RemoveKey(key);
+        }
+
+        /// <summary>
+        /// Removes a key-value pair if and only if there's a corresponding key-value map.
+        /// </summary>
+        /// <param name="item">Pairing to remove.</param>
+        /// <returns>True if successfully removed; false, otherwise.</returns>
+        /// <seealso cref="Contains(KeyValuePair{KEY, VALUE})"/>
+        public bool Remove(KeyValuePair<KEY, VALUE> item)
+        {
+            // Check if the key exists, then check if the argument's value matches with the VALUE mapped in KeyToValueMap
+            bool returnFlag = false;
+            if (Contains(item) == true)
+            {
+                // If so, remove the key and value accordingly.
+                KeyToValueMap.Remove(item.Key);
+                ValueToKeyMap.Remove(item.Value);
+                returnFlag = true;
+            }
+            return returnFlag;
+        }
+
+        /// <summary>
+        /// Checks if this dictionary contains the key-to-value pairing.
+        /// </summary>
+        /// <param name="item">Pairing to verify whether this dictionary contains or not.</param>
+        /// <returns>True, if and only if this dictionary contains both has the same key and value that is paired to that key.</returns>
+        public bool Contains(KeyValuePair<KEY, VALUE> item)
+        {
+            // Check if the key exists, then check if the argument's value matches with the VALUE mapped in KeyToValueMap
+            VALUE value;
+            return (TryGetValue(item.Key, out value) == true) && (ValueComparer.Equals(item.Value, value) == true);
         }
 
         public void CopyTo(KeyValuePair<KEY, VALUE>[] array, int arrayIndex)
@@ -159,24 +348,10 @@ namespace OmiyaGames
             return ((IDictionary<KEY, VALUE>)KeyToValueMap).GetEnumerator();
         }
 
-        public bool Remove(KEY key)
-        {
-            return KeyToValueMap.Remove(key);
-        }
-
-        public bool Remove(KeyValuePair<KEY, VALUE> item)
-        {
-            return ((IDictionary<KEY, VALUE>)KeyToValueMap).Remove(item);
-        }
-
-        public bool TryGetValue(KEY key, out VALUE value)
-        {
-            return KeyToValueMap.TryGetValue(key, out value);
-        }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IDictionary<KEY, VALUE>)KeyToValueMap).GetEnumerator();
         }
+        #endregion
     }
 }
