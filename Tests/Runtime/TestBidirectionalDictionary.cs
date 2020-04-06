@@ -54,7 +54,7 @@ namespace OmiyaGames.Common.Runtime.Tests
     /// </item>
     /// </list>
     /// </remarks>
-    public class TestBidirectionalDictionary : MonoBehaviour
+    public class TestBidirectionalDictionary
     {
         // A Test behaves as an ordinary method
         [Test]
