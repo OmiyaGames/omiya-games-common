@@ -69,7 +69,7 @@ namespace OmiyaGames
     /// </list>
     /// </remarks>
     [System.Serializable]
-    public class RandomList<T> : ICollection<T>, IEnumerable<T>, IEnumerable<RandomList<T>.ElementFrequency>
+    public class RandomList<T> : ICollection<T>
     {
         /// <summary>
         /// Indicates the frequency an element is going to be added into the index list,
@@ -174,8 +174,14 @@ namespace OmiyaGames
         /// <summary>
         /// The serialized list of elements.
         /// </summary>
+        /// <remarks>
+        /// To affirm this does get set by Unity, left as normal, non-read-only variable.
+        /// That said, only the constructors actually touches this pointer.
+        /// </remarks>
         [SerializeField]
         List<ElementFrequency> elementsList;
+
+        #region Non-Serialized Member Variables
         /// <summary>
         /// An index within <see cref="ShuffledIndexes"/>.
         /// If it's *not* within, <see cref="ShuffledIndexes"/>,
@@ -210,7 +216,8 @@ namespace OmiyaGames
         /// when it finally gets constructed from lazy-loading.
         /// </summary>
         /// <seealso cref="SyncAllMapsAndLists"/>
-        IEqualityComparer<T> elementComparer = null;
+        readonly IEqualityComparer<T> elementComparer = null;
+        #endregion
 
         #region Constructors
         /// <summary>
@@ -349,13 +356,17 @@ namespace OmiyaGames
         /// Number of elements in this list.
         /// Disregards the <see cref="ElementFrequency.Frequency"/> value.
         /// </summary>
-        public int Count
-        {
-            get
-            {
-                return elementsList.Count;
-            }
-        }
+        public int Count => elementsList.Count;
+
+        /// <summary>
+        /// Comparer used to check whether the list already contains an item or not.
+        /// </summary>
+        public IEqualityComparer<T> Comparer => ElementToIndexMap.Comparer;
+
+        /// <summary>
+        /// Capacity of this list
+        /// </summary>
+        public int Capacity => elementsList.Capacity;
 
         /// <summary>
         /// Grabs the currently focused element in the list.
@@ -411,14 +422,6 @@ namespace OmiyaGames
                 }
                 return CurrentElement;
             }
-        }
-
-        /// <summary>
-        /// Comparer used to check whether the list already contains an item or not.
-        /// </summary>
-        public IEqualityComparer<T> Comparer
-        {
-            get => ElementToIndexMap.Comparer;
         }
 
         /// <summary>
@@ -560,14 +563,6 @@ namespace OmiyaGames
         /// </summary>
         /// <returns>true</returns>
         public bool IsReadOnly => ((IList<T>)elementsList).IsReadOnly;
-
-        /// <summary>
-        /// Enumerates through all items, in order of appended elements.
-        /// </summary>
-        IEnumerator<ElementFrequency> IEnumerable<ElementFrequency>.GetEnumerator()
-        {
-            return elementsList.GetEnumerator();
-        }
 
         /// <summary>
         /// Enumerates through all items, in order of appended elements.
