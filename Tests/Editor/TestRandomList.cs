@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using UnityEngine;
@@ -312,6 +311,183 @@ namespace OmiyaGames.Common.Runtime.Tests
                 TestRandomListMeta(testList, 1, size, testComparer, "Testing from TestConstructorIListEIEqualityComparer, same elements.");
                 TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorIListEIEqualityComparer, same elements.");
             }
+        }
+        #endregion
+
+        #region Test Add
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Add(T)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Add(T)"/>
+        [Test]
+        public void TestAddT()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test Add(T)
+            // FIXME: also test IEqualityComparer
+            testList = new RandomList<int>(testComparer);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Add(T, int)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Add(T, int)"/>
+        [Test]
+        public void TestAddTInt()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test Add(T, int)
+            // FIXME: also test IEqualityComparer
+            testList = new RandomList<int>(testComparer);
+        }
+        #endregion
+
+        #region Test Remove
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Remove(T)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Remove(T)"/>
+        [Test]
+        public void TestRemoveT()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test Remove(T)
+            // FIXME: also test IEqualityComparer
+            // FIXME: don't forget to test edge cases, e.g. remove of elements that isn't in the list.
+            testList = new RandomList<int>(testComparer);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Remove(T, int)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Remove(T, int)"/>
+        [Test]
+        public void TestRemoveTInt()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test Remove(T, int)
+            // FIXME: also test IEqualityComparer
+            // FIXME: don't forget to test edge cases, e.g
+            // 1: remove of elements that isn't in the list.
+            // 2: integer value that isn't in range, both directions.
+            testList = new RandomList<int>(testComparer);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RemoveAllOf(T)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RemoveAllOf(T)"/>
+        [Test]
+        public void TestRemoveAllOfT()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test RemoveAllOf(T)
+            // FIXME: also test IEqualityComparer
+            // FIXME: don't forget to test edge cases, e.g. remove of elements that isn't in the list.
+            testList = new RandomList<int>(testComparer);
+        }
+        #endregion
+
+        #region Test Clear
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Clear()"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Clear()"/>
+        [Test]
+        public void TestClear()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test Clear(T)
+            // both when the list is empty, and has some elements in it.
+        }
+        #endregion
+
+        #region Test Element Properties
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.CurrentElement"/> and <see cref="RandomList{T}.NextRandomElement"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.CurrentElement"/>
+        /// <seealso cref="RandomList{T}.NextRandomElement"/>
+        [Test]
+        public void TestElementProperties()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test NextRandomElement and CurrentElement first under certain edge case circumstances, then make sure the former determines the value of the latter.
+        }
+        #endregion
+
+        #region Test Reshuffle
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Reshuffle()"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Reshuffle()"/>
+        [Test]
+        public void TestReshuffle()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test Reshuffle(T) by using Random.seed and Helper.ShuffleList
+        }
+        #endregion
+
+        #region Test Contains
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Contains(T)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Contains(T)"/>
+        [Test]
+        public void TestContains()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test Contains(T) under edge cases
+        }
+        #endregion
+
+        #region Test GetFrequency
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.GetFrequency(T)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.GetFrequency(T)"/>
+        [Test]
+        public void TestGetFrequency()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test GetFrequency(T) under edge cases
+        }
+        #endregion
+
+        #region Test CopyTo
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.CopyTo(T[], int)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.CopyTo(T[], int)"/>
+        [Test]
+        public void TestCopyToT()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test GetFrequency(T) under edge cases
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.CopyTo(RandomList{T}.ElementFrequency[], int)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.CopyTo(RandomList{T}.ElementFrequency[], int)"/>
+        [Test]
+        public void TestCopyToE()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>();
+            // FIXME: test GetFrequency(T) under edge cases
         }
         #endregion
 
