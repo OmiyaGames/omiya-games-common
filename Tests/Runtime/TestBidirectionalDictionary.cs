@@ -58,19 +58,27 @@ namespace OmiyaGames.Common.Runtime.Tests
     {
         // A Test behaves as an ordinary method
         [Test]
-        public void TestHelpersSimplePasses()
+        public void TestConstructors()
         {
             // Use the Assert class to test conditions
-        }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator TestHelpersWithEnumeratorPasses()
-        {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return null;
+            // Start by testing the default constructor, and whether it creates an empty dictionary
+            BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>();
+            Assert.IsNotNull(testDictionary);
+            Assert.AreEqual(testDictionary.Count, 0);
+
+            // Test the capacity constructors, and whether it creates an empty dictionary
+            for(int capacity = 10; capacity <= 30; capacity += 10)
+            {
+                testDictionary = new BidirectionalDictionary<int, string>(capacity);
+                Assert.IsNotNull(testDictionary);
+                Assert.AreEqual(testDictionary.Count, 0);
+
+                // Interestingly, I can't get the capacity info from the member variables.
+            }
+
+            // TODO: Test IDictionary constructors at some point
+            // TODO: Test IEqualityComparer constructors at some point
         }
     }
 }
