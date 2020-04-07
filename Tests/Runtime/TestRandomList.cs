@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using UnityEngine;
 using UnityEngine.TestTools;
 
@@ -139,31 +140,25 @@ namespace OmiyaGames.Common.Runtime.Tests
         /// </summary>
         /// <seealso cref="RandomList{T}.RandomList(IList{T})"/>
         [Test]
-        public void TestConstructorIList()
+        public void TestConstructorIListT()
         {
+            // Setup loop variables
             RandomList<int> testList;
             List<int> referenceList = new List<int>(3);
+
+            // Loop for unique elements
             for (int size = 1; size <= 3; ++size)
             {
                 // Test the list constructors, and whether it copy its content correctly
                 referenceList.Add(size);
                 testList = new RandomList<int>(referenceList);
-
-                // Run tests
-                Assert.IsNotNull(testList);
-                Assert.AreEqual(size, testList.Count, "Testing list size when each element is unique");
-                Assert.AreEqual(size, testList.Count);
-
-                // Make sure the list is initialized correctly
-                int index = 1;
-                foreach(int element in testList)
-                {
-                    Assert.AreEqual(index, element, "Testing list element when each element is unique");
-                    Assert.AreEqual(1, testList.GetFrequency(element), "Testing list frequency when each element is unique");
-                    ++index;
-                }
+                
+                // Run some tests
+                TestRandomListMeta(testList, size, size, "Testing from TestConstructorIListT, unique elements.");
+                TestRandomListContent(testList, 1, "Testing from TestConstructorIListT, unique elements.");
             }
 
+            // Loop for same elements
             referenceList.Clear();
             for (int size = 1; size <= 3; ++size)
             {
@@ -171,18 +166,198 @@ namespace OmiyaGames.Common.Runtime.Tests
                 referenceList.Add(1);
                 testList = new RandomList<int>(referenceList);
 
-                // Run tests
-                Assert.IsNotNull(testList);
-                Assert.AreEqual(1, testList.Count, "Testing list size when each element is the same");
-                Assert.AreEqual(size, testList.Capacity);
-
-                // Make sure the list is initialized correctly
-                foreach (int element in testList)
-                {
-                    Assert.AreEqual(1, element, "Testing list element when each element is the same");
-                    Assert.AreEqual(size, testList.GetFrequency(element), "Testing list frequency when each element is the same");
-                }
+                // Run some tests
+                TestRandomListMeta(testList, 1, size, "Testing from TestConstructorIListT, same elements.");
+                TestRandomListContent(testList, size, "Testing from TestConstructorIListT, same elements.");
             }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(IList{RandomList{T}.ElementFrequency})"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(IList{RandomList{T}.ElementFrequency})"/>
+        [Test]
+        public void TestConstructorIListE()
+        {
+            // Setup loop variables
+            RandomList<int> testList;
+            RandomList<int>.ElementFrequency newFrequency;
+            List<RandomList<int>.ElementFrequency> referenceList = new List<RandomList<int>.ElementFrequency>(3);
+            Dictionary<int, int> referenceFrequencies = new Dictionary<int, int>(3);
+
+            // Loop for unique elements
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Add new element to loop variables
+                newFrequency = new RandomList<int>.ElementFrequency(size, size);
+                referenceList.Add(newFrequency);
+                referenceFrequencies.Add(newFrequency.Element, newFrequency.Frequency);
+
+                // Test the list constructors, and whether it copy its content correctly
+                testList = new RandomList<int>(referenceList);
+
+                // Run some tests
+                TestRandomListMeta(testList, size, size, "Testing from TestConstructorIListE, unique elements.");
+                TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorIListE, unique elements.");
+            }
+
+            // Setup variables for next loop
+            newFrequency = new RandomList<int>.ElementFrequency(1, 2);
+            referenceList.Clear();
+            referenceFrequencies.Clear();
+            referenceFrequencies.Add(newFrequency.Element, 0);
+
+            // Loop for same elements
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Test the capacity constructors, and whether it creates an empty dictionary
+                referenceList.Add(newFrequency);
+                referenceFrequencies[newFrequency.Element] += newFrequency.Frequency;
+                testList = new RandomList<int>(referenceList);
+
+                // Run some tests
+                TestRandomListMeta(testList, 1, size, "Testing from TestConstructorIListE, same elements.");
+                TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorIListE, same elements.");
+            }
+        }
+
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(IList{T}, IEqualityComparer{T})"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(IList{T}, IEqualityComparer{T})"/>
+        [Test]
+        public void TestConstructorIListTIEqualityComparer()
+        {
+            // Setup loop variables
+            RandomList<int> testList;
+            List<int> referenceList = new List<int>(3);
+
+            // Loop for unique elements
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Test the list constructors, and whether it copy its content correctly
+                referenceList.Add(size);
+                testList = new RandomList<int>(referenceList, testComparer);
+
+                // Run some tests
+                TestRandomListMeta(testList, size, size, testComparer, "Testing from TestConstructorIListTIEqualityComparer, unique elements.");
+                TestRandomListContent(testList, 1, "Testing from TestConstructorIListTIEqualityComparer, unique elements.");
+            }
+
+            // Loop for same elements
+            referenceList.Clear();
+            Dictionary<int, int> referenceFrequencies = new Dictionary<int, int>() {
+                { 10, 0 }
+            };
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Add a number
+                referenceList.Add(10 * size);
+                referenceFrequencies[10] += 1;
+
+                // Test the capacity constructors, and whether it creates an empty dictionary
+                testList = new RandomList<int>(referenceList, testComparer);
+
+                // Run some tests
+                TestRandomListMeta(testList, 1, size, testComparer, "Testing from TestConstructorIListTIEqualityComparer, same elements.");
+                TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorIListTIEqualityComparer, same elements.");
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(IList{RandomList{T}.ElementFrequency}, IEqualityComparer{T})"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(IList{RandomList{T}.ElementFrequency}, IEqualityComparer{T})"/>
+        [Test]
+        public void TestConstructorIListEIEqualityComparer()
+        {
+            // Setup loop variables
+            RandomList<int> testList;
+            RandomList<int>.ElementFrequency newFrequency;
+            List<RandomList<int>.ElementFrequency> referenceList = new List<RandomList<int>.ElementFrequency>(3);
+            Dictionary<int, int> referenceFrequencies = new Dictionary<int, int>(3);
+
+            // Loop for unique elements
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Add new element to loop variables
+                newFrequency = new RandomList<int>.ElementFrequency(size, size);
+                referenceList.Add(newFrequency);
+                referenceFrequencies.Add(newFrequency.Element, newFrequency.Frequency);
+
+                // Test the list constructors, and whether it copy its content correctly
+                testList = new RandomList<int>(referenceList, testComparer);
+
+                // Run some tests
+                TestRandomListMeta(testList, size, size, testComparer, "Testing from TestConstructorIListEIEqualityComparer, unique elements.");
+                TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorIListEIEqualityComparer, unique elements.");
+            }
+
+            // Setup variables for next loop
+            referenceList.Clear();
+            referenceFrequencies.Clear();
+            referenceFrequencies.Add(10, 0);
+
+            // Loop for same elements
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Test the capacity constructors, and whether it creates an empty dictionary
+                newFrequency = new RandomList<int>.ElementFrequency(10 * size, size);
+                referenceList.Add(newFrequency);
+                referenceFrequencies[10] += newFrequency.Frequency;
+                testList = new RandomList<int>(referenceList, testComparer);
+
+                // Run some tests
+                TestRandomListMeta(testList, 1, size, testComparer, "Testing from TestConstructorIListEIEqualityComparer, same elements.");
+                TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorIListEIEqualityComparer, same elements.");
+            }
+        }
+        #endregion
+
+        #region Helper Methods
+        private static void TestRandomListMeta(RandomList<int> testList, int expectedSize, int expectedCapacity, string message)
+        {
+            TestRandomListMeta(testList, expectedSize, expectedCapacity, null, message);
+        }
+
+        private static void TestRandomListMeta(RandomList<int> testList, int expectedSize, int expectedCapacity, IEqualityComparer<int> expectedComparer, string message)
+        {
+            // Run tests
+            Assert.IsNotNull(testList, message);
+            Assert.AreEqual(expectedSize, testList.Count, message);
+            Assert.AreEqual(expectedCapacity, testList.Capacity, message);
+            if(expectedComparer != null)
+            {
+                Assert.AreEqual(expectedComparer, testList.Comparer, message);
+            }
+        }
+
+        private static void TestRandomListContent(RandomList<int> testList, int expectedFrequency, string message)
+        {
+            // Make sure the list is initialized correctly
+            int index = 1;
+            foreach (int element in testList)
+            {
+                Assert.AreEqual(index, element, message);
+                Assert.AreEqual(expectedFrequency, testList.GetFrequency(element), message);
+                ++index;
+            }
+        }
+
+        private static void TestRandomListContent<T>(RandomList<T> testList, IDictionary<T, int> expectedFrequencies, string message)
+        {
+            // Make sure the list is initialized correctly
+            int count = 0;
+            foreach (T element in testList)
+            {
+                Assert.IsTrue(expectedFrequencies.ContainsKey(element), message);
+                Assert.AreEqual(expectedFrequencies[element], testList.GetFrequency(element), message);
+                ++count;
+            }
+
+            // Make sure all dictionary elements were matched
+            Assert.AreEqual(expectedFrequencies.Count, count, "Did all frequency match?");
         }
         #endregion
     }
