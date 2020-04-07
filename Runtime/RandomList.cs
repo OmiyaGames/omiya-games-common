@@ -320,6 +320,7 @@ namespace OmiyaGames
         }
         #endregion
 
+        #region Helper Properties
         /// <summary>
         /// Dictionary mapping an element to the index in <see cref="elementsList"/>.
         /// </summary>
@@ -351,6 +352,7 @@ namespace OmiyaGames
                 return shuffledIndexes;
             }
         }
+        #endregion
 
         /// <summary>
         /// Number of <em>unique</em> elements in this list.
@@ -524,7 +526,12 @@ namespace OmiyaGames
             return returnNumRemoved;
         }
 
-        public int RemoveAll(T item)
+        /// <summary>
+        /// Removes all instances of an item from the list.
+        /// </summary>
+        /// <param name="item">The item to remove from the list.</param>
+        /// <returns>Number of instanes of item removed.</returns>
+        public int RemoveAllOf(T item)
         {
             // Setup default return value
             int returnFrequency = GetFrequency(item);
@@ -609,6 +616,11 @@ namespace OmiyaGames
             Reshuffle();
         }
 
+        /// <summary>
+        /// Checks if an item is in the list.
+        /// </summary>
+        /// <param name="item">The item to test.</param>
+        /// <returns>True if item is in the list.</returns>
         public bool Contains(T item)
         {
             return ElementToIndexMap.ContainsKey(item);
