@@ -353,7 +353,7 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// Number of elements in this list.
+        /// Number of <em>unique</em> elements in this list.
         /// Disregards the <see cref="ElementFrequency.Frequency"/> value.
         /// </summary>
         public int Count => elementsList.Count;
@@ -364,7 +364,8 @@ namespace OmiyaGames
         public IEqualityComparer<T> Comparer => ElementToIndexMap.Comparer;
 
         /// <summary>
-        /// Capacity of this list
+        /// Capacity of this list. This value automatically
+        /// increases as more elements are added to this list.
         /// </summary>
         public int Capacity => elementsList.Capacity;
 
@@ -559,10 +560,10 @@ namespace OmiyaGames
 
         #region Interface Implementation
         /// <summary>
-        /// Always returns true.
+        /// Always returns false.
         /// </summary>
-        /// <returns>true</returns>
-        public bool IsReadOnly => ((IList<T>)elementsList).IsReadOnly;
+        /// <returns>false</returns>
+        public bool IsReadOnly => false;
 
         /// <summary>
         /// Enumerates through all items, in order of appended elements.
