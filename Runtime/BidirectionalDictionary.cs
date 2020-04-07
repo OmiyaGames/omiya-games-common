@@ -96,7 +96,7 @@ namespace OmiyaGames
             ValueToKeyMap = new Dictionary<VALUE, KEY>(capacity, valueComparer);
         }
 
-        public BidirectionalDictionary(IDictionary<KEY, VALUE> dictionary) : this()
+        public BidirectionalDictionary(IDictionary<KEY, VALUE> dictionary) : this(dictionary.Count)
         {
             foreach (KeyValuePair<KEY, VALUE> pair in dictionary)
             {
@@ -104,7 +104,7 @@ namespace OmiyaGames
             }
         }
 
-        public BidirectionalDictionary(IDictionary<KEY, VALUE> dictionary, IEqualityComparer<KEY> keyComparer, IEqualityComparer<VALUE> valueComparer) : this(keyComparer, valueComparer)
+        public BidirectionalDictionary(IDictionary<KEY, VALUE> dictionary, IEqualityComparer<KEY> keyComparer, IEqualityComparer<VALUE> valueComparer) : this(dictionary.Count, keyComparer, valueComparer)
         {
             foreach (KeyValuePair<KEY, VALUE> pair in dictionary)
             {
