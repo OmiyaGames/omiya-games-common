@@ -56,29 +56,39 @@ namespace OmiyaGames.Common.Runtime.Tests
     /// </remarks>
     public class TestBidirectionalDictionary
     {
-        // A Test behaves as an ordinary method
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary"/>
         [Test]
-        public void TestConstructors()
+        public void TestConstructorDefault()
         {
-            // Use the Assert class to test conditions
-
-            // Start by testing the default constructor, and whether it creates an empty dictionary
+            // Test the default constructor, and whether it creates an empty dictionary
             BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>();
             Assert.IsNotNull(testDictionary);
-            Assert.AreEqual(testDictionary.Count, 0);
+            Assert.AreEqual(0, testDictionary.Count);
+        }
 
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(int)"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(int)"/>
+        [Test]
+        public void TestConstructorInt()
+        {
             // Test the capacity constructors, and whether it creates an empty dictionary
-            for(int capacity = 10; capacity <= 30; capacity += 10)
+            BidirectionalDictionary<int, string> testDictionary;
+            for (int capacity = 10; capacity <= 30; capacity += 10)
             {
                 testDictionary = new BidirectionalDictionary<int, string>(capacity);
                 Assert.IsNotNull(testDictionary);
-                Assert.AreEqual(testDictionary.Count, 0);
+                Assert.AreEqual(0, testDictionary.Count);
 
                 // Interestingly, I can't get the capacity info from the member variables.
             }
-
-            // TODO: Test IDictionary constructors at some point
-            // TODO: Test IEqualityComparer constructors at some point
         }
+
+        // TODO: test the rest of the constructors
+        // TODO: test the rest of the methods
     }
 }

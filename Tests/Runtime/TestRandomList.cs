@@ -56,21 +56,134 @@ namespace OmiyaGames.Common.Runtime.Tests
     /// </remarks>
     public class TestRandomList
     {
-        // A Test behaves as an ordinary method
+        /// <summary>
+        /// A <see cref="SingleDigitEqualityComparer"/> for testing purposes.
+        /// </summary>
+        readonly IEqualityComparer<int> testComparer = new SingleDigitEqualityComparer();
+
+        #region Test Constructors
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList"/>
         [Test]
-        public void TestRandomListSimplePasses()
+        public void TestConstructorDefault()
         {
-            // Use the Assert class to test conditions
+            // Test the default constructor, and whether it creates an empty dictionary
+            RandomList<string> testList = new RandomList<string>();
+
+            // Run tests
+            Assert.IsNotNull(testList);
+            Assert.AreEqual(0, testList.Count);
         }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator TestRandomListWithEnumeratorPasses()
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(int)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(int)"/>
+        [Test]
+        public void TestConstructorInt()
         {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return null;
+            RandomList<string> testList;
+            for (int capacity = 10; capacity <= 30; capacity += 10)
+            {
+                // Test the capacity constructors, and whether it creates an empty dictionary
+                testList = new RandomList<string>(capacity);
+
+                // Run tests
+                Assert.IsNotNull(testList);
+                Assert.AreEqual(0, testList.Count);
+                Assert.AreEqual(capacity, testList.Capacity);
+            }
         }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(IEqualityComparer{T})"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(IEqualityComparer{T})"/>
+        [Test]
+        public void TestConstructorIEqualityComparer()
+        {
+            // Test the capacity constructors, and whether it creates an empty dictionary
+            RandomList<int> testList = new RandomList<int>(testComparer);
+
+            // Run tests
+            Assert.IsNotNull(testList);
+            Assert.AreEqual(0, testList.Count);
+            Assert.AreEqual(testComparer, testList.Comparer);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(int, IEqualityComparer{T})"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(int, IEqualityComparer{T})"/>
+        [Test]
+        public void TestConstructorIntIEqualityComparer()
+        {
+            RandomList<int> testList;
+            for (int capacity = 10; capacity <= 30; capacity += 10)
+            {
+                // Test the capacity constructors, and whether it creates an empty dictionary
+                testList = new RandomList<int>(capacity, testComparer);
+
+                // Run tests
+                Assert.IsNotNull(testList);
+                Assert.AreEqual(0, testList.Count);
+                Assert.AreEqual(capacity, testList.Capacity);
+                Assert.AreEqual(testComparer, testList.Comparer);
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(IList{T})"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(IList{T})"/>
+        [Test]
+        public void TestConstructorIList()
+        {
+            RandomList<int> testList;
+            List<int> referenceList = new List<int>(3);
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Test the list constructors, and whether it copy its content correctly
+                referenceList.Add(size);
+                testList = new RandomList<int>(referenceList);
+
+                // Run tests
+                Assert.IsNotNull(testList);
+                Assert.AreEqual(size, testList.Count, "Testing list size when each element is unique");
+                Assert.AreEqual(size, testList.Count);
+
+                // Make sure the list is initialized correctly
+                int index = 1;
+                foreach(int element in testList)
+                {
+                    Assert.AreEqual(index, element, "Testing list element when each element is unique");
+                    Assert.AreEqual(1, testList.GetFrequency(element), "Testing list frequency when each element is unique");
+                    ++index;
+                }
+            }
+
+            referenceList.Clear();
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Test the capacity constructors, and whether it creates an empty dictionary
+                referenceList.Add(1);
+                testList = new RandomList<int>(referenceList);
+
+                // Run tests
+                Assert.IsNotNull(testList);
+                Assert.AreEqual(1, testList.Count, "Testing list size when each element is the same");
+                Assert.AreEqual(size, testList.Capacity);
+
+                // Make sure the list is initialized correctly
+                foreach (int element in testList)
+                {
+                    Assert.AreEqual(1, element, "Testing list element when each element is the same");
+                    Assert.AreEqual(size, testList.GetFrequency(element), "Testing list frequency when each element is the same");
+                }
+            }
+        }
+        #endregion
     }
 }
