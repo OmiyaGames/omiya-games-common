@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using UnityEngine.TestTools;
+using Random = UnityEngine.Random;
 
 namespace OmiyaGames.Common.Runtime.Tests
 {
@@ -608,9 +609,136 @@ namespace OmiyaGames.Common.Runtime.Tests
         [Test]
         public void TestElementProperties()
         {
+            // Create a list to test sorting on
+            List<int> testBase = new List<int>();
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                for (int instances = 0; instances < numAdd; ++instances)
+                {
+                    testBase.Add(numAdd);
+                }
+            }
+
+            // Start with a filled list
+            RandomList<int> testList = new RandomList<int>(testBase);
+
+            // RandomList uses ShuffleList, so use that as basis to confirm the shuffling worked
+            Random.State lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Verify a small edge case where CurrentElement gets called first
+            Random.state = lastState;
+            Assert.AreEqual(testBase[0], testList.CurrentElement);
+
+            // Go call the properties to confirm the rest of their values
+            for (int i = 1; i < testBase.Count; ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+
+                // Also verify CurrentElement is the same value
+                Assert.AreEqual(testElement, testList.CurrentElement);
+            }
+
+            // Double-check that the next go-around, the list is re-shuffled again.
+            lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Go call the properties to confirm the rest of their values
+            Random.state = lastState;
+            for (int i = 0; i < testBase.Count; ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+
+                // Also verify CurrentElement is the same value
+                Assert.AreEqual(testElement, testList.CurrentElement);
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.CurrentElement"/> and <see cref="RandomList{T}.NextRandomElement"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.CurrentElement"/>
+        /// <seealso cref="RandomList{T}.NextRandomElement"/>
+        [Test]
+        public void TestElementPropertiesEdgeCases()
+        {
             // Start with an empty list
-            RandomList<int> testList = new RandomList<int>();
-            // FIXME: test NextRandomElement and CurrentElement first under certain edge case circumstances, then make sure the former determines the value of the latter.
+            RandomList<int> testList = new RandomList<int>(4);
+
+            // Confirm Properties return default values
+            Assert.AreEqual(default(int), testList.CurrentElement);
+            Assert.AreEqual(default(int), testList.NextRandomElement);
+            Assert.AreEqual(default(int), testList.CurrentElement);
+
+            // Add only a single value
+            const int testValue = 10;
+            testList.Add(testValue);
+
+            // Confirm Properties return only this value
+            Assert.AreEqual(testValue, testList.CurrentElement);
+            Assert.AreEqual(testValue, testList.NextRandomElement);
+            Assert.AreEqual(testValue, testList.CurrentElement);
+
+            // Add the test value a few more times
+            for (int i = 0; i < 3; ++i)
+            {
+                testList.Add(testValue);
+            }
+
+            // Confirm Properties return only this value
+            for (int i = 0; i < testList.GetFrequency(testValue); ++i)
+            {
+                Assert.AreEqual(testValue, testList.CurrentElement);
+                Assert.AreEqual(testValue, testList.NextRandomElement);
+                Assert.AreEqual(testValue, testList.CurrentElement);
+            }
+
+            // Add element, shuffle list, then remove the same element
+            testList.Add(testValue + 1);
+            int testElement = testList.NextRandomElement;
+            testList.Remove(testValue + 1);
+
+            // Confirm Properties return only this value
+            for (int i = 0; i < testList.GetFrequency(testValue); ++i)
+            {
+                Assert.AreEqual(testValue, testList.CurrentElement);
+                Assert.AreEqual(testValue, testList.NextRandomElement);
+                Assert.AreEqual(testValue, testList.CurrentElement);
+            }
+
+            // re-create the list, but with the test comparer
+            testList = new RandomList<int>(3, testComparer);
+
+            // Add the test value a few more times
+            for (int i = 1; i <= 3; ++i)
+            {
+                testList.Add(testValue);
+            }
+
+            // Confirm Properties return only this value
+            for (int i = 0; i < testList.GetFrequency(testValue); ++i)
+            {
+                Assert.AreEqual(testValue, testList.CurrentElement);
+                Assert.AreEqual(testValue, testList.NextRandomElement);
+                Assert.AreEqual(testValue, testList.CurrentElement);
+            }
+
+            // Add element, shuffle list, then remove the same element
+            testList.Add(testValue + 1);
+            testElement = testList.NextRandomElement;
+            testList.Remove(testValue + 1);
+
+            // Confirm Properties return only this value
+            for (int i = 0; i < testList.GetFrequency(testValue); ++i)
+            {
+                Assert.AreEqual(testValue, testList.CurrentElement);
+                Assert.AreEqual(testValue, testList.NextRandomElement);
+                Assert.AreEqual(testValue, testList.CurrentElement);
+            }
         }
         #endregion
 
