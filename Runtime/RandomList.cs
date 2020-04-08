@@ -388,7 +388,7 @@ namespace OmiyaGames
                     if ((index < 0) || (index >= ShuffledIndexes.Count))
                     {
                         // Shuffle the list
-                        Helpers.ShuffleList<int>(ShuffledIndexes);
+                        Helpers.ShuffleList(ShuffledIndexes);
 
                         // Reset the index
                         index = 0;
