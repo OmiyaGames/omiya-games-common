@@ -570,8 +570,32 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test Clear(T)
-            // both when the list is empty, and has some elements in it.
+
+            // test Clear() when list is empty from the first place
+            testList.Clear();
+            Assert.AreEqual(0, testList.Count);
+            foreach(int i in testList)
+            {
+                Assert.Fail("Should not be able to enumerate an empty list.");
+                break;
+            }
+
+            // Add a bunch of elements into the list
+            const int listSize = 3;
+            for(int size = 1; size <= listSize; ++size)
+            {
+                testList.Add(size, size);
+            }
+            Assert.AreEqual(listSize, testList.Count);
+
+            // test Clear() when list has some elements
+            testList.Clear();
+            Assert.AreEqual(0, testList.Count);
+            foreach (int i in testList)
+            {
+                Assert.Fail("Should not be able to enumerate an empty list.");
+                break;
+            }
         }
         #endregion
 
