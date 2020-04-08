@@ -681,8 +681,102 @@ namespace OmiyaGames.Common.Runtime.Tests
         public void TestGetFrequency()
         {
             // Start with an empty list
+            const int fillTo = 3, testTo = fillTo + 3;
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test GetFrequency(T) under edge cases
+
+            // test GetFrequency where the list is empty
+            for (int i = 1; i <= testTo; ++i)
+            {
+                Assert.AreEqual(0, testList.GetFrequency(i));
+            }
+
+            // Fill in the list
+            for (int addNum = 1; addNum <= fillTo; ++addNum)
+            {
+                testList.Add(addNum, addNum);
+
+                // test GetFrequency where the list has some elements
+                for (int testNum = 1; testNum <= testTo; ++testNum)
+                {
+                    if (testNum <= addNum)
+                    {
+                        Assert.AreEqual(testNum, testList.GetFrequency(testNum));
+                    }
+                    else
+                    {
+                        Assert.AreEqual(0, testList.GetFrequency(testNum));
+                    }
+                }
+            }
+
+            // Fill in the list again
+            for (int addNum = 1; addNum <= fillTo; ++addNum)
+            {
+                testList.Add(addNum, addNum);
+
+                // test GetFrequency where the list has some elements
+                for (int testNum = 1; testNum <= testTo; ++testNum)
+                {
+                    if (testNum <= addNum)
+                    {
+                        // Since we're adding the same values twice, the number should be double
+                        Assert.AreEqual((testNum * 2), testList.GetFrequency(testNum));
+                    }
+                    else if (testNum <= fillTo)
+                    {
+                        // Value hasn't been incremented yet, test old value
+                        Assert.AreEqual(testNum, testList.GetFrequency(testNum));
+                    }
+                    else
+                    {
+                        Assert.AreEqual(0, testList.GetFrequency(testNum));
+                    }
+                }
+            }
+
+            // Remove elements from the list
+            for (int removeNum = fillTo; removeNum >= 1; --removeNum)
+            {
+                testList.Remove(removeNum, removeNum);
+
+                // test GetFrequency where the list has some elements
+                for (int testNum = 1; testNum <= testTo; ++testNum)
+                {
+                    if (testNum < removeNum)
+                    {
+                        // Value hasn't been decremented yet, test old value
+                        Assert.AreEqual((testNum * 2), testList.GetFrequency(testNum));
+                    }
+                    else if (testNum <= fillTo)
+                    {
+                        // Removed value should return back
+                        Assert.AreEqual(testNum, testList.GetFrequency(testNum));
+                    }
+                    else
+                    {
+                        Assert.AreEqual(0, testList.GetFrequency(testNum));
+                    }
+                }
+            }
+
+            // Remove elements from the list again
+            for (int removeNum = fillTo; removeNum >= 1; --removeNum)
+            {
+                testList.Remove(removeNum, removeNum);
+
+                // test GetFrequency where the list has some elements
+                for (int testNum = 1; testNum <= testTo; ++testNum)
+                {
+                    if (testNum < removeNum)
+                    {
+                        Assert.AreEqual(testNum, testList.GetFrequency(testNum));
+                    }
+                    else
+                    {
+                        Assert.AreEqual(0, testList.GetFrequency(testNum));
+                    }
+                }
+            }
         }
         #endregion
 
@@ -696,7 +790,7 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test GetFrequency(T) under edge cases
+            // FIXME: test CopyTo(T[], int) under edge cases
         }
 
         /// <summary>
@@ -708,7 +802,7 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test GetFrequency(T) under edge cases
+            // FIXME: test CopyTo(RandomList[], int) under edge cases
         }
         #endregion
 
