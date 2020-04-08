@@ -153,16 +153,11 @@ namespace OmiyaGames
             /// if <see cref="Element"/> matches with the argument.
             /// Otherwise, false.
             /// </returns>
-            /// FIXME: look into whether we want to phase this override out
             public override bool Equals(object obj)
             {
                 if (obj is ElementFrequency other)
                 {
                     return (other.Frequency == this.Frequency) && (Comparer<T>.Default.Compare(other.Element, this.Element) == 0);
-                }
-                else if (obj is T otherElement)
-                {
-                    return (Comparer<T>.Default.Compare(otherElement, this.Element) == 0);
                 }
                 else
                 {
