@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
-using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace OmiyaGames.Common.Runtime.Tests
@@ -151,7 +151,7 @@ namespace OmiyaGames.Common.Runtime.Tests
                 // Test the list constructors, and whether it copy its content correctly
                 referenceList.Add(size);
                 testList = new RandomList<int>(referenceList);
-                
+
                 // Run some tests
                 TestRandomListMeta(testList, size, size, "Testing from TestConstructorIListT, unique elements.");
                 TestRandomListContent(testList, 1, "Testing from TestConstructorIListT, unique elements.");
@@ -320,13 +320,83 @@ namespace OmiyaGames.Common.Runtime.Tests
         /// </summary>
         /// <seealso cref="RandomList{T}.Add(T)"/>
         [Test]
-        public void TestAddT()
+        public void TestAddTNoConflicts()
         {
             // Start with an empty list
-            RandomList<int> testList = new RandomList<int>();
-            // FIXME: test Add(T)
-            // FIXME: also test IEqualityComparer
-            testList = new RandomList<int>(testComparer);
+            RandomList<int> testList = new RandomList<int>(3);
+            Dictionary<int, int> referenceFrequencies = new Dictionary<int, int>(3);
+
+            // Test Add(T)
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Perform action
+                testList.Add(size);
+                referenceFrequencies.Add(size, 1);
+
+                // Verify content of randomList
+                Assert.AreEqual(size, testList.Count);
+                TestRandomListContent(testList, referenceFrequencies, "Testing TestAddTNoConflicts");
+            }
+
+            // Also test IEqualityComparer
+            testList = new RandomList<int>(3, testComparer);
+            referenceFrequencies.Clear();
+
+            // Test Add(T)
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Perform action
+                testList.Add(size);
+                referenceFrequencies.Add(size, 1);
+
+                // Verify content of randomList
+                Assert.AreEqual(size, testList.Count);
+                TestRandomListContent(testList, referenceFrequencies, "Testing TestAddTNoConflicts");
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Add(T)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Add(T)"/>
+        [Test]
+        public void TestAddTWithConflicts()
+        {
+            // Start with an empty list
+            const int toAdd = 10;
+            RandomList<int> testList = new RandomList<int>(3);
+            Dictionary<int, int> referenceFrequencies = new Dictionary<int, int>(1)
+            {
+                { toAdd, 0 }
+            };
+
+            // Test Add(T)
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Perform action
+                testList.Add(toAdd);
+                referenceFrequencies[toAdd] += 1;
+
+                // Verify content of randomList
+                Assert.AreEqual(1, testList.Count);
+                TestRandomListContent(testList, referenceFrequencies, "Testing TestAddTWithConflicts");
+            }
+
+            // Also test IEqualityComparer
+            testList = new RandomList<int>(3, testComparer);
+            referenceFrequencies[toAdd] = 0;
+
+            // Test Add(T)
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Perform action
+                testList.Add(toAdd * size);
+                referenceFrequencies[toAdd] += 1;
+
+                // Verify content of randomList
+                Assert.AreEqual(1, testList.Count);
+                TestRandomListContent(testList, referenceFrequencies, "Testing TestAddTWithConflicts");
+            }
         }
 
         /// <summary>
@@ -334,13 +404,110 @@ namespace OmiyaGames.Common.Runtime.Tests
         /// </summary>
         /// <seealso cref="RandomList{T}.Add(T, int)"/>
         [Test]
-        public void TestAddTInt()
+        public void TestAddTIntExceptions()
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test Add(T, int)
-            // FIXME: also test IEqualityComparer
-            testList = new RandomList<int>(testComparer);
+
+            // Check if running Add with 0 as numberOfItemsToAdd throws an error
+            ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(delegate
+            {
+                testList.Add(0, 0);
+            }, "Testing TestAddTExceptions");
+            Assert.NotNull(exception);
+            Assert.IsNotEmpty(exception.Message);
+            Assert.AreEqual("numberOfItemsToAdd", exception.ParamName);
+
+            // Check if running Add with -1 as numberOfItemsToAdd throws an error
+            exception = Assert.Throws<ArgumentOutOfRangeException>(delegate
+            {
+                testList.Add(0, -1);
+            }, "Testing TestAddTExceptions");
+            Assert.NotNull(exception);
+            Assert.IsNotEmpty(exception.Message);
+            Assert.AreEqual("numberOfItemsToAdd", exception.ParamName);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Add(T, int)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Add(T, int)"/>
+        [Test]
+        public void TestAddTIntNoConflicts()
+        {
+            // Start with an empty list
+            RandomList<int> testList = new RandomList<int>(3);
+            Dictionary<int, int> referenceFrequencies = new Dictionary<int, int>(3);
+
+            // Test Add(T)
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Perform action
+                testList.Add(size, size);
+                referenceFrequencies.Add(size, size);
+
+                // Verify content of randomList
+                TestRandomListContent(testList, referenceFrequencies, "Testing TestAddTNoConflicts");
+            }
+
+            // Also test IEqualityComparer
+            testList = new RandomList<int>(3, testComparer);
+            referenceFrequencies.Clear();
+
+            // Test Add(T)
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Perform action
+                testList.Add(size, size);
+                referenceFrequencies.Add(size, size);
+
+                // Verify content of randomList
+                TestRandomListContent(testList, referenceFrequencies, "Testing TestAddTNoConflicts");
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Add(T, int)"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Add(T, int)"/>
+        [Test]
+        public void TestAddTIntWithConflicts()
+        {
+            // Start with an empty list
+            const int toAdd = 10;
+            RandomList<int> testList = new RandomList<int>(3);
+            Dictionary<int, int> referenceFrequencies = new Dictionary<int, int>(1)
+            {
+                { toAdd, 0 }
+            };
+
+            // Test Add(T)
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Perform action
+                testList.Add(toAdd, size);
+                referenceFrequencies[toAdd] += size;
+
+                // Verify content of randomList
+                Assert.AreEqual(1, testList.Count);
+                TestRandomListContent(testList, referenceFrequencies, "Testing TestAddTIntWithConflicts");
+            }
+
+            // Also test IEqualityComparer
+            testList = new RandomList<int>(3, testComparer);
+            referenceFrequencies[toAdd] = 0;
+
+            // Test Add(T)
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Perform action
+                testList.Add((toAdd * size), size);
+                referenceFrequencies[toAdd] += size;
+
+                // Verify content of randomList
+                Assert.AreEqual(1, testList.Count);
+                TestRandomListContent(testList, referenceFrequencies, "Testing TestAddTIntWithConflicts");
+            }
         }
         #endregion
 
@@ -503,7 +670,7 @@ namespace OmiyaGames.Common.Runtime.Tests
             Assert.IsNotNull(testList, message);
             Assert.AreEqual(expectedSize, testList.Count, message);
             Assert.AreEqual(expectedCapacity, testList.Capacity, message);
-            if(expectedComparer != null)
+            if (expectedComparer != null)
             {
                 Assert.AreEqual(expectedComparer, testList.Comparer, message);
             }
