@@ -574,7 +574,7 @@ namespace OmiyaGames.Common.Runtime.Tests
             // test Clear() when list is empty from the first place
             testList.Clear();
             Assert.AreEqual(0, testList.Count);
-            foreach(int i in testList)
+            foreach (int i in testList)
             {
                 Assert.Fail("Should not be able to enumerate an empty list.");
                 break;
@@ -582,7 +582,7 @@ namespace OmiyaGames.Common.Runtime.Tests
 
             // Add a bunch of elements into the list
             const int listSize = 3;
-            for(int size = 1; size <= listSize; ++size)
+            for (int size = 1; size <= listSize; ++size)
             {
                 testList.Add(size, size);
             }
@@ -637,8 +637,38 @@ namespace OmiyaGames.Common.Runtime.Tests
         public void TestContains()
         {
             // Start with an empty list
+            const int fillTo = 3, testTo = fillTo + 3;
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test Contains(T) under edge cases
+
+            // test Contains where the list is empty
+            for (int i = 1; i <= testTo; ++i)
+            {
+                Assert.IsFalse(testList.Contains(i));
+            }
+
+            // Fill in the list
+            for (int addNum = 1; addNum <= fillTo; ++addNum)
+            {
+                testList.Add(addNum);
+
+                // test Contains where the list has some elements
+                for (int testNum = 1; testNum <= testTo; ++testNum)
+                {
+                    Assert.AreEqual((testNum <= addNum), testList.Contains(testNum));
+                }
+            }
+
+            // Remove elements from the list
+            for (int removeNum = fillTo; removeNum >= 1; --removeNum)
+            {
+                testList.Remove(removeNum);
+
+                // test Contains where the list has some elements
+                for (int testNum = 1; testNum <= testTo; ++testNum)
+                {
+                    Assert.AreEqual((testNum < removeNum), testList.Contains(testNum));
+                }
+            }
         }
         #endregion
 
