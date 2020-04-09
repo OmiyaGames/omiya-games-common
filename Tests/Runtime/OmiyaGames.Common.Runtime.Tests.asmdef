@@ -1,7 +1,7 @@
 {
     "name": "OmiyaGames.Tests",
     "references": [
-        "GUID:cdda17712c724478898665290e9a02cc"
+        "OmiyaGames"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -11,5 +11,8 @@
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
-    "noEngineReferences": false
+    "noEngineReferences": false,
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
 }

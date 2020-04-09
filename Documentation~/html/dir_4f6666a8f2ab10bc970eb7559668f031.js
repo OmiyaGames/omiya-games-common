@@ -2,6 +2,9 @@ var dir_4f6666a8f2ab10bc970eb7559668f031 =
 [
     [ "Attributes", "dir_68ef4aeaa89e0c460d3b66c6a36a182b.html", "dir_68ef4aeaa89e0c460d3b66c6a36a182b" ],
     [ "Threads", "dir_177002c85065f2f1117911e72da77ef5.html", "dir_177002c85065f2f1117911e72da77ef5" ],
+    [ "BidirectionalDictionary.cs", "_bidirectional_dictionary_8cs.html", [
+      [ "BidirectionalDictionary", "class_omiya_games_1_1_bidirectional_dictionary.html", "class_omiya_games_1_1_bidirectional_dictionary" ]
+    ] ],
     [ "Helpers.cs", "_helpers_8cs.html", null ],
     [ "HsvColor.cs", "_hsv_color_8cs.html", [
       [ "HsvColor", "struct_omiya_games_1_1_hsv_color.html", "struct_omiya_games_1_1_hsv_color" ]

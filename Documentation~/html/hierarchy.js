@@ -3,12 +3,13 @@ var hierarchy =
     [ "OmiyaGames.RandomList< T >.ElementFrequency", "struct_omiya_games_1_1_random_list_1_1_element_frequency.html", null ],
     [ "OmiyaGames.HsvColor", "struct_omiya_games_1_1_hsv_color.html", null ],
     [ "ICollection", null, [
-      [ "OmiyaGames.RandomList< T >", "class_omiya_games_1_1_random_list.html", null ],
       [ "OmiyaGames.RandomList< T >", "class_omiya_games_1_1_random_list.html", null ]
     ] ],
-    [ "IEnumerable", null, [
-      [ "OmiyaGames.RandomList< T >", "class_omiya_games_1_1_random_list.html", null ],
-      [ "OmiyaGames.RandomList< T >", "class_omiya_games_1_1_random_list.html", null ]
+    [ "IDictionary", null, [
+      [ "OmiyaGames.BidirectionalDictionary< KEY, VALUE >", "class_omiya_games_1_1_bidirectional_dictionary.html", null ]
+    ] ],
+    [ "IEqualityComparer", null, [
+      [ "OmiyaGames.Common.Runtime.Tests.SingleDigitEqualityComparer", "class_omiya_games_1_1_common_1_1_runtime_1_1_tests_1_1_single_digit_equality_comparer.html", null ]
     ] ],
     [ "IList", null, [
       [ "OmiyaGames.ListSet< T >", "class_omiya_games_1_1_list_set.html", null ]
@@ -43,6 +44,13 @@ var hierarchy =
       [ "OmiyaGames.Common.Editor.ScenePathDrawer", "class_omiya_games_1_1_common_1_1_editor_1_1_scene_path_drawer.html", null ],
       [ "OmiyaGames.Common.Editor.SupportedPlatformsDrawer", "class_omiya_games_1_1_common_1_1_editor_1_1_supported_platforms_drawer.html", null ]
     ] ],
+    [ "OmiyaGames.Common.Editor.Tests.TestAssetHelpers", "class_omiya_games_1_1_common_1_1_editor_1_1_tests_1_1_test_asset_helpers.html", null ],
+    [ "OmiyaGames.Common.Runtime.Tests.TestBidirectionalDictionary", "class_omiya_games_1_1_common_1_1_runtime_1_1_tests_1_1_test_bidirectional_dictionary.html", null ],
+    [ "OmiyaGames.Common.Editor.Tests.TestEditorHelpers", "class_omiya_games_1_1_common_1_1_editor_1_1_tests_1_1_test_editor_helpers.html", null ],
+    [ "OmiyaGames.Common.Runtime.Tests.TestHelpers", "class_omiya_games_1_1_common_1_1_runtime_1_1_tests_1_1_test_helpers.html", null ],
+    [ "OmiyaGames.Common.Runtime.Tests.TestListSet", "class_omiya_games_1_1_common_1_1_runtime_1_1_tests_1_1_test_list_set.html", null ],
+    [ "OmiyaGames.Common.Runtime.Tests.TestRandomList", "class_omiya_games_1_1_common_1_1_runtime_1_1_tests_1_1_test_random_list.html", null ],
+    [ "OmiyaGames.Common.Runtime.Tests.TestSupportedPlatforms", "class_omiya_games_1_1_common_1_1_runtime_1_1_tests_1_1_test_supported_platforms.html", null ],
     [ "OmiyaGames.ThreadSafe< T >", "class_omiya_games_1_1_thread_safe.html", null ],
     [ "OmiyaGames.ThreadSafe< int >", "class_omiya_games_1_1_thread_safe.html", [
       [ "OmiyaGames.ThreadSafeInt", "class_omiya_games_1_1_thread_safe_int.html", null ]

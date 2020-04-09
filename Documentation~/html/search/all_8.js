@@ -1,10 +1,20 @@
 var searchData=
 [
-  ['length',['Length',['../class_omiya_games_1_1_thread_safe_string_builder.html#abf58c380594919672bab6df5a49c8d77',1,'OmiyaGames::ThreadSafeStringBuilder']]],
-  ['lerp',['Lerp',['../struct_omiya_games_1_1_hsv_color.html#a3a239903ee52f190df23e1015a614741',1,'OmiyaGames::HsvColor']]],
-  ['lessthanorequalto',['LessThanOrEqualTo',['../class_omiya_games_1_1_default_number_attribute.html#afc4a88e979800847e1e45b6bd60a8032a67827f79b05c979b2378e9514bb7e741',1,'OmiyaGames::DefaultNumberAttribute']]],
-  ['license_2emd',['LICENSE.md',['../_l_i_c_e_n_s_e_8md.html',1,'']]],
-  ['linux',['Linux',['../namespace_omiya_games.html#a0b6fe207f54b54fa772135aeb858d484aedc9f0a5a5d57797bf68e37364743831',1,'OmiyaGames']]],
-  ['listset',['ListSet',['../class_omiya_games_1_1_list_set.html',1,'OmiyaGames.ListSet&lt; T &gt;'],['../class_omiya_games_1_1_list_set.html#aef28c9a1025fb7072c2f20432d8551e1',1,'OmiyaGames.ListSet.ListSet()'],['../class_omiya_games_1_1_list_set.html#a826935776757925a2f0999e4e17caebb',1,'OmiyaGames.ListSet.ListSet(int capacity)'],['../class_omiya_games_1_1_list_set.html#a7f7fcff65a6e3c0e19e843aa31e405bc',1,'OmiyaGames.ListSet.ListSet(IEqualityComparer&lt; T &gt; comparer)'],['../class_omiya_games_1_1_list_set.html#ae79d74f54d2dda087b25cf3d3dfe71d1',1,'OmiyaGames.ListSet.ListSet(int capacity, IEqualityComparer&lt; T &gt; comparer)']]],
-  ['listset_2ecs',['ListSet.cs',['../_list_set_8cs.html',1,'']]]
+  ['idefaultdrawer_80',['IDefaultDrawer',['../class_omiya_games_1_1_common_1_1_editor_1_1_i_default_drawer.html',1,'OmiyaGames::Common::Editor']]],
+  ['idefaultdrawer_2ecs_81',['IDefaultDrawer.cs',['../_i_default_drawer_8cs.html',1,'']]],
+  ['increment_82',['Increment',['../class_omiya_games_1_1_thread_safe_int.html#a0f10f44ad22fef275d7eb660c5791485',1,'OmiyaGames.ThreadSafeInt.Increment()'],['../class_omiya_games_1_1_thread_safe_long.html#a99f750cb4dd9e97921412187c6394124',1,'OmiyaGames.ThreadSafeLong.Increment()']]],
+  ['incrementcurrentstep_83',['IncrementCurrentStep',['../class_omiya_games_1_1_progress_report.html#aec5a3583288a13e7a59153d922a4d816',1,'OmiyaGames::ProgressReport']]],
+  ['incrementfrequency_84',['IncrementFrequency',['../class_omiya_games_1_1_random_list.html#a246e0ed04c29183f434cbc3444ea6e6c',1,'OmiyaGames::RandomList']]],
+  ['indexof_85',['IndexOf',['../class_omiya_games_1_1_list_set.html#ab8c9f4df2a1a512dbdaf42f18b2acb7c',1,'OmiyaGames.ListSet.IndexOf()'],['../class_omiya_games_1_1_random_list.html#a56b9f8911a56b005263530f17e2a57e5',1,'OmiyaGames.RandomList.IndexOf()']]],
+  ['insert_86',['Insert',['../class_omiya_games_1_1_list_set.html#a7a8ccc5c9c5e6bbd7313d1faa38b3002',1,'OmiyaGames.ListSet.Insert()'],['../class_omiya_games_1_1_thread_safe_string_builder.html#a8c5e5d046d2691df4468a2873b7c0c99',1,'OmiyaGames.ThreadSafeStringBuilder.Insert()']]],
+  ['intersectwith_87',['IntersectWith',['../class_omiya_games_1_1_list_set.html#a8611e68fec581327867b9808de2d6e07',1,'OmiyaGames::ListSet']]],
+  ['ios_88',['iOS',['../namespace_omiya_games.html#a0b6fe207f54b54fa772135aeb858d484a1bdf605991920db11cbdf8508204c4eb',1,'OmiyaGames']]],
+  ['ismessageboxshown_89',['IsMessageBoxShown',['../class_omiya_games_1_1_common_1_1_editor_1_1_file_path_drawer.html#ab85fff0c458ee3e6c21e138641a9d7a8',1,'OmiyaGames.Common.Editor.FilePathDrawer.IsMessageBoxShown()'],['../class_omiya_games_1_1_common_1_1_editor_1_1_folder_path_drawer.html#a8c15c4b6f4aa9a8130ca0692993c6eb3',1,'OmiyaGames.Common.Editor.FolderPathDrawer.IsMessageBoxShown()']]],
+  ['ispropersubsetof_90',['IsProperSubsetOf',['../class_omiya_games_1_1_list_set.html#ae41cec0b14d1f21293bbd9b61adb04d1',1,'OmiyaGames::ListSet']]],
+  ['ispropersupersetof_91',['IsProperSupersetOf',['../class_omiya_games_1_1_list_set.html#a29e4080a353935b898e32f0990ed296e',1,'OmiyaGames::ListSet']]],
+  ['isreadonly_92',['IsReadOnly',['../class_omiya_games_1_1_bidirectional_dictionary.html#aae3069de969e340a0dc721af25d7234e',1,'OmiyaGames.BidirectionalDictionary.IsReadOnly()'],['../class_omiya_games_1_1_list_set.html#a164124e44fc0d8d5bc9b4f666240022c',1,'OmiyaGames.ListSet.IsReadOnly()'],['../class_omiya_games_1_1_random_list.html#a1d4af3d306ab3983ff0551e7a43c65d8',1,'OmiyaGames.RandomList.IsReadOnly()']]],
+  ['issubsetof_93',['IsSubsetOf',['../class_omiya_games_1_1_list_set.html#a4f924c784db4f3848e58e01029d7e575',1,'OmiyaGames::ListSet']]],
+  ['issupersetof_94',['IsSupersetOf',['../class_omiya_games_1_1_list_set.html#adbc7342f4e2342f45104e94ed6790536',1,'OmiyaGames::ListSet']]],
+  ['isvalid_95',['IsValid',['../class_omiya_games_1_1_common_1_1_editor_1_1_file_path_drawer.html#acccac9c045404febf1778c72b596cd9f',1,'OmiyaGames.Common.Editor.FilePathDrawer.IsValid()'],['../class_omiya_games_1_1_common_1_1_editor_1_1_folder_path_drawer.html#a6bd01899a53cb7544e4046cb90e3702e',1,'OmiyaGames.Common.Editor.FolderPathDrawer.IsValid()']]],
+  ['iswarningdisplayed_96',['IsWarningDisplayed',['../class_omiya_games_1_1_folder_path_attribute.html#a022a623a8475cec29cbf7655ff98b36a',1,'OmiyaGames::FolderPathAttribute']]]
 ];

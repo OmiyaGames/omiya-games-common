@@ -1,0 +1,94 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
+using UnityEngine;
+using UnityEngine.TestTools;
+
+namespace OmiyaGames.Common.Runtime.Tests
+{
+    ///-----------------------------------------------------------------------
+    /// <copyright file="TestBidirectionalDictionary.cs" company="Omiya Games">
+    /// The MIT License (MIT)
+    /// 
+    /// Copyright (c) 2020 Omiya Games
+    /// 
+    /// Permission is hereby granted, free of charge, to any person obtaining a copy
+    /// of this software and associated documentation files (the "Software"), to deal
+    /// in the Software without restriction, including without limitation the rights
+    /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    /// copies of the Software, and to permit persons to whom the Software is
+    /// furnished to do so, subject to the following conditions:
+    /// 
+    /// The above copyright notice and this permission notice shall be included in
+    /// all copies or substantial portions of the Software.
+    /// 
+    /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    /// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    /// THE SOFTWARE.
+    /// </copyright>
+    /// <author>Taro Omiya</author>
+    /// <date>4/6/2020</date>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// Unit test script for <see cref="BidirectionalDictionary{KEY, VALUE}"/>.
+    /// </summary>
+    /// 
+    /// <seealso cref="BidirectionalDictionary{KEY, VALUE}"/>
+    /// 
+    /// <remarks>
+    /// Revision History:
+    /// <list type="table">
+    /// <listheader>
+    ///   <description>Date</description>
+    ///   <description>Author</description>
+    ///   <description>Description</description>
+    /// </listheader>
+    /// <item>
+    ///   <description>4/6/2020</description>
+    ///   <description>Taro</description>
+    ///   <description>Initial verison</description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    public class TestBidirectionalDictionary
+    {
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary"/>
+        [Test]
+        public void TestConstructorDefault()
+        {
+            // Test the default constructor, and whether it creates an empty dictionary
+            BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>();
+            Assert.IsNotNull(testDictionary);
+            Assert.AreEqual(0, testDictionary.Count);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(int)"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(int)"/>
+        [Test]
+        public void TestConstructorInt()
+        {
+            // Test the capacity constructors, and whether it creates an empty dictionary
+            BidirectionalDictionary<int, string> testDictionary;
+            for (int capacity = 10; capacity <= 30; capacity += 10)
+            {
+                testDictionary = new BidirectionalDictionary<int, string>(capacity);
+                Assert.IsNotNull(testDictionary);
+                Assert.AreEqual(0, testDictionary.Count);
+
+                // Interestingly, I can't get the capacity info from the member variables.
+            }
+        }
+
+        // TODO: test the rest of the constructors
+        // TODO: test the rest of the methods
+    }
+}

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['macos',['MacOS',['../namespace_omiya_games.html#a0b6fe207f54b54fa772135aeb858d484a0a5b7edb55b772c60bfa8af868b679cf',1,'OmiyaGames']]],
-  ['max',['Max',['../class_omiya_games_1_1_default_range_attribute.html#a589d8e8853658a99f945bbf72b6dc00d',1,'OmiyaGames::DefaultRangeAttribute']]],
-  ['min',['Min',['../class_omiya_games_1_1_default_range_attribute.html#a21673ceaf148f5aed4a1e9d5bd72edaa',1,'OmiyaGames::DefaultRangeAttribute']]]
+  ['keycomparer_97',['KeyComparer',['../class_omiya_games_1_1_bidirectional_dictionary.html#a010bc45db804b2727a22d8f1cb1dc9e4',1,'OmiyaGames::BidirectionalDictionary']]],
+  ['keys_98',['Keys',['../class_omiya_games_1_1_bidirectional_dictionary.html#ade9d4ef706f589e8eaf373e92218b562',1,'OmiyaGames::BidirectionalDictionary']]]
 ];
