@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
-using UnityEngine.TestTools;
 using Random = UnityEngine.Random;
 
 namespace OmiyaGames.Common.Runtime.Tests
@@ -587,10 +586,48 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test Remove(T)
-            // FIXME: also test IEqualityComparer
-            // FIXME: don't forget to test edge cases, e.g. remove of elements that isn't in the list.
+
+            // Test remove when there aren't any elements to remove
+            Assert.IsFalse(testList.Remove(0));
+
+            // Start filling in testList
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                testList.Add(numAdd, numAdd);
+            }
+
+            // Test remove on an element that doesn't exist
+            Assert.IsFalse(testList.Remove(0));
+
+            // Test remove on elements, and make sure the correct flag is returned
+            for (int repeat = 0; repeat < 4; ++repeat)
+            {
+                for (int numRemove = 1; numRemove <= 3; ++numRemove)
+                {
+                    Assert.AreEqual((numRemove > repeat), testList.Remove(numRemove));
+                }
+            }
+
+            // Also test IEqualityComparer
             testList = new RandomList<int>(testComparer);
+
+            // Start filling in testList
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                testList.Add(numAdd, numAdd);
+            }
+
+            // Test remove on an element that doesn't exist
+            Assert.IsFalse(testList.Remove(10));
+
+            // Test remove on elements, and make sure the correct flag is returned
+            for (int repeat = 0; repeat < 4; ++repeat)
+            {
+                for (int numRemove = 1; numRemove <= 3; ++numRemove)
+                {
+                    Assert.AreEqual((numRemove > repeat), testList.Remove(numRemove + (numRemove * 10)));
+                }
+            }
         }
 
         /// <summary>
@@ -602,12 +639,72 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test Remove(T, int)
-            // FIXME: also test IEqualityComparer
-            // FIXME: don't forget to test edge cases, e.g
-            // 1: remove of elements that isn't in the list.
-            // 2: integer value that isn't in range, both directions.
+
+            // Test trying to remove nothing
+            Assert.Throws<ArgumentOutOfRangeException>(delegate
+            {
+                testList.Remove(0, 0);
+            });
+            Assert.Throws<ArgumentOutOfRangeException>(delegate
+            {
+                testList.Remove(0, -1);
+            });
+
+            // Test remove when there aren't any elements to remove
+            Assert.AreEqual(0, testList.Remove(0, 1));
+
+            // Start filling in testList
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                testList.Add(numAdd, numAdd);
+            }
+
+            // Test remove on an element that doesn't exist
+            Assert.AreEqual(0, testList.Remove(0, 1));
+
+            // Test trying to remove nothing, to an element that does exist
+            Assert.Throws<ArgumentOutOfRangeException>(delegate
+            {
+                testList.Remove(1, 0);
+            });
+            Assert.Throws<ArgumentOutOfRangeException>(delegate
+            {
+                testList.Remove(2, -1);
+            });
+
+            // Test remove on elements, and make sure the correct number of frequency is returned
+            for (int numRemove = 1; numRemove <= 3; ++numRemove)
+            {
+                Assert.AreEqual(1, testList.Remove(numRemove, 1));
+            }
+            for (int numRemove = 1; numRemove <= 3; ++numRemove)
+            {
+                // Attempt to remove more than the stored frequency
+                Assert.AreEqual((numRemove - 1), testList.Remove(numRemove, 10));
+            }
+
+            // Also test IEqualityComparer
             testList = new RandomList<int>(testComparer);
+
+            // Start filling in testList
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                testList.Add(numAdd, numAdd);
+            }
+
+            // Test remove on an element that doesn't exist
+            Assert.AreEqual(0, testList.RemoveAllOf(10));
+
+            // Test remove on elements, and make sure the correct number of frequency is returned
+            for (int numRemove = 1; numRemove <= 3; ++numRemove)
+            {
+                Assert.AreEqual(1, testList.Remove(numRemove + (numRemove * 10), 1));
+            }
+            for (int numRemove = 1; numRemove <= 3; ++numRemove)
+            {
+                // Attempt to remove more than the stored frequency
+                Assert.AreEqual((numRemove - 1), testList.Remove(numRemove + (numRemove * 10), 10));
+            }
         }
 
         /// <summary>
@@ -619,10 +716,42 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test RemoveAllOf(T)
-            // FIXME: also test IEqualityComparer
-            // FIXME: don't forget to test edge cases, e.g. remove of elements that isn't in the list.
+
+            // Test remove when there aren't any elements to remove
+            Assert.AreEqual(0, testList.RemoveAllOf(0));
+
+            // Start filling in testList
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                testList.Add(numAdd, numAdd);
+            }
+
+            // Test remove on an element that doesn't exist
+            Assert.AreEqual(0, testList.RemoveAllOf(0));
+
+            // Test remove on elements, and make sure the correct number of frequency is returned
+            for (int numRemove = 1; numRemove <= 3; ++numRemove)
+            {
+                Assert.AreEqual(numRemove, testList.RemoveAllOf(numRemove));
+            }
+
+            // Also test IEqualityComparer
             testList = new RandomList<int>(testComparer);
+
+            // Start filling in testList
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                testList.Add(numAdd, numAdd);
+            }
+
+            // Test remove on an element that doesn't exist
+            Assert.AreEqual(0, testList.RemoveAllOf(10));
+
+            // Test remove on elements, and make sure the correct number of frequency is returned
+            for (int numRemove = 1; numRemove <= 3; ++numRemove)
+            {
+                Assert.AreEqual(numRemove, testList.RemoveAllOf(numRemove + (numRemove * 10)));
+            }
         }
         #endregion
 
@@ -1179,7 +1308,50 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test CopyTo(T[], int) under edge cases
+
+            // Test CopyTo *doesn't* actually copy any elements when the list is empty
+            const int numUniqueItems = 3;
+            int[] results = new int[numUniqueItems];
+            testList.CopyTo(results, 0);
+            for (int index = 0; index < numUniqueItems; ++index)
+            {
+                Assert.AreEqual(default(int), results[index]);
+            }
+
+            // Fill the list with elements
+            for (int index = 0; index < numUniqueItems; ++index)
+            {
+                testList.Add(index, (index + 1));
+            }
+
+            // Test CopyTo with normal operation
+            testList.CopyTo(results, 0);
+            for (int index = 0; index < numUniqueItems; ++index)
+            {
+                Assert.AreEqual(index, results[index]);
+            }
+
+            // Test CopyTo with bigger offset
+            results = new int[numUniqueItems * 2];
+            testList.CopyTo(results, numUniqueItems);
+            for (int index = 0; index < results.Length; ++index)
+            {
+                if (index < numUniqueItems)
+                {
+                    Assert.AreEqual(default(int), results[index]);
+                }
+                else
+                {
+                    Assert.AreEqual((index - numUniqueItems), results[index]);
+                }
+            }
+
+            // Test CopyTo with array that's already filled in
+            testList.CopyTo(results, 0);
+            for (int index = 0; index < results.Length; ++index)
+            {
+                Assert.AreEqual((index % numUniqueItems), results[index]);
+            }
         }
 
         /// <summary>
@@ -1191,7 +1363,58 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test CopyTo(RandomList[], int) under edge cases
+
+            // Test CopyTo *doesn't* actually copy any elements when the list is empty
+            const int numUniqueItems = 3;
+            RandomList<int>.ElementFrequency[] results = new RandomList<int>.ElementFrequency[numUniqueItems];
+            testList.CopyTo(results, 0);
+            for (int index = 0; index < numUniqueItems; ++index)
+            {
+                Assert.AreEqual(default(int), results[index].Element);
+                Assert.AreEqual(1, results[index].Frequency);
+            }
+
+            // Fill the list with elements
+            for (int index = 0; index < numUniqueItems; ++index)
+            {
+                testList.Add(index, (index + 1));
+            }
+
+            // Test CopyTo with normal operation
+            testList.CopyTo(results, 0);
+            for (int index = 0; index < numUniqueItems; ++index)
+            {
+                Assert.AreEqual(index, results[index].Element);
+                Assert.AreEqual((index + 1), results[index].Frequency);
+            }
+
+            // Test CopyTo with bigger offset
+            int expectedElement;
+            results = new RandomList<int>.ElementFrequency[numUniqueItems * 2];
+            testList.CopyTo(results, numUniqueItems);
+            for (int index = 0; index < results.Length; ++index)
+            {
+                if (index < numUniqueItems)
+                {
+                    Assert.AreEqual(default(int), results[index].Element);
+                    Assert.AreEqual(1, results[index].Frequency);
+                }
+                else
+                {
+                    expectedElement = (index - numUniqueItems);
+                    Assert.AreEqual(expectedElement, results[index].Element);
+                    Assert.AreEqual((expectedElement + 1), results[index].Frequency);
+                }
+            }
+
+            // Test CopyTo with array that's already filled in
+            testList.CopyTo(results, 0);
+            for (int index = 0; index < results.Length; ++index)
+            {
+                expectedElement = (index % numUniqueItems);
+                Assert.AreEqual(expectedElement, results[index].Element);
+                Assert.AreEqual((expectedElement + 1), results[index].Frequency);
+            }
         }
         #endregion
 
