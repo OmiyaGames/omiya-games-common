@@ -750,9 +750,205 @@ namespace OmiyaGames.Common.Runtime.Tests
         [Test]
         public void TestReshuffle()
         {
+            // Create a list to test sorting on
+            List<int> testBase = new List<int>();
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                for (int instances = 0; instances < numAdd; ++instances)
+                {
+                    testBase.Add(numAdd);
+                }
+            }
+
+            // Start with a filled list
+            RandomList<int> testList = new RandomList<int>(testBase);
+
+            // RandomList uses ShuffleList, so use that as basis to confirm the shuffling worked
+            Random.State lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Verify a small edge case where CurrentElement gets called first
+            Random.state = lastState;
+            testList.Reshuffle();
+            Assert.AreEqual(testBase[0], testList.CurrentElement);
+
+            // Go call the properties to confirm the rest of their values
+            for (int i = 1; i < testBase.Count; ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+            }
+
+            // Double-check that the next go-around, the first half of the list is re-shuffled again.
+            lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Go call the properties to confirm the rest of their values
+            Random.state = lastState;
+            testList.Reshuffle();
+            for (int i = 0; i < (testBase.Count / 2); ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+            }
+
+            // Now that the current element is somewhere in the middle of the RandomList,
+            // really confirm Reshuffle works as expected
+            lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Go call the properties to confirm the rest of their values
+            Random.state = lastState;
+            testList.Reshuffle();
+            for (int i = 0; i < testBase.Count; ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Reshuffle()"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Reshuffle()"/>
+        [Test]
+        public void TestReshuffleEdgeCases()
+        {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
-            // FIXME: test Reshuffle(T) by using Random.seed and Helper.ShuffleList
+
+            // Confirm Properties return default values, even if shuffled
+            testList.Reshuffle();
+            Assert.AreEqual(default(int), testList.CurrentElement);
+            testList.Reshuffle();
+            Assert.AreEqual(default(int), testList.NextRandomElement);
+
+            // Add only a single value
+            const int testValue = 10;
+            testList.Add(testValue);
+
+            // Confirm Properties return only this value, even if shuffled
+            testList.Reshuffle();
+            Assert.AreEqual(testValue, testList.CurrentElement);
+            testList.Reshuffle();
+            Assert.AreEqual(testValue, testList.NextRandomElement);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Reshuffle()"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Reshuffle()"/>
+        [Test]
+        public void TestReshuffleAfterAdd()
+        {
+            // Create a list to test sorting on
+            List<int> testBase = new List<int>();
+            for (int numAdd = 1; numAdd <= 3; ++numAdd)
+            {
+                for (int instances = 0; instances < numAdd; ++instances)
+                {
+                    testBase.Add(numAdd);
+                }
+            }
+
+            // Start with a filled list
+            RandomList<int> testList = new RandomList<int>(testBase);
+
+            // RandomList uses ShuffleList, so use that as basis to confirm the shuffling worked
+            Random.State lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Go call the properties to confirm the rest of their values
+            Random.state = lastState;
+            testList.Reshuffle();
+            for (int i = 0; i < (testBase.Count / 2); ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+            }
+
+            // Append more elements to both lists
+            const int newNumAdd = 4;
+            for (int instances = 0; instances < newNumAdd; ++instances)
+            {
+                testBase.Add(newNumAdd);
+                testList.Add(newNumAdd);
+            }
+
+            // Shuffle both lists, and compare results
+            lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Go call the properties to confirm the rest of their values
+            Random.state = lastState;
+            testList.Reshuffle();
+            for (int i = 0; i < (testBase.Count / 2); ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.Reshuffle()"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.Reshuffle()"/>
+        [Test]
+        public void TestReshuffleAfterRemove()
+        {
+            // Create a list to test sorting on
+            const int numRemove = 4;
+            List<int> testBase = new List<int>();
+            for (int numAdd = 1; numAdd <= numRemove; ++numAdd)
+            {
+                for (int instances = 0; instances < numAdd; ++instances)
+                {
+                    testBase.Add(numAdd);
+                }
+            }
+
+            // Start with a filled list
+            RandomList<int> testList = new RandomList<int>(testBase);
+
+            // RandomList uses ShuffleList, so use that as basis to confirm the shuffling worked
+            Random.State lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Go call the properties to confirm the rest of their values
+            Random.state = lastState;
+            testList.Reshuffle();
+            for (int i = 0; i < (testBase.Count / 2); ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+            }
+
+            // Remove elements from both lists
+            testList.RemoveAllOf(numRemove);
+            while (testBase.Contains(numRemove) == true)
+            {
+                testBase.Remove(numRemove);
+            }
+
+            // Shuffle both lists, and compare results
+            lastState = Random.state;
+            Helpers.ShuffleList(testBase);
+
+            // Go call the properties to confirm the rest of their values
+            Random.state = lastState;
+            testList.Reshuffle();
+            for (int i = 0; i < (testBase.Count / 2); ++i)
+            {
+                // Test NextRandomElement (preventing it from getting called twice by accident)
+                int testElement = testList.NextRandomElement;
+                Assert.AreEqual(testBase[i], testElement);
+            }
         }
         #endregion
 
