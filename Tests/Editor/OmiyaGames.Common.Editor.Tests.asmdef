@@ -1,10 +1,12 @@
 {
     "name": "OmiyaGames.Common.Editor.Test",
     "references": [
-        "GUID:cdda17712c724478898665290e9a02cc",
-        "GUID:90033a3be777c4196bcbfc7e725c4e31"
+        "OmiyaGames",
+        "OmiyaGames.Common.Editor"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
@@ -12,5 +14,8 @@
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
-    "noEngineReferences": false
+    "noEngineReferences": false,
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
 }

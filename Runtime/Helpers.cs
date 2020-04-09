@@ -194,12 +194,11 @@ namespace OmiyaGames
             }
 
             // Go through every list element
-            H swapObject = default(H);
-            int index = 0, randomIndex = 0;
-            for (; index < upTo; ++index)
+            H swapObject = default;
+            for (int index = 0; index < upTo; ++index)
             {
                 // Swap a random element
-                randomIndex = Random.Range(0, list.Count);
+                int randomIndex = Random.Range(0, list.Count);
                 if (index != randomIndex)
                 {
                     swapObject = list[index];
@@ -355,7 +354,7 @@ namespace OmiyaGames
         /// </summary>
         public static T GetComponentCached<T>(MonoBehaviour script, ref T cache) where T : Component
         {
-            if(cache == null)
+            if (cache == null)
             {
                 cache = script.GetComponent<T>();
             }
