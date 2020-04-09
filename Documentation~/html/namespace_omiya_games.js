@@ -1,6 +1,7 @@
 var namespace_omiya_games =
 [
     [ "Common", "namespace_omiya_games_1_1_common.html", "namespace_omiya_games_1_1_common" ],
+    [ "BidirectionalDictionary", "class_omiya_games_1_1_bidirectional_dictionary.html", "class_omiya_games_1_1_bidirectional_dictionary" ],
     [ "DefaultNumberAttribute", "class_omiya_games_1_1_default_number_attribute.html", "class_omiya_games_1_1_default_number_attribute" ],
     [ "DefaultObjectAttribute", "class_omiya_games_1_1_default_object_attribute.html", "class_omiya_games_1_1_default_object_attribute" ],
     [ "DefaultRangeAttribute", "class_omiya_games_1_1_default_range_attribute.html", "class_omiya_games_1_1_default_range_attribute" ],
