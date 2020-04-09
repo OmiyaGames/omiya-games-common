@@ -1,5 +1,6 @@
 var namespace_omiya_games_1_1_common_1_1_editor =
 [
+    [ "Tests", "namespace_omiya_games_1_1_common_1_1_editor_1_1_tests.html", "namespace_omiya_games_1_1_common_1_1_editor_1_1_tests" ],
     [ "DefaultNumberDrawer", "class_omiya_games_1_1_common_1_1_editor_1_1_default_number_drawer.html", "class_omiya_games_1_1_common_1_1_editor_1_1_default_number_drawer" ],
     [ "DefaultObjectDrawer", "class_omiya_games_1_1_common_1_1_editor_1_1_default_object_drawer.html", "class_omiya_games_1_1_common_1_1_editor_1_1_default_object_drawer" ],
     [ "DefaultRangeDrawer", "class_omiya_games_1_1_common_1_1_editor_1_1_default_range_drawer.html", "class_omiya_games_1_1_common_1_1_editor_1_1_default_range_drawer" ],
