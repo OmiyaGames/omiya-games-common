@@ -313,6 +313,29 @@ namespace OmiyaGames
                 Add(list[index].Element, list[index].Frequency);
             }
         }
+
+        /// <summary>
+        /// Copies the elements of a dictionary into
+        /// a new <see cref="RandomList{T}"/>.
+        /// </summary>
+        /// <param name="frequencyMap">Map of elements to copy over into this list.</param>
+        /// <param name="comparer">The comparer used to detect if an element already exists in this list.</param>
+        public RandomList(IDictionary<T, int> frequencyMap, IEqualityComparer<T> comparer) : this(frequencyMap.Count, comparer)
+        {
+            // Populate list
+            foreach (KeyValuePair<T, int> pair in frequencyMap)
+            {
+                Add(pair.Key, pair.Value);
+            }
+        }
+
+        /// <summary>
+        /// Copies the elements of a dictionary into
+        /// a new <see cref="RandomList{T}"/>.
+        /// </summary>
+        /// <param name="frequencyMap">Map of elements to copy over into this list. Will also copy over its <see cref="Dictionary{TKey, TValue}.Comparer"/>.</param>
+        public RandomList(Dictionary<T, int> frequencyMap) : this(frequencyMap, frequencyMap.Comparer)
+        { }
         #endregion
 
         #region Helper Properties
