@@ -313,6 +313,71 @@ namespace OmiyaGames.Common.Runtime.Tests
                 TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorIListEIEqualityComparer, same elements.");
             }
         }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(Dictionary{T, int})"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(Dictionary{T, int})"/>
+        [Test]
+        public void TestConstructorDictionaryTInt()
+        {
+            // Setup loop variables
+            RandomList<int> testList;
+            Dictionary<int, int> referenceFrequencies = new Dictionary<int, int>(3);
+
+            // Loop for unique elements
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Add new element to loop variables
+                referenceFrequencies.Add(size, size);
+
+                // Test the list constructors, and whether it copy its content correctly
+                testList = new RandomList<int>(referenceFrequencies);
+
+                // Run some tests
+                TestRandomListMeta(testList, size, size, referenceFrequencies.Comparer, "Testing from TestConstructorDictionaryT, default comparer.");
+                TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorDictionaryT, default comparer.");
+            }
+
+            // Setup variables for next loop
+            referenceFrequencies = new Dictionary<int, int>(3, testComparer);
+
+            // Loop for same elements
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Test the capacity constructors, and whether it creates an empty dictionary
+                referenceFrequencies.Add(size, size);
+                testList = new RandomList<int>(referenceFrequencies);
+
+                // Run some tests
+                TestRandomListMeta(testList, referenceFrequencies.Count, referenceFrequencies.Count, testComparer, "Testing from TestConstructorDictionaryT, test comparer.");
+                TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorDictionaryT, test comparer.");
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="RandomList{T}.RandomList(IDictionary{T, int}, IEqualityComparer{T})"/>
+        /// </summary>
+        /// <seealso cref="RandomList{T}.RandomList(IDictionary{T, int}, IEqualityComparer{T})"/>
+        [Test]
+        public void TestConstructorIDictionaryTIntComparer()
+        {
+            // Setup loop variables
+            RandomList<int> testList;
+            IDictionary<int, int> referenceFrequencies = new Dictionary<int, int>(3, testComparer);
+
+            // Loop for same elements
+            for (int size = 1; size <= 3; ++size)
+            {
+                // Test the capacity constructors, and whether it creates an empty dictionary
+                referenceFrequencies.Add(size, size);
+                testList = new RandomList<int>(referenceFrequencies, testComparer);
+
+                // Run some tests
+                TestRandomListMeta(testList, referenceFrequencies.Count, referenceFrequencies.Count, testComparer, "Testing from TestConstructorIDictionaryTIntComparer, test comparer.");
+                TestRandomListContent(testList, referenceFrequencies, "Testing from TestConstructorIDictionaryTIntComparer, test comparer.");
+            }
+        }
         #endregion
 
         #region Test Add
