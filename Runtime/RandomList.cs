@@ -538,6 +538,12 @@ namespace OmiyaGames
 
                     // Remove the element from the map
                     elementToIndexMap.Remove(item);
+
+                    // Decrement the mapped index values
+                    for (int index = removeIndex; index < elementsList.Count; ++index)
+                    {
+                        elementToIndexMap[elementsList[index].Element] -= 1;
+                    }
                 }
                 RemoveFromIndexList(removeIndex, returnNumRemoved);
             }
