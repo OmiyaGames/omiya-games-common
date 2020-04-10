@@ -207,7 +207,44 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
         }
 
-        // TODO: test the rest of the constructors
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(IDictionary{KEY, VALUE}, IEqualityComparer{KEY}, IEqualityComparer{VALUE})"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(IDictionary{KEY, VALUE}, IEqualityComparer{KEY}, IEqualityComparer{VALUE})"/>
+        [Test]
+        public void TestConstructorIDictionaryIEqualityComparers()
+        {
+            // Setup test data
+            IDictionary<int, int> referenceMap = new BidirectionalDictionary<int, int>(testComparer, testComparer);
+            for (int i = 0; i < 5; ++i)
+            {
+                referenceMap.Add(i, (i + (i * 10)));
+            }
+
+            // Test the constructor, and whether it copied the dictionary's content
+            BidirectionalDictionary<int, int> testDictionary = new BidirectionalDictionary<int, int>(referenceMap, testComparer, testComparer);
+            Assert.IsNotNull(testDictionary);
+            Assert.AreEqual(referenceMap.Count, testDictionary.Count);
+            Assert.AreEqual(testComparer, testDictionary.KeyComparer);
+            Assert.AreEqual(testComparer, testDictionary.ValueComparer);
+
+            // Also verify the content is correct
+            int testKey, testValue;
+            foreach (KeyValuePair<int, int> pair in referenceMap)
+            {
+                // Grab the value from key
+                Assert.IsTrue(testDictionary.TryGetValue(pair.Key, out testValue));
+
+                // Verify it matches the reference's value
+                Assert.AreEqual(pair.Value, testValue);
+
+                // Grab the key from value
+                Assert.IsTrue(testDictionary.TryGetKey(pair.Value, out testKey));
+
+                // Verify it matches the reference's value
+                Assert.AreEqual(pair.Key, testKey);
+            }
+        }
         #endregion
 
         // TODO: test the rest of the methods
