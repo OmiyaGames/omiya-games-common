@@ -431,43 +431,5 @@ namespace OmiyaGames
             return ((IDictionary<KEY, VALUE>)KeyToValueMap).GetEnumerator();
         }
         #endregion
-
-        #region Overrides
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return KeyToValueMap.ToString();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override int GetHashCode()
-        {
-            return KeyToValueMap.GetHashCode();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public override bool Equals(object obj)
-        {
-            if (obj is BidirectionalDictionary<KEY, VALUE> other)
-            {
-                // Comparing the KeyToValueMap is really the only thing necessary for this
-                return KeyToValueMap.Equals(other.KeyToValueMap);
-            }
-            else
-            {
-                return false;
-            }
-        }
-        #endregion
     }
 }
