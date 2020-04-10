@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Schema;
 
 namespace OmiyaGames
 {
@@ -192,11 +192,21 @@ namespace OmiyaGames
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
+        /// <exception cref="ArgumentNullException">Thrown when key or value is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when key or value is already in the dictionary.</exception>
         public void Add(KEY key, VALUE value)
         {
-            // Make sure the key and the value isn't already in their respective dictionaries.
-            if ((ContainsKey(key) == false) && (ContainsValue(value) == false))
+            if (ContainsKey(key) == true)
             {
+                throw new ArgumentException("Argument is already in the bidirectional dictionary.", "key");
+            }
+            else if (ContainsValue(value) == true)
+            {
+                throw new ArgumentException("Argument is already in the bidirectional dictionary.", "value");
+            }
+            else
+            {
+                // Make sure the key and the value isn't already in their respective dictionaries.
                 KeyToValueMap.Add(key, value);
                 ValueToKeyMap.Add(value, key);
             }
@@ -238,11 +248,18 @@ namespace OmiyaGames
         /// Checks if a key exists, and the newValue doesn't;
         /// if so, replaces the key's pairing to newValue.
         /// </summary>
-        public bool SetValue(KEY key, VALUE newValue)
+        public void SetValue(KEY key, VALUE newValue)
         {
             // First make sure the key is already in the dictionary, AND newValue isn't
-            bool returnFlag = false;
-            if ((ContainsKey(key) == true) && (ContainsValue(newValue) == false))
+            if (ContainsKey(key) == false)
+            {
+                throw new KeyNotFoundException();
+            }
+            else if (ContainsValue(newValue) == true)
+            {
+                throw new ArgumentException("Argument is already in the bidirectional dictionary.", "newValue");
+            }
+            else
             {
                 // If so, first remove the old value from the value map
                 ValueToKeyMap.Remove(KeyToValueMap[key]);
@@ -252,21 +269,24 @@ namespace OmiyaGames
 
                 // Add the new key to the value map
                 ValueToKeyMap.Add(newValue, key);
-
-                // Return true
-                returnFlag = true;
             }
-            return returnFlag;
         }
 
         /// <summary>
         /// Checks if a value exists, and if so, returns the corresponding key.
         /// </summary>
-        public bool SetKey(VALUE value, KEY newKey)
+        public void SetKey(VALUE value, KEY newKey)
         {
-            // First make sure the key is already in the dictionary, AND newKey isn't
-            bool returnFlag = false;
-            if ((ContainsValue(value) == true) && (ContainsKey(newKey) == false))
+            // First make sure the value is already in the dictionary, AND newKey isn't
+            if (ContainsValue(value) == false)
+            {
+                throw new KeyNotFoundException("Value not found.");
+            }
+            else if (ContainsKey(newKey) == true)
+            {
+                throw new ArgumentException("Argument is already in the bidirectional dictionary.", "newKey");
+            }
+            else
             {
                 // If so, first remove the old key from the key map
                 KeyToValueMap.Remove(ValueToKeyMap[value]);
@@ -276,11 +296,7 @@ namespace OmiyaGames
 
                 // Add the new value to the key map
                 KeyToValueMap.Add(newKey, value);
-
-                // Return true
-                returnFlag = true;
             }
-            return returnFlag;
         }
 
         /// <summary>
