@@ -256,6 +256,25 @@ namespace OmiyaGames.Common.Runtime.Tests
         [Test]
         public void TestKeysValuesProperties()
         {
+            // Test edge case of an empty dictionary
+            BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>();
+
+            // Test the keys
+            ICollection<int> testKeys = testDictionary.Keys;
+            Assert.AreEqual(0, testKeys.Count);
+            foreach (int key in testKeys)
+            {
+                Assert.Fail("Not expecting any keys!");
+            }
+
+            // Test the Values
+            ICollection<string> testValues = testDictionary.Values;
+            Assert.AreEqual(0, testValues.Count);
+            foreach (string value in testValues)
+            {
+                Assert.Fail("Not expecting any values!");
+            }
+
             // Setup test data
             Dictionary<int, string> referenceMap = new Dictionary<int, string>(testComparer);
             HashSet<int> expectedKeys = new HashSet<int>();
@@ -268,10 +287,10 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
 
             // Populate a bidirectional dictionary
-            BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>(referenceMap);
+            testDictionary = new BidirectionalDictionary<int, string>(referenceMap);
 
             // Test the keys
-            ICollection<int> testKeys = testDictionary.Keys;
+            testKeys = testDictionary.Keys;
             Assert.AreEqual(expectedKeys.Count, testKeys.Count);
             foreach (int key in testKeys)
             {
@@ -279,7 +298,7 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
 
             // Test the Values
-            ICollection<string> testValues = testDictionary.Values;
+            testValues = testDictionary.Values;
             Assert.AreEqual(expectedValues.Count, testValues.Count);
             foreach (string value in testValues)
             {
@@ -331,6 +350,52 @@ namespace OmiyaGames.Common.Runtime.Tests
                 Assert.AreEqual(referenceMap[pair.Key], pair.Value);
             }
             Debug.Log(testDictionary.ToString());
+        }
+        #endregion
+
+        #region Test Clear
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.Clear()"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.Clear()"/>
+        [Test]
+        public void TestClear()
+        {
+            // Setup test data
+            Dictionary<int, string> referenceMap = new Dictionary<int, string>();
+            for (int i = 0; i < 5; ++i)
+            {
+                referenceMap.Add(i, i.ToString());
+            }
+
+            // Populate a bidirectional dictionary
+            BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>();
+
+            // Test clear
+            testDictionary.Clear();
+            Assert.AreEqual(0, testDictionary.Count);
+
+            // Test the keys
+            ICollection<int> testKeys = testDictionary.Keys;
+            Assert.AreEqual(0, testKeys.Count);
+            foreach (int key in testKeys)
+            {
+                Assert.Fail("Not expecting any keys!");
+            }
+
+            // Test the Values
+            ICollection<string> testValues = testDictionary.Values;
+            Assert.AreEqual(0, testValues.Count);
+            foreach (string value in testValues)
+            {
+                Assert.Fail("Not expecting any values!");
+            }
+
+            // Test enumerator
+            foreach (KeyValuePair<int, string> pair in testDictionary)
+            {
+                Assert.Fail("Not expecting to be able to enumerate a cleared dictionary!");
+            }
         }
         #endregion
 
