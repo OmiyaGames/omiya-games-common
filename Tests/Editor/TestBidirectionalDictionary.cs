@@ -247,6 +247,94 @@ namespace OmiyaGames.Common.Runtime.Tests
         }
         #endregion
 
+        #region Test Properties
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.Keys"/> and <see cref="BidirectionalDictionary{KEY, VALUE}.Values"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.Keys"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.Values"/>
+        [Test]
+        public void TestKeysValuesProperties()
+        {
+            // Setup test data
+            Dictionary<int, string> referenceMap = new Dictionary<int, string>(testComparer);
+            HashSet<int> expectedKeys = new HashSet<int>();
+            HashSet<string> expectedValues = new HashSet<string>();
+            for (int i = 0; i < 5; ++i)
+            {
+                referenceMap.Add(i, i.ToString());
+                expectedKeys.Add(i);
+                expectedValues.Add(referenceMap[i]);
+            }
+
+            // Populate a bidirectional dictionary
+            BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>(referenceMap);
+
+            // Test the keys
+            ICollection<int> testKeys = testDictionary.Keys;
+            Assert.AreEqual(expectedKeys.Count, testKeys.Count);
+            foreach (int key in testKeys)
+            {
+                Assert.IsTrue(expectedKeys.Contains(key));
+            }
+
+            // Test the Values
+            ICollection<string> testValues = testDictionary.Values;
+            Assert.AreEqual(expectedValues.Count, testValues.Count);
+            foreach (string value in testValues)
+            {
+                Assert.IsTrue(expectedValues.Contains(value));
+            }
+        }
+        #endregion
+
+        #region Test GetEnumerator
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.GetEnumerator()"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.GetEnumerator()"/>
+        [Test]
+        public void TestGetEnumerator()
+        {
+            // Populate a bidirectional dictionary
+            BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>();
+
+            // Test enumerator edge case
+            IEnumerator<KeyValuePair<int, string>> enumerator = testDictionary.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                Assert.Fail("Should not enumerate in an empty dictionary!");
+            }
+            foreach (KeyValuePair<int, string> pair in testDictionary)
+            {
+                Assert.Fail("Should not enumerate in an empty dictionary!");
+            }
+
+            // Setup test data
+            Dictionary<int, string> referenceMap = new Dictionary<int, string>();
+            for (int i = 0; i < 5; ++i)
+            {
+                referenceMap.Add(i, i.ToString());
+            }
+
+            // Test the enumerator
+            testDictionary = new BidirectionalDictionary<int, string>(referenceMap);
+            enumerator = testDictionary.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                Assert.IsTrue(referenceMap.ContainsKey(enumerator.Current.Key));
+                Assert.AreEqual(referenceMap[enumerator.Current.Key], enumerator.Current.Value);
+            }
+            foreach (KeyValuePair<int, string> pair in testDictionary)
+            {
+                Assert.IsTrue(referenceMap.ContainsKey(pair.Key));
+                Assert.AreEqual(referenceMap[pair.Key], pair.Value);
+            }
+            Debug.Log(testDictionary.ToString());
+        }
+        #endregion
+
         // TODO: test the rest of the methods
+
     }
 }
