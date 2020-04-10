@@ -166,13 +166,25 @@ namespace OmiyaGames
             set => SetValue(key, value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ICollection<KEY> Keys => KeyToValueMap.Keys;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ICollection<VALUE> Values => ValueToKeyMap.Keys;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int Count => KeyToValueMap.Count;
 
-        public bool IsReadOnly => ((IDictionary<KEY, VALUE>)KeyToValueMap).IsReadOnly;
+        /// <summary>
+        /// Always false.
+        /// </summary>
+        public bool IsReadOnly => false;
         #endregion
 
         /// <summary>
@@ -271,6 +283,11 @@ namespace OmiyaGames
             return returnFlag;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public bool RemoveKey(KEY key)
         {
             // Check if the key exists
@@ -287,6 +304,11 @@ namespace OmiyaGames
             return returnFlag;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool RemoveValue(VALUE value)
         {
             // Check if the key exists
@@ -303,23 +325,40 @@ namespace OmiyaGames
             return returnFlag;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public bool ContainsKey(KEY key)
         {
             return KeyToValueMap.ContainsKey(key);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool ContainsValue(VALUE value)
         {
             return ValueToKeyMap.ContainsKey(value);
         }
 
         #region Implemented Methods
+        /// <summary>
+        /// 
+        /// </summary>
         public void Clear()
         {
             KeyToValueMap.Clear();
             ValueToKeyMap.Clear();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(KeyValuePair<KEY, VALUE> item)
         {
             Add(item.Key, item.Value);
@@ -368,11 +407,20 @@ namespace OmiyaGames
             return (TryGetValue(item.Key, out value) == true) && (ValueComparer.Equals(item.Value, value) == true);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="arrayIndex"></param>
         public void CopyTo(KeyValuePair<KEY, VALUE>[] array, int arrayIndex)
         {
             ((IDictionary<KEY, VALUE>)KeyToValueMap).CopyTo(array, arrayIndex);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<KeyValuePair<KEY, VALUE>> GetEnumerator()
         {
             return ((IDictionary<KEY, VALUE>)KeyToValueMap).GetEnumerator();
@@ -385,16 +433,29 @@ namespace OmiyaGames
         #endregion
 
         #region Overrides
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return KeyToValueMap.ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return KeyToValueMap.GetHashCode();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj is BidirectionalDictionary<KEY, VALUE> other)
