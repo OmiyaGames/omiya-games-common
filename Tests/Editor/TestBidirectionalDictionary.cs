@@ -57,6 +57,12 @@ namespace OmiyaGames.Common.Runtime.Tests
     public class TestBidirectionalDictionary
     {
         /// <summary>
+        /// A <see cref="SingleDigitEqualityComparer"/> for testing purposes.
+        /// </summary>
+        readonly IEqualityComparer<int> testComparer = new SingleDigitEqualityComparer();
+
+        #region Test Constructors
+        /// <summary>
         /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary"/>
         /// </summary>
         /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary"/>
@@ -88,7 +94,122 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
         }
 
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(IEqualityComparer{KEY}, IEqualityComparer{VALUE})"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(IEqualityComparer{KEY}, IEqualityComparer{VALUE})"/>
+        [Test]
+        public void TestConstructorIEqualityComparers()
+        {
+            // Test the constructor, and whether it creates an empty dictionary
+            BidirectionalDictionary<int, int> testDictionary = new BidirectionalDictionary<int, int>(testComparer, testComparer);
+            Assert.IsNotNull(testDictionary);
+            Assert.AreEqual(0, testDictionary.Count);
+            Assert.AreEqual(testComparer, testDictionary.KeyComparer);
+            Assert.AreEqual(testComparer, testDictionary.ValueComparer);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(int, IEqualityComparer{KEY}, IEqualityComparer{VALUE})"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(int, IEqualityComparer{KEY}, IEqualityComparer{VALUE})"/>
+        [Test]
+        public void TestConstructorIntIEqualityComparers()
+        {
+            // Test the capacity constructors, and whether it creates an empty dictionary
+            BidirectionalDictionary<int, int> testDictionary;
+            for (int capacity = 10; capacity <= 30; capacity += 10)
+            {
+                testDictionary = new BidirectionalDictionary<int, int>(capacity, testComparer, testComparer);
+                Assert.IsNotNull(testDictionary);
+                Assert.AreEqual(0, testDictionary.Count);
+                Assert.AreEqual(testComparer, testDictionary.KeyComparer);
+                Assert.AreEqual(testComparer, testDictionary.ValueComparer);
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(Dictionary{KEY, VALUE})"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(Dictionary{KEY, VALUE})"/>
+        [Test]
+        public void TestConstructorDictionary()
+        {
+            // Setup test data
+            Dictionary<int, string> referenceMap = new Dictionary<int, string>(testComparer);
+            for (int i = 0; i < 5; ++i)
+            {
+                referenceMap.Add(i, i.ToString());
+            }
+
+            // Test the constructor, and whether it copied the dictionary's content
+            BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>(referenceMap);
+            Assert.IsNotNull(testDictionary);
+            Assert.AreEqual(referenceMap.Count, testDictionary.Count);
+            Assert.AreEqual(testComparer, testDictionary.KeyComparer);
+            Assert.AreNotEqual(testComparer, testDictionary.ValueComparer);
+
+            // Also verify the content is correct
+            int testKey;
+            string testValue;
+            foreach (KeyValuePair<int, string> pair in referenceMap)
+            {
+                // Grab the value from key
+                Assert.IsTrue(testDictionary.TryGetValue(pair.Key, out testValue));
+
+                // Verify it matches the reference's value
+                Assert.AreEqual(pair.Value, testValue);
+
+                // Grab the key from value
+                Assert.IsTrue(testDictionary.TryGetKey(pair.Value, out testKey));
+
+                // Verify it matches the reference's value
+                Assert.AreEqual(pair.Key, testKey);
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(BidirectionalDictionary{KEY, VALUE})"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.BidirectionalDictionary(BidirectionalDictionary{KEY, VALUE})"/>
+        [Test]
+        public void TestConstructorBidirectionalDictionary()
+        {
+            // Setup test data
+            BidirectionalDictionary<int, int> referenceMap = new BidirectionalDictionary<int, int>(testComparer, testComparer);
+            for (int i = 0; i < 5; ++i)
+            {
+                referenceMap.Add(i, (i + (i * 10)));
+            }
+
+            // Test the constructor, and whether it copied the dictionary's content
+            BidirectionalDictionary<int, int> testDictionary = new BidirectionalDictionary<int, int>(referenceMap);
+            Assert.IsNotNull(testDictionary);
+            Assert.AreEqual(referenceMap.Count, testDictionary.Count);
+            Assert.AreEqual(testComparer, testDictionary.KeyComparer);
+            Assert.AreEqual(testComparer, testDictionary.ValueComparer);
+
+            // Also verify the content is correct
+            int testKey, testValue;
+            foreach (KeyValuePair<int, int> pair in referenceMap)
+            {
+                // Grab the value from key
+                Assert.IsTrue(testDictionary.TryGetValue(pair.Key, out testValue));
+
+                // Verify it matches the reference's value
+                Assert.AreEqual(pair.Value, testValue);
+
+                // Grab the key from value
+                Assert.IsTrue(testDictionary.TryGetKey(pair.Value, out testKey));
+
+                // Verify it matches the reference's value
+                Assert.AreEqual(pair.Key, testKey);
+            }
+        }
+
         // TODO: test the rest of the constructors
+        #endregion
+
         // TODO: test the rest of the methods
     }
 }

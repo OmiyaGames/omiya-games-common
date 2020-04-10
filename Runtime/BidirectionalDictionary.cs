@@ -72,38 +72,68 @@ namespace OmiyaGames
         }
 
         #region Constructors
+        /// <summary>
+        /// 
+        /// </summary>
         public BidirectionalDictionary()
         {
             KeyToValueMap = new Dictionary<KEY, VALUE>();
             ValueToKeyMap = new Dictionary<VALUE, KEY>();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="capacity"></param>
         public BidirectionalDictionary(int capacity)
         {
             KeyToValueMap = new Dictionary<KEY, VALUE>(capacity);
             ValueToKeyMap = new Dictionary<VALUE, KEY>(capacity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyComparer"></param>
+        /// <param name="valueComparer"></param>
         public BidirectionalDictionary(IEqualityComparer<KEY> keyComparer, IEqualityComparer<VALUE> valueComparer)
         {
             KeyToValueMap = new Dictionary<KEY, VALUE>(keyComparer);
             ValueToKeyMap = new Dictionary<VALUE, KEY>(valueComparer);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="capacity"></param>
+        /// <param name="keyComparer"></param>
+        /// <param name="valueComparer"></param>
         public BidirectionalDictionary(int capacity, IEqualityComparer<KEY> keyComparer, IEqualityComparer<VALUE> valueComparer)
         {
             KeyToValueMap = new Dictionary<KEY, VALUE>(capacity, keyComparer);
             ValueToKeyMap = new Dictionary<VALUE, KEY>(capacity, valueComparer);
         }
 
-        public BidirectionalDictionary(IDictionary<KEY, VALUE> dictionary) : this(dictionary.Count)
-        {
-            foreach (KeyValuePair<KEY, VALUE> pair in dictionary)
-            {
-                Add(pair.Key, pair.Value);
-            }
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dictionary"></param>
+        public BidirectionalDictionary(Dictionary<KEY, VALUE> dictionary) : this(dictionary, dictionary.Comparer, null)
+        { }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dictionaryToClone"></param>
+        public BidirectionalDictionary(BidirectionalDictionary<KEY, VALUE> dictionaryToClone) : this(dictionaryToClone, dictionaryToClone.KeyComparer, dictionaryToClone.ValueComparer)
+        { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dictionary"></param>
+        /// <param name="keyComparer"></param>
+        /// <param name="valueComparer"></param>
         public BidirectionalDictionary(IDictionary<KEY, VALUE> dictionary, IEqualityComparer<KEY> keyComparer, IEqualityComparer<VALUE> valueComparer) : this(dictionary.Count, keyComparer, valueComparer)
         {
             foreach (KeyValuePair<KEY, VALUE> pair in dictionary)
