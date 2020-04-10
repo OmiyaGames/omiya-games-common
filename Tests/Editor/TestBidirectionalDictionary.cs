@@ -145,27 +145,11 @@ namespace OmiyaGames.Common.Runtime.Tests
             // Test the constructor, and whether it copied the dictionary's content
             BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>(referenceMap);
             Assert.IsNotNull(testDictionary);
-            Assert.AreEqual(referenceMap.Count, testDictionary.Count);
             Assert.AreEqual(testComparer, testDictionary.KeyComparer);
             Assert.AreNotEqual(testComparer, testDictionary.ValueComparer);
 
             // Also verify the content is correct
-            int testKey;
-            string testValue;
-            foreach (KeyValuePair<int, string> pair in referenceMap)
-            {
-                // Grab the value from key
-                Assert.IsTrue(testDictionary.TryGetValue(pair.Key, out testValue));
-
-                // Verify it matches the reference's value
-                Assert.AreEqual(pair.Value, testValue);
-
-                // Grab the key from value
-                Assert.IsTrue(testDictionary.TryGetKey(pair.Value, out testKey));
-
-                // Verify it matches the reference's value
-                Assert.AreEqual(pair.Key, testKey);
-            }
+            VerifyContent(referenceMap, testDictionary);
         }
 
         /// <summary>
@@ -185,26 +169,11 @@ namespace OmiyaGames.Common.Runtime.Tests
             // Test the constructor, and whether it copied the dictionary's content
             BidirectionalDictionary<int, int> testDictionary = new BidirectionalDictionary<int, int>(referenceMap);
             Assert.IsNotNull(testDictionary);
-            Assert.AreEqual(referenceMap.Count, testDictionary.Count);
             Assert.AreEqual(testComparer, testDictionary.KeyComparer);
             Assert.AreEqual(testComparer, testDictionary.ValueComparer);
 
             // Also verify the content is correct
-            int testKey, testValue;
-            foreach (KeyValuePair<int, int> pair in referenceMap)
-            {
-                // Grab the value from key
-                Assert.IsTrue(testDictionary.TryGetValue(pair.Key, out testValue));
-
-                // Verify it matches the reference's value
-                Assert.AreEqual(pair.Value, testValue);
-
-                // Grab the key from value
-                Assert.IsTrue(testDictionary.TryGetKey(pair.Value, out testKey));
-
-                // Verify it matches the reference's value
-                Assert.AreEqual(pair.Key, testKey);
-            }
+            VerifyContent(referenceMap, testDictionary);
         }
 
         /// <summary>
@@ -224,26 +193,11 @@ namespace OmiyaGames.Common.Runtime.Tests
             // Test the constructor, and whether it copied the dictionary's content
             BidirectionalDictionary<int, int> testDictionary = new BidirectionalDictionary<int, int>(referenceMap, testComparer, testComparer);
             Assert.IsNotNull(testDictionary);
-            Assert.AreEqual(referenceMap.Count, testDictionary.Count);
             Assert.AreEqual(testComparer, testDictionary.KeyComparer);
             Assert.AreEqual(testComparer, testDictionary.ValueComparer);
 
             // Also verify the content is correct
-            int testKey, testValue;
-            foreach (KeyValuePair<int, int> pair in referenceMap)
-            {
-                // Grab the value from key
-                Assert.IsTrue(testDictionary.TryGetValue(pair.Key, out testValue));
-
-                // Verify it matches the reference's value
-                Assert.AreEqual(pair.Value, testValue);
-
-                // Grab the key from value
-                Assert.IsTrue(testDictionary.TryGetKey(pair.Value, out testKey));
-
-                // Verify it matches the reference's value
-                Assert.AreEqual(pair.Key, testKey);
-            }
+            VerifyContent(referenceMap, testDictionary);
         }
         #endregion
 
@@ -401,5 +355,27 @@ namespace OmiyaGames.Common.Runtime.Tests
 
         // TODO: test the rest of the methods
 
+        #region Helper Methods
+        private static void VerifyContent<KEY, VALUE>(IDictionary<KEY, VALUE> expectedResults, BidirectionalDictionary<KEY, VALUE> testDictionary)
+        {
+            KEY testKey;
+            VALUE testValue;
+            Assert.AreEqual(expectedResults.Count, testDictionary.Count);
+            foreach (KeyValuePair<KEY, VALUE> expectedPair in expectedResults)
+            {
+                // Grab the value from key
+                Assert.IsTrue(testDictionary.TryGetValue(expectedPair.Key, out testValue));
+
+                // Verify it matches the reference's value
+                Assert.AreEqual(expectedPair.Value, testValue);
+
+                // Grab the key from value
+                Assert.IsTrue(testDictionary.TryGetKey(expectedPair.Value, out testKey));
+
+                // Verify it matches the reference's value
+                Assert.AreEqual(expectedPair.Key, testKey);
+            }
+        }
+        #endregion
     }
 }
