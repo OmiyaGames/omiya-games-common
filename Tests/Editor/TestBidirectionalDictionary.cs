@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
@@ -203,12 +204,13 @@ namespace OmiyaGames.Common.Runtime.Tests
 
         #region Test Properties
         /// <summary>
-        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.Keys"/> and <see cref="BidirectionalDictionary{KEY, VALUE}.Values"/>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.Keys"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.Values"/> and  <see cref="BidirectionalDictionary{KEY, VALUE}.Count"/>
         /// </summary>
         /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.Keys"/>
         /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.Values"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.Count"/>
         [Test]
-        public void TestKeysValuesProperties()
+        public void TestKeysValuesCountProperties()
         {
             // Test edge case of an empty dictionary
             BidirectionalDictionary<int, string> testDictionary = new BidirectionalDictionary<int, string>();
@@ -259,6 +261,8 @@ namespace OmiyaGames.Common.Runtime.Tests
                 Assert.IsTrue(expectedValues.Contains(value));
             }
         }
+
+        // TODO: test this[] property
         #endregion
 
         #region Test GetEnumerator
@@ -353,7 +357,213 @@ namespace OmiyaGames.Common.Runtime.Tests
         }
         #endregion
 
+        #region Test Add
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.GetValue(KEY)"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.GetKey(VALUE)"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.TryGetValue(KEY, out VALUE)"/>, and <see cref="BidirectionalDictionary{KEY, VALUE}.TryGetKey(VALUE, out KEY)"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.GetValue(KEY)"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.GetKey(VALUE)"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.TryGetValue(KEY, out VALUE)"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.TryGetKey(VALUE, out KEY)"/>
+        [Test]
+        public void TestGetKeyValueEdgeCases()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
+            string test;
+
+            // Test null pointer exception
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                test = testEdgeCase[null];
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.GetValue(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.GetKey(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.TryGetValue(null, out test);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.TryGetKey(null, out test);
+            });
+
+            // Test non-existant key and value
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                test = testEdgeCase[""];
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.GetValue("");
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.GetKey("");
+            });
+            Assert.IsFalse(testEdgeCase.TryGetValue("", out test));
+            Assert.AreEqual(default(string), test);
+            Assert.IsFalse(testEdgeCase.TryGetKey("", out test));
+            Assert.AreEqual(default(string), test);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.Add(KEY, VALUE)"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.Add(KEY, VALUE)"/>
+        [Test]
+        public void TestAddEdgeCases()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
+            string test = "Valid String";
+
+            // Test null pointer exception
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.Add(null, test);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.Add(test, null);
+            });
+        }
+
+        /// <summary>
+        /// Unit test for:<br/>
+        /// <see cref="BidirectionalDictionary{KEY, VALUE}.GetValue(KEY)"/>,<br/>
+        /// <see cref="BidirectionalDictionary{KEY, VALUE}.GetKey(VALUE)"/>,<br/>
+        /// <see cref="BidirectionalDictionary{KEY, VALUE}.TryGetValue(KEY, out VALUE)"/>,<br/>
+        /// <see cref="BidirectionalDictionary{KEY, VALUE}.TryGetKey(VALUE, out KEY)"/>,<br/>
+        /// <see cref="BidirectionalDictionary{KEY, VALUE}.Contains(KeyValuePair{KEY, VALUE})"/>,<br/>
+        /// <see cref="BidirectionalDictionary{KEY, VALUE}.ContainsKey(KEY)"/>,and <br/>
+        /// <see cref="BidirectionalDictionary{KEY, VALUE}.ContainsValue(VALUE)"/>
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.GetValue(KEY)"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.GetKey(VALUE)"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.TryGetValue(KEY, out VALUE)"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.TryGetKey(VALUE, out KEY)"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.Contains(KeyValuePair{KEY, VALUE})"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.ContainsKey(KEY)"/>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.ContainsValue(VALUE)"/>
+        [Test]
+        public void TestAddGetTryGetContains()
+        {
+            const int nonExistantKey = 9999;
+            const string nonExistantValue = "Random";
+
+            // Create an empty bidirectional dictionary
+            Dictionary<int, string> expectedResults = new Dictionary<int, string>();
+            BidirectionalDictionary<int, string> testDefault = new BidirectionalDictionary<int, string>();
+            for (int currentKey = 0; currentKey <= 5; ++currentKey)
+            {
+                // Add a pair into the dictionary
+                string currentValue = currentKey.ToString();
+                expectedResults.Add(currentKey, currentValue);
+
+                // Test both adds
+                if ((currentKey % 2) > 0)
+                {
+                    testDefault.Add(currentKey, currentValue);
+                }
+                else
+                {
+                    testDefault.Add(new KeyValuePair<int, string>(currentKey, currentValue));
+                }
+
+                // Confirm size
+                Assert.AreEqual((currentKey + 1), testDefault.Count);
+
+                // Confirm content
+                VerifyContent(expectedResults, testDefault);
+
+                // Confirm getters and setters
+                int testKey;
+                string testValue;
+                for (int expectedKey = 0; expectedKey <= 5; ++expectedKey)
+                {
+                    // Test whether key-value exists
+                    string expectedValue = expectedKey.ToString();
+                    if (expectedKey <= currentKey)
+                    {
+                        // Test existing key and value
+                        Assert.AreEqual(expectedValue, testDefault[expectedKey]);
+                        Assert.AreEqual(expectedValue, testDefault.GetValue(expectedKey));
+                        Assert.AreEqual(expectedKey, testDefault.GetKey(expectedValue));
+
+                        Assert.IsTrue(testDefault.TryGetValue(expectedKey, out testValue));
+                        Assert.AreEqual(expectedValue, testValue);
+                        Assert.IsTrue(testDefault.TryGetKey(expectedValue, out testKey));
+                        Assert.AreEqual(expectedKey, testKey);
+
+                        Assert.IsTrue(testDefault.ContainsKey(expectedKey));
+                        Assert.IsTrue(testDefault.ContainsValue(expectedValue));
+                        Assert.IsTrue(testDefault.Contains(new KeyValuePair<int, string>(expectedKey, expectedValue)));
+
+                        // Test edge cases for contains
+                        Assert.IsFalse(testDefault.Contains(new KeyValuePair<int, string>(expectedKey, nonExistantValue)));
+                        Assert.IsFalse(testDefault.Contains(new KeyValuePair<int, string>(nonExistantKey, expectedValue)));
+
+                        // Test edge case for double-adding
+                        Assert.Throws<ArgumentException>(delegate
+                        {
+                            testDefault.Add(expectedKey, nonExistantValue);
+                        });
+                        Assert.Throws<ArgumentException>(delegate
+                        {
+                            testDefault.Add(nonExistantKey, expectedValue);
+                        });
+                        Assert.Throws<ArgumentException>(delegate
+                        {
+                            testDefault.Add(new KeyValuePair<int, string>(expectedKey, nonExistantValue));
+                        });
+                        Assert.Throws<ArgumentException>(delegate
+                        {
+                            testDefault.Add(new KeyValuePair<int, string>(nonExistantKey, expectedValue));
+                        });
+                    }
+                    else
+                    {
+                        // Test non-existant key and value
+                        Assert.Throws<KeyNotFoundException>(delegate
+                        {
+                            testValue = testDefault[expectedKey];
+                        });
+                        Assert.Throws<KeyNotFoundException>(delegate
+                        {
+                            testDefault.GetValue(expectedKey);
+                        });
+                        Assert.Throws<KeyNotFoundException>(delegate
+                        {
+                            testDefault.GetKey(expectedValue);
+                        });
+
+                        Assert.IsFalse(testDefault.TryGetValue(expectedKey, out testValue));
+                        Assert.AreEqual(default(string), testValue);
+                        Assert.IsFalse(testDefault.TryGetKey(expectedValue, out testKey));
+                        Assert.AreEqual(default(int), testKey);
+
+                        Assert.IsFalse(testDefault.ContainsKey(expectedKey));
+                        Assert.IsFalse(testDefault.ContainsValue(expectedValue));
+
+                        // Test all cases for contains
+                        Assert.IsFalse(testDefault.Contains(new KeyValuePair<int, string>(expectedKey, expectedValue)));
+                        Assert.IsFalse(testDefault.Contains(new KeyValuePair<int, string>(expectedKey, nonExistantValue)));
+                        Assert.IsFalse(testDefault.Contains(new KeyValuePair<int, string>(nonExistantKey, expectedValue)));
+                    }
+                }
+            }
+        }
+        #endregion
+
         // TODO: test the rest of the methods
+
 
         #region Helper Methods
         private static void VerifyContent<KEY, VALUE>(IDictionary<KEY, VALUE> expectedResults, BidirectionalDictionary<KEY, VALUE> testDictionary)
