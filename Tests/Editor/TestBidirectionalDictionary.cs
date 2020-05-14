@@ -563,7 +563,9 @@ namespace OmiyaGames.Common.Runtime.Tests
         #endregion
 
         // TODO: test the rest of the methods
-
+        // TODO: e.g. Remove
+        // TODO: e.g. Set
+        // TODO: e.g. CopyTo
 
         #region Helper Methods
         private static void VerifyContent<KEY, VALUE>(IDictionary<KEY, VALUE> expectedResults, BidirectionalDictionary<KEY, VALUE> testDictionary)
