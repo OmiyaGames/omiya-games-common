@@ -564,8 +564,82 @@ namespace OmiyaGames.Common.Runtime.Tests
 
         // TODO: test the rest of the methods
         // TODO: e.g. Remove
+        #region Test Remove
+        #endregion
+
         // TODO: e.g. Set
-        // TODO: e.g. CopyTo
+        #region Test Set
+        #endregion
+
+        #region Test CopyTo
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.CopyTo(KeyValuePair{KEY, VALUE}[], int)"/>, focusing on edge cases.
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.CopyTo(KeyValuePair{KEY, VALUE}[], int)"/>
+        [Test]
+        public void TestCopyToEdgeCases()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
+            KeyValuePair<string, string>[] copyToArray = null;
+            KeyValuePair<string, string> addPair = new KeyValuePair<string, string>("Test", "test");
+
+            // Test null pointer exception
+            testEdgeCase.Add(addPair);
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.CopyTo(copyToArray, 0);
+            });
+
+            // Test no space
+            copyToArray = new KeyValuePair<string, string>[0];
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.CopyTo(copyToArray, 0);
+            });
+            Assert.Throws<ArgumentOutOfRangeException>(delegate
+            {
+                testEdgeCase.CopyTo(copyToArray, 1);
+            });
+            copyToArray = new KeyValuePair<string, string>[1];
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.CopyTo(copyToArray, 1);
+            });
+
+            // Test valid case
+            Assert.DoesNotThrow(delegate
+            {
+                testEdgeCase.CopyTo(copyToArray, 0);
+            });
+            Assert.AreEqual(copyToArray[0], addPair);
+
+            // Test if there's nothing to copy over
+            addPair = new KeyValuePair<string, string>();
+            testEdgeCase.Clear();
+            copyToArray[0] = addPair;
+            Assert.DoesNotThrow(delegate
+            {
+                testEdgeCase.CopyTo(copyToArray, 0);
+            });
+            Assert.AreEqual(copyToArray[0], addPair);
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.CopyTo(KeyValuePair{KEY, VALUE}[], int)"/>, focusing on normal cases.
+        /// </summary>
+        /// <seealso cref="BidirectionalDictionary{KEY, VALUE}.CopyTo(KeyValuePair{KEY, VALUE}[], int)"/>
+        [Test]
+        public void TestCopyTo()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
+            KeyValuePair<string, string>[] copyToArray = null;
+            KeyValuePair<string, string> addPair = new KeyValuePair<string, string>("Test", "test");
+
+            // FIXME: do testing!
+        }
+        #endregion
 
         #region Helper Methods
         private static void VerifyContent<KEY, VALUE>(IDictionary<KEY, VALUE> expectedResults, BidirectionalDictionary<KEY, VALUE> testDictionary)
