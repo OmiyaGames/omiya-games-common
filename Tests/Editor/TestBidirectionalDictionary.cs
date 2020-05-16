@@ -259,8 +259,6 @@ namespace OmiyaGames.Common.Runtime.Tests
                 Assert.IsTrue(expectedValues.Contains(value));
             }
         }
-
-        // TODO: test this[] property
         #endregion
 
         #region Test GetEnumerator
@@ -782,14 +780,181 @@ namespace OmiyaGames.Common.Runtime.Tests
         [Test]
         public void TestSetEdgeCases()
         {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
+
+            // Attempt to call the set functions while the dictionary is empty
+            KeyValuePair<string, string> addPair = new KeyValuePair<string, string>("test", "TEST");
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, addPair.Value);
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, addPair.Key);
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase[addPair.Key] = addPair.Value;
+            });
+
+            // Test null pointer error
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(null, addPair.Value);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(null, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(null, addPair.Key);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(null, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[null] = addPair.Value;
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[null] = null;
+            });
+
+            // Add a pair in the dictionary
+            testEdgeCase.Add(addPair);
+
+            // Call set on non-existing value
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Value, addPair.Key);
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Key, addPair.Value);
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase[addPair.Value] = addPair.Key;
+            });
+
+            // Call set on existing value
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, addPair.Value);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, addPair.Key);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase[addPair.Key] = addPair.Value;
+            });
+
+            // Test null pointer error
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(null, addPair.Value);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(null, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(null, addPair.Key);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(null, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[null] = addPair.Value;
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[addPair.Key] = null;
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[null] = null;
+            });
+
+            // Add another pair in the dictionary
+            KeyValuePair<string, string> newPair = new KeyValuePair<string, string>("help", "HELP");
+            testEdgeCase.Add(newPair);
+
+            // Call set on existing value
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, newPair.Value);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetValue(newPair.Key, addPair.Value);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, newPair.Key);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetKey(newPair.Value, addPair.Key);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase[addPair.Key] = newPair.Value;
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase[newPair.Key] = addPair.Value;
+            });
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetKey(VALUE, KEY)"/>, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestSetKey()
+        {
             // TODO: e.g. Set
         }
 
         /// <summary>
-        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetKey(VALUE, KEY)"/> and <see cref="BidirectionalDictionary{KEY, VALUE}.SetValue(KEY, VALUE)"/>, focusing on normal use cases.
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetValue(KEY, VALUE)"/>, focusing on normal use cases.
         /// </summary>
         [Test]
-        public void TestSet()
+        public void TestSetValue()
+        {
+            // TODO: e.g. Set
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}"/> set property, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestSetProperty()
         {
             // TODO: e.g. Set
         }
