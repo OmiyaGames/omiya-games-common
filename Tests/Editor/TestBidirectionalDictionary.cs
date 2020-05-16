@@ -570,7 +570,60 @@ namespace OmiyaGames.Common.Runtime.Tests
         [Test]
         public void TestRemoveEdgeCases()
         {
-            // TODO: e.g. Remove
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
+
+            // Test null-pointer error on empty list
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.Remove(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.RemoveKey(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.RemoveValue(null);
+            });
+
+            // Test invalid remove action on empty list
+            Assert.IsFalse(testEdgeCase.Remove("test"));
+            Assert.IsFalse(testEdgeCase.RemoveKey("test"));
+            Assert.IsFalse(testEdgeCase.RemoveValue("test"));
+
+            // Test null-pointer error on a non-empty list
+            KeyValuePair<string, string> addPair = new KeyValuePair<string, string>("test", "TEST");
+            testEdgeCase.Add(addPair);
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.Remove(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.RemoveKey(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.RemoveValue(null);
+            });
+
+            // Test invalid remove action on non-empty list
+            Assert.IsFalse(testEdgeCase.Remove(addPair.Value));
+            Assert.IsFalse(testEdgeCase.RemoveKey(addPair.Value));
+            Assert.IsFalse(testEdgeCase.RemoveValue(addPair.Key));
+
+            // Test remove when the element is already removed
+            Assert.IsTrue(testEdgeCase.Remove(addPair.Key));
+            Assert.IsFalse(testEdgeCase.Remove(addPair.Key));
+
+            testEdgeCase.Add(addPair);
+            Assert.IsTrue(testEdgeCase.RemoveKey(addPair.Key));
+            Assert.IsFalse(testEdgeCase.RemoveKey(addPair.Key));
+
+            testEdgeCase.Add(addPair);
+            Assert.IsTrue(testEdgeCase.RemoveValue(addPair.Value));
+            Assert.IsFalse(testEdgeCase.RemoveValue(addPair.Value));
         }
 
         /// <summary>
