@@ -563,12 +563,44 @@ namespace OmiyaGames.Common.Runtime.Tests
         #endregion
 
         // TODO: test the rest of the methods
-        // TODO: e.g. Remove
         #region Test Remove
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.RemoveKey(KEY)"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.RemoveValue(VALUE)"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.Remove(KeyValuePair{KEY, VALUE})"/>, and <see cref="BidirectionalDictionary{KEY, VALUE}.Remove(KEY)"/>, focusing on edge cases.
+        /// </summary>
+        [Test]
+        public void TestRemoveEdgeCases()
+        {
+            // TODO: e.g. Remove
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.RemoveKey(KEY)"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.RemoveValue(VALUE)"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.Remove(KeyValuePair{KEY, VALUE})"/>, and <see cref="BidirectionalDictionary{KEY, VALUE}.Remove(KEY)"/>, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestRemove()
+        {
+            // TODO: e.g. Remove
+        }
         #endregion
 
-        // TODO: e.g. Set
         #region Test Set
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetKey(VALUE, KEY)"/> and <see cref="BidirectionalDictionary{KEY, VALUE}.SetValue(KEY, VALUE)"/>, focusing on edge cases.
+        /// </summary>
+        [Test]
+        public void TestSetEdgeCases()
+        {
+            // TODO: e.g. Set
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetKey(VALUE, KEY)"/> and <see cref="BidirectionalDictionary{KEY, VALUE}.SetValue(KEY, VALUE)"/>, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestSet()
+        {
+            // TODO: e.g. Set
+        }
         #endregion
 
         #region Test CopyTo
