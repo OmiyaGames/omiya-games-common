@@ -632,12 +632,87 @@ namespace OmiyaGames.Common.Runtime.Tests
         [Test]
         public void TestCopyTo()
         {
-            // Create an empty bidirectional dictionary
-            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
-            KeyValuePair<string, string>[] copyToArray = null;
-            KeyValuePair<string, string> addPair = new KeyValuePair<string, string>("Test", "test");
+            // Create a bidirectional dictionary
+            BidirectionalDictionary<int, string> testEdgeCase = new BidirectionalDictionary<int, string>();
+            for (int index = (default(int) + 10); index <= (default(int) + 30); index += 5)
+            {
+                testEdgeCase.Add(index, index.ToString());
+            }
 
-            // FIXME: do testing!
+            // Do a normal copyTo where array size and dictionary are the same
+            KeyValuePair<int, string>[] copyToArray = new KeyValuePair<int, string>[testEdgeCase.Count];
+            testEdgeCase.CopyTo(copyToArray, 0);
+
+            // Verify array content
+            HashSet<int> allKeys = new HashSet<int>();
+            foreach (KeyValuePair<int, string> pair in copyToArray)
+            {
+                if (pair.Key != default(int))
+                {
+                    Assert.IsTrue(testEdgeCase.Contains(pair));
+                    allKeys.Add(pair.Key);
+                }
+                else
+                {
+                    Assert.Fail("CopyTo() had wrong key");
+                }
+            }
+
+            // Verify number of elements is equal to the dictionary
+            Assert.AreEqual(testEdgeCase.Count, allKeys.Count);
+
+
+            // Do a normal copyTo where array size is larger than dictionary, and only the beginning is copied to
+            copyToArray = new KeyValuePair<int, string>[testEdgeCase.Count * 2];
+            testEdgeCase.CopyTo(copyToArray, 0);
+
+            // Verify array content
+            allKeys.Clear();
+            int numDefaultItems = 0;
+            foreach (KeyValuePair<int, string> pair in copyToArray)
+            {
+                if (pair.Key != default(int))
+                {
+                    Assert.IsTrue(testEdgeCase.Contains(pair));
+                    allKeys.Add(pair.Key);
+                }
+                else
+                {
+                    ++numDefaultItems;
+                }
+            }
+
+            // Verify number of elements is equal to the dictionary
+            Assert.AreEqual(testEdgeCase.Count, allKeys.Count);
+            Assert.AreEqual(testEdgeCase.Count, numDefaultItems);
+
+            // Do a normal copyTo where array size is larger than dictionary, and only the end is copied to
+            testEdgeCase.CopyTo(copyToArray, allKeys.Count);
+
+            // Verify array content
+            allKeys.Clear();
+            int numConflicts = 0;
+            foreach (KeyValuePair<int, string> pair in copyToArray)
+            {
+                if (pair.Key == default(int))
+                {
+                    Assert.Fail();
+                }
+                else if (allKeys.Contains(pair.Key) == true)
+                {
+                    Assert.IsTrue(testEdgeCase.Contains(pair));
+                    ++numConflicts;
+                }
+                else
+                {
+                    Assert.IsTrue(testEdgeCase.Contains(pair));
+                    allKeys.Add(pair.Key);
+                }
+            }
+
+            // Verify number of elements is equal to the dictionary
+            Assert.AreEqual(testEdgeCase.Count, allKeys.Count);
+            Assert.AreEqual(testEdgeCase.Count, numConflicts);
         }
         #endregion
 

@@ -415,7 +415,7 @@ namespace OmiyaGames
         /// Checks if this dictionary contains the key-to-value pairing.
         /// </summary>
         /// <param name="item">Pairing to verify whether this dictionary contains or not.</param>
-        /// <returns>True, if and only if this dictionary contains both has the same key and value that is paired to that key.</returns>
+        /// <returns>True, if and only if this dictionary contains the same pairing as <paramref name="item"/>.</returns>
         public bool Contains(KeyValuePair<KEY, VALUE> item)
         {
             // Check if the key exists, then check if the argument's value matches with the VALUE mapped in KeyToValueMap
