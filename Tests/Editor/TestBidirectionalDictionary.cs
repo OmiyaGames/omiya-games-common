@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 namespace OmiyaGames.Common.Runtime.Tests
 {
@@ -261,8 +259,6 @@ namespace OmiyaGames.Common.Runtime.Tests
                 Assert.IsTrue(expectedValues.Contains(value));
             }
         }
-
-        // TODO: test this[] property
         #endregion
 
         #region Test GetEnumerator
@@ -562,13 +558,508 @@ namespace OmiyaGames.Common.Runtime.Tests
         }
         #endregion
 
-        // TODO: test the rest of the methods
-        // TODO: e.g. Remove
         #region Test Remove
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.RemoveKey(KEY)"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.RemoveValue(VALUE)"/>, <see cref="BidirectionalDictionary{KEY, VALUE}.Remove(KeyValuePair{KEY, VALUE})"/>, and <see cref="BidirectionalDictionary{KEY, VALUE}.Remove(KEY)"/>, focusing on edge cases.
+        /// </summary>
+        [Test]
+        public void TestRemoveEdgeCases()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
+
+            // Test null-pointer error on empty list
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.Remove(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.RemoveKey(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.RemoveValue(null);
+            });
+
+            // Test invalid remove action on empty list
+            KeyValuePair<string, string> addPair = new KeyValuePair<string, string>("test", "TEST");
+            Assert.IsFalse(testEdgeCase.Remove("test"));
+            Assert.IsFalse(testEdgeCase.Remove(addPair));
+            Assert.IsFalse(testEdgeCase.RemoveKey("test"));
+            Assert.IsFalse(testEdgeCase.RemoveValue("test"));
+
+            // Test null-pointer error on a non-empty list
+            testEdgeCase.Add(addPair);
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.Remove(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.RemoveKey(null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.RemoveValue(null);
+            });
+
+            // Test invalid remove action on non-empty list
+            Assert.IsFalse(testEdgeCase.Remove(addPair.Value));
+            Assert.IsFalse(testEdgeCase.RemoveKey(addPair.Value));
+            Assert.IsFalse(testEdgeCase.RemoveValue(addPair.Key));
+
+            // Test every combo of invalid remove action on non-empty list
+            KeyValuePair<string, string> dudPair = new KeyValuePair<string, string>(addPair.Value, addPair.Key);
+            Assert.IsFalse(testEdgeCase.Remove(dudPair));
+            dudPair = new KeyValuePair<string, string>(addPair.Key, addPair.Key);
+            Assert.IsFalse(testEdgeCase.Remove(dudPair));
+            dudPair = new KeyValuePair<string, string>(addPair.Value, addPair.Value);
+            Assert.IsFalse(testEdgeCase.Remove(dudPair));
+
+            // Test remove when the element is already removed
+            Assert.IsTrue(testEdgeCase.Remove(addPair.Key));
+            Assert.IsFalse(testEdgeCase.Remove(addPair.Key));
+
+            testEdgeCase.Add(addPair);
+            Assert.IsTrue(testEdgeCase.Remove(addPair));
+            Assert.IsFalse(testEdgeCase.Remove(addPair));
+
+            testEdgeCase.Add(addPair);
+            Assert.IsTrue(testEdgeCase.RemoveKey(addPair.Key));
+            Assert.IsFalse(testEdgeCase.RemoveKey(addPair.Key));
+
+            testEdgeCase.Add(addPair);
+            Assert.IsTrue(testEdgeCase.RemoveValue(addPair.Value));
+            Assert.IsFalse(testEdgeCase.RemoveValue(addPair.Value));
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.RemoveKey(KEY)"/> focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestRemoveKey()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, int> testNormalCase = new BidirectionalDictionary<int, int>();
+
+            // Fill in the dictionary
+            for (int index = 0; index < 10; ++index)
+            {
+                testNormalCase.Add(index, (index * 10));
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, int> check = new KeyValuePair<int, int>();
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 0; i < 10; ++i)
+            {
+                // Run the remove function
+                Assert.IsTrue(testNormalCase.RemoveKey(i));
+
+                // Verify dictionary size
+                --expectedCount;
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 0; j < 10; ++j)
+                {
+                    check = new KeyValuePair<int, int>(j, (j * 10));
+                    Assert.AreEqual((j > i), testNormalCase.Contains(check));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.RemoveValue(Value)"/> focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestRemoveValue()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, string> testNormalCase = new BidirectionalDictionary<int, string>();
+
+            // Fill in the dictionary
+            for (int index = 0; index < 10; ++index)
+            {
+                testNormalCase.Add(index, index.ToString());
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, string> check;
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 0; i < 10; ++i)
+            {
+                // Run the remove function
+                Assert.IsTrue(testNormalCase.RemoveValue(i.ToString()));
+
+                // Verify dictionary size
+                --expectedCount;
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 0; j < 10; ++j)
+                {
+                    check = new KeyValuePair<int, string>(j, j.ToString());
+                    Assert.AreEqual((j > i), testNormalCase.Contains(check));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.Remove(KeyValuePair{KEY, VALUE})"/> and <see cref="BidirectionalDictionary{KEY, VALUE}.Remove(KEY)"/>, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestRemove()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, int> testNormalCase = new BidirectionalDictionary<int, int>();
+
+            // Fill in the dictionary
+            for (int index = 0; index < 10; ++index)
+            {
+                testNormalCase.Add(index, (index * 10));
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, int> check = new KeyValuePair<int, int>();
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 9; i >= 0; --i)
+            {
+                // Run the remove function
+                Assert.IsTrue(testNormalCase.Remove(i));
+
+                // Verify dictionary size
+                --expectedCount;
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 0; j < 10; ++j)
+                {
+                    check = new KeyValuePair<int, int>(j, (j * 10));
+                    Assert.AreEqual((j < i), testNormalCase.Contains(check));
+                }
+            }
+
+            // Fill in the dictionary
+            for (int index = 0; index < 10; ++index)
+            {
+                testNormalCase.Add(index, (index * 10));
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 9; i >= 0; --i)
+            {
+                // Run the remove function
+                check = new KeyValuePair<int, int>(i, (i * 10));
+                Assert.IsTrue(testNormalCase.Remove(check));
+
+                // Verify dictionary size
+                --expectedCount;
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 0; j < 10; ++j)
+                {
+                    check = new KeyValuePair<int, int>(j, (j * 10));
+                    Assert.AreEqual((j < i), testNormalCase.Contains(check));
+                }
+            }
+        }
         #endregion
 
-        // TODO: e.g. Set
         #region Test Set
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetKey(VALUE, KEY)"/> and <see cref="BidirectionalDictionary{KEY, VALUE}.SetValue(KEY, VALUE)"/>, focusing on edge cases.
+        /// </summary>
+        [Test]
+        public void TestSetEdgeCases()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<string, string> testEdgeCase = new BidirectionalDictionary<string, string>();
+
+            // Attempt to call the set functions while the dictionary is empty
+            KeyValuePair<string, string> addPair = new KeyValuePair<string, string>("test", "TEST");
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, addPair.Value);
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, addPair.Key);
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase[addPair.Key] = addPair.Value;
+            });
+
+            // Test null pointer error
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(null, addPair.Value);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(null, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(null, addPair.Key);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(null, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[null] = addPair.Value;
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[null] = null;
+            });
+
+            // Add a pair in the dictionary
+            testEdgeCase.Add(addPair);
+
+            // Call set on non-existing value
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Value, addPair.Key);
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Key, addPair.Value);
+            });
+            Assert.Throws<KeyNotFoundException>(delegate
+            {
+                testEdgeCase[addPair.Value] = addPair.Key;
+            });
+
+            // Call set on existing value
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, addPair.Value);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, addPair.Key);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase[addPair.Key] = addPair.Value;
+            });
+
+            // Test null pointer error
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(null, addPair.Value);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetValue(null, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(null, addPair.Key);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase.SetKey(null, null);
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[null] = addPair.Value;
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[addPair.Key] = null;
+            });
+            Assert.Throws<ArgumentNullException>(delegate
+            {
+                testEdgeCase[null] = null;
+            });
+
+            // Add another pair in the dictionary
+            KeyValuePair<string, string> newPair = new KeyValuePair<string, string>("help", "HELP");
+            testEdgeCase.Add(newPair);
+
+            // Call set on existing value
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetValue(addPair.Key, newPair.Value);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetValue(newPair.Key, addPair.Value);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetKey(addPair.Value, newPair.Key);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase.SetKey(newPair.Value, addPair.Key);
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase[addPair.Key] = newPair.Value;
+            });
+            Assert.Throws<ArgumentException>(delegate
+            {
+                testEdgeCase[newPair.Key] = addPair.Value;
+            });
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetValue(KEY, VALUE)"/>, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestSetValue()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, int> testNormalCase = new BidirectionalDictionary<int, int>();
+
+            // Fill in the dictionary
+            for (int index = 1; index < 10; ++index)
+            {
+                testNormalCase.Add(index, (index * 10));
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, int> check = new KeyValuePair<int, int>();
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 1; i < 10; ++i)
+            {
+                // Run the Set function
+                testNormalCase.SetValue(i, (i * 100));
+
+                // Verify dictionary size
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 1; j < 10; ++j)
+                {
+                    if (j <= i)
+                    {
+                        check = new KeyValuePair<int, int>(j, (j * 100));
+                    }
+                    else
+                    {
+                        check = new KeyValuePair<int, int>(j, (j * 10));
+                    }
+                    Assert.IsTrue(testNormalCase.Contains(check));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}"/> set property, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestSetProperty()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, int> testNormalCase = new BidirectionalDictionary<int, int>();
+
+            // Fill in the dictionary
+            for (int index = 1; index < 10; ++index)
+            {
+                testNormalCase.Add(index, (index * 10));
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, int> check = new KeyValuePair<int, int>();
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 9; i > 0; --i)
+            {
+                // Run the Set function
+                testNormalCase[i] = (i * 100);
+
+                // Verify dictionary size
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 1; j < 10; ++j)
+                {
+                    if (j >= i)
+                    {
+                        check = new KeyValuePair<int, int>(j, (j * 100));
+                    }
+                    else
+                    {
+                        check = new KeyValuePair<int, int>(j, (j * 10));
+                    }
+                    Assert.IsTrue(testNormalCase.Contains(check));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetKey(VALUE, KEY)"/>, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestSetKey()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, int> testNormalCase = new BidirectionalDictionary<int, int>();
+
+            // Fill in the dictionary
+            for (int index = 1; index < 10; ++index)
+            {
+                testNormalCase.Add((index * 10), index);
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, int> check = new KeyValuePair<int, int>();
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 1; i < 10; ++i)
+            {
+                // Run the Set function
+                testNormalCase.SetKey(i, (i * 100));
+
+                // Verify dictionary size
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 1; j < 10; ++j)
+                {
+                    if (j <= i)
+                    {
+                        check = new KeyValuePair<int, int>((j * 100), j);
+                    }
+                    else
+                    {
+                        check = new KeyValuePair<int, int>((j * 10), j);
+                    }
+                    Assert.IsTrue(testNormalCase.Contains(check));
+                }
+            }
+        }
         #endregion
 
         #region Test CopyTo
@@ -633,15 +1124,15 @@ namespace OmiyaGames.Common.Runtime.Tests
         public void TestCopyTo()
         {
             // Create a bidirectional dictionary
-            BidirectionalDictionary<int, string> testEdgeCase = new BidirectionalDictionary<int, string>();
+            BidirectionalDictionary<int, string> testNormalCase = new BidirectionalDictionary<int, string>();
             for (int index = (default(int) + 10); index <= (default(int) + 30); index += 5)
             {
-                testEdgeCase.Add(index, index.ToString());
+                testNormalCase.Add(index, index.ToString());
             }
 
             // Do a normal copyTo where array size and dictionary are the same
-            KeyValuePair<int, string>[] copyToArray = new KeyValuePair<int, string>[testEdgeCase.Count];
-            testEdgeCase.CopyTo(copyToArray, 0);
+            KeyValuePair<int, string>[] copyToArray = new KeyValuePair<int, string>[testNormalCase.Count];
+            testNormalCase.CopyTo(copyToArray, 0);
 
             // Verify array content
             HashSet<int> allKeys = new HashSet<int>();
@@ -649,7 +1140,7 @@ namespace OmiyaGames.Common.Runtime.Tests
             {
                 if (pair.Key != default(int))
                 {
-                    Assert.IsTrue(testEdgeCase.Contains(pair));
+                    Assert.IsTrue(testNormalCase.Contains(pair));
                     allKeys.Add(pair.Key);
                 }
                 else
@@ -659,12 +1150,12 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
 
             // Verify number of elements is equal to the dictionary
-            Assert.AreEqual(testEdgeCase.Count, allKeys.Count);
+            Assert.AreEqual(testNormalCase.Count, allKeys.Count);
 
 
             // Do a normal copyTo where array size is larger than dictionary, and only the beginning is copied to
-            copyToArray = new KeyValuePair<int, string>[testEdgeCase.Count * 2];
-            testEdgeCase.CopyTo(copyToArray, 0);
+            copyToArray = new KeyValuePair<int, string>[testNormalCase.Count * 2];
+            testNormalCase.CopyTo(copyToArray, 0);
 
             // Verify array content
             allKeys.Clear();
@@ -673,7 +1164,7 @@ namespace OmiyaGames.Common.Runtime.Tests
             {
                 if (pair.Key != default(int))
                 {
-                    Assert.IsTrue(testEdgeCase.Contains(pair));
+                    Assert.IsTrue(testNormalCase.Contains(pair));
                     allKeys.Add(pair.Key);
                 }
                 else
@@ -683,11 +1174,11 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
 
             // Verify number of elements is equal to the dictionary
-            Assert.AreEqual(testEdgeCase.Count, allKeys.Count);
-            Assert.AreEqual(testEdgeCase.Count, numDefaultItems);
+            Assert.AreEqual(testNormalCase.Count, allKeys.Count);
+            Assert.AreEqual(testNormalCase.Count, numDefaultItems);
 
             // Do a normal copyTo where array size is larger than dictionary, and only the end is copied to
-            testEdgeCase.CopyTo(copyToArray, allKeys.Count);
+            testNormalCase.CopyTo(copyToArray, allKeys.Count);
 
             // Verify array content
             allKeys.Clear();
@@ -700,19 +1191,19 @@ namespace OmiyaGames.Common.Runtime.Tests
                 }
                 else if (allKeys.Contains(pair.Key) == true)
                 {
-                    Assert.IsTrue(testEdgeCase.Contains(pair));
+                    Assert.IsTrue(testNormalCase.Contains(pair));
                     ++numConflicts;
                 }
                 else
                 {
-                    Assert.IsTrue(testEdgeCase.Contains(pair));
+                    Assert.IsTrue(testNormalCase.Contains(pair));
                     allKeys.Add(pair.Key);
                 }
             }
 
             // Verify number of elements is equal to the dictionary
-            Assert.AreEqual(testEdgeCase.Count, allKeys.Count);
-            Assert.AreEqual(testEdgeCase.Count, numConflicts);
+            Assert.AreEqual(testNormalCase.Count, allKeys.Count);
+            Assert.AreEqual(testNormalCase.Count, numConflicts);
         }
         #endregion
 
