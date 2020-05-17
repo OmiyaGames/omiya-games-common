@@ -586,18 +586,22 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
+            Dictionary<int, int> expectedFrequency = new Dictionary<int, int>();
 
             // Test remove when there aren't any elements to remove
             Assert.IsFalse(testList.Remove(0));
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
 
             // Start filling in testList
             for (int numAdd = 1; numAdd <= 3; ++numAdd)
             {
                 testList.Add(numAdd, numAdd);
+                expectedFrequency.Add(numAdd, numAdd);
             }
 
             // Test remove on an element that doesn't exist
             Assert.IsFalse(testList.Remove(0));
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
 
             // Test remove on elements, and make sure the correct flag is returned
             for (int repeat = 0; repeat < 4; ++repeat)
@@ -605,27 +609,63 @@ namespace OmiyaGames.Common.Runtime.Tests
                 for (int numRemove = 1; numRemove <= 3; ++numRemove)
                 {
                     Assert.AreEqual((numRemove > repeat), testList.Remove(numRemove));
+
+                    // Also remove the number from expectedFrequency
+                    if (expectedFrequency.ContainsKey(numRemove) == true)
+                    {
+                        if (expectedFrequency[numRemove] > 1)
+                        {
+                            expectedFrequency[numRemove] -= 1;
+                        }
+                        else
+                        {
+                            expectedFrequency.Remove(numRemove);
+                        }
+                    }
+
+                    // Test content of list
+                    TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
                 }
             }
 
             // Also test IEqualityComparer
             testList = new RandomList<int>(testComparer);
+            expectedFrequency = new Dictionary<int, int>(testComparer);
 
             // Start filling in testList
             for (int numAdd = 1; numAdd <= 3; ++numAdd)
             {
                 testList.Add(numAdd, numAdd);
+                expectedFrequency.Add(numAdd, numAdd);
             }
 
             // Test remove on an element that doesn't exist
             Assert.IsFalse(testList.Remove(10));
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
 
             // Test remove on elements, and make sure the correct flag is returned
             for (int repeat = 0; repeat < 4; ++repeat)
             {
                 for (int numRemove = 1; numRemove <= 3; ++numRemove)
                 {
-                    Assert.AreEqual((numRemove > repeat), testList.Remove(numRemove + (numRemove * 10)));
+                    int removeNumAdjusted = numRemove + (numRemove * 10);
+                    Assert.AreEqual((numRemove > repeat), testList.Remove(removeNumAdjusted));
+
+                    // Also remove the number from expectedFrequency
+                    if (expectedFrequency.ContainsKey(removeNumAdjusted) == true)
+                    {
+                        if (expectedFrequency[removeNumAdjusted] > 1)
+                        {
+                            expectedFrequency[removeNumAdjusted] -= 1;
+                        }
+                        else
+                        {
+                            expectedFrequency.Remove(removeNumAdjusted);
+                        }
+                    }
+
+                    // Test content of list
+                    TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
                 }
             }
         }
@@ -639,6 +679,7 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
+            Dictionary<int, int> expectedFrequency = new Dictionary<int, int>();
 
             // Test trying to remove nothing
             Assert.Throws<ArgumentOutOfRangeException>(delegate
@@ -652,11 +693,13 @@ namespace OmiyaGames.Common.Runtime.Tests
 
             // Test remove when there aren't any elements to remove
             Assert.AreEqual(0, testList.Remove(0, 1));
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveTInt");
 
             // Start filling in testList
             for (int numAdd = 1; numAdd <= 3; ++numAdd)
             {
                 testList.Add(numAdd, numAdd);
+                expectedFrequency.Add(numAdd, numAdd);
             }
 
             // Test remove on an element that doesn't exist
@@ -671,39 +714,95 @@ namespace OmiyaGames.Common.Runtime.Tests
             {
                 testList.Remove(2, -1);
             });
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveTInt");
 
             // Test remove on elements, and make sure the correct number of frequency is returned
             for (int numRemove = 1; numRemove <= 3; ++numRemove)
             {
                 Assert.AreEqual(1, testList.Remove(numRemove, 1));
+
+                // Also remove the number from expectedFrequency
+                if (expectedFrequency.ContainsKey(numRemove) == true)
+                {
+                    if (expectedFrequency[numRemove] > 1)
+                    {
+                        expectedFrequency[numRemove] -= 1;
+                    }
+                    else
+                    {
+                        expectedFrequency.Remove(numRemove);
+                    }
+                }
+
+                // Test content of list
+                TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
             }
             for (int numRemove = 1; numRemove <= 3; ++numRemove)
             {
                 // Attempt to remove more than the stored frequency
                 Assert.AreEqual((numRemove - 1), testList.Remove(numRemove, 10));
+
+                // Also remove the number from expectedFrequency
+                if (expectedFrequency.ContainsKey(numRemove) == true)
+                {
+                    expectedFrequency.Remove(numRemove);
+                }
+
+                // Test content of list
+                TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
             }
 
             // Also test IEqualityComparer
             testList = new RandomList<int>(testComparer);
+            expectedFrequency = new Dictionary<int, int>(testComparer);
 
             // Start filling in testList
             for (int numAdd = 1; numAdd <= 3; ++numAdd)
             {
                 testList.Add(numAdd, numAdd);
+                expectedFrequency.Add(numAdd, numAdd);
             }
 
             // Test remove on an element that doesn't exist
             Assert.AreEqual(0, testList.RemoveAllOf(10));
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
 
             // Test remove on elements, and make sure the correct number of frequency is returned
             for (int numRemove = 1; numRemove <= 3; ++numRemove)
             {
-                Assert.AreEqual(1, testList.Remove(numRemove + (numRemove * 10), 1));
+                int removeNumAdjusted = numRemove + (numRemove * 10);
+                Assert.AreEqual(1, testList.Remove(removeNumAdjusted, 1));
+
+                // Also remove the number from expectedFrequency
+                if (expectedFrequency.ContainsKey(removeNumAdjusted) == true)
+                {
+                    if (expectedFrequency[removeNumAdjusted] > 1)
+                    {
+                        expectedFrequency[removeNumAdjusted] -= 1;
+                    }
+                    else
+                    {
+                        expectedFrequency.Remove(removeNumAdjusted);
+                    }
+                }
+
+                // Test content of list
+                TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
             }
             for (int numRemove = 1; numRemove <= 3; ++numRemove)
             {
                 // Attempt to remove more than the stored frequency
-                Assert.AreEqual((numRemove - 1), testList.Remove(numRemove + (numRemove * 10), 10));
+                int removeNumAdjusted = numRemove + (numRemove * 10);
+                Assert.AreEqual((numRemove - 1), testList.Remove(removeNumAdjusted, 10));
+
+                // Also remove the number from expectedFrequency
+                if (expectedFrequency.ContainsKey(numRemove) == true)
+                {
+                    expectedFrequency.Remove(numRemove);
+                }
+
+                // Test content of list
+                TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveT");
             }
         }
 
@@ -716,41 +815,57 @@ namespace OmiyaGames.Common.Runtime.Tests
         {
             // Start with an empty list
             RandomList<int> testList = new RandomList<int>();
+            Dictionary<int, int> expectedFrequency = new Dictionary<int, int>();
 
             // Test remove when there aren't any elements to remove
             Assert.AreEqual(0, testList.RemoveAllOf(0));
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveAllOfT");
 
             // Start filling in testList
             for (int numAdd = 1; numAdd <= 3; ++numAdd)
             {
                 testList.Add(numAdd, numAdd);
+                expectedFrequency.Add(numAdd, numAdd);
             }
 
             // Test remove on an element that doesn't exist
             Assert.AreEqual(0, testList.RemoveAllOf(0));
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveAllOfT");
 
             // Test remove on elements, and make sure the correct number of frequency is returned
             for (int numRemove = 1; numRemove <= 3; ++numRemove)
             {
                 Assert.AreEqual(numRemove, testList.RemoveAllOf(numRemove));
+                expectedFrequency.Remove(numRemove);
+
+                // Test content of list
+                TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveAllOfT");
             }
 
             // Also test IEqualityComparer
             testList = new RandomList<int>(testComparer);
+            expectedFrequency = new Dictionary<int, int>(testComparer);
 
             // Start filling in testList
             for (int numAdd = 1; numAdd <= 3; ++numAdd)
             {
                 testList.Add(numAdd, numAdd);
+                expectedFrequency.Add(numAdd, numAdd);
             }
 
             // Test remove on an element that doesn't exist
             Assert.AreEqual(0, testList.RemoveAllOf(10));
+            TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveAllOfT");
 
             // Test remove on elements, and make sure the correct number of frequency is returned
             for (int numRemove = 1; numRemove <= 3; ++numRemove)
             {
-                Assert.AreEqual(numRemove, testList.RemoveAllOf(numRemove + (numRemove * 10)));
+                int removeNumAdjusted = numRemove + (numRemove * 10);
+                Assert.AreEqual(numRemove, testList.RemoveAllOf(removeNumAdjusted));
+                expectedFrequency.Remove(removeNumAdjusted);
+
+                // Test content of list
+                TestRandomListContent(testList, expectedFrequency, "Called from TestRemoveAllOfT");
             }
         }
         #endregion
