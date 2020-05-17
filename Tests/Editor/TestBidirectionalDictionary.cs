@@ -933,21 +933,46 @@ namespace OmiyaGames.Common.Runtime.Tests
         }
 
         /// <summary>
-        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetKey(VALUE, KEY)"/>, focusing on normal use cases.
-        /// </summary>
-        [Test]
-        public void TestSetKey()
-        {
-            // TODO: e.g. Set
-        }
-
-        /// <summary>
         /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetValue(KEY, VALUE)"/>, focusing on normal use cases.
         /// </summary>
         [Test]
         public void TestSetValue()
         {
-            // TODO: e.g. Set
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, int> testNormalCase = new BidirectionalDictionary<int, int>();
+
+            // Fill in the dictionary
+            for (int index = 1; index < 10; ++index)
+            {
+                testNormalCase.Add(index, (index * 10));
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, int> check = new KeyValuePair<int, int>();
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 1; i < 10; ++i)
+            {
+                // Run the Set function
+                testNormalCase.SetValue(i, (i * 100));
+
+                // Verify dictionary size
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 1; j < 10; ++j)
+                {
+                    if (j <= i)
+                    {
+                        check = new KeyValuePair<int, int>(j, (j * 100));
+                    }
+                    else
+                    {
+                        check = new KeyValuePair<int, int>(j, (j * 10));
+                    }
+                    Assert.IsTrue(testNormalCase.Contains(check));
+                }
+            }
         }
 
         /// <summary>
@@ -956,7 +981,84 @@ namespace OmiyaGames.Common.Runtime.Tests
         [Test]
         public void TestSetProperty()
         {
-            // TODO: e.g. Set
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, int> testNormalCase = new BidirectionalDictionary<int, int>();
+
+            // Fill in the dictionary
+            for (int index = 1; index < 10; ++index)
+            {
+                testNormalCase.Add(index, (index * 10));
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, int> check = new KeyValuePair<int, int>();
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 9; i > 0; --i)
+            {
+                // Run the Set function
+                testNormalCase[i] = (i * 100);
+
+                // Verify dictionary size
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 1; j < 10; ++j)
+                {
+                    if (j >= i)
+                    {
+                        check = new KeyValuePair<int, int>(j, (j * 100));
+                    }
+                    else
+                    {
+                        check = new KeyValuePair<int, int>(j, (j * 10));
+                    }
+                    Assert.IsTrue(testNormalCase.Contains(check));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Unit test for <see cref="BidirectionalDictionary{KEY, VALUE}.SetKey(VALUE, KEY)"/>, focusing on normal use cases.
+        /// </summary>
+        [Test]
+        public void TestSetKey()
+        {
+            // Create an empty bidirectional dictionary
+            BidirectionalDictionary<int, int> testNormalCase = new BidirectionalDictionary<int, int>();
+
+            // Fill in the dictionary
+            for (int index = 1; index < 10; ++index)
+            {
+                testNormalCase.Add((index * 10), index);
+            }
+
+            // Run the remove functions, and double-check the content of the dictionary is correct
+            KeyValuePair<int, int> check = new KeyValuePair<int, int>();
+            int expectedCount = testNormalCase.Count;
+            Assert.Greater(expectedCount, 0);
+            for (int i = 1; i < 10; ++i)
+            {
+                // Run the Set function
+                testNormalCase.SetKey(i, (i * 100));
+
+                // Verify dictionary size
+                Assert.AreEqual(expectedCount, testNormalCase.Count);
+
+                // Verify content of the dictionary
+                for (int j = 1; j < 10; ++j)
+                {
+                    if (j <= i)
+                    {
+                        check = new KeyValuePair<int, int>((j * 100), j);
+                    }
+                    else
+                    {
+                        check = new KeyValuePair<int, int>((j * 10), j);
+                    }
+                    Assert.IsTrue(testNormalCase.Contains(check));
+                }
+            }
         }
         #endregion
 
