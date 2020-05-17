@@ -3,7 +3,7 @@
   "displayName": "Omiya Games - Common",
   "version": "0.1.3-preview.1",
   "unity": "2019.3",
-  "unityRelease": "9f1",
+  "unityRelease": "10f1",
   "description": "Common scripts used within Omiya Games' many tools and libraries.",
   "category": "Library",
   "type": "library",

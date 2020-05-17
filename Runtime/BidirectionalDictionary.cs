@@ -248,10 +248,21 @@ namespace OmiyaGames
         /// Checks if a key exists, and the newValue doesn't;
         /// if so, replaces the key's pairing to newValue.
         /// </summary>
+        /// <exception cref="KeyNotFoundException">
+        /// Thrown if the <typeparamref name="KEY"/> isn't a valid key in the dictionary.
+        /// </exception>
         public void SetValue(KEY key, VALUE newValue)
         {
             // First make sure the key is already in the dictionary, AND newValue isn't
-            if (ContainsKey(key) == false)
+            if (key == null)
+            {
+                throw new ArgumentNullException("key");
+            }
+            else if (newValue == null)
+            {
+                throw new ArgumentNullException("newValue");
+            }
+            else if (ContainsKey(key) == false)
             {
                 throw new KeyNotFoundException();
             }
@@ -278,7 +289,15 @@ namespace OmiyaGames
         public void SetKey(VALUE value, KEY newKey)
         {
             // First make sure the value is already in the dictionary, AND newKey isn't
-            if (ContainsValue(value) == false)
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+            else if (newKey == null)
+            {
+                throw new ArgumentNullException("newKey");
+            }
+            else if (ContainsValue(value) == false)
             {
                 throw new KeyNotFoundException("Value not found.");
             }
@@ -415,7 +434,7 @@ namespace OmiyaGames
         /// Checks if this dictionary contains the key-to-value pairing.
         /// </summary>
         /// <param name="item">Pairing to verify whether this dictionary contains or not.</param>
-        /// <returns>True, if and only if this dictionary contains both has the same key and value that is paired to that key.</returns>
+        /// <returns>True, if and only if this dictionary contains the same pairing as <paramref name="item"/>.</returns>
         public bool Contains(KeyValuePair<KEY, VALUE> item)
         {
             // Check if the key exists, then check if the argument's value matches with the VALUE mapped in KeyToValueMap
