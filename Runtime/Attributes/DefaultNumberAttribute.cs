@@ -63,8 +63,17 @@ namespace OmiyaGames
         /// </summary>
         public enum Range
         {
+            /// <summary>
+            /// 
+            /// </summary>
             FullRange,
+            /// <summary>
+            /// 
+            /// </summary>
             GreaterThanOrEqualTo,
+            /// <summary>
+            /// 
+            /// </summary>
             LessThanOrEqualTo
         }
 
