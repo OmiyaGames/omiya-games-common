@@ -5,6 +5,7 @@ using System.IO;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="FolderPathDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -28,39 +29,58 @@ namespace OmiyaGames.Common.Editor
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>11/01/2018</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// Editor for <code>FolderPathAttribute</code>.
-    /// </summary>
-    /// <seealso cref="FolderPathAttribute"/>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>11/01/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 11/01/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// <see cref="PropertyDrawer"/> for <see cref="FolderPathAttribute"/>
+    /// </summary>
     [CustomPropertyDrawer(typeof(FolderPathAttribute))]
     public class FolderPathDrawer : PropertyDrawer
     {
         const float messageHeight = 36f;
         const float buttonWidth = 63f;
 
+        /// <summary>
+        /// Converts a full path into a relative path.
+        /// </summary>
+        /// <param name="fullPath"></param>
+        /// <param name="relativeTo"></param>
+        /// <returns></returns>
         public static string GetLocalPath(string fullPath, FolderPathAttribute.RelativeTo relativeTo)
         {
             if (relativeTo == FolderPathAttribute.RelativeTo.ProjectDirectory)
@@ -74,6 +94,7 @@ namespace OmiyaGames.Common.Editor
             return fullPath;
         }
 
+        /// <inheritdoc/>
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             float singleLineHeight = base.GetPropertyHeight(property, label);
@@ -85,6 +106,7 @@ namespace OmiyaGames.Common.Editor
         }
 
         // Draw the property inside the given rect
+        /// <inheritdoc/>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // First get the attribute since it contains the range for the slider
@@ -125,6 +147,9 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected virtual bool IsValid
         {
             get
@@ -133,6 +158,9 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <summary>
+        /// Message for entering the wrong path.
+        /// </summary>
         public string WrongPathMessage
         {
             get
@@ -141,6 +169,9 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <summary>
+        /// Message for using the attribute on the wrong variable type.
+        /// </summary>
         public virtual string WrongAttributeMessage
         {
             get
@@ -149,6 +180,12 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <summary>
+        /// Indicates if an error message box is shown.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="attribute"></param>
+        /// <returns></returns>
         public virtual bool IsMessageBoxShown(SerializedProperty property, FolderPathAttribute attribute)
         {
             bool showMessage = false;
@@ -160,6 +197,14 @@ namespace OmiyaGames.Common.Editor
             return showMessage;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="property"></param>
+        /// <param name="textPosition"></param>
+        /// <param name="buttonPosition"></param>
+        /// <returns></returns>
         private bool CalculatePositions(Rect position, SerializedProperty property, out Rect textPosition, out Rect buttonPosition)
         {
             // Calculate text positioning
@@ -188,6 +233,11 @@ namespace OmiyaGames.Common.Editor
             return showMessageBox;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="label"></param>
         protected virtual void OpenDialog(SerializedProperty property, GUIContent label)
         {
             // Open a folder panel

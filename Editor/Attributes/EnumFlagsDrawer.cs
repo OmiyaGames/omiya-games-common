@@ -4,40 +4,55 @@ using UnityEditor;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="EnumFlagsDrawer.cs">
     /// Code by Aqibsadiq from Unity Forums:
     /// https://forum.unity.com/threads/multiple-enum-select-from-inspector.184729/
     /// </copyright>
-    /// <author>Aqibsadiq</author>
-    /// <author>Taro Omiya</author>
-    /// <date>11/20/2017</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// Makes an enum multi-selectable in the Unity editor with <code>[EnumFlags]</code>.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>6/26/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 6/26/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// Makes an enum multi-selectable in the Unity editor with [EnumFlags].
+    /// </summary>
     [CustomPropertyDrawer(typeof(EnumFlagsAttribute))]
     public class EnumFlagsDrawer : PropertyDrawer
     {
+        /// <inheritdoc/>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // Using BeginProperty / EndProperty on the parent property means that
@@ -49,11 +64,26 @@ namespace OmiyaGames.Common.Editor
             EditorGUI.EndProperty();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="property"></param>
+        /// <param name="label"></param>
+        /// <returns></returns>
         public static int DisplayEnumFlags(Rect position, SerializedProperty property, GUIContent label)
         {
             return DisplayEnumFlags(position, property, label, property.enumNames);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="property"></param>
+        /// <param name="label"></param>
+        /// <param name="enumNames"></param>
+        /// <returns></returns>
         public static int DisplayEnumFlags(Rect position, SerializedProperty property, GUIContent label, string[] enumNames)
         {
             return EditorGUI.MaskField(position, label, property.intValue, enumNames);

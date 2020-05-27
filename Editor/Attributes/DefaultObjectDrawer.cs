@@ -4,7 +4,7 @@ using UnityEditor;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
-    /// <copyright file="DefaultObjectDrawer.cs" company="Omiya Games">
+    /// <remarks><copyright file="DefaultObjectDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games
@@ -27,33 +27,46 @@ namespace OmiyaGames.Common.Editor
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>6/26/2018</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// Editor for <code>DefaultObjectAttribute</code>.
-    /// </summary>
-    /// <seealso cref="DefaultObjectAttribute"/>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>6/26/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 6/26/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// <see cref="PropertyDrawer"/> for <see cref="DefaultObjectAttribute"/>.
+    /// </summary>
     [CustomPropertyDrawer(typeof(DefaultObjectAttribute))]
     public class DefaultObjectDrawer : IDefaultDrawer
     {
@@ -61,6 +74,7 @@ namespace OmiyaGames.Common.Editor
         private Object objectValue = null;
 
         // Draw the property inside the given rect
+        /// <inheritdoc/>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // First get the attribute since it contains the range for the slider
@@ -80,11 +94,23 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <summary>
+        /// Draws an object field.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="range"></param>
+        /// <param name="position"></param>
+        /// <param name="value"></param>
         static void DisplayObjectField(SerializedProperty property, DefaultObjectAttribute range, Rect position, ref Object value)
         {
             value = EditorGUI.ObjectField(position, value, property.objectReferenceValue.GetType(), true);
         }
 
+        /// <summary>
+        /// Sets the property value to null.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="range"></param>
         static void SetToNull(SerializedProperty property, DefaultObjectAttribute range)
         {
             property.objectReferenceValue = null;

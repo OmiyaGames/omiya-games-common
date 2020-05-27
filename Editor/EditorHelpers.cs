@@ -5,6 +5,7 @@ using UnityEditor.AnimatedValues;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="EditorHelpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -28,44 +29,83 @@ namespace OmiyaGames.Common.Editor
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>9/20/2018</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// A series of utilities used throughout the <code>OmiyaGames</code> namespace.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>9/20/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 9/20/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// A series of utilities used throughout the <see cref="OmiyaGames.Common.Editor"/> namespace.
+    /// This library focuses on editor-related static functions.
+    /// </summary>
     public static class EditorHelpers
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public const float MinHelpBoxHeight = 30f;
+        /// <summary>
+        /// 
+        /// </summary>
         public const float VerticalMargin = 2f;
+        /// <summary>
+        /// 
+        /// </summary>
         public const float VerticalSpace = 8f;
+        /// <summary>
+        /// 
+        /// </summary>
         public const float IndentSpace = 14f;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="verticalMargin"></param>
+        /// <returns></returns>
         public static float SingleLineHeight(float verticalMargin)
         {
             return EditorGUIUtility.singleLineHeight + (verticalMargin * 2);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="label"></param>
+        /// <param name="numRows"></param>
+        /// <param name="verticalMargin"></param>
+        /// <returns></returns>
         public static float GetHeight(GUIContent label, int numRows, float verticalMargin = VerticalMargin)
         {
             if ((label != null) && (string.IsNullOrEmpty(label.text) == false))
@@ -75,6 +115,12 @@ namespace OmiyaGames.Common.Editor
             return GetHeight(numRows, verticalMargin);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="numRows"></param>
+        /// <param name="verticalMargin"></param>
+        /// <returns></returns>
         public static float GetHeight(int numRows, float verticalMargin = VerticalMargin)
         {
             float height = (EditorGUIUtility.singleLineHeight * numRows);
@@ -82,6 +128,13 @@ namespace OmiyaGames.Common.Editor
             return height;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="viewWidth"></param>
+        /// <param name="minHeight"></param>
+        /// <returns></returns>
         public static float GetHelpBoxHeight(string text, float viewWidth, float minHeight = MinHelpBoxHeight)
         {
             var content = new GUIContent(text);
@@ -90,6 +143,11 @@ namespace OmiyaGames.Common.Editor
             return Mathf.Max(minHeight, style.CalcHeight(content, viewWidth));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="editor"></param>
+        /// <param name="boolAnimation"></param>
         public static void CreateBool(UnityEditor.Editor editor, ref AnimBool boolAnimation)
         {
             // Destroy the last animation, if any
@@ -100,6 +158,11 @@ namespace OmiyaGames.Common.Editor
             boolAnimation.valueChanged.AddListener(editor.Repaint);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="editor"></param>
+        /// <param name="boolAnimation"></param>
         public static void DestroyBool(UnityEditor.Editor editor, ref AnimBool boolAnimation)
         {
             if (boolAnimation != null)
@@ -182,6 +245,11 @@ namespace OmiyaGames.Common.Editor
             DrawEnum(property, supportedEnums, defaultEnum);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="buildSettingsAnimation"></param>
+        /// <param name="displayLabel"></param>
         public static void DrawBoldFoldout(AnimBool buildSettingsAnimation, string displayLabel)
         {
             // Grab foldout style
