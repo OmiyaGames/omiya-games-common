@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace OmiyaGames.Common.Editor.Tests
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="TestAssetHelpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -30,30 +29,35 @@ namespace OmiyaGames.Common.Editor.Tests
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>4/6/2020</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.2-preview.1<br/>
+    /// <strong>Date:</strong> 4/6/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial version.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be more DocFX-friendly.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Unit test script for <see cref="AssetHelpers"/>.
     /// </summary>
-    /// 
-    /// <seealso cref="AssetHelpers"/>
-    /// 
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    /// <listheader>
-    ///   <description>Date</description>
-    ///   <description>Author</description>
-    ///   <description>Description</description>
-    /// </listheader>
-    /// <item>
-    ///   <description>4/6/2020</description>
-    ///   <description>Taro</description>
-    ///   <description>Initial verison</description>
-    /// </item>
-    /// </list>
-    /// </remarks>
     public class TestAssetHelpers
     {
         // A Test behaves as an ordinary method

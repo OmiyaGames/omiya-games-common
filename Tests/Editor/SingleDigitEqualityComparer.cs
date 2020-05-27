@@ -3,6 +3,7 @@
 namespace OmiyaGames.Common.Runtime.Tests
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="SingleDigitEqualityComparer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -26,28 +27,36 @@ namespace OmiyaGames.Common.Runtime.Tests
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>4/7/2020</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.2-preview.1<br/>
+    /// <strong>Date:</strong> 4/7/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial version.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be more DocFX-friendly.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// An <see cref="IEqualityComparer{T}"/> that compares only the first digit
     /// of two integers. Intended for unit-testing sets and dictionaries.
     /// </summary>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    /// <listheader>
-    ///   <description>Date</description>
-    ///   <description>Author</description>
-    ///   <description>Description</description>
-    /// </listheader>
-    /// <item>
-    ///   <description>4/7/2020</description>
-    ///   <description>Taro</description>
-    ///   <description>Initial verison</description>
-    /// </item>
-    /// </list>
-    /// </remarks>
     public class SingleDigitEqualityComparer : IEqualityComparer<int>
     {
         public static int GetSingleDigit(int x)
