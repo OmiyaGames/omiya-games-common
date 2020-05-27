@@ -1,6 +1,7 @@
 ﻿namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="ProgressReport.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -24,40 +25,61 @@
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>10/2/2018</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 10/2/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Helper method to report progress reports.  Thread-safe.
-    /// </summary>
     /// <seealso cref="ThreadSafeInt"/>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>10/2/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
+    /// </summary>
     public class ProgressReport
     {
         readonly ThreadSafeLong currentStep;
         readonly ThreadSafeLong totalSteps;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ProgressReport() : this(1) { }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="totalSteps"></param>
         public ProgressReport(int totalSteps)
         {
             if (totalSteps < 1)
@@ -68,6 +90,9 @@
             this.totalSteps = new ThreadSafeLong(totalSteps);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public long CurrentStep
         {
             get
@@ -93,6 +118,9 @@
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public long TotalSteps
         {
             get
@@ -101,6 +129,9 @@
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public float ProgressPercent
         {
             get
@@ -111,6 +142,9 @@
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void Reset()
         {
             currentStep.Value = 0;
@@ -130,6 +164,9 @@
             totalSteps.Value = newTotalSteps;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void IncrementCurrentStep()
         {
             if (CurrentStep < TotalSteps)

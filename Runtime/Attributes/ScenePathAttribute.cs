@@ -4,6 +4,7 @@ using System;
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="ScenePathAttribute.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -27,32 +28,46 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>12/28/2018</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// Makes a string field accept scene assets only.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>12/28/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 12/28/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// Makes a string field accept scenes-only in the Unity editor with [ScenePath].
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field, Inherited = true, AllowMultiple = false)]
     public class ScenePathAttribute : PropertyAttribute
     {

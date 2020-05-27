@@ -5,6 +5,7 @@ using System.Collections.Generic;
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="ListSet.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -28,37 +29,50 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>1/23/2019</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 1/23/2019<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// A list where all the elements are unique (i.e. a set).
-    /// Note that due to its nature, <code>null</code>
-    /// cannot be added into this collection.
-    /// </summary>
+    /// Note that due to its nature, null cannot be added into this collection.
     /// <seealso cref="HashSet{T}"/>
     /// <seealso cref="List{T}"/>
     /// <seealso cref="Dictionary{TKey, TValue}"/>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>1/23/2019</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
+    /// </summary>
     public class ListSet<T> : ISet<T>, IList<T>
     {
         /// <summary>

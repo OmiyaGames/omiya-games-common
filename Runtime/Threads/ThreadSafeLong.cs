@@ -3,6 +3,7 @@
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="ThreadSafeLong.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -26,40 +27,61 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>10/2/2018</date>
-    ///-----------------------------------------------------------------------
-    /// <summary cref="C < T >">
-    /// A long version of <code>ThreadSafe</code> with more performant helper methods.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>10/2/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 10/2/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// A long version of <see cref="ThreadSafe{T}"/> with more performant helper methods.
+    /// </summary>
     public class ThreadSafeLong : ThreadSafe<long>
     {
-        // Constructors
-        public ThreadSafeLong() : this(0) { }
+        /// <summary>
+        /// Default constructor that sets <see cref="ThreadSafe{T}.Value"/> to 0.
+        /// </summary>
+        public ThreadSafeLong() : this(default(long)) { }
+
+        /// <summary>
+        /// Constructor that sets <see cref="ThreadSafe{T}.Value"/>.
+        /// </summary>
+        /// <param name="value">The initial <see cref="ThreadSafe{T}.Value"/> should be set to.</param>
         public ThreadSafeLong(long value) : base(value) { }
 
         /// <summary>
-        /// A more performant version of <code>Value++</code>.
+        /// A more performant version of <see cref="ThreadSafe{T}.Value"/>++.
         /// </summary>
         public void Increment()
         {
@@ -67,7 +89,7 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// A more performant version of <code>Value--</code>.
+        /// A more performant version of <see cref="ThreadSafe{T}.Value"/>--.
         /// </summary>
         public void Decrement()
         {
@@ -75,7 +97,7 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// A more performant version of <code>Value += addBy</code>.
+        /// A more performant version of <see cref="ThreadSafe{T}.Value"/> += addBy.
         /// </summary>
         public void Add(int addBy)
         {
@@ -83,7 +105,7 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// A more performant version of <code>Value -= subtractBy</code>.
+        /// A more performant version of <see cref="ThreadSafe{T}.Value"/> -= subtractBy.
         /// </summary>
         public void Subtract(int subtractBy)
         {

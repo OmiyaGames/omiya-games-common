@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="Helpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -27,52 +28,79 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>3/25/2020</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// A series of utilities used throughout the <code>OmiyaGames</code> namespace.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>8/18/2015</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>6/4/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Added method for shortening URL</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 8/18/2015<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial verison.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 6/4/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Added method for shortening URL.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converting the file to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation.  Moving method <see cref="ShortenUrl(string)"/> to Omiya Games - Web package.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// A series of utilities used throughout the <see cref="OmiyaGames"/> namespace.
+    /// </summary>
     public static class Helpers
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public const char PathDivider = '/';
+        /// <summary>
+        /// 
+        /// </summary>
         public const float SnapToThreshold = 0.01f;
+        /// <summary>
+        /// 
+        /// </summary>
         public const string FileExtensionScriptableObject = ".asset";
+        /// <summary>
+        /// 
+        /// </summary>
         public const string FileExtensionText = ".txt";
+        /// <summary>
+        /// 
+        /// </summary>
         public const string TimeStampPrint = "HH:mm:ss.ffff GMTzz";
+        /// <summary>
+        /// 
+        /// </summary>
         public const bool IsTimeStampPrintedByDefault = true;
-        public static readonly string[] stripStartOfUrl = new string[]
-        {
-            "https://www.",
-            "http://www.",
-            "https://",
-            "http://"
-        };
 
         /// <summary>
         /// Creates a clone of the components <code>GameObject</code>, places it under
@@ -208,6 +236,12 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="H"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="comparer"></param>
         public static void RemoveDuplicateEntries<H>(List<H> list, IEqualityComparer<H> comparer = null)
         {
             // Go through every list element
@@ -239,6 +273,11 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="showTimestamp"></param>
         public static void Log(string message, bool showTimestamp = IsTimeStampPrintedByDefault)
         {
 #if DEBUG
@@ -251,20 +290,11 @@ namespace OmiyaGames
 #endif
         }
 
-        public static string ShortenUrl(string url)
-        {
-            foreach (string stripFromStart in stripStartOfUrl)
-            {
-                if (url.StartsWith(stripFromStart) == true)
-                {
-                    url = url.Remove(0, stripFromStart.Length);
-                    break;
-                }
-            }
-            url = url.TrimEnd('/');
-            return url;
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="checkTransform"></param>
+        /// <returns></returns>
         public static Canvas GetParentCanvas(Transform checkTransform)
         {
             // Check if it has a canvas
@@ -282,11 +312,23 @@ namespace OmiyaGames
             return parentCanvas;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="ENUM"></typeparam>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static ENUM ConvertToEnum<ENUM>(int value) where ENUM : System.Enum
         {
             return (ENUM)System.Enum.ToObject(typeof(ENUM), value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="ENUM"></typeparam>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static int ConvertToInt<ENUM>(ENUM value) where ENUM : System.Enum
         {
             return System.Convert.ToInt32(value);

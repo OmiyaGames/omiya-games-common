@@ -4,6 +4,7 @@ using System;
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="FolderPathAttribute.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -27,34 +28,47 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>6/26/2018</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// Creates a checkbox in the editor.
-    /// If unchecked, the default value is set to this value.
-    /// If checked, reveals a number field, allowing the user to change this value.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>6/26/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 6/26/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// Adds a browse button to the inspector to select a path.
+    /// Simply add [FolderPath] to a string.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field, Inherited = true, AllowMultiple = false)]
     public class FolderPathAttribute : PropertyAttribute
     {

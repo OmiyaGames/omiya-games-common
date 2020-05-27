@@ -3,40 +3,56 @@
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="HsvColor.cs">
+    /// <para>
     /// Code by Jonathan Czeck from Unify Community:
     /// http://wiki.unity3d.com/index.php/HSBColor
-    /// 
+    /// </para><para>
     /// Licensed under Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0):
     /// http://creativecommons.org/licenses/by-sa/3.0/
+    /// </para>
     /// </copyright>
-    /// <author>Jonathan Czeck</author>
-    /// <author>Taro Omiya</author>
-    /// <date>9/3/2015</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 9/3/2015<br/>
+    /// <strong>Author:</strong> Jonathan Czeck
+    /// </term>
+    /// <description>
+    /// Initial wiki version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package. Using Unity's own helper functions.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Displays the frame-rate in the upper-left hand corner of the screen.
     /// </summary>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>9/3/2015</description>
-    ///     <description>Jonathan Czeck</description>
-    ///     <description>Wiki version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro Omiya</description>
-    ///     <description>Converted the class to a package. Using Unity's own helper functions.</description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
     [System.Serializable]
     public struct HsvColor
     {
@@ -55,6 +71,10 @@ namespace OmiyaGames
         float alpha;
 
         #region Properties
+        /// <summary>
+        /// The hue of the color, or it's color type.<br/>
+        /// Set as a fraction between 0 and 1.
+        /// </summary>
         public float Hue
         {
             get
@@ -67,6 +87,10 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// The saturation of the color, or its "intenseness."<br/>
+        /// Set as a fraction between 0 and 1.
+        /// </summary>
         public float Saturation
         {
             get
@@ -79,6 +103,11 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// The value of the color.
+        /// Also known as lightness, brightness, etc.<br/>
+        /// Set as a fraction between 0 and 1.
+        /// </summary>
         public float Value
         {
             get
@@ -91,6 +120,10 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// The alpha of the color, or its opacity.<br/>
+        /// Set as a fraction between 0 and 1.
+        /// </summary>
         public float Alpha
         {
             get
@@ -104,6 +137,13 @@ namespace OmiyaGames
         }
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="h"></param>
+        /// <param name="s"></param>
+        /// <param name="v"></param>
+        /// <param name="a"></param>
         public HsvColor(float h, float s, float v, float a = 1f)
         {
             hue = Mathf.Clamp01(h);
@@ -112,8 +152,16 @@ namespace OmiyaGames
             alpha = Mathf.Clamp01(a);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="col"></param>
         public HsvColor(HsvColor col) : this(col.Hue, col.Saturation, col.Value, col.Alpha) { }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="col"></param>
         public HsvColor(Color col)
         {
             // Just use Unity's own helper function
@@ -121,11 +169,22 @@ namespace OmiyaGames
             alpha = Mathf.Clamp01(col.a);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
         public static HsvColor FromColor(Color color)
         {
             return new HsvColor(color);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <param name="isHdr"></param>
+        /// <returns></returns>
         public static Color ToColor(HsvColor color, bool isHdr = false)
         {
             // Just use Unity's helper function
@@ -136,16 +195,28 @@ namespace OmiyaGames
             return toReturn;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Color ToColor()
         {
             return ToColor(this);
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return "H:" + hue + " S:" + saturation + " V:" + value;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public static HsvColor Lerp(HsvColor a, HsvColor b, float t)
         {
             float h, s;

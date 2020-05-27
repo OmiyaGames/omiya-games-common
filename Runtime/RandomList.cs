@@ -6,6 +6,7 @@ using System;
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="RandomList.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -29,45 +30,64 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>8/18/2015</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 8/18/2015<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.2-preview.1<br/>
+    /// <strong>Date:</strong> 4/5/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating to be serializable...albeit, in Unity 2020.1.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Upgrading documentation to be DocFX compatible.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// A list that shuffles its elements. A common example:
+    /// A list that shuffles its elements.  Common example:
     /// <code>
     /// int[] allNumbers = new int[] { 1, 2, 3, 4 };
-    /// RandomList<int> shuffledNumbers = new RandomList<int>(allNumbers);
-    /// for(int i = 0; i < allNumbers.Length; ++i)
+    /// RandomList&lt;int&gt; shuffledNumbers = new RandomList&lt;int&gt;(allNumbers);
+    /// for(int i = 0; i &lt; allNumbers.Length; ++i)
     /// {
     ///     Debug.Log(shuffledNumbers.NextRandomElement);
     /// }
     /// </code>
     /// </summary>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>8/18/2015</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>4/5/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Updating to be serializable...albeit, in Unity 2020.1</description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
     [System.Serializable]
     public class RandomList<T> : ICollection<T>
     {
