@@ -3,6 +3,7 @@
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="SupportPlatforms.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -26,139 +27,83 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>6/12/2018</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 6/12/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial version.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial version.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/26/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be more DocFX-friendly.
+    /// Splitting up the <see cref="SupportedPlatformsHelpers"/> into a separate file
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// An enum indicating supported platforms. Can be multi-selected in the Unity Editor.
+    /// <seealso cref="SupportedPlatformsHelpers"/>
+    /// <seealso cref="OmiyaGames.Common.Editor.SupportedPlatformsDrawer"/>
     /// </summary>
-    /// <seealso cref="SupportedPlatformsUtility"/>
-    /// <seealso cref="UI.SupportedPlatformsEditor"/>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>6/12/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
     [System.Flags]
-    public enum SupportedPlatforms {
+    public enum SupportedPlatforms
+    {
+        /// <summary>
+        /// 
+        /// </summary>
         None = 0,
 
         // To add more plaforms, just add them to the list below,
         // AND to the AllPlatforms value at the end.
-        Windows =   1 << 0,
-        MacOS =     1 << 1,
-        Linux =     1 << 2,
-        Web =       1 << 3,
-        iOS =       1 << 4,
-        Android =   1 << 5,
+        /// <summary>
+        /// 
+        /// </summary>
+        Windows = 1 << 0,
+        /// <summary>
+        /// 
+        /// </summary>
+        MacOS = 1 << 1,
+        /// <summary>
+        /// 
+        /// </summary>
+        Linux = 1 << 2,
+        /// <summary>
+        /// 
+        /// </summary>
+        Web = 1 << 3,
+        /// <summary>
+        /// 
+        /// </summary>
+        iOS = 1 << 4,
+        /// <summary>
+        /// 
+        /// </summary>
+        Android = 1 << 5,
 
+        /// <summary>
+        /// 
+        /// </summary>
         AllPlatforms = Windows | MacOS | Linux | Web | iOS | Android,
-    }
-
-    /// <summary>
-    /// A class full of helper and extended methods for <code>SupportPlatforms</code>.
-    /// </summary>
-    /// <seealso cref="SupportPlatforms"/>
-    public static class SupportedPlatformsUtility
-    {
-        /// <summary>
-        /// Gets the number of flags in <code>SupportPlatforms</code>.
-        /// It is highly recommended to cache this value.
-        /// </summary>
-        public static int NumberOfPlatforms
-        {
-            get
-            {
-                int returnNumber = 0;
-                int flags = (int)SupportedPlatforms.AllPlatforms;
-                while(flags != 0)
-                {
-                    // Remove the last bit
-                    flags &= (flags - (1 << 0));
-
-                    // Increment the return value;
-                    ++returnNumber;
-                }
-                return returnNumber;
-            }
-        }
-
-        /// <summary>
-        /// Gets a list of all the platform names.
-        /// It is highly recommended to cache this value.
-        /// </summary>
-        public static string[] AllPlatformNames
-        {
-            get
-            {
-                // Setup return value
-                int numberOfPlatforms = NumberOfPlatforms;
-                string[] returnNames = new string[numberOfPlatforms];
-
-                // Iterate through all the platforms, in order
-                SupportedPlatforms convertedEnum;
-                for(int bitPosition = 0; bitPosition < numberOfPlatforms; ++bitPosition)
-                {
-                    convertedEnum = (SupportedPlatforms)(1 << bitPosition);
-                    returnNames[bitPosition] = convertedEnum.ToString();
-                }
-                return returnNames;
-            }
-        }
-
-        public static bool IsSupported(this SupportedPlatforms currentPlatforms)
-        {
-            return IsSupported(currentPlatforms, Application.platform);
-            // FIXME: Look into figuring out whether there's a way to override this method's behaviour somehow if
-            // project contains the correct information
-            // if ((Singleton.Instance != null) && (Singleton.Instance.IsWebApp == true))
-            // {
-            //     returnFlag = IsSupported(currentPlatforms, SupportedPlatforms.Web);
-            // }
-        }
-
-        public static bool IsSupported(this SupportedPlatforms currentPlatforms, SupportedPlatforms singlePlatform)
-        {
-            return (currentPlatforms & singlePlatform) != 0;
-        }
-
-        public static bool IsSupported(this SupportedPlatforms currentPlatforms, RuntimePlatform platform)
-        {
-            switch (platform)
-            {
-                case RuntimePlatform.WindowsEditor:
-                case RuntimePlatform.WindowsPlayer:
-                    return IsSupported(currentPlatforms, SupportedPlatforms.Windows);
-                case RuntimePlatform.OSXEditor:
-                case RuntimePlatform.OSXPlayer:
-                    return IsSupported(currentPlatforms, SupportedPlatforms.MacOS);
-                case RuntimePlatform.LinuxEditor:
-                case RuntimePlatform.LinuxPlayer:
-                    return IsSupported(currentPlatforms, SupportedPlatforms.Linux);
-                case RuntimePlatform.WebGLPlayer:
-                    return IsSupported(currentPlatforms, SupportedPlatforms.Web);
-                case RuntimePlatform.IPhonePlayer:
-                    return IsSupported(currentPlatforms, SupportedPlatforms.iOS);
-                case RuntimePlatform.Android:
-                    return IsSupported(currentPlatforms, SupportedPlatforms.Android);
-                default:
-                    return false;
-            }
-        }
     }
 }
