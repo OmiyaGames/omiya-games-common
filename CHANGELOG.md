@@ -3,8 +3,9 @@
 ## 0.1.4-preview.1
 
 - **New Enhancement:** added XML documentation comments on all scripts in this package.
+- **New Enhancement:** added method [`Helpers.RemoveDiacritics(string, StringBuilder)`](https://github.com/OmiyaGames/omiya-games-common/blob/master/Runtime/Helpers.cs) to remove invalid characters from a file name.
+- **Removed Enhancement:** function `Helpers.ShortenUrl(string)` is moved to [Web package](https://openupm.com/packages/com.omiyagames.web/).
 - **Documentation #11:** adding suggestions on packages that's more useful that uses this one as dependencies.
-- **Remove Enhancement:** function `Helpers.ShortenUrl(string)` is moved to [Web package](https://openupm.com/packages/com.omiyagames.web/).
 
 ## 0.1.3-preview.1
 

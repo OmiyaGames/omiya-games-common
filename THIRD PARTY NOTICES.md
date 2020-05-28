@@ -32,6 +32,15 @@ Some modifications were made to utilize Unity's own helper functions, shortening
 - Source: http://wiki.unity3d.com/index.php/HSBColor
 - License: [Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](http://creativecommons.org/licenses/by-sa/3.0/)
 
+# `Helpers.RemoveDiacritics(string, StringBuilder)`
+
+### Relevant Files
+- [Helpers.cs](https://github.com/OmiyaGames/omiya-games-common/blob/master/Runtime/Helpers.cs)
+
+### Credits
+- Author: Michael S. Kaplan
+- Source: [RemoveDiacritics(string)](http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html)
+
 # [DocFX for Unity](https://github.com/NormandErwan/DocFxForUnity)
 
 ### Relevant Files
