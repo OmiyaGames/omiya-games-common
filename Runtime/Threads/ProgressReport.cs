@@ -72,15 +72,13 @@
         readonly ThreadSafeLong totalSteps;
 
         /// <summary>
-        /// 
+        /// Constructor to set <see cref="TotalSteps"/>.
         /// </summary>
-        public ProgressReport() : this(1) { }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="totalSteps"></param>
-        public ProgressReport(int totalSteps)
+        /// <param name="totalSteps">Sets <see cref="TotalSteps"/>.</param>
+        /// <exception cref="System.ArgumentException">
+        /// If <paramref name="totalSteps"/> is less than 1.
+        /// </exception>
+        public ProgressReport(int totalSteps = 1)
         {
             if (totalSteps < 1)
             {
@@ -91,7 +89,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Amount of progress made, out of <see cref="TotalSteps"/>.
         /// </summary>
         public long CurrentStep
         {
@@ -119,7 +117,7 @@
         }
 
         /// <summary>
-        /// 
+        /// The total number of steps to make progress in.
         /// </summary>
         public long TotalSteps
         {
@@ -130,7 +128,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Progress made, as a fraction between 0 and 1.
         /// </summary>
         public float ProgressPercent
         {
@@ -143,7 +141,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Sets <see cref="CurrentStep"/> to 0.
         /// </summary>
         public void Reset()
         {
@@ -151,9 +149,12 @@
         }
 
         /// <summary>
-        /// Resets current step, then sets the total steps
+        /// Resets current step, then sets <see cref="TotalSteps"/>.
         /// </summary>
-        /// <param name="newTotalSteps"></param>
+        /// <param name="newTotalSteps">Sets <see cref="TotalSteps"/></param>
+        /// <exception cref="System.ArgumentException">
+        /// If <paramref name="newTotalSteps"/> is less than 1.
+        /// </exception>
         public void SetTotalSteps(long newTotalSteps)
         {
             if (newTotalSteps < 1)
@@ -165,7 +166,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Increases <see cref="CurrentStep"/> by 1.
         /// </summary>
         public void IncrementCurrentStep()
         {

@@ -74,8 +74,10 @@ namespace OmiyaGames
         /// <summary>
         /// Adds a browse button to a string field.
         /// </summary>
-        /// <param name="fileExtensions">The file extention, without "*."</param>
-        /// <param name="defaultPath"></param>
+        /// <param name="fileExtensions">
+        /// The file extention, without "*."  Used to filter files in the file dialog.
+        /// </param>
+        /// <param name="defaultPath">The default folder to open the file dialog.</param>
         public FilePathAttribute(string fileExtensions, string defaultPath = DefaultLocalPath, RelativeTo relativeTo = RelativeTo.None, bool displayWarning = true) : base(defaultPath, relativeTo, displayWarning)
         {
             FileExtension = fileExtensions;

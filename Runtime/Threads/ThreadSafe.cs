@@ -78,21 +78,21 @@ namespace OmiyaGames
         protected T value;
 
         /// <summary>
-        /// 
+        /// Default constructor: sets the <see cref="Value"/> to default.
         /// </summary>
         public ThreadSafe() : this(default(T)) { }
 
         /// <summary>
-        /// 
+        /// Constructor to set the initial value of <see cref="Value"/>.
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">Sets <see cref="Value"/>.</param>
         public ThreadSafe(T value)
         {
             this.value = value;
         }
 
         /// <summary>
-        /// The lock
+        /// The lock.
         /// </summary>
         protected object ThreadLock
         {

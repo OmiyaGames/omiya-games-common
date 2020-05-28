@@ -78,27 +78,27 @@ namespace OmiyaGames
     public static class Helpers
     {
         /// <summary>
-        /// 
+        /// Path divider Unity normalizes to.
         /// </summary>
         public const char PathDivider = '/';
         /// <summary>
-        /// 
+        /// Distance between 2 UI elements before the animated one snaps to position.
         /// </summary>
         public const float SnapToThreshold = 0.01f;
         /// <summary>
-        /// 
+        /// File extension for <see cref="ScriptableObjects"/> files.
         /// </summary>
         public const string FileExtensionScriptableObject = ".asset";
         /// <summary>
-        /// 
+        /// File extension for text files.
         /// </summary>
         public const string FileExtensionText = ".txt";
         /// <summary>
-        /// 
+        /// Timestamp format printed in <see cref="Log(string, bool)"/>.
         /// </summary>
         public const string TimeStampPrint = "HH:mm:ss.ffff GMTzz";
         /// <summary>
-        /// 
+        /// Flag whether <see cref="Log(string, bool)"/> prints the timestamp.
         /// </summary>
         public const bool IsTimeStampPrintedByDefault = true;
 
@@ -237,12 +237,14 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Remove duplicate entries from a <paramref name="list"/>.
         /// </summary>
-        /// <typeparam name="H"></typeparam>
-        /// <param name="list"></param>
-        /// <param name="comparer"></param>
-        public static void RemoveDuplicateEntries<H>(List<H> list, IEqualityComparer<H> comparer = null)
+        /// <typeparam name="H">The type of List.</typeparam>
+        /// <param name="list">List to remove duplicates from.</param>
+        /// <param name="comparer">
+        /// Comparer to verify whether two elements are the same or not.
+        /// </param>
+        public static void RemoveDuplicateEntries<H>(IList<H> list, IEqualityComparer<H> comparer = null)
         {
             // Go through every list element
             int focusIndex = 0, compareIndex = 0;
@@ -274,10 +276,10 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Logs to the console <em>only if</em> DEBUG macro is turned on.
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="showTimestamp"></param>
+        /// <param name="message">Message to print.</param>
+        /// <param name="showTimestamp">Timestampe format.</param>
         public static void Log(string message, bool showTimestamp = IsTimeStampPrintedByDefault)
         {
 #if DEBUG
@@ -291,10 +293,15 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Loops up the transform's parents, seeking for an instance of <see cref="Canvas"/>.
         /// </summary>
-        /// <param name="checkTransform"></param>
-        /// <returns></returns>
+        /// <param name="checkTransform">
+        /// <see cref="Transform"/> to search for a <see cref="Canvas"/>.
+        /// </param>
+        /// <returns>
+        /// <see cref="Canvas"/> on <paramref name="checkTransform"/>,
+        /// its parent transforms, or null if none was found.
+        /// </returns>
         public static Canvas GetParentCanvas(Transform checkTransform)
         {
             // Check if it has a canvas
@@ -313,22 +320,26 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Converts <see cref="int"/> to an <typeparamref name="ENUM"/>.
+        /// More useful for <see cref="UnityEditor.Editor"/>.
         /// </summary>
-        /// <typeparam name="ENUM"></typeparam>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <typeparam name="ENUM">Enum to convert to.</typeparam>
+        /// <param name="value"><see cref="int"/> to convert.</param>
+        /// <returns>
+        /// <paramref name="value"/> converted to an <typeparamref name="ENUM"/>.
+        /// </returns>
         public static ENUM ConvertToEnum<ENUM>(int value) where ENUM : System.Enum
         {
             return (ENUM)System.Enum.ToObject(typeof(ENUM), value);
         }
 
         /// <summary>
-        /// 
+        /// Converts an <typeparamref name="ENUM"/> to <see cref="int"/>.
+        /// More useful for <see cref="UnityEditor.Editor"/>.
         /// </summary>
-        /// <typeparam name="ENUM"></typeparam>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <typeparam name="ENUM">Enum to convert from.</typeparam>
+        /// <param name="value"><typeparamref name="ENUM"/> to convert to.</param>
+        /// <returns><paramref name="value"/> converted into an <see cref="int"/></returns>
         public static int ConvertToInt<ENUM>(ENUM value) where ENUM : System.Enum
         {
             return System.Convert.ToInt32(value);

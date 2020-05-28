@@ -59,16 +59,32 @@ namespace OmiyaGames.Common.Runtime.Tests
     /// </summary>
     public class SingleDigitEqualityComparer : IEqualityComparer<int>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
         public static int GetSingleDigit(int x)
         {
             return x % 10;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public bool Equals(int x, int y)
         {
             return GetSingleDigit(x) == GetSingleDigit(y);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public int GetHashCode(int obj)
         {
             return GetSingleDigit(obj).GetHashCode();

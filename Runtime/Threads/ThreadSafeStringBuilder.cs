@@ -70,12 +70,12 @@ namespace OmiyaGames
     public class ThreadSafeStringBuilder : ThreadSafe<StringBuilder>
     {
         /// <summary>
-        /// 
+        /// Default constructor: creates an empty <see cref="StringBuilder"/>.
         /// </summary>
         public ThreadSafeStringBuilder() : base(new StringBuilder()) { }
 
         /// <summary>
-        /// 
+        /// Sets up the initial capacity for <see cref="StringBuilder"/>.
         /// </summary>
         /// <param name="capacity"></param>
         public ThreadSafeStringBuilder(int capacity) : base(new StringBuilder(capacity)) { }

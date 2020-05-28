@@ -60,15 +60,19 @@ namespace OmiyaGames.Common.Editor.Tests
     /// </summary>
     public class TestAssetHelpers
     {
-        // A Test behaves as an ordinary method
+        /// <summary>
+        /// A Test behaves as an ordinary method
+        /// </summary>
         [Test]
         public void TestAssetHelpersSimplePasses()
         {
             // Use the Assert class to test conditions
         }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
+        /// <summary>
+        /// A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
+        /// `yield return null;` to skip a frame.
+        /// </summary>
         [UnityTest]
         public IEnumerator TestAssetHelpersWithEnumeratorPasses()
         {

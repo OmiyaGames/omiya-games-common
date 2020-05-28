@@ -72,10 +72,8 @@ namespace OmiyaGames
     public class ScenePathAttribute : PropertyAttribute
     {
         /// <summary>
-        /// Adds a browse button to a string field.
+        /// Default constructor.
         /// </summary>
-        /// <param name="fileExtensions">The file extention, without "*."</param>
-        /// <param name="defaultPath"></param>
         public ScenePathAttribute()
         {
         }

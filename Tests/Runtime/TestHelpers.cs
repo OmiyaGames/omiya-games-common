@@ -60,15 +60,19 @@ namespace OmiyaGames.Common.Runtime.Tests
     /// </summary>
     public class TestHelpers
     {
-        // A Test behaves as an ordinary method
+        /// <summary>
+        /// A Test behaves as an ordinary method
+        /// </summary>
         [Test]
         public void TestHelpersSimplePasses()
         {
             // Use the Assert class to test conditions
         }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
+        /// <summary>
+        /// A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
+        /// `yield return null;` to skip a frame.
+        /// </summary>
         [UnityTest]
         public IEnumerator TestHelpersWithEnumeratorPasses()
         {

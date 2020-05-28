@@ -52,12 +52,12 @@ namespace OmiyaGames
     public static class SupportedPlatformsHelpers
     {
         /// <summary>
-        /// 
+        /// Argument for event <see cref="OnAfterIsSupportedNoArgs"/>.
         /// </summary>
         public class PlatformSupportArgs : EventArgs
         {
             /// <summary>
-            /// 
+            /// The current build platform.
             /// </summary>
             public RuntimePlatform BuildPlatform
             {
@@ -65,7 +65,10 @@ namespace OmiyaGames
             }
 
             /// <summary>
-            /// 
+            /// What the event will be returning.
+            /// Editing this value will also affect what
+            /// <see cref="SupportedPlatformsHelpers.IsSupported(SupportedPlatforms)"/>
+            /// will return.
             /// </summary>
             public bool IsSupported
             {
@@ -74,10 +77,10 @@ namespace OmiyaGames
             }
 
             /// <summary>
-            /// 
+            /// Constructor to set all property values.
             /// </summary>
-            /// <param name="currentPlatform"></param>
-            /// <param name="returnFlag"></param>
+            /// <param name="currentPlatform">Sets <see cref="BuildPlatform"/></param>
+            /// <param name="returnFlag">Sets <see cref="IsSupported"/></param>
             public PlatformSupportArgs(RuntimePlatform currentPlatform, bool returnFlag)
             {
                 BuildPlatform = currentPlatform;
@@ -86,19 +89,24 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Delegate for <see cref="OnAfterIsSupportedNoArgs"/> event.
         /// <seealso cref="PlatformSupportArgs"/>
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="args"></param>
+        /// <param name="source">The source of the event call.</param>
+        /// <param name="args">
+        /// Arguments for the event. Can be edited to change what
+        /// <see cref="OnAfterIsSupportedNoArgs"/> returns.
+        /// </param>
         public delegate void OverridePlatformSupport(SupportedPlatforms source, PlatformSupportArgs args);
         /// <summary>
-        /// 
+        /// Called towards the end of <see cref="IsSupported(SupportedPlatforms)"/>.
+        /// Allows changing the return value with
+        /// <see cref="PlatformSupportArgs.IsSupported"/>.
         /// </summary>
         public static event OverridePlatformSupport OnAfterIsSupportedNoArgs;
 
         /// <summary>
-        /// Gets the number of flags in <code>SupportPlatforms</code>.
+        /// Gets the number of flags set in <code>SupportPlatforms</code>.
         /// It is highly recommended to cache this value.
         /// </summary>
         public static int NumberOfPlatforms
@@ -143,11 +151,17 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Indicates if <paramref name="currentPlatforms"/> matches
+        /// the current build.
+        /// <seealso cref="Application.platform"/>
         /// <seealso cref="OnAfterIsSupportedNoArgs"/>
         /// </summary>
-        /// <param name="currentPlatforms"></param>
-        /// <returns></returns>
+        /// <param name="currentPlatforms">
+        /// Flag to check whether it supports this build.
+        /// </param>
+        /// <returns>
+        /// True if <paramref name="currentPlatforms"/> matches this build.
+        /// </returns>
         public static bool IsSupported(this SupportedPlatforms currentPlatforms)
         {
             // Call the default method
@@ -162,22 +176,38 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Indicates if <paramref name="currentPlatforms"/> matches
+        /// <paramref name="singlePlatform"/>.
         /// </summary>
-        /// <param name="currentPlatforms"></param>
-        /// <param name="singlePlatform"></param>
-        /// <returns></returns>
+        /// <param name="currentPlatforms">
+        /// Flag to check whether it supports <paramref name="singlePlatform"/>.
+        /// </param>
+        /// <param name="singlePlatform">
+        /// Platform to check against <paramref name="currentPlatforms"/>.
+        /// </param>
+        /// <returns>
+        /// True if <paramref name="currentPlatforms"/> contains
+        /// <paramref name="singlePlatform"/>.
+        /// </returns>
         public static bool IsSupported(this SupportedPlatforms currentPlatforms, SupportedPlatforms singlePlatform)
         {
             return (currentPlatforms & singlePlatform) != 0;
         }
 
         /// <summary>
-        /// 
+        /// Indicates if <paramref name="currentPlatforms"/> matches
+        /// <paramref name="platform"/>.
         /// </summary>
-        /// <param name="currentPlatforms"></param>
-        /// <param name="platform"></param>
-        /// <returns></returns>
+        /// <param name="currentPlatforms">
+        /// Flag to check whether it supports <paramref name="platform"/>.
+        /// </param>
+        /// <param name="platform">
+        /// Platform to check against <paramref name="currentPlatforms"/>.
+        /// </param>
+        /// <returns>
+        /// True if <paramref name="currentPlatforms"/> contains
+        /// <paramref name="platform"/>.
+        /// </returns>
         public static bool IsSupported(this SupportedPlatforms currentPlatforms, RuntimePlatform platform)
         {
             switch (platform)

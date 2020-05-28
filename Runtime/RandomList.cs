@@ -649,9 +649,7 @@ namespace OmiyaGames
             Add(item, 1);
         }
 
-        /// <summary>
-        /// Empties the list
-        /// </summary>
+        /// <inheritdoc/>
         public void Clear()
         {
             elementsList.Clear();
@@ -660,16 +658,13 @@ namespace OmiyaGames
             Reshuffle();
         }
 
-        /// <summary>
-        /// Checks if an item is in the list.
-        /// </summary>
-        /// <param name="item">The item to test.</param>
-        /// <returns>True if item is in the list.</returns>
+        /// <inheritdoc/>
         public bool Contains(T item)
         {
             return ElementToIndexMap.ContainsKey(item);
         }
 
+        /// <inheritdoc/>
         public void CopyTo(T[] array, int arrayIndex)
         {
             if (array == null)
@@ -695,6 +690,7 @@ namespace OmiyaGames
             }
         }
 
+        /// <inheritdoc/>
         public void CopyTo(ElementFrequency[] array, int arrayIndex)
         {
             if (array == null)

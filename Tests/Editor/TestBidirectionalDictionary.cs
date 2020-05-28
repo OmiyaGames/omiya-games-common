@@ -1214,6 +1214,14 @@ namespace OmiyaGames.Common.Runtime.Tests
         #endregion
 
         #region Helper Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expectedResults"></param>
+        /// <param name="testDictionary"></param>
+        /// <typeparam name="KEY"></typeparam>
+        /// <typeparam name="VALUE"></typeparam>
+        /// <returns></returns>
         private static void VerifyContent<KEY, VALUE>(IDictionary<KEY, VALUE> expectedResults, BidirectionalDictionary<KEY, VALUE> testDictionary)
         {
             KEY testKey;

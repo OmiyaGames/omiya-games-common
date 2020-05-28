@@ -1540,11 +1540,26 @@ namespace OmiyaGames.Common.Runtime.Tests
         #endregion
 
         #region Helper Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testList"></param>
+        /// <param name="expectedSize"></param>
+        /// <param name="expectedCapacity"></param>
+        /// <param name="message"></param>
         private static void TestRandomListMeta(RandomList<int> testList, int expectedSize, int expectedCapacity, string message)
         {
             TestRandomListMeta(testList, expectedSize, expectedCapacity, null, message);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testList"></param>
+        /// <param name="expectedSize"></param>
+        /// <param name="expectedCapacity"></param>
+        /// <param name="expectedComparer"></param>
+        /// <param name="message"></param>
         private static void TestRandomListMeta(RandomList<int> testList, int expectedSize, int expectedCapacity, IEqualityComparer<int> expectedComparer, string message)
         {
             // Run tests
@@ -1557,6 +1572,12 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testList"></param>
+        /// <param name="expectedFrequency"></param>
+        /// <param name="message"></param>
         private static void TestRandomListContent(RandomList<int> testList, int expectedFrequency, string message)
         {
             // Make sure the list is initialized correctly
@@ -1569,6 +1590,13 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testList"></param>
+        /// <param name="expectedFrequencies"></param>
+        /// <param name="message"></param>
+        /// <typeparam name="T"></typeparam>
         private static void TestRandomListContent<T>(RandomList<T> testList, IDictionary<T, int> expectedFrequencies, string message)
         {
             // Make sure the list is initialized correctly

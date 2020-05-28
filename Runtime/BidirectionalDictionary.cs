@@ -83,7 +83,7 @@ namespace OmiyaGames
 
         #region Constructors
         /// <summary>
-        /// 
+        /// Default constructor that creates an empty dictionary.
         /// </summary>
         public BidirectionalDictionary()
         {
@@ -92,9 +92,11 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Constructor for setting the initial capacity of the dictionary.
         /// </summary>
-        /// <param name="capacity"></param>
+        /// <param name="capacity">
+        /// Starting capacity of the dictionary.
+        /// </param>
         public BidirectionalDictionary(int capacity)
         {
             KeyToValueMap = new Dictionary<KEY, VALUE>(capacity);
@@ -102,10 +104,11 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Constructor for setting the <see cref="IEqualityComparer{T}"/>
+        /// to check equality of keys and values.
         /// </summary>
-        /// <param name="keyComparer"></param>
-        /// <param name="valueComparer"></param>
+        /// <param name="keyComparer">Comparer for keys.</param>
+        /// <param name="valueComparer">Comparer for values.</param>
         public BidirectionalDictionary(IEqualityComparer<KEY> keyComparer, IEqualityComparer<VALUE> valueComparer)
         {
             KeyToValueMap = new Dictionary<KEY, VALUE>(keyComparer);
@@ -113,11 +116,14 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Constructor for setting the initial capacity and
+        /// <see cref="IEqualityComparer{T}"/> of keys and values.
         /// </summary>
-        /// <param name="capacity"></param>
-        /// <param name="keyComparer"></param>
-        /// <param name="valueComparer"></param>
+        /// <param name="capacity">
+        /// Starting capacity of the dictionary.
+        /// </param>
+        /// <param name="keyComparer">Comparer for keys.</param>
+        /// <param name="valueComparer">Comparer for values.</param>
         public BidirectionalDictionary(int capacity, IEqualityComparer<KEY> keyComparer, IEqualityComparer<VALUE> valueComparer)
         {
             KeyToValueMap = new Dictionary<KEY, VALUE>(capacity, keyComparer);
@@ -125,25 +131,27 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Copies the content of another <see cref="Dictionary{TKey, TValue}"/>
+        /// to this one.
         /// </summary>
-        /// <param name="dictionary"></param>
+        /// <param name="dictionary"><see cref="Dictionary{TKey, TValue}"/> to clone.</param>
         public BidirectionalDictionary(Dictionary<KEY, VALUE> dictionary) : this(dictionary, dictionary.Comparer, null)
         { }
 
         /// <summary>
-        /// 
+        /// Clones a <see cref="BidirectionalDictionary{TKey, TValue}"/>.
         /// </summary>
-        /// <param name="dictionaryToClone"></param>
+        /// <param name="dictionaryToClone"><see cref="BidirectionalDictionary{TKey, TValue}"/> to clone.</param>
         public BidirectionalDictionary(BidirectionalDictionary<KEY, VALUE> dictionaryToClone) : this(dictionaryToClone, dictionaryToClone.KeyComparer, dictionaryToClone.ValueComparer)
         { }
 
         /// <summary>
-        /// 
+        /// Copies the content of another <see cref="IDictionary{TKey, TValue}"/>
+        /// to this one.
         /// </summary>
-        /// <param name="dictionary"></param>
-        /// <param name="keyComparer"></param>
-        /// <param name="valueComparer"></param>
+        /// <param name="dictionary"><see cref="IDictionary{TKey, TValue}"/> to clone.</param>
+        /// <param name="keyComparer">Comparer for keys.</param>
+        /// <param name="valueComparer">Comparer for values.</param>
         public BidirectionalDictionary(IDictionary<KEY, VALUE> dictionary, IEqualityComparer<KEY> keyComparer, IEqualityComparer<VALUE> valueComparer) : this(dictionary.Count, keyComparer, valueComparer)
         {
             foreach (KeyValuePair<KEY, VALUE> pair in dictionary)
@@ -176,19 +184,13 @@ namespace OmiyaGames
             set => SetValue(key, value);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <inheritdoc/>
         public ICollection<KEY> Keys => KeyToValueMap.Keys;
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <inheritdoc/>
         public ICollection<VALUE> Values => ValueToKeyMap.Keys;
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <inheritdoc/>
         public int Count => KeyToValueMap.Count;
 
         /// <summary>
@@ -329,10 +331,11 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// If this dictionary contains the key, removes it
+        /// and the value it's paired with.
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="key">The key to remove from the dictionary.</param>
+        /// <returns>True if key was found and removed from the dictionary.</returns>
         public bool RemoveKey(KEY key)
         {
             // Check if the key exists
@@ -350,10 +353,11 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// If this dictionary contains the value, removes it
+        /// and the key it's paired with.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">The value to remove from the dictionary.</param>
+        /// <returns>True if value was found and removed from the dictionary.</returns>
         public bool RemoveValue(VALUE value)
         {
             // Check if the key exists
@@ -371,39 +375,34 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Checks if the dictionary contains <paramref name="key"/>.
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="key"><typeparamref name="KEY"/> to search for.</param>
+        /// <returns>True if dictionary contains <paramref name="key"/></returns>
         public bool ContainsKey(KEY key)
         {
             return KeyToValueMap.ContainsKey(key);
         }
 
         /// <summary>
-        /// 
+        /// Checks if the dictionary contains <paramref name="value"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value"><typeparamref name="VALUE"/> to search for.</param>
+        /// <returns>True if dictionary contains <paramref name="value"/></returns>
         public bool ContainsValue(VALUE value)
         {
             return ValueToKeyMap.ContainsKey(value);
         }
 
         #region Implemented Methods
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <inheritdoc/>
         public void Clear()
         {
             KeyToValueMap.Clear();
             ValueToKeyMap.Clear();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="item"></param>
+        /// <inheritdoc/>
         public void Add(KeyValuePair<KEY, VALUE> item)
         {
             Add(item.Key, item.Value);
@@ -452,25 +451,19 @@ namespace OmiyaGames
             return (TryGetValue(item.Key, out value) == true) && (ValueComparer.Equals(item.Value, value) == true);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="array"></param>
-        /// <param name="arrayIndex"></param>
+        /// <inheritdoc/>
         public void CopyTo(KeyValuePair<KEY, VALUE>[] array, int arrayIndex)
         {
             ((IDictionary<KEY, VALUE>)KeyToValueMap).CopyTo(array, arrayIndex);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public IEnumerator<KeyValuePair<KEY, VALUE>> GetEnumerator()
         {
             return ((IDictionary<KEY, VALUE>)KeyToValueMap).GetEnumerator();
         }
 
+        /// <inheritdoc/>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IDictionary<KEY, VALUE>)KeyToValueMap).GetEnumerator();

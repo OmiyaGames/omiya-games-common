@@ -138,12 +138,14 @@ namespace OmiyaGames
         #endregion
 
         /// <summary>
-        /// 
+        /// Constructs a new color, setting <see cref="Hue"/>,
+        /// <see cref="Saturation"/>, <see cref="Value"/>, and
+        /// <see cref="Alpha"/>.
         /// </summary>
-        /// <param name="h"></param>
-        /// <param name="s"></param>
-        /// <param name="v"></param>
-        /// <param name="a"></param>
+        /// <param name="h">Sets <see cref="Hue"/>.</param>
+        /// <param name="s">Sets <see cref="Saturation"/>.</param>
+        /// <param name="v">Sets <see cref="Value"/>.</param>
+        /// <param name="a">Sets <see cref="Alpha"/>.</param>
         public HsvColor(float h, float s, float v, float a = 1f)
         {
             hue = Mathf.Clamp01(h);
@@ -153,15 +155,15 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Clone constructor: creates a duplicate of <paramref name="col"/>.
         /// </summary>
-        /// <param name="col"></param>
+        /// <param name="col">Color to duplicate.</param>
         public HsvColor(HsvColor col) : this(col.Hue, col.Saturation, col.Value, col.Alpha) { }
 
         /// <summary>
-        /// 
+        /// Constructor that converts <see cref="Color"/> to <see cref="HsvColor"/>.
         /// </summary>
-        /// <param name="col"></param>
+        /// <param name="col">Color to convert.</param>
         public HsvColor(Color col)
         {
             // Just use Unity's own helper function
@@ -170,21 +172,22 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Converts <see cref="Color"/> to <see cref="HsvColor"/>.
+        /// <seealso cref="HsvColor(Color)"/>
         /// </summary>
-        /// <param name="color"></param>
-        /// <returns></returns>
+        /// <param name="color">Color to convert.</param>
+        /// <returns><see cref="HsvColor"/> equivalent of <paramref name="color"/>.</returns>
         public static HsvColor FromColor(Color color)
         {
             return new HsvColor(color);
         }
 
         /// <summary>
-        /// 
+        /// Converts <see cref="HsvColor"/> to <see cref="Color"/>.
         /// </summary>
-        /// <param name="color"></param>
-        /// <param name="isHdr"></param>
-        /// <returns></returns>
+        /// <param name="color">Color to convert.</param>
+        /// <param name="isHdr">Flag indicating whether High-Definition Range is on.</param>
+        /// <returns><see cref="Color"/> equivalent of <paramref name="color"/>.</returns>
         public static Color ToColor(HsvColor color, bool isHdr = false)
         {
             // Just use Unity's helper function
@@ -196,12 +199,13 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Converts this to a <see cref="Color"/>.
         /// </summary>
-        /// <returns></returns>
-        public Color ToColor()
+        /// <param name="isHdr">Flag indicating whether High-Definition Range is on.</param>
+        /// <returns><see cref="Color"/> equivalent.</returns>
+        public Color ToColor(bool isHdr = false)
         {
-            return ToColor(this);
+            return ToColor(this, isHdr);
         }
 
         /// <inheritdoc/>
@@ -211,51 +215,73 @@ namespace OmiyaGames
         }
 
         /// <summary>
-        /// 
+        /// Linearly interpolates between two colors.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <param name="t"></param>
-        /// <returns></returns>
-        public static HsvColor Lerp(HsvColor a, HsvColor b, float t)
+        /// <param name="from">The start color.</param>
+        /// <param name="to">The end color.</param>
+        /// <param name="time">A value between 0 to 1, with 0 as start, and 1 as end.</param>
+        /// <returns>
+        /// A color in-between <paramref name="from"/> and <paramref name="to"/>,
+        /// based on <paramref name="time"/>.
+        /// </returns>
+        /// <example>
+        /// Output depends on <paramref name="time"/> in particular. For example:
+        /// <code>
+        /// Lerp(from, to, 0f);
+        /// </code>
+        /// ...would return just "from."  Similarly:
+        /// <code>
+        /// Lerp(from, to, 1f);
+        /// </code>
+        /// ...would return just "to."  Nautrally, it would follow that:
+        /// <code>
+        /// Lerp(from, to, 0.5f);
+        /// </code>
+        /// ...gives a color midway between "from" and "to."
+        /// </example>
+        public static HsvColor Lerp(HsvColor from, HsvColor to, float time)
         {
-            float h, s;
+            float hue, saturation;
 
             //check special case black (color.b==0): interpolate neither hue nor saturation!
             //check special case grey (color.s==0): don't interpolate hue!
-            if (a.value == 0)
+            if (from.value == 0)
             {
-                h = b.hue;
-                s = b.saturation;
+                hue = to.hue;
+                saturation = to.saturation;
             }
-            else if (b.value == 0)
+            else if (to.value == 0)
             {
-                h = a.hue;
-                s = a.saturation;
+                hue = from.hue;
+                saturation = from.saturation;
             }
             else
             {
-                if (a.saturation == 0)
+                if (from.saturation == 0)
                 {
-                    h = b.hue;
+                    hue = to.hue;
                 }
-                else if (b.saturation == 0)
+                else if (to.saturation == 0)
                 {
-                    h = a.hue;
+                    hue = from.hue;
                 }
                 else
                 {
                     // works around bug with LerpAngle
-                    float angle = Mathf.LerpAngle(a.hue * 360f, b.hue * 360f, t);
+                    float angle = Mathf.LerpAngle((from.hue * 360f), (to.hue * 360f), time);
                     while (angle < 0f)
+                    {
                         angle += 360f;
+                    }
                     while (angle > 360f)
+                    {
                         angle -= 360f;
-                    h = angle / 360f;
+                    }
+                    hue = angle / 360f;
                 }
-                s = Mathf.Lerp(a.saturation, b.saturation, t);
+                saturation = Mathf.Lerp(from.saturation, to.saturation, time);
             }
-            return new HsvColor(h, s, Mathf.Lerp(a.value, b.value, t), Mathf.Lerp(a.alpha, b.alpha, t));
+            return new HsvColor(hue, saturation, Mathf.Lerp(from.value, to.value, time), Mathf.Lerp(from.alpha, to.alpha, time));
         }
     }
 }

@@ -70,39 +70,39 @@ namespace OmiyaGames
     public enum SupportedPlatforms
     {
         /// <summary>
-        /// 
+        /// Flag for no platforms.
         /// </summary>
         None = 0,
 
         // To add more plaforms, just add them to the list below,
         // AND to the AllPlatforms value at the end.
         /// <summary>
-        /// 
+        /// Support for <see cref="RuntimePlatform.WindowsPlayer"/>.
         /// </summary>
         Windows = 1 << 0,
         /// <summary>
-        /// 
+        /// Support for <see cref="RuntimePlatform.OSXPlayer"/>.
         /// </summary>
         MacOS = 1 << 1,
         /// <summary>
-        /// 
+        /// Support for <see cref="RuntimePlatform.LinuxPlayer"/>.
         /// </summary>
         Linux = 1 << 2,
         /// <summary>
-        /// 
+        /// Support for <see cref="RuntimePlatform.WebGLPlayer"/>.
         /// </summary>
         Web = 1 << 3,
         /// <summary>
-        /// 
+        /// Support for <see cref="RuntimePlatform.IPhonePlayer"/>.
         /// </summary>
         iOS = 1 << 4,
         /// <summary>
-        /// 
+        /// Support for <see cref="RuntimePlatform.Android"/>.
         /// </summary>
         Android = 1 << 5,
 
         /// <summary>
-        /// 
+        /// Flag for all platforms.
         /// </summary>
         AllPlatforms = Windows | MacOS | Linux | Web | iOS | Android,
     }
