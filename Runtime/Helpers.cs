@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Text;
+using System.Globalization;
 
 namespace OmiyaGames
 {
@@ -78,6 +80,10 @@ namespace OmiyaGames
     public static class Helpers
     {
         /// <summary>
+        /// Flag whether <see cref="Log(string, bool)"/> prints the timestamp.
+        /// </summary>
+        public const bool IsTimeStampPrintedByDefault = true;
+        /// <summary>
         /// Path divider Unity normalizes to.
         /// </summary>
         public const char PathDivider = '/';
@@ -98,9 +104,20 @@ namespace OmiyaGames
         /// </summary>
         public const string TimeStampPrint = "HH:mm:ss.ffff GMTzz";
         /// <summary>
-        /// Flag whether <see cref="Log(string, bool)"/> prints the timestamp.
+        /// Set of invalid folder chars: "/, \, :, *, ?, ", <, >, and |."
         /// </summary>
-        public const bool IsTimeStampPrintedByDefault = true;
+        public static readonly ISet<char> InvalidFileNameCharactersSet = new HashSet<char>()
+        {
+            '\\',
+            '/',
+            ':',
+            '*',
+            '?',
+            '"',
+            '<',
+            '>',
+            '|'
+        };
 
         /// <summary>
         /// Creates a clone of the components <code>GameObject</code>, places it under
@@ -412,6 +429,48 @@ namespace OmiyaGames
                 cache = script.GetComponent<T>();
             }
             return cache;
+        }
+
+        /// <summary>
+        /// Removes any invalid characters for building a file name.
+        /// </summary>
+        /// <param name="text">Text to remove diacritics from.</param>
+        /// <param name="stringBuilder">
+        /// An optional <see cref="StringBuilder"/> this method will use to
+        /// generate the returned string. Good for performance.
+        /// </param>
+        /// <returns>
+        /// <paramref name="text"/> with invalid file characters removed.
+        /// </returns>
+        /// <remarks>
+        /// Taken from http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html
+        /// </remarks>
+        public static string RemoveDiacritics(string text, StringBuilder stringBuilder = null)
+        {
+            // Setup StringBuilder
+            if (stringBuilder == null)
+            {
+                stringBuilder = new StringBuilder(text.Length);
+            }
+            else
+            {
+                stringBuilder.Clear();
+            }
+
+            // Go through each character in the string.
+            string normalizedString = text.Normalize(NormalizationForm.FormD);
+            foreach (char c in normalizedString)
+            {
+                // Check if this character is valid
+                UnicodeCategory unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if ((unicodeCategory != UnicodeCategory.NonSpacingMark) && (InvalidFileNameCharactersSet.Contains(c) == false))
+                {
+                    // If so, append to the String Builder.
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
     }
 }
