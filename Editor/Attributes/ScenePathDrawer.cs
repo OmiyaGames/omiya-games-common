@@ -99,9 +99,11 @@ namespace OmiyaGames.Common.Editor
         /// <summary>
         /// Draws the asset field on the inspector.
         /// </summary>
-        /// <param name="position"></param>
-        /// <param name="property"></param>
-        /// <param name="label"></param>
+        /// <param name="position">The rect area to draw.</param>
+        /// <param name="property">
+        /// The <see cref="string"/> property to represent.
+        /// </param>
+        /// <param name="label">Label to display this property.</param>
         public static void DrawSceneAssetField(Rect position, SerializedProperty property, GUIContent label = null)
         {
             // Grab the old scene

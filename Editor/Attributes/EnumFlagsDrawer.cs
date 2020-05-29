@@ -65,25 +65,27 @@ namespace OmiyaGames.Common.Editor
         }
 
         /// <summary>
-        /// 
+        /// Draws a multi-selectable enum field in the inspector.
+        /// <seealso cref="DisplayEnumFlags(Rect, SerializedProperty, GUIContent, string[])"/>
         /// </summary>
-        /// <param name="position"></param>
-        /// <param name="property"></param>
-        /// <param name="label"></param>
-        /// <returns></returns>
+        /// <param name="position">The area to draw.</param>
+        /// <param name="property">The property to draw.</param>
+        /// <param name="label">Label of the field, if any.</param>
+        /// <returns>Selected bit-flags.</returns>
         public static int DisplayEnumFlags(Rect position, SerializedProperty property, GUIContent label)
         {
             return DisplayEnumFlags(position, property, label, property.enumNames);
         }
 
         /// <summary>
-        /// 
+        /// Draws a multi-selectable enum field in the inspector.
+        /// <seealso cref="EditorGUI.MaskField(Rect, GUIContent, int, string[])"/>
         /// </summary>
-        /// <param name="position"></param>
-        /// <param name="property"></param>
-        /// <param name="label"></param>
-        /// <param name="enumNames"></param>
-        /// <returns></returns>
+        /// <param name="position">The area to draw.</param>
+        /// <param name="property">The property to draw.</param>
+        /// <param name="label">Label of the field, if any.</param>
+        /// <param name="enumNames">List of display names for each enum flag.</param>
+        /// <returns>Selected bit-flags.</returns>
         public static int DisplayEnumFlags(Rect position, SerializedProperty property, GUIContent label, string[] enumNames)
         {
             return EditorGUI.MaskField(position, label, property.intValue, enumNames);

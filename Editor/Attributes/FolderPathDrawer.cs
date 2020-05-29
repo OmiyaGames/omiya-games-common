@@ -78,9 +78,16 @@ namespace OmiyaGames.Common.Editor
         /// <summary>
         /// Converts a full path into a relative path.
         /// </summary>
-        /// <param name="fullPath"></param>
-        /// <param name="relativeTo"></param>
-        /// <returns></returns>
+        /// <param name="fullPath">
+        /// Absolute path.
+        /// </param>
+        /// <param name="relativeTo">
+        /// Enum indicating what the returned path should be local to.
+        /// </param>
+        /// <returns>
+        /// If <paramref name="fullPath"/> contains folder path <paramref name="relativeTo"/>
+        /// returns a path with that portion removed.
+        /// </returns>
         public static string GetLocalPath(string fullPath, FolderPathAttribute.RelativeTo relativeTo)
         {
             if (relativeTo == FolderPathAttribute.RelativeTo.ProjectDirectory)
@@ -183,8 +190,11 @@ namespace OmiyaGames.Common.Editor
         /// <summary>
         /// Indicates if an error message box is shown.
         /// </summary>
-        /// <param name="property"></param>
-        /// <param name="attribute"></param>
+        /// <param name="property">Property to check.</param>
+        /// <param name="attribute">
+        /// Attribute to check if <see cref="FolderPathAttribute.IsWarningDisplayed"/>
+        /// is set.
+        /// </param>
         /// <returns></returns>
         public virtual bool IsMessageBoxShown(SerializedProperty property, FolderPathAttribute attribute)
         {

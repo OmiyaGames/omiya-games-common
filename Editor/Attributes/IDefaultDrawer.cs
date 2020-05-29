@@ -81,10 +81,20 @@ namespace OmiyaGames.Common.Editor
         protected delegate void SetToDefault<ATTRIBUTE>(SerializedProperty property, ATTRIBUTE range) where ATTRIBUTE : PropertyAttribute;
 
         /// <summary>
-        /// Taken from https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs
+        /// Displays a checkbox and control for the value.
         /// </summary>
+        /// <remarks>
+        /// Taken from https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs
+        /// </remarks>
+        /// <typeparam name="ATTRIBUTE"></typeparam>
+        /// <typeparam name="VALUE"></typeparam>
         /// <param name="property"></param>
-        /// <param name="defaultValue"></param>
+        /// <param name="range"></param>
+        /// <param name="position"></param>
+        /// <param name="setToDefault"></param>
+        /// <param name="slider"></param>
+        /// <param name="show"></param>
+        /// <param name="value"></param>
         protected static void DisplayCheckboxAndControl<ATTRIBUTE, VALUE>(SerializedProperty property, ATTRIBUTE range, Rect position, SetToDefault<ATTRIBUTE> setToDefault, DisplayControl<ATTRIBUTE, VALUE> slider, ref bool show, ref VALUE value) where ATTRIBUTE : PropertyAttribute
         {
             Rect toggleRect, objectFieldRect;
@@ -113,10 +123,15 @@ namespace OmiyaGames.Common.Editor
         }
 
         /// <summary>
-        /// Taken from https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs
+        /// Sets up positioning.
         /// </summary>
+        /// <remarks>
+        /// Taken from https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs
+        /// </remarks>
         /// <param name="property"></param>
-        /// <param name="defaultValue"></param>
+        /// <param name="position"></param>
+        /// <param name="toggleRect"></param>
+        /// <param name="fieldRect"></param>
         protected static void SetupPositioning(SerializedProperty property, Rect position, out Rect toggleRect, out Rect fieldRect)
         {
             // Label

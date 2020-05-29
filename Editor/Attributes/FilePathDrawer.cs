@@ -73,6 +73,7 @@ namespace OmiyaGames.Common.Editor
     [CustomPropertyDrawer(typeof(FilePathAttribute))]
     public class FilePathDrawer : FolderPathDrawer
     {
+        /// <inheritdoc/>
         public override bool IsMessageBoxShown(SerializedProperty property, FolderPathAttribute attribute)
         {
             bool showMessage = false;
@@ -84,6 +85,9 @@ namespace OmiyaGames.Common.Editor
             return showMessage;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected override bool IsValid
         {
             get
@@ -92,6 +96,7 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <inheritdoc/>
         public override string WrongAttributeMessage
         {
             get
@@ -100,6 +105,7 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <inheritdoc/>
         protected override void OpenDialog(SerializedProperty property, GUIContent label)
         {
             // Open a file panel
