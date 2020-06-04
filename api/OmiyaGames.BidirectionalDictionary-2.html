@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BidirectionalDictionary&lt;KEY, VALUE&gt;
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -118,8 +118,38 @@ This does mean both keys and values must be unique.</p>
     </tbody>
   </table>
   <h5 id="OmiyaGames_BidirectionalDictionary_2_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Revision History:
-<table><thead><tr><th></th><th>DateNameDescription</th></tr></thead><tbody><tr><td></td><td>4/4/2020TaroInitial version</td></tr></tbody></table></p>
+  <div class="markdown level0 remarks"><p><copyright file="BidirectionalDictionary.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2020-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 4/4/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -127,7 +157,8 @@ This does mean both keys and values must be unique.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2__ctor_" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2__ctor" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor">BidirectionalDictionary()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Default constructor that creates an empty dictionary.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -137,7 +168,8 @@ This does mean both keys and values must be unique.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2__ctor_" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2__ctor_OmiyaGames_BidirectionalDictionary__0__1__" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor(OmiyaGames.BidirectionalDictionary{`0,`1})">BidirectionalDictionary(BidirectionalDictionary&lt;KEY, VALUE&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Clones a <a class="xref" href="OmiyaGames.BidirectionalDictionary-2.html">BidirectionalDictionary&lt;KEY, VALUE&gt;</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -156,7 +188,8 @@ This does mean both keys and values must be unique.</p>
       <tr>
         <td><a class="xref" href="OmiyaGames.BidirectionalDictionary-2.html">BidirectionalDictionary</a>&lt;KEY, VALUE&gt;</td>
         <td><span class="parametername">dictionaryToClone</span></td>
-        <td></td>
+        <td><p><a class="xref" href="OmiyaGames.BidirectionalDictionary-2.html">BidirectionalDictionary&lt;KEY, VALUE&gt;</a> to clone.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -164,7 +197,9 @@ This does mean both keys and values must be unique.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2__ctor_" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2__ctor_System_Collections_Generic_Dictionary__0__1__" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor(System.Collections.Generic.Dictionary{`0,`1})">BidirectionalDictionary(Dictionary&lt;KEY, VALUE&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Copies the content of another <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary&lt;TKey,TValue&gt;</a>
+to this one.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -183,7 +218,8 @@ This does mean both keys and values must be unique.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;KEY, VALUE&gt;</td>
         <td><span class="parametername">dictionary</span></td>
-        <td></td>
+        <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary&lt;TKey,TValue&gt;</a> to clone.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -191,7 +227,9 @@ This does mean both keys and values must be unique.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2__ctor_" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2__ctor_System_Collections_Generic_IDictionary__0__1__System_Collections_Generic_IEqualityComparer__0__System_Collections_Generic_IEqualityComparer__1__" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IEqualityComparer{`0},System.Collections.Generic.IEqualityComparer{`1})">BidirectionalDictionary(IDictionary&lt;KEY, VALUE&gt;, IEqualityComparer&lt;KEY&gt;, IEqualityComparer&lt;VALUE&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Copies the content of another <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary&lt;TKey,TValue&gt;</a>
+to this one.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -210,17 +248,20 @@ This does mean both keys and values must be unique.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;KEY, VALUE&gt;</td>
         <td><span class="parametername">dictionary</span></td>
-        <td></td>
+        <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary&lt;TKey,TValue&gt;</a> to clone.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;KEY&gt;</td>
         <td><span class="parametername">keyComparer</span></td>
-        <td></td>
+        <td><p>Comparer for keys.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;VALUE&gt;</td>
         <td><span class="parametername">valueComparer</span></td>
-        <td></td>
+        <td><p>Comparer for values.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -228,7 +269,9 @@ This does mean both keys and values must be unique.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2__ctor_" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2__ctor_System_Collections_Generic_IEqualityComparer__0__System_Collections_Generic_IEqualityComparer__1__" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0},System.Collections.Generic.IEqualityComparer{`1})">BidirectionalDictionary(IEqualityComparer&lt;KEY&gt;, IEqualityComparer&lt;VALUE&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor for setting the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer&lt;T&gt;</a>
+to check equality of keys and values.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -247,12 +290,14 @@ This does mean both keys and values must be unique.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;KEY&gt;</td>
         <td><span class="parametername">keyComparer</span></td>
-        <td></td>
+        <td><p>Comparer for keys.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;VALUE&gt;</td>
         <td><span class="parametername">valueComparer</span></td>
-        <td></td>
+        <td><p>Comparer for values.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -260,7 +305,8 @@ This does mean both keys and values must be unique.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2__ctor_" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2__ctor_System_Int32_" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor(System.Int32)">BidirectionalDictionary(Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor for setting the initial capacity of the dictionary.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -279,7 +325,8 @@ This does mean both keys and values must be unique.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">capacity</span></td>
-        <td></td>
+        <td><p>Starting capacity of the dictionary.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -287,7 +334,9 @@ This does mean both keys and values must be unique.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2__ctor_" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2__ctor_System_Int32_System_Collections_Generic_IEqualityComparer__0__System_Collections_Generic_IEqualityComparer__1__" data-uid="OmiyaGames.BidirectionalDictionary`2.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0},System.Collections.Generic.IEqualityComparer{`1})">BidirectionalDictionary(Int32, IEqualityComparer&lt;KEY&gt;, IEqualityComparer&lt;VALUE&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor for setting the initial capacity and
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer&lt;T&gt;</a> of keys and values.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -306,17 +355,20 @@ This does mean both keys and values must be unique.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">capacity</span></td>
-        <td></td>
+        <td><p>Starting capacity of the dictionary.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;KEY&gt;</td>
         <td><span class="parametername">keyComparer</span></td>
-        <td></td>
+        <td><p>Comparer for keys.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;VALUE&gt;</td>
         <td><span class="parametername">valueComparer</span></td>
-        <td></td>
+        <td><p>Comparer for values.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -640,7 +692,8 @@ gets and sets a corresponding value.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2_ContainsKey_" data-uid="OmiyaGames.BidirectionalDictionary`2.ContainsKey*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2_ContainsKey__0_" data-uid="OmiyaGames.BidirectionalDictionary`2.ContainsKey(`0)">ContainsKey(KEY)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Checks if the dictionary contains <code data-dev-comment-type="paramref" class="paramref">key</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -659,7 +712,8 @@ gets and sets a corresponding value.</p>
       <tr>
         <td><span class="xref">KEY</span></td>
         <td><span class="parametername">key</span></td>
-        <td></td>
+        <td><p><code data-dev-comment-type="typeparamref" class="typeparamref">KEY</code> to search for.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -674,7 +728,8 @@ gets and sets a corresponding value.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>True if dictionary contains <code data-dev-comment-type="paramref" class="paramref">key</code></p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -682,7 +737,8 @@ gets and sets a corresponding value.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2_ContainsValue_" data-uid="OmiyaGames.BidirectionalDictionary`2.ContainsValue*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2_ContainsValue__1_" data-uid="OmiyaGames.BidirectionalDictionary`2.ContainsValue(`1)">ContainsValue(VALUE)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Checks if the dictionary contains <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -701,7 +757,8 @@ gets and sets a corresponding value.</p>
       <tr>
         <td><span class="xref">VALUE</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p><code data-dev-comment-type="typeparamref" class="typeparamref">VALUE</code> to search for.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -716,7 +773,8 @@ gets and sets a corresponding value.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>True if dictionary contains <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -963,7 +1021,9 @@ gets and sets a corresponding value.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2_RemoveKey_" data-uid="OmiyaGames.BidirectionalDictionary`2.RemoveKey*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2_RemoveKey__0_" data-uid="OmiyaGames.BidirectionalDictionary`2.RemoveKey(`0)">RemoveKey(KEY)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>If this dictionary contains the key, removes it
+and the value it&apos;s paired with.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -982,7 +1042,8 @@ gets and sets a corresponding value.</p>
       <tr>
         <td><span class="xref">KEY</span></td>
         <td><span class="parametername">key</span></td>
-        <td></td>
+        <td><p>The key to remove from the dictionary.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -997,7 +1058,8 @@ gets and sets a corresponding value.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>True if key was found and removed from the dictionary.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1005,7 +1067,9 @@ gets and sets a corresponding value.</p>
   
   <a id="OmiyaGames_BidirectionalDictionary_2_RemoveValue_" data-uid="OmiyaGames.BidirectionalDictionary`2.RemoveValue*"></a>
   <h4 id="OmiyaGames_BidirectionalDictionary_2_RemoveValue__1_" data-uid="OmiyaGames.BidirectionalDictionary`2.RemoveValue(`1)">RemoveValue(VALUE)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>If this dictionary contains the value, removes it
+and the key it&apos;s paired with.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1024,7 +1088,8 @@ gets and sets a corresponding value.</p>
       <tr>
         <td><span class="xref">VALUE</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The value to remove from the dictionary.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1039,7 +1104,8 @@ gets and sets a corresponding value.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>True if value was found and removed from the dictionary.</p>
+</td>
       </tr>
     </tbody>
   </table>

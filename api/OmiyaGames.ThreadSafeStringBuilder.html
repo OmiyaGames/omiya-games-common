@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ThreadSafeStringBuilder
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,8 @@
   
   <h1 id="OmiyaGames_ThreadSafeStringBuilder" data-uid="OmiyaGames.ThreadSafeStringBuilder" class="text-break">Class ThreadSafeStringBuilder
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Creates a thread-safe <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -118,25 +119,95 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ThreadSafeStringBuilder : ThreadSafe&lt;StringBuilder&gt;</code></pre>
   </div>
+  <h5 id="OmiyaGames_ThreadSafeStringBuilder_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p><copyright file="ThreadSafeStringBuilder.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 10/2/2018<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   
   
   <a id="OmiyaGames_ThreadSafeStringBuilder__ctor_" data-uid="OmiyaGames.ThreadSafeStringBuilder.#ctor*"></a>
   <h4 id="OmiyaGames_ThreadSafeStringBuilder__ctor" data-uid="OmiyaGames.ThreadSafeStringBuilder.#ctor">ThreadSafeStringBuilder()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Default constructor: creates an empty <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ThreadSafeStringBuilder()</code></pre>
   </div>
+  
+  
+  <a id="OmiyaGames_ThreadSafeStringBuilder__ctor_" data-uid="OmiyaGames.ThreadSafeStringBuilder.#ctor*"></a>
+  <h4 id="OmiyaGames_ThreadSafeStringBuilder__ctor_System_Int32_" data-uid="OmiyaGames.ThreadSafeStringBuilder.#ctor(System.Int32)">ThreadSafeStringBuilder(Int32)</h4>
+  <div class="markdown level1 summary"><p>Sets up the initial capacity for <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadSafeStringBuilder(int capacity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">capacity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
   
   <a id="OmiyaGames_ThreadSafeStringBuilder_Length_" data-uid="OmiyaGames.ThreadSafeStringBuilder.Length*"></a>
   <h4 id="OmiyaGames_ThreadSafeStringBuilder_Length" data-uid="OmiyaGames.ThreadSafeStringBuilder.Length">Length</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Length of string.
+Same as <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder.length#System_Text_StringBuilder_Length">Length</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -163,7 +234,8 @@
   
   <a id="OmiyaGames_ThreadSafeStringBuilder_Append_" data-uid="OmiyaGames.ThreadSafeStringBuilder.Append*"></a>
   <h4 id="OmiyaGames_ThreadSafeStringBuilder_Append_System_String_" data-uid="OmiyaGames.ThreadSafeStringBuilder.Append(System.String)">Append(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Same as <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder.append#System_Text_StringBuilder_Append_System_String_">Append(String)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -190,7 +262,8 @@
   
   <a id="OmiyaGames_ThreadSafeStringBuilder_AppendLine_" data-uid="OmiyaGames.ThreadSafeStringBuilder.AppendLine*"></a>
   <h4 id="OmiyaGames_ThreadSafeStringBuilder_AppendLine" data-uid="OmiyaGames.ThreadSafeStringBuilder.AppendLine">AppendLine()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Same as <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder.appendline#System_Text_StringBuilder_AppendLine">AppendLine()</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -200,7 +273,8 @@
   
   <a id="OmiyaGames_ThreadSafeStringBuilder_Clear_" data-uid="OmiyaGames.ThreadSafeStringBuilder.Clear*"></a>
   <h4 id="OmiyaGames_ThreadSafeStringBuilder_Clear" data-uid="OmiyaGames.ThreadSafeStringBuilder.Clear">Clear()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Same as <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder.clear#System_Text_StringBuilder_Clear">Clear()</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -210,7 +284,8 @@
   
   <a id="OmiyaGames_ThreadSafeStringBuilder_Insert_" data-uid="OmiyaGames.ThreadSafeStringBuilder.Insert*"></a>
   <h4 id="OmiyaGames_ThreadSafeStringBuilder_Insert_System_Int32_System_String_" data-uid="OmiyaGames.ThreadSafeStringBuilder.Insert(System.Int32,System.String)">Insert(Int32, String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Same as <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder.insert#System_Text_StringBuilder_Insert_System_Int32_System_String_">Insert(Int32, String)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class RandomList&lt;T&gt;
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,14 @@
   
   <h1 id="OmiyaGames_RandomList_1" data-uid="OmiyaGames.RandomList`1" class="text-break">Class RandomList&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A list that shuffles its elements.  Common example:</p>
+<pre><code>int[] allNumbers = new int[] { 1, 2, 3, 4 };
+RandomList&lt;int> shuffledNumbers = new RandomList&lt;int>(allNumbers);
+for(int i = 0; i &lt; allNumbers.Length; ++i)
+{
+    Debug.Log(shuffledNumbers.NextRandomElement);
+}</code></pre>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -112,6 +119,51 @@ public class RandomList&lt;T&gt; : ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, I
       </tr>
     </tbody>
   </table>
+  <h5 id="OmiyaGames_RandomList_1_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p><copyright file="RandomList.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 8/18/2015<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.2-preview.1<br>
+<strong>Date:</strong> 4/5/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating to be serializable...albeit, in Unity 2020.1.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Upgrading documentation to be DocFX compatible.
+</td></tr></tbody></table></p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   
@@ -712,8 +764,7 @@ will affect the number of times an index appears in this list.</p>
   
   <a id="OmiyaGames_RandomList_1_Clear_" data-uid="OmiyaGames.RandomList`1.Clear*"></a>
   <h4 id="OmiyaGames_RandomList_1_Clear" data-uid="OmiyaGames.RandomList`1.Clear">Clear()</h4>
-  <div class="markdown level1 summary"><p>Empties the list</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -723,8 +774,7 @@ will affect the number of times an index appears in this list.</p>
   
   <a id="OmiyaGames_RandomList_1_Contains_" data-uid="OmiyaGames.RandomList`1.Contains*"></a>
   <h4 id="OmiyaGames_RandomList_1_Contains__0_" data-uid="OmiyaGames.RandomList`1.Contains(`0)">Contains(T)</h4>
-  <div class="markdown level1 summary"><p>Checks if an item is in the list.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -743,8 +793,7 @@ will affect the number of times an index appears in this list.</p>
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">item</span></td>
-        <td><p>The item to test.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -759,8 +808,7 @@ will affect the number of times an index appears in this list.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><p>True if item is in the list.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

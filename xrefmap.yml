@@ -518,19 +518,19 @@ references:
   commentId: F:OmiyaGames.Common.Editor.AssetHelpers.ConfirmationDialogTitle
   fullName: OmiyaGames.Common.Editor.AssetHelpers.ConfirmationDialogTitle
   nameWithType: AssetHelpers.ConfirmationDialogTitle
-- uid: OmiyaGames.Common.Editor.AssetHelpers.ConfirmFileIsWriteable(System.String,System.String,System.Boolean)
-  name: ConfirmFileIsWriteable(String, String, Boolean)
-  href: api/OmiyaGames.Common.Editor.AssetHelpers.html#OmiyaGames_Common_Editor_AssetHelpers_ConfirmFileIsWriteable_System_String_System_String_System_Boolean_
-  commentId: M:OmiyaGames.Common.Editor.AssetHelpers.ConfirmFileIsWriteable(System.String,System.String,System.Boolean)
-  fullName: OmiyaGames.Common.Editor.AssetHelpers.ConfirmFileIsWriteable(System.String, System.String, System.Boolean)
-  nameWithType: AssetHelpers.ConfirmFileIsWriteable(String, String, Boolean)
-- uid: OmiyaGames.Common.Editor.AssetHelpers.ConfirmFileIsWriteable*
-  name: ConfirmFileIsWriteable
-  href: api/OmiyaGames.Common.Editor.AssetHelpers.html#OmiyaGames_Common_Editor_AssetHelpers_ConfirmFileIsWriteable_
-  commentId: Overload:OmiyaGames.Common.Editor.AssetHelpers.ConfirmFileIsWriteable
+- uid: OmiyaGames.Common.Editor.AssetHelpers.ConfirmOverwriteFile(System.String,System.String,System.Boolean)
+  name: ConfirmOverwriteFile(String, String, Boolean)
+  href: api/OmiyaGames.Common.Editor.AssetHelpers.html#OmiyaGames_Common_Editor_AssetHelpers_ConfirmOverwriteFile_System_String_System_String_System_Boolean_
+  commentId: M:OmiyaGames.Common.Editor.AssetHelpers.ConfirmOverwriteFile(System.String,System.String,System.Boolean)
+  fullName: OmiyaGames.Common.Editor.AssetHelpers.ConfirmOverwriteFile(System.String, System.String, System.Boolean)
+  nameWithType: AssetHelpers.ConfirmOverwriteFile(String, String, Boolean)
+- uid: OmiyaGames.Common.Editor.AssetHelpers.ConfirmOverwriteFile*
+  name: ConfirmOverwriteFile
+  href: api/OmiyaGames.Common.Editor.AssetHelpers.html#OmiyaGames_Common_Editor_AssetHelpers_ConfirmOverwriteFile_
+  commentId: Overload:OmiyaGames.Common.Editor.AssetHelpers.ConfirmOverwriteFile
   isSpec: "True"
-  fullName: OmiyaGames.Common.Editor.AssetHelpers.ConfirmFileIsWriteable
-  nameWithType: AssetHelpers.ConfirmFileIsWriteable
+  fullName: OmiyaGames.Common.Editor.AssetHelpers.ConfirmOverwriteFile
+  nameWithType: AssetHelpers.ConfirmOverwriteFile
 - uid: OmiyaGames.Common.Editor.AssetHelpers.CreateFolderRecursively(System.String)
   name: CreateFolderRecursively(String)
   href: api/OmiyaGames.Common.Editor.AssetHelpers.html#OmiyaGames_Common_Editor_AssetHelpers_CreateFolderRecursively_System_String_
@@ -1593,6 +1593,12 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Helpers.IncrementVector
   nameWithType: Helpers.IncrementVector
+- uid: OmiyaGames.Helpers.InvalidFileNameCharactersSet
+  name: InvalidFileNameCharactersSet
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_InvalidFileNameCharactersSet
+  commentId: F:OmiyaGames.Helpers.InvalidFileNameCharactersSet
+  fullName: OmiyaGames.Helpers.InvalidFileNameCharactersSet
+  nameWithType: Helpers.InvalidFileNameCharactersSet
 - uid: OmiyaGames.Helpers.IsTimeStampPrintedByDefault
   name: IsTimeStampPrintedByDefault
   href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_IsTimeStampPrintedByDefault
@@ -1618,6 +1624,19 @@ references:
   commentId: F:OmiyaGames.Helpers.PathDivider
   fullName: OmiyaGames.Helpers.PathDivider
   nameWithType: Helpers.PathDivider
+- uid: OmiyaGames.Helpers.RemoveDiacritics(System.String,System.Text.StringBuilder)
+  name: RemoveDiacritics(String, StringBuilder)
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_RemoveDiacritics_System_String_System_Text_StringBuilder_
+  commentId: M:OmiyaGames.Helpers.RemoveDiacritics(System.String,System.Text.StringBuilder)
+  fullName: OmiyaGames.Helpers.RemoveDiacritics(System.String, System.Text.StringBuilder)
+  nameWithType: Helpers.RemoveDiacritics(String, StringBuilder)
+- uid: OmiyaGames.Helpers.RemoveDiacritics*
+  name: RemoveDiacritics
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_RemoveDiacritics_
+  commentId: Overload:OmiyaGames.Helpers.RemoveDiacritics
+  isSpec: "True"
+  fullName: OmiyaGames.Helpers.RemoveDiacritics
+  nameWithType: Helpers.RemoveDiacritics
 - uid: OmiyaGames.Helpers.RemoveDuplicateEntries*
   name: RemoveDuplicateEntries
   href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_RemoveDuplicateEntries_
@@ -1625,15 +1644,15 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Helpers.RemoveDuplicateEntries
   nameWithType: Helpers.RemoveDuplicateEntries
-- uid: OmiyaGames.Helpers.RemoveDuplicateEntries``1(System.Collections.Generic.List{``0},System.Collections.Generic.IEqualityComparer{``0})
-  name: RemoveDuplicateEntries<H>(List<H>, IEqualityComparer<H>)
-  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_RemoveDuplicateEntries__1_System_Collections_Generic_List___0__System_Collections_Generic_IEqualityComparer___0__
-  commentId: M:OmiyaGames.Helpers.RemoveDuplicateEntries``1(System.Collections.Generic.List{``0},System.Collections.Generic.IEqualityComparer{``0})
-  name.vb: RemoveDuplicateEntries(Of H)(List(Of H), IEqualityComparer(Of H))
-  fullName: OmiyaGames.Helpers.RemoveDuplicateEntries<H>(System.Collections.Generic.List<H>, System.Collections.Generic.IEqualityComparer<H>)
-  fullName.vb: OmiyaGames.Helpers.RemoveDuplicateEntries(Of H)(System.Collections.Generic.List(Of H), System.Collections.Generic.IEqualityComparer(Of H))
-  nameWithType: Helpers.RemoveDuplicateEntries<H>(List<H>, IEqualityComparer<H>)
-  nameWithType.vb: Helpers.RemoveDuplicateEntries(Of H)(List(Of H), IEqualityComparer(Of H))
+- uid: OmiyaGames.Helpers.RemoveDuplicateEntries``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IEqualityComparer{``0})
+  name: RemoveDuplicateEntries<H>(IList<H>, IEqualityComparer<H>)
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_RemoveDuplicateEntries__1_System_Collections_Generic_IList___0__System_Collections_Generic_IEqualityComparer___0__
+  commentId: M:OmiyaGames.Helpers.RemoveDuplicateEntries``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IEqualityComparer{``0})
+  name.vb: RemoveDuplicateEntries(Of H)(IList(Of H), IEqualityComparer(Of H))
+  fullName: OmiyaGames.Helpers.RemoveDuplicateEntries<H>(System.Collections.Generic.IList<H>, System.Collections.Generic.IEqualityComparer<H>)
+  fullName.vb: OmiyaGames.Helpers.RemoveDuplicateEntries(Of H)(System.Collections.Generic.IList(Of H), System.Collections.Generic.IEqualityComparer(Of H))
+  nameWithType: Helpers.RemoveDuplicateEntries<H>(IList<H>, IEqualityComparer<H>)
+  nameWithType.vb: Helpers.RemoveDuplicateEntries(Of H)(IList(Of H), IEqualityComparer(Of H))
 - uid: OmiyaGames.Helpers.Replicate(GameObject,System.Boolean)
   name: Replicate(GameObject, Boolean)
   href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_Replicate_GameObject_System_Boolean_
@@ -1696,19 +1715,6 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Helpers.SetVector
   nameWithType: Helpers.SetVector
-- uid: OmiyaGames.Helpers.ShortenUrl(System.String)
-  name: ShortenUrl(String)
-  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_ShortenUrl_System_String_
-  commentId: M:OmiyaGames.Helpers.ShortenUrl(System.String)
-  fullName: OmiyaGames.Helpers.ShortenUrl(System.String)
-  nameWithType: Helpers.ShortenUrl(String)
-- uid: OmiyaGames.Helpers.ShortenUrl*
-  name: ShortenUrl
-  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_ShortenUrl_
-  commentId: Overload:OmiyaGames.Helpers.ShortenUrl
-  isSpec: "True"
-  fullName: OmiyaGames.Helpers.ShortenUrl
-  nameWithType: Helpers.ShortenUrl
 - uid: OmiyaGames.Helpers.ShuffleList*
   name: ShuffleList
   href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_ShuffleList_
@@ -1731,12 +1737,6 @@ references:
   commentId: F:OmiyaGames.Helpers.SnapToThreshold
   fullName: OmiyaGames.Helpers.SnapToThreshold
   nameWithType: Helpers.SnapToThreshold
-- uid: OmiyaGames.Helpers.stripStartOfUrl
-  name: stripStartOfUrl
-  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_stripStartOfUrl
-  commentId: F:OmiyaGames.Helpers.stripStartOfUrl
-  fullName: OmiyaGames.Helpers.stripStartOfUrl
-  nameWithType: Helpers.stripStartOfUrl
 - uid: OmiyaGames.Helpers.TimeStampPrint
   name: TimeStampPrint
   href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_TimeStampPrint
@@ -1839,18 +1839,18 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.HsvColor.Saturation
   nameWithType: HsvColor.Saturation
-- uid: OmiyaGames.HsvColor.ToColor
-  name: ToColor()
-  href: api/OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_ToColor
-  commentId: M:OmiyaGames.HsvColor.ToColor
-  fullName: OmiyaGames.HsvColor.ToColor()
-  nameWithType: HsvColor.ToColor()
 - uid: OmiyaGames.HsvColor.ToColor(OmiyaGames.HsvColor,System.Boolean)
   name: ToColor(HsvColor, Boolean)
   href: api/OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_ToColor_OmiyaGames_HsvColor_System_Boolean_
   commentId: M:OmiyaGames.HsvColor.ToColor(OmiyaGames.HsvColor,System.Boolean)
   fullName: OmiyaGames.HsvColor.ToColor(OmiyaGames.HsvColor, System.Boolean)
   nameWithType: HsvColor.ToColor(HsvColor, Boolean)
+- uid: OmiyaGames.HsvColor.ToColor(System.Boolean)
+  name: ToColor(Boolean)
+  href: api/OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_ToColor_System_Boolean_
+  commentId: M:OmiyaGames.HsvColor.ToColor(System.Boolean)
+  fullName: OmiyaGames.HsvColor.ToColor(System.Boolean)
+  nameWithType: HsvColor.ToColor(Boolean)
 - uid: OmiyaGames.HsvColor.ToColor*
   name: ToColor
   href: api/OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_ToColor_
@@ -2345,12 +2345,6 @@ references:
   commentId: T:OmiyaGames.ProgressReport
   fullName: OmiyaGames.ProgressReport
   nameWithType: ProgressReport
-- uid: OmiyaGames.ProgressReport.#ctor
-  name: ProgressReport()
-  href: api/OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport__ctor
-  commentId: M:OmiyaGames.ProgressReport.#ctor
-  fullName: OmiyaGames.ProgressReport.ProgressReport()
-  nameWithType: ProgressReport.ProgressReport()
 - uid: OmiyaGames.ProgressReport.#ctor(System.Int32)
   name: ProgressReport(Int32)
   href: api/OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport__ctor_System_Int32_
@@ -3087,63 +3081,120 @@ references:
   commentId: F:OmiyaGames.SupportedPlatforms.Windows
   fullName: OmiyaGames.SupportedPlatforms.Windows
   nameWithType: SupportedPlatforms.Windows
-- uid: OmiyaGames.SupportedPlatformsUtility
-  name: SupportedPlatformsUtility
-  href: api/OmiyaGames.SupportedPlatformsUtility.html
-  commentId: T:OmiyaGames.SupportedPlatformsUtility
-  fullName: OmiyaGames.SupportedPlatformsUtility
-  nameWithType: SupportedPlatformsUtility
-- uid: OmiyaGames.SupportedPlatformsUtility.AllPlatformNames
+- uid: OmiyaGames.SupportedPlatformsHelpers
+  name: SupportedPlatformsHelpers
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html
+  commentId: T:OmiyaGames.SupportedPlatformsHelpers
+  fullName: OmiyaGames.SupportedPlatformsHelpers
+  nameWithType: SupportedPlatformsHelpers
+- uid: OmiyaGames.SupportedPlatformsHelpers.AllPlatformNames
   name: AllPlatformNames
-  href: api/OmiyaGames.SupportedPlatformsUtility.html#OmiyaGames_SupportedPlatformsUtility_AllPlatformNames
-  commentId: P:OmiyaGames.SupportedPlatformsUtility.AllPlatformNames
-  fullName: OmiyaGames.SupportedPlatformsUtility.AllPlatformNames
-  nameWithType: SupportedPlatformsUtility.AllPlatformNames
-- uid: OmiyaGames.SupportedPlatformsUtility.AllPlatformNames*
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_AllPlatformNames
+  commentId: P:OmiyaGames.SupportedPlatformsHelpers.AllPlatformNames
+  fullName: OmiyaGames.SupportedPlatformsHelpers.AllPlatformNames
+  nameWithType: SupportedPlatformsHelpers.AllPlatformNames
+- uid: OmiyaGames.SupportedPlatformsHelpers.AllPlatformNames*
   name: AllPlatformNames
-  href: api/OmiyaGames.SupportedPlatformsUtility.html#OmiyaGames_SupportedPlatformsUtility_AllPlatformNames_
-  commentId: Overload:OmiyaGames.SupportedPlatformsUtility.AllPlatformNames
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_AllPlatformNames_
+  commentId: Overload:OmiyaGames.SupportedPlatformsHelpers.AllPlatformNames
   isSpec: "True"
-  fullName: OmiyaGames.SupportedPlatformsUtility.AllPlatformNames
-  nameWithType: SupportedPlatformsUtility.AllPlatformNames
-- uid: OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms)
+  fullName: OmiyaGames.SupportedPlatformsHelpers.AllPlatformNames
+  nameWithType: SupportedPlatformsHelpers.AllPlatformNames
+- uid: OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms)
   name: IsSupported(SupportedPlatforms)
-  href: api/OmiyaGames.SupportedPlatformsUtility.html#OmiyaGames_SupportedPlatformsUtility_IsSupported_OmiyaGames_SupportedPlatforms_
-  commentId: M:OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms)
-  fullName: OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms)
-  nameWithType: SupportedPlatformsUtility.IsSupported(SupportedPlatforms)
-- uid: OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms,OmiyaGames.SupportedPlatforms)
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_IsSupported_OmiyaGames_SupportedPlatforms_
+  commentId: M:OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms)
+  fullName: OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms)
+  nameWithType: SupportedPlatformsHelpers.IsSupported(SupportedPlatforms)
+- uid: OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms,OmiyaGames.SupportedPlatforms)
   name: IsSupported(SupportedPlatforms, SupportedPlatforms)
-  href: api/OmiyaGames.SupportedPlatformsUtility.html#OmiyaGames_SupportedPlatformsUtility_IsSupported_OmiyaGames_SupportedPlatforms_OmiyaGames_SupportedPlatforms_
-  commentId: M:OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms,OmiyaGames.SupportedPlatforms)
-  fullName: OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms, OmiyaGames.SupportedPlatforms)
-  nameWithType: SupportedPlatformsUtility.IsSupported(SupportedPlatforms, SupportedPlatforms)
-- uid: OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms,RuntimePlatform)
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_IsSupported_OmiyaGames_SupportedPlatforms_OmiyaGames_SupportedPlatforms_
+  commentId: M:OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms,OmiyaGames.SupportedPlatforms)
+  fullName: OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms, OmiyaGames.SupportedPlatforms)
+  nameWithType: SupportedPlatformsHelpers.IsSupported(SupportedPlatforms, SupportedPlatforms)
+- uid: OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms,RuntimePlatform)
   name: IsSupported(SupportedPlatforms, RuntimePlatform)
-  href: api/OmiyaGames.SupportedPlatformsUtility.html#OmiyaGames_SupportedPlatformsUtility_IsSupported_OmiyaGames_SupportedPlatforms_RuntimePlatform_
-  commentId: M:OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms,RuntimePlatform)
-  fullName: OmiyaGames.SupportedPlatformsUtility.IsSupported(OmiyaGames.SupportedPlatforms, RuntimePlatform)
-  nameWithType: SupportedPlatformsUtility.IsSupported(SupportedPlatforms, RuntimePlatform)
-- uid: OmiyaGames.SupportedPlatformsUtility.IsSupported*
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_IsSupported_OmiyaGames_SupportedPlatforms_RuntimePlatform_
+  commentId: M:OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms,RuntimePlatform)
+  fullName: OmiyaGames.SupportedPlatformsHelpers.IsSupported(OmiyaGames.SupportedPlatforms, RuntimePlatform)
+  nameWithType: SupportedPlatformsHelpers.IsSupported(SupportedPlatforms, RuntimePlatform)
+- uid: OmiyaGames.SupportedPlatformsHelpers.IsSupported*
   name: IsSupported
-  href: api/OmiyaGames.SupportedPlatformsUtility.html#OmiyaGames_SupportedPlatformsUtility_IsSupported_
-  commentId: Overload:OmiyaGames.SupportedPlatformsUtility.IsSupported
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_IsSupported_
+  commentId: Overload:OmiyaGames.SupportedPlatformsHelpers.IsSupported
   isSpec: "True"
-  fullName: OmiyaGames.SupportedPlatformsUtility.IsSupported
-  nameWithType: SupportedPlatformsUtility.IsSupported
-- uid: OmiyaGames.SupportedPlatformsUtility.NumberOfPlatforms
+  fullName: OmiyaGames.SupportedPlatformsHelpers.IsSupported
+  nameWithType: SupportedPlatformsHelpers.IsSupported
+- uid: OmiyaGames.SupportedPlatformsHelpers.NumberOfPlatforms
   name: NumberOfPlatforms
-  href: api/OmiyaGames.SupportedPlatformsUtility.html#OmiyaGames_SupportedPlatformsUtility_NumberOfPlatforms
-  commentId: P:OmiyaGames.SupportedPlatformsUtility.NumberOfPlatforms
-  fullName: OmiyaGames.SupportedPlatformsUtility.NumberOfPlatforms
-  nameWithType: SupportedPlatformsUtility.NumberOfPlatforms
-- uid: OmiyaGames.SupportedPlatformsUtility.NumberOfPlatforms*
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_NumberOfPlatforms
+  commentId: P:OmiyaGames.SupportedPlatformsHelpers.NumberOfPlatforms
+  fullName: OmiyaGames.SupportedPlatformsHelpers.NumberOfPlatforms
+  nameWithType: SupportedPlatformsHelpers.NumberOfPlatforms
+- uid: OmiyaGames.SupportedPlatformsHelpers.NumberOfPlatforms*
   name: NumberOfPlatforms
-  href: api/OmiyaGames.SupportedPlatformsUtility.html#OmiyaGames_SupportedPlatformsUtility_NumberOfPlatforms_
-  commentId: Overload:OmiyaGames.SupportedPlatformsUtility.NumberOfPlatforms
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_NumberOfPlatforms_
+  commentId: Overload:OmiyaGames.SupportedPlatformsHelpers.NumberOfPlatforms
   isSpec: "True"
-  fullName: OmiyaGames.SupportedPlatformsUtility.NumberOfPlatforms
-  nameWithType: SupportedPlatformsUtility.NumberOfPlatforms
+  fullName: OmiyaGames.SupportedPlatformsHelpers.NumberOfPlatforms
+  nameWithType: SupportedPlatformsHelpers.NumberOfPlatforms
+- uid: OmiyaGames.SupportedPlatformsHelpers.OnAfterIsSupportedNoArgs
+  name: OnAfterIsSupportedNoArgs
+  href: api/OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_OnAfterIsSupportedNoArgs
+  commentId: E:OmiyaGames.SupportedPlatformsHelpers.OnAfterIsSupportedNoArgs
+  fullName: OmiyaGames.SupportedPlatformsHelpers.OnAfterIsSupportedNoArgs
+  nameWithType: SupportedPlatformsHelpers.OnAfterIsSupportedNoArgs
+- uid: OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport
+  name: SupportedPlatformsHelpers.OverridePlatformSupport
+  href: api/OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport.html
+  commentId: T:OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport
+  fullName: OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport
+  nameWithType: SupportedPlatformsHelpers.OverridePlatformSupport
+- uid: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs
+  name: SupportedPlatformsHelpers.PlatformSupportArgs
+  href: api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html
+  commentId: T:OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs
+  fullName: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs
+  nameWithType: SupportedPlatformsHelpers.PlatformSupportArgs
+- uid: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.#ctor(RuntimePlatform,System.Boolean)
+  name: PlatformSupportArgs(RuntimePlatform, Boolean)
+  href: api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html#OmiyaGames_SupportedPlatformsHelpers_PlatformSupportArgs__ctor_RuntimePlatform_System_Boolean_
+  commentId: M:OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.#ctor(RuntimePlatform,System.Boolean)
+  fullName: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.PlatformSupportArgs(RuntimePlatform, System.Boolean)
+  nameWithType: SupportedPlatformsHelpers.PlatformSupportArgs.PlatformSupportArgs(RuntimePlatform, Boolean)
+- uid: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.#ctor*
+  name: PlatformSupportArgs
+  href: api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html#OmiyaGames_SupportedPlatformsHelpers_PlatformSupportArgs__ctor_
+  commentId: Overload:OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.#ctor
+  isSpec: "True"
+  fullName: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.PlatformSupportArgs
+  nameWithType: SupportedPlatformsHelpers.PlatformSupportArgs.PlatformSupportArgs
+- uid: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.BuildPlatform
+  name: BuildPlatform
+  href: api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html#OmiyaGames_SupportedPlatformsHelpers_PlatformSupportArgs_BuildPlatform
+  commentId: P:OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.BuildPlatform
+  fullName: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.BuildPlatform
+  nameWithType: SupportedPlatformsHelpers.PlatformSupportArgs.BuildPlatform
+- uid: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.BuildPlatform*
+  name: BuildPlatform
+  href: api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html#OmiyaGames_SupportedPlatformsHelpers_PlatformSupportArgs_BuildPlatform_
+  commentId: Overload:OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.BuildPlatform
+  isSpec: "True"
+  fullName: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.BuildPlatform
+  nameWithType: SupportedPlatformsHelpers.PlatformSupportArgs.BuildPlatform
+- uid: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.IsSupported
+  name: IsSupported
+  href: api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html#OmiyaGames_SupportedPlatformsHelpers_PlatformSupportArgs_IsSupported
+  commentId: P:OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.IsSupported
+  fullName: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.IsSupported
+  nameWithType: SupportedPlatformsHelpers.PlatformSupportArgs.IsSupported
+- uid: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.IsSupported*
+  name: IsSupported
+  href: api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html#OmiyaGames_SupportedPlatformsHelpers_PlatformSupportArgs_IsSupported_
+  commentId: Overload:OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.IsSupported
+  isSpec: "True"
+  fullName: OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.IsSupported
+  nameWithType: SupportedPlatformsHelpers.PlatformSupportArgs.IsSupported
 - uid: OmiyaGames.ThreadSafe`1
   name: ThreadSafe<T>
   href: api/OmiyaGames.ThreadSafe-1.html
@@ -3437,6 +3488,12 @@ references:
   commentId: M:OmiyaGames.ThreadSafeStringBuilder.#ctor
   fullName: OmiyaGames.ThreadSafeStringBuilder.ThreadSafeStringBuilder()
   nameWithType: ThreadSafeStringBuilder.ThreadSafeStringBuilder()
+- uid: OmiyaGames.ThreadSafeStringBuilder.#ctor(System.Int32)
+  name: ThreadSafeStringBuilder(Int32)
+  href: api/OmiyaGames.ThreadSafeStringBuilder.html#OmiyaGames_ThreadSafeStringBuilder__ctor_System_Int32_
+  commentId: M:OmiyaGames.ThreadSafeStringBuilder.#ctor(System.Int32)
+  fullName: OmiyaGames.ThreadSafeStringBuilder.ThreadSafeStringBuilder(System.Int32)
+  nameWithType: ThreadSafeStringBuilder.ThreadSafeStringBuilder(Int32)
 - uid: OmiyaGames.ThreadSafeStringBuilder.#ctor*
   name: ThreadSafeStringBuilder
   href: api/OmiyaGames.ThreadSafeStringBuilder.html#OmiyaGames_ThreadSafeStringBuilder__ctor_

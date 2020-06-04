@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ProgressReport
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,8 @@
   
   <h1 id="OmiyaGames_ProgressReport" data-uid="OmiyaGames.ProgressReport" class="text-break">Class ProgressReport
   </h1>
-  <div class="markdown level0 summary"><p>Helper method to report progress reports.  Thread-safe.</p>
+  <div class="markdown level0 summary"><p>Helper method to report progress reports.  Thread-safe.
+<a class="xref" href="OmiyaGames.ThreadSafeInt.html">ThreadSafeInt</a></p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -98,30 +99,56 @@
     <pre><code class="lang-csharp hljs">public class ProgressReport</code></pre>
   </div>
   <h5 id="OmiyaGames_ProgressReport_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Revision History:
-<table><thead><tr><th></th><th>DateNameDescription</th></tr></thead><tbody><tr><td></td><td>10/2/2018TaroInitial version</td></tr><tr><td></td><td>3/25/2020TaroConverted the class to a package</td></tr></tbody></table></p>
+  <div class="markdown level0 remarks"><p><copyright file="ProgressReport.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 10/2/2018<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
   <a id="OmiyaGames_ProgressReport__ctor_" data-uid="OmiyaGames.ProgressReport.#ctor*"></a>
-  <h4 id="OmiyaGames_ProgressReport__ctor" data-uid="OmiyaGames.ProgressReport.#ctor">ProgressReport()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ProgressReport()</code></pre>
-  </div>
-  
-  
-  <a id="OmiyaGames_ProgressReport__ctor_" data-uid="OmiyaGames.ProgressReport.#ctor*"></a>
   <h4 id="OmiyaGames_ProgressReport__ctor_System_Int32_" data-uid="OmiyaGames.ProgressReport.#ctor(System.Int32)">ProgressReport(Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor to set <a class="xref" href="OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport_TotalSteps">TotalSteps</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ProgressReport(int totalSteps)</code></pre>
+    <pre><code class="lang-csharp hljs">public ProgressReport(int totalSteps = 1)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,7 +163,24 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">totalSteps</span></td>
-        <td></td>
+        <td><p>Sets <a class="xref" href="OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport_TotalSteps">TotalSteps</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">totalSteps</code> is less than 1.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -146,7 +190,8 @@
   
   <a id="OmiyaGames_ProgressReport_CurrentStep_" data-uid="OmiyaGames.ProgressReport.CurrentStep*"></a>
   <h4 id="OmiyaGames_ProgressReport_CurrentStep" data-uid="OmiyaGames.ProgressReport.CurrentStep">CurrentStep</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Amount of progress made, out of <a class="xref" href="OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport_TotalSteps">TotalSteps</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -171,7 +216,8 @@
   
   <a id="OmiyaGames_ProgressReport_ProgressPercent_" data-uid="OmiyaGames.ProgressReport.ProgressPercent*"></a>
   <h4 id="OmiyaGames_ProgressReport_ProgressPercent" data-uid="OmiyaGames.ProgressReport.ProgressPercent">ProgressPercent</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Progress made, as a fraction between 0 and 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -196,7 +242,8 @@
   
   <a id="OmiyaGames_ProgressReport_TotalSteps_" data-uid="OmiyaGames.ProgressReport.TotalSteps*"></a>
   <h4 id="OmiyaGames_ProgressReport_TotalSteps" data-uid="OmiyaGames.ProgressReport.TotalSteps">TotalSteps</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The total number of steps to make progress in.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -223,7 +270,8 @@
   
   <a id="OmiyaGames_ProgressReport_IncrementCurrentStep_" data-uid="OmiyaGames.ProgressReport.IncrementCurrentStep*"></a>
   <h4 id="OmiyaGames_ProgressReport_IncrementCurrentStep" data-uid="OmiyaGames.ProgressReport.IncrementCurrentStep">IncrementCurrentStep()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Increases <a class="xref" href="OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport_CurrentStep">CurrentStep</a> by 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -233,7 +281,8 @@
   
   <a id="OmiyaGames_ProgressReport_Reset_" data-uid="OmiyaGames.ProgressReport.Reset*"></a>
   <h4 id="OmiyaGames_ProgressReport_Reset" data-uid="OmiyaGames.ProgressReport.Reset">Reset()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport_CurrentStep">CurrentStep</a> to 0.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -243,7 +292,7 @@
   
   <a id="OmiyaGames_ProgressReport_SetTotalSteps_" data-uid="OmiyaGames.ProgressReport.SetTotalSteps*"></a>
   <h4 id="OmiyaGames_ProgressReport_SetTotalSteps_System_Int64_" data-uid="OmiyaGames.ProgressReport.SetTotalSteps(System.Int64)">SetTotalSteps(Int64)</h4>
-  <div class="markdown level1 summary"><p>Resets current step, then sets the total steps</p>
+  <div class="markdown level1 summary"><p>Resets current step, then sets <a class="xref" href="OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport_TotalSteps">TotalSteps</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -263,14 +312,27 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int64">Int64</a></td>
         <td><span class="parametername">newTotalSteps</span></td>
-        <td></td>
+        <td><p>Sets <a class="xref" href="OmiyaGames.ProgressReport.html#OmiyaGames_ProgressReport_TotalSteps">TotalSteps</a></p>
+</td>
       </tr>
     </tbody>
   </table>
-  <h3 id="seealso">See Also</h3>
-  <div class="seealso">
-      <div><a class="xref" href="OmiyaGames.ThreadSafeInt.html">ThreadSafeInt</a></div>
-  </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">newTotalSteps</code> is less than 1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           

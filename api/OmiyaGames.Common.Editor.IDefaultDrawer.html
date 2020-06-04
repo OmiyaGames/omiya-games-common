@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class IDefaultDrawer
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,10 @@
   
   <h1 id="OmiyaGames_Common_Editor_IDefaultDrawer" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer" class="text-break">Class IDefaultDrawer
   </h1>
-  <div class="markdown level0 summary"><p>Helper class that unifies common methods in a few drawers.</p>
+  <div class="markdown level0 summary"><p>Helper class that unifies common methods in a few drawers.
+<a class="xref" href="OmiyaGames.Common.Editor.DefaultRangeDrawer.html">DefaultRangeDrawer</a>
+<a class="xref" href="OmiyaGames.Common.Editor.DefaultObjectDrawer.html">DefaultObjectDrawer</a>
+<a class="xref" href="OmiyaGames.Common.Editor.DefaultNumberDrawer.html">DefaultNumberDrawer</a></p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -101,8 +104,43 @@
     <pre><code class="lang-csharp hljs">public abstract class IDefaultDrawer : PropertyDrawer</code></pre>
   </div>
   <h5 id="OmiyaGames_Common_Editor_IDefaultDrawer_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Revision History:
-<table><thead><tr><th></th><th>DateNameDescription</th></tr></thead><tbody><tr><td></td><td>6/26/2018TaroInitial version</td></tr><tr><td></td><td>3/25/2020TaroConverted the class to a package</td></tr></tbody></table></p>
+  <div class="markdown level0 remarks"><p><copyright file="IDefaultDrawer.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 6/26/2018<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="methods">Methods
   </h3>
@@ -110,7 +148,7 @@
   
   <a id="OmiyaGames_Common_Editor_IDefaultDrawer_DisplayCheckboxAndControl_" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer.DisplayCheckboxAndControl*"></a>
   <h4 id="OmiyaGames_Common_Editor_IDefaultDrawer_DisplayCheckboxAndControl__2_SerializedProperty___0_Rect_OmiyaGames_Common_Editor_IDefaultDrawer_SetToDefault___0__OmiyaGames_Common_Editor_IDefaultDrawer_DisplayControl___0___1__System_Boolean____1__" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer.DisplayCheckboxAndControl``2(SerializedProperty,``0,Rect,OmiyaGames.Common.Editor.IDefaultDrawer.SetToDefault{``0},OmiyaGames.Common.Editor.IDefaultDrawer.DisplayControl{``0,``1},System.Boolean@,``1@)">DisplayCheckboxAndControl&lt;ATTRIBUTE, VALUE&gt;(SerializedProperty, ATTRIBUTE, Rect, IDefaultDrawer.SetToDefault&lt;ATTRIBUTE&gt;, IDefaultDrawer.DisplayControl&lt;ATTRIBUTE, VALUE&gt;, ref Boolean, ref VALUE)</h4>
-  <div class="markdown level1 summary"><p>Taken from <a href="https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs">https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs</a></p>
+  <div class="markdown level1 summary"><p>Displays a checkbox and control for the value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -184,11 +222,14 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="OmiyaGames_Common_Editor_IDefaultDrawer_DisplayCheckboxAndControl__2_SerializedProperty___0_Rect_OmiyaGames_Common_Editor_IDefaultDrawer_SetToDefault___0__OmiyaGames_Common_Editor_IDefaultDrawer_DisplayControl___0___1__System_Boolean____1___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Taken from <a href="https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs">https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs</a></p>
+</div>
   
   
   <a id="OmiyaGames_Common_Editor_IDefaultDrawer_SetupPositioning_" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer.SetupPositioning*"></a>
   <h4 id="OmiyaGames_Common_Editor_IDefaultDrawer_SetupPositioning_SerializedProperty_Rect_Rect__Rect__" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer.SetupPositioning(SerializedProperty,Rect,Rect@,Rect@)">SetupPositioning(SerializedProperty, Rect, out Rect, out Rect)</h4>
-  <div class="markdown level1 summary"><p>Taken from <a href="https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs">https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs</a></p>
+  <div class="markdown level1 summary"><p>Sets up positioning.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -227,12 +268,9 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="seealso">See Also</h3>
-  <div class="seealso">
-      <div><a class="xref" href="OmiyaGames.Common.Editor.DefaultRangeDrawer.html">DefaultRangeDrawer</a></div>
-      <div><a class="xref" href="OmiyaGames.Common.Editor.DefaultObjectDrawer.html">DefaultObjectDrawer</a></div>
-      <div><a class="xref" href="OmiyaGames.Common.Editor.DefaultNumberDrawer.html">DefaultNumberDrawer</a></div>
-  </div>
+  <h5 id="OmiyaGames_Common_Editor_IDefaultDrawer_SetupPositioning_SerializedProperty_Rect_Rect__Rect___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Taken from <a href="https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs">https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs</a></p>
+</div>
 </article>
           </div>
           

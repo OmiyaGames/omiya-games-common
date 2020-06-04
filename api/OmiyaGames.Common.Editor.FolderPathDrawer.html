@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class FolderPathDrawer
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,7 @@
   
   <h1 id="OmiyaGames_Common_Editor_FolderPathDrawer" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer" class="text-break">Class FolderPathDrawer
   </h1>
-  <div class="markdown level0 summary"><p>Editor for <pre><code>FolderPathAttribute</code></pre>.</p>
+  <div class="markdown level0 summary"><p><see cref="!:PropertyDrawer"></see> for <a class="xref" href="OmiyaGames.FolderPathAttribute.html">FolderPathAttribute</a></p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -99,8 +99,43 @@
     <pre><code class="lang-csharp hljs">public class FolderPathDrawer : PropertyDrawer</code></pre>
   </div>
   <h5 id="OmiyaGames_Common_Editor_FolderPathDrawer_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Revision History:
-<table><thead><tr><th></th><th>DateNameDescription</th></tr></thead><tbody><tr><td></td><td>11/01/2018TaroInitial version</td></tr><tr><td></td><td>3/25/2020TaroConverted the class to a package</td></tr></tbody></table></p>
+  <div class="markdown level0 remarks"><p><copyright file="FolderPathDrawer.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 11/01/2018<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="properties">Properties
   </h3>
@@ -133,7 +168,8 @@
   
   <a id="OmiyaGames_Common_Editor_FolderPathDrawer_WrongAttributeMessage_" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer.WrongAttributeMessage*"></a>
   <h4 id="OmiyaGames_Common_Editor_FolderPathDrawer_WrongAttributeMessage" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer.WrongAttributeMessage">WrongAttributeMessage</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Message for using the attribute on the wrong variable type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -158,7 +194,8 @@
   
   <a id="OmiyaGames_Common_Editor_FolderPathDrawer_WrongPathMessage_" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer.WrongPathMessage*"></a>
   <h4 id="OmiyaGames_Common_Editor_FolderPathDrawer_WrongPathMessage" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer.WrongPathMessage">WrongPathMessage</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Message for entering the wrong path.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -185,7 +222,8 @@
   
   <a id="OmiyaGames_Common_Editor_FolderPathDrawer_GetLocalPath_" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer.GetLocalPath*"></a>
   <h4 id="OmiyaGames_Common_Editor_FolderPathDrawer_GetLocalPath_System_String_OmiyaGames_FolderPathAttribute_RelativeTo_" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer.GetLocalPath(System.String,OmiyaGames.FolderPathAttribute.RelativeTo)">GetLocalPath(String, FolderPathAttribute.RelativeTo)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts a full path into a relative path.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -204,12 +242,14 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">fullPath</span></td>
-        <td></td>
+        <td><p>Absolute path.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="OmiyaGames.FolderPathAttribute.RelativeTo.html">FolderPathAttribute.RelativeTo</a></td>
         <td><span class="parametername">relativeTo</span></td>
-        <td></td>
+        <td><p>Enum indicating what the returned path should be local to.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -224,7 +264,9 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">fullPath</code> contains folder path <code data-dev-comment-type="paramref" class="paramref">relativeTo</code>
+returns a path with that portion removed.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -279,7 +321,8 @@
   
   <a id="OmiyaGames_Common_Editor_FolderPathDrawer_IsMessageBoxShown_" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer.IsMessageBoxShown*"></a>
   <h4 id="OmiyaGames_Common_Editor_FolderPathDrawer_IsMessageBoxShown_SerializedProperty_OmiyaGames_FolderPathAttribute_" data-uid="OmiyaGames.Common.Editor.FolderPathDrawer.IsMessageBoxShown(SerializedProperty,OmiyaGames.FolderPathAttribute)">IsMessageBoxShown(SerializedProperty, FolderPathAttribute)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Indicates if an error message box is shown.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -298,12 +341,15 @@
       <tr>
         <td><span class="xref">SerializedProperty</span></td>
         <td><span class="parametername">property</span></td>
-        <td></td>
+        <td><p>Property to check.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="OmiyaGames.FolderPathAttribute.html">FolderPathAttribute</a></td>
         <td><span class="parametername">attribute</span></td>
-        <td></td>
+        <td><p>Attribute to check if <a class="xref" href="OmiyaGames.FolderPathAttribute.html#OmiyaGames_FolderPathAttribute_IsWarningDisplayed">IsWarningDisplayed</a>
+is set.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -391,10 +437,6 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="seealso">See Also</h3>
-  <div class="seealso">
-      <div><a class="xref" href="OmiyaGames.FolderPathAttribute.html">FolderPathAttribute</a></div>
-  </div>
 </article>
           </div>
           

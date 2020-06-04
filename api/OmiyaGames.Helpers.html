@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Helpers
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,7 @@
   
   <h1 id="OmiyaGames_Helpers" data-uid="OmiyaGames.Helpers" class="text-break">Class Helpers
   </h1>
-  <div class="markdown level0 summary"><p>A series of utilities used throughout the <pre><code>OmiyaGames</code></pre> namespace.</p>
+  <div class="markdown level0 summary"><p>A series of utilities used throughout the <a class="xref" href="OmiyaGames.html">OmiyaGames</a> namespace.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -98,15 +98,54 @@
     <pre><code class="lang-csharp hljs">public static class Helpers</code></pre>
   </div>
   <h5 id="OmiyaGames_Helpers_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Revision History:
-<table><thead><tr><th></th><th>DateNameDescription</th></tr></thead><tbody><tr><td></td><td>8/18/2015TaroInitial version</td></tr><tr><td></td><td>6/4/2018TaroAdded method for shortening URL</td></tr><tr><td></td><td>3/25/2020TaroConverted the class to a package</td></tr></tbody></table></p>
+  <div class="markdown level0 remarks"><p><copyright file="Helpers.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 8/18/2015<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>Initial verison.</td></tr><tr><td>
+<strong>Date:</strong> 6/4/2018<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Added method for shortening URL.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converting the file to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation.  Moving method <see cref="!:ShortenUrl(string)"></see> to Omiya Games - Web package.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="fields">Fields
   </h3>
   
   
   <h4 id="OmiyaGames_Helpers_FileExtensionScriptableObject" data-uid="OmiyaGames.Helpers.FileExtensionScriptableObject">FileExtensionScriptableObject</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>File extension for <see cref="!:ScriptableObjects"></see> files.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -130,7 +169,8 @@
   
   
   <h4 id="OmiyaGames_Helpers_FileExtensionText" data-uid="OmiyaGames.Helpers.FileExtensionText">FileExtensionText</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>File extension for text files.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -153,8 +193,33 @@
   </table>
   
   
-  <h4 id="OmiyaGames_Helpers_IsTimeStampPrintedByDefault" data-uid="OmiyaGames.Helpers.IsTimeStampPrintedByDefault">IsTimeStampPrintedByDefault</h4>
+  <h4 id="OmiyaGames_Helpers_InvalidFileNameCharactersSet" data-uid="OmiyaGames.Helpers.InvalidFileNameCharactersSet">InvalidFileNameCharactersSet</h4>
   <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly ISet&lt;char&gt; InvalidFileNameCharactersSet</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISet</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="OmiyaGames_Helpers_IsTimeStampPrintedByDefault" data-uid="OmiyaGames.Helpers.IsTimeStampPrintedByDefault">IsTimeStampPrintedByDefault</h4>
+  <div class="markdown level1 summary"><p>Flag whether <a class="xref" href="OmiyaGames.Helpers.html#OmiyaGames_Helpers_Log_System_String_System_Boolean_">Log(String, Boolean)</a> prints the timestamp.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -178,7 +243,8 @@
   
   
   <h4 id="OmiyaGames_Helpers_PathDivider" data-uid="OmiyaGames.Helpers.PathDivider">PathDivider</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Path divider Unity normalizes to.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -202,7 +268,8 @@
   
   
   <h4 id="OmiyaGames_Helpers_SnapToThreshold" data-uid="OmiyaGames.Helpers.SnapToThreshold">SnapToThreshold</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Distance between 2 UI elements before the animated one snaps to position.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -225,32 +292,9 @@
   </table>
   
   
-  <h4 id="OmiyaGames_Helpers_stripStartOfUrl" data-uid="OmiyaGames.Helpers.stripStartOfUrl">stripStartOfUrl</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly string[] stripStartOfUrl</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <h4 id="OmiyaGames_Helpers_TimeStampPrint" data-uid="OmiyaGames.Helpers.TimeStampPrint">TimeStampPrint</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Timestamp format printed in <a class="xref" href="OmiyaGames.Helpers.html#OmiyaGames_Helpers_Log_System_String_System_Boolean_">Log(String, Boolean)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -277,7 +321,9 @@
   
   <a id="OmiyaGames_Helpers_ConvertToEnum_" data-uid="OmiyaGames.Helpers.ConvertToEnum*"></a>
   <h4 id="OmiyaGames_Helpers_ConvertToEnum__1_System_Int32_" data-uid="OmiyaGames.Helpers.ConvertToEnum``1(System.Int32)">ConvertToEnum&lt;ENUM&gt;(Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a> to an <code data-dev-comment-type="typeparamref" class="typeparamref">ENUM</code>.
+More useful for <see cref="!:UnityEditor.Editor"></see>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -297,7 +343,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a> to convert.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -312,7 +359,8 @@
     <tbody>
       <tr>
         <td><span class="xref">ENUM</span></td>
-        <td></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> converted to an <code data-dev-comment-type="typeparamref" class="typeparamref">ENUM</code>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -327,7 +375,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">ENUM</span></td>
-        <td></td>
+        <td><p>Enum to convert to.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -335,7 +384,9 @@
   
   <a id="OmiyaGames_Helpers_ConvertToInt_" data-uid="OmiyaGames.Helpers.ConvertToInt*"></a>
   <h4 id="OmiyaGames_Helpers_ConvertToInt__1___0_" data-uid="OmiyaGames.Helpers.ConvertToInt``1(``0)">ConvertToInt&lt;ENUM&gt;(ENUM)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts an <code data-dev-comment-type="typeparamref" class="typeparamref">ENUM</code> to <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>.
+More useful for <see cref="!:UnityEditor.Editor"></see>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -355,7 +406,8 @@
       <tr>
         <td><span class="xref">ENUM</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p><code data-dev-comment-type="typeparamref" class="typeparamref">ENUM</code> to convert to.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -370,7 +422,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> converted into an <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -385,7 +438,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">ENUM</span></td>
-        <td></td>
+        <td><p>Enum to convert from.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -523,7 +577,8 @@
   
   <a id="OmiyaGames_Helpers_GetParentCanvas_" data-uid="OmiyaGames.Helpers.GetParentCanvas*"></a>
   <h4 id="OmiyaGames_Helpers_GetParentCanvas_Transform_" data-uid="OmiyaGames.Helpers.GetParentCanvas(Transform)">GetParentCanvas(Transform)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Loops up the transform&apos;s parents, seeking for an instance of <see cref="!:Canvas"></see>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -542,7 +597,8 @@
       <tr>
         <td><span class="xref">Transform</span></td>
         <td><span class="parametername">checkTransform</span></td>
-        <td></td>
+        <td><p><see cref="!:Transform"></see> to search for a <see cref="!:Canvas"></see>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -557,7 +613,9 @@
     <tbody>
       <tr>
         <td><span class="xref">Canvas</span></td>
-        <td></td>
+        <td><p><see cref="!:Canvas"></see> on <code data-dev-comment-type="paramref" class="paramref">checkTransform</code>,
+its parent transforms, or null if none was found.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -631,7 +689,8 @@
   
   <a id="OmiyaGames_Helpers_Log_" data-uid="OmiyaGames.Helpers.Log*"></a>
   <h4 id="OmiyaGames_Helpers_Log_System_String_System_Boolean_" data-uid="OmiyaGames.Helpers.Log(System.String,System.Boolean)">Log(String, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Logs to the console <em>only if</em> DEBUG macro is turned on.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -650,24 +709,27 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>Message to print.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">showTimestamp</span></td>
-        <td></td>
+        <td><p>Timestampe format.</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="OmiyaGames_Helpers_RemoveDuplicateEntries_" data-uid="OmiyaGames.Helpers.RemoveDuplicateEntries*"></a>
-  <h4 id="OmiyaGames_Helpers_RemoveDuplicateEntries__1_System_Collections_Generic_List___0__System_Collections_Generic_IEqualityComparer___0__" data-uid="OmiyaGames.Helpers.RemoveDuplicateEntries``1(System.Collections.Generic.List{``0},System.Collections.Generic.IEqualityComparer{``0})">RemoveDuplicateEntries&lt;H&gt;(List&lt;H&gt;, IEqualityComparer&lt;H&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="OmiyaGames_Helpers_RemoveDiacritics_" data-uid="OmiyaGames.Helpers.RemoveDiacritics*"></a>
+  <h4 id="OmiyaGames_Helpers_RemoveDiacritics_System_String_System_Text_StringBuilder_" data-uid="OmiyaGames.Helpers.RemoveDiacritics(System.String,System.Text.StringBuilder)">RemoveDiacritics(String, StringBuilder)</h4>
+  <div class="markdown level1 summary"><p>Removes any invalid characters for building a file name.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void RemoveDuplicateEntries&lt;H&gt;(List&lt;H&gt; list, IEqualityComparer&lt;H&gt; comparer = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string RemoveDiacritics(string text, StringBuilder stringBuilder = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -680,14 +742,71 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;H&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">text</span></td>
+        <td><p>Text to remove diacritics from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></td>
+        <td><span class="parametername">stringBuilder</span></td>
+        <td><p>An optional <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a> this method will use to
+generate the returned string. Good for performance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">text</code> with invalid file characters removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OmiyaGames_Helpers_RemoveDiacritics_System_String_System_Text_StringBuilder__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Taken from <a href="http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html">http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html</a></p>
+</div>
+  
+  
+  <a id="OmiyaGames_Helpers_RemoveDuplicateEntries_" data-uid="OmiyaGames.Helpers.RemoveDuplicateEntries*"></a>
+  <h4 id="OmiyaGames_Helpers_RemoveDuplicateEntries__1_System_Collections_Generic_IList___0__System_Collections_Generic_IEqualityComparer___0__" data-uid="OmiyaGames.Helpers.RemoveDuplicateEntries``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IEqualityComparer{``0})">RemoveDuplicateEntries&lt;H&gt;(IList&lt;H&gt;, IEqualityComparer&lt;H&gt;)</h4>
+  <div class="markdown level1 summary"><p>Remove duplicate entries from a <code data-dev-comment-type="paramref" class="paramref">list</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveDuplicateEntries&lt;H&gt;(IList&lt;H&gt; list, IEqualityComparer&lt;H&gt; comparer = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;H&gt;</td>
         <td><span class="parametername">list</span></td>
-        <td></td>
+        <td><p>List to remove duplicates from.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;H&gt;</td>
         <td><span class="parametername">comparer</span></td>
-        <td></td>
+        <td><p>Comparer to verify whether two elements are the same or not.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -702,7 +821,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">H</span></td>
-        <td></td>
+        <td><p>The type of List.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1053,48 +1173,6 @@ This will be used  to clone a new <pre><code>GameObject</code></pre>.</p>
       <tr>
         <td><span class="xref">Vector3</span></td>
         <td><span class="parametername">toCopy</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Helpers_ShortenUrl_" data-uid="OmiyaGames.Helpers.ShortenUrl*"></a>
-  <h4 id="OmiyaGames_Helpers_ShortenUrl_System_String_" data-uid="OmiyaGames.Helpers.ShortenUrl(System.String)">ShortenUrl(String)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ShortenUrl(string url)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">url</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td></td>
       </tr>
     </tbody>

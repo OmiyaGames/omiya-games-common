@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Delegate IDefaultDrawer.SetToDefault&lt;ATTRIBUTE&gt;
+    <title>Delegate SupportedPlatformsHelpers.OverridePlatformSupport
    | Common documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Delegate IDefaultDrawer.SetToDefault&lt;ATTRIBUTE&gt;
+    <meta name="title" content="Delegate SupportedPlatformsHelpers.OverridePlatformSupport
    | Common documentation ">
     <meta name="generator" content="docfx 2.54.0.0">
     
@@ -78,19 +78,20 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer.SetToDefault`1">
+            <article class="content wrap" id="_content" data-uid="OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport">
   
   
-  <h1 id="OmiyaGames_Common_Editor_IDefaultDrawer_SetToDefault_1" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer.SetToDefault`1" class="text-break">Delegate IDefaultDrawer.SetToDefault&lt;ATTRIBUTE&gt;
+  <h1 id="OmiyaGames_SupportedPlatformsHelpers_OverridePlatformSupport" data-uid="OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport" class="text-break">Delegate SupportedPlatformsHelpers.OverridePlatformSupport
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Delegate for <a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_OnAfterIsSupportedNoArgs">OnAfterIsSupportedNoArgs</a> event.
+<a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html">SupportedPlatformsHelpers.PlatformSupportArgs</a></p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="OmiyaGames.Common.Editor.html">OmiyaGames.Common.Editor</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OmiyaGames.html">OmiyaGames</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="OmiyaGames_Common_Editor_IDefaultDrawer_SetToDefault_1_syntax">Syntax</h5>
+  <h5 id="OmiyaGames_SupportedPlatformsHelpers_OverridePlatformSupport_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected delegate void SetToDefault&lt;ATTRIBUTE&gt;(SerializedProperty property, ATTRIBUTE range)
-    where ATTRIBUTE : PropertyAttribute;</code></pre>
+    <pre><code class="lang-csharp hljs">public delegate void OverridePlatformSupport(SupportedPlatforms source, SupportedPlatformsHelpers.PlatformSupportArgs args);</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -103,29 +104,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">SerializedProperty</span></td>
-        <td><span class="parametername">property</span></td>
-        <td></td>
+        <td><a class="xref" href="OmiyaGames.SupportedPlatforms.html">SupportedPlatforms</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source of the event call.</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">ATTRIBUTE</span></td>
-        <td><span class="parametername">range</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">ATTRIBUTE</span></td>
-        <td></td>
+        <td><a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html">SupportedPlatformsHelpers.PlatformSupportArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments for the event. Can be edited to change what
+<a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_OnAfterIsSupportedNoArgs">OnAfterIsSupportedNoArgs</a> returns.</p>
+</td>
       </tr>
     </tbody>
   </table>

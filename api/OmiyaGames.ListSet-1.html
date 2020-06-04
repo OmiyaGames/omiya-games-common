@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ListSet&lt;T&gt;
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -84,8 +84,10 @@
   <h1 id="OmiyaGames_ListSet_1" data-uid="OmiyaGames.ListSet`1" class="text-break">Class ListSet&lt;T&gt;
   </h1>
   <div class="markdown level0 summary"><p>A list where all the elements are unique (i.e. a set).
-Note that due to its nature, <pre><code>null</code></pre>
-cannot be added into this collection.</p>
+Note that due to its nature, null cannot be added into this collection.
+<seealso cref="!:HashSet&lt;T>"></seealso>
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List&lt;T&gt;</a>
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary&lt;TKey,TValue&gt;</a></p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,8 +117,43 @@ cannot be added into this collection.</p>
     </tbody>
   </table>
   <h5 id="OmiyaGames_ListSet_1_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Revision History:
-<table><thead><tr><th></th><th>DateNameDescription</th></tr></thead><tbody><tr><td></td><td>1/23/2019TaroInitial version</td></tr><tr><td></td><td>3/25/2020TaroConverted the class to a package</td></tr></tbody></table></p>
+  <div class="markdown level0 remarks"><p><copyright file="ListSet.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 1/23/2019<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -124,7 +161,8 @@ cannot be added into this collection.</p>
   
   <a id="OmiyaGames_ListSet_1__ctor_" data-uid="OmiyaGames.ListSet`1.#ctor*"></a>
   <h4 id="OmiyaGames_ListSet_1__ctor" data-uid="OmiyaGames.ListSet`1.#ctor">ListSet()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Default constructor that sets up an empty list.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -134,7 +172,9 @@ cannot be added into this collection.</p>
   
   <a id="OmiyaGames_ListSet_1__ctor_" data-uid="OmiyaGames.ListSet`1.#ctor*"></a>
   <h4 id="OmiyaGames_ListSet_1__ctor_System_Collections_Generic_IEqualityComparer__0__" data-uid="OmiyaGames.ListSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">ListSet(IEqualityComparer&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor to set the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer&lt;T&gt;</a>,
+used to check if two elements matches.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -153,7 +193,8 @@ cannot be added into this collection.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;T&gt;</td>
         <td><span class="parametername">comparer</span></td>
-        <td></td>
+        <td><p>Comparer to check if two elements matches.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -161,7 +202,8 @@ cannot be added into this collection.</p>
   
   <a id="OmiyaGames_ListSet_1__ctor_" data-uid="OmiyaGames.ListSet`1.#ctor*"></a>
   <h4 id="OmiyaGames_ListSet_1__ctor_System_Int32_" data-uid="OmiyaGames.ListSet`1.#ctor(System.Int32)">ListSet(Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor an empty list with initial capacity defined.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -180,7 +222,8 @@ cannot be added into this collection.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">capacity</span></td>
-        <td></td>
+        <td><p>Initial capacity of this list.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -188,7 +231,9 @@ cannot be added into this collection.</p>
   
   <a id="OmiyaGames_ListSet_1__ctor_" data-uid="OmiyaGames.ListSet`1.#ctor*"></a>
   <h4 id="OmiyaGames_ListSet_1__ctor_System_Int32_System_Collections_Generic_IEqualityComparer__0__" data-uid="OmiyaGames.ListSet`1.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})">ListSet(Int32, IEqualityComparer&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor to set the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer&lt;T&gt;</a>,
+used to check if two elements matches.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -207,12 +252,14 @@ cannot be added into this collection.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">capacity</span></td>
-        <td></td>
+        <td><p>Initial capacity of this list.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;T&gt;</td>
         <td><span class="parametername">comparer</span></td>
-        <td></td>
+        <td><p>Comparer to check if two elements matches.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1022,11 +1069,6 @@ an exception will be thrown.</p>
       </tr>
     </tbody>
   </table>
-  <h3 id="seealso">See Also</h3>
-  <div class="seealso">
-      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</div>
-      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;TKey, TValue&gt;</div>
-  </div>
 </article>
           </div>
           

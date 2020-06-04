@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class FolderPathAttribute
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,9 +83,8 @@
   
   <h1 id="OmiyaGames_FolderPathAttribute" data-uid="OmiyaGames.FolderPathAttribute" class="text-break">Class FolderPathAttribute
   </h1>
-  <div class="markdown level0 summary"><p>Creates a checkbox in the editor.
-If unchecked, the default value is set to this value.
-If checked, reveals a number field, allowing the user to change this value.</p>
+  <div class="markdown level0 summary"><p>Adds a browse button to the inspector to select a path.
+Simply add [FolderPath] to a string.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -101,8 +100,43 @@ If checked, reveals a number field, allowing the user to change this value.</p>
     <pre><code class="lang-csharp hljs">public class FolderPathAttribute : PropertyAttribute</code></pre>
   </div>
   <h5 id="OmiyaGames_FolderPathAttribute_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Revision History:
-<table><thead><tr><th></th><th>DateNameDescription</th></tr></thead><tbody><tr><td></td><td>6/26/2018TaroInitial version</td></tr><tr><td></td><td>3/25/2020TaroConverted the class to a package</td></tr></tbody></table></p>
+  <div class="markdown level0 remarks"><p><copyright file="FolderPathAttribute.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 6/26/2018<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -110,7 +144,8 @@ If checked, reveals a number field, allowing the user to change this value.</p>
   
   <a id="OmiyaGames_FolderPathAttribute__ctor_" data-uid="OmiyaGames.FolderPathAttribute.#ctor*"></a>
   <h4 id="OmiyaGames_FolderPathAttribute__ctor_System_String_OmiyaGames_FolderPathAttribute_RelativeTo_System_Boolean_" data-uid="OmiyaGames.FolderPathAttribute.#ctor(System.String,OmiyaGames.FolderPathAttribute.RelativeTo,System.Boolean)">FolderPathAttribute(String, FolderPathAttribute.RelativeTo, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor for setting up the folder path inspector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -129,17 +164,20 @@ If checked, reveals a number field, allowing the user to change this value.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">defaultPath</span></td>
-        <td></td>
+        <td><p>The default path to open the dialog in.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="OmiyaGames.FolderPathAttribute.RelativeTo.html">FolderPathAttribute.RelativeTo</a></td>
         <td><span class="parametername">relativeTo</span></td>
-        <td></td>
+        <td><p>The folder to make the path relative to.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">displayWarning</span></td>
-        <td></td>
+        <td><p>Flag on whether to display a warning on an invalid path in the inspector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -148,7 +186,8 @@ If checked, reveals a number field, allowing the user to change this value.</p>
   
   
   <h4 id="OmiyaGames_FolderPathAttribute_DefaultLocalPath" data-uid="OmiyaGames.FolderPathAttribute.DefaultLocalPath">DefaultLocalPath</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Default local path.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -175,7 +214,8 @@ If checked, reveals a number field, allowing the user to change this value.</p>
   
   <a id="OmiyaGames_FolderPathAttribute_DefaultPath_" data-uid="OmiyaGames.FolderPathAttribute.DefaultPath*"></a>
   <h4 id="OmiyaGames_FolderPathAttribute_DefaultPath" data-uid="OmiyaGames.FolderPathAttribute.DefaultPath">DefaultPath</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The default path to open the dialog in.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -200,7 +240,8 @@ If checked, reveals a number field, allowing the user to change this value.</p>
   
   <a id="OmiyaGames_FolderPathAttribute_IsWarningDisplayed_" data-uid="OmiyaGames.FolderPathAttribute.IsWarningDisplayed*"></a>
   <h4 id="OmiyaGames_FolderPathAttribute_IsWarningDisplayed" data-uid="OmiyaGames.FolderPathAttribute.IsWarningDisplayed">IsWarningDisplayed</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>If true, displays a warning if the folder path is not valid.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -225,7 +266,8 @@ If checked, reveals a number field, allowing the user to change this value.</p>
   
   <a id="OmiyaGames_FolderPathAttribute_PathRelativeTo_" data-uid="OmiyaGames.FolderPathAttribute.PathRelativeTo*"></a>
   <h4 id="OmiyaGames_FolderPathAttribute_PathRelativeTo" data-uid="OmiyaGames.FolderPathAttribute.PathRelativeTo">PathRelativeTo</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>What folder the path string is relative to.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace OmiyaGames
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -107,48 +107,66 @@ If unchecked, the default value is set to this value.
 If checked, reveals a slider, allowing the user to change this value.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.EnumFlagsAttribute.html">EnumFlagsAttribute</a></h4>
-      <section><p>Makes an enum multi-selectable in the Unity editor with <pre><code>[EnumFlags]</code></pre>.</p>
+      <section><p>Makes an enum multi-selectable in the Unity editor with [EnumFlags].</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.FilePathAttribute.html">FilePathAttribute</a></h4>
-      <section><p>Adds a browse button to a string field.</p>
+      <section><p>Adds a browse button to the inspector to select a path.
+Simply add [FilePath] to a string.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.FolderPathAttribute.html">FolderPathAttribute</a></h4>
-      <section><p>Creates a checkbox in the editor.
-If unchecked, the default value is set to this value.
-If checked, reveals a number field, allowing the user to change this value.</p>
+      <section><p>Adds a browse button to the inspector to select a path.
+Simply add [FolderPath] to a string.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Helpers.html">Helpers</a></h4>
-      <section><p>A series of utilities used throughout the <pre><code>OmiyaGames</code></pre> namespace.</p>
+      <section><p>A series of utilities used throughout the <a class="xref" href="OmiyaGames.html">OmiyaGames</a> namespace.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.ListSet-1.html">ListSet&lt;T&gt;</a></h4>
       <section><p>A list where all the elements are unique (i.e. a set).
-Note that due to its nature, <pre><code>null</code></pre>
-cannot be added into this collection.</p>
+Note that due to its nature, null cannot be added into this collection.
+<seealso cref="!:HashSet&lt;T>"></seealso>
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List&lt;T&gt;</a>
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary&lt;TKey,TValue&gt;</a></p>
 </section>
       <h4><a class="xref" href="OmiyaGames.ProgressReport.html">ProgressReport</a></h4>
-      <section><p>Helper method to report progress reports.  Thread-safe.</p>
+      <section><p>Helper method to report progress reports.  Thread-safe.
+<a class="xref" href="OmiyaGames.ThreadSafeInt.html">ThreadSafeInt</a></p>
 </section>
       <h4><a class="xref" href="OmiyaGames.RandomList-1.html">RandomList&lt;T&gt;</a></h4>
-      <section></section>
+      <section><p>A list that shuffles its elements.  Common example:</p>
+<pre><code>int[] allNumbers = new int[] { 1, 2, 3, 4 };
+RandomList&lt;int> shuffledNumbers = new RandomList&lt;int>(allNumbers);
+for(int i = 0; i &lt; allNumbers.Length; ++i)
+{
+    Debug.Log(shuffledNumbers.NextRandomElement);
+}</code></pre>
+</section>
       <h4><a class="xref" href="OmiyaGames.ReadOnlyAttribute.html">ReadOnlyAttribute</a></h4>
-      <section><p>Makes a field read-only in the Unity editor with <pre><code>[ReadOnly]</code></pre>.</p>
+      <section><p>Makes a field read-only in the Unity editor with [ReadOnly].</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.ScenePathAttribute.html">ScenePathAttribute</a></h4>
-      <section><p>Makes a string field accept scene assets only.</p>
+      <section><p>Makes a string field accept scenes-only in the Unity editor with [ScenePath].</p>
 </section>
-      <h4><a class="xref" href="OmiyaGames.SupportedPlatformsUtility.html">SupportedPlatformsUtility</a></h4>
-      <section><p>A class full of helper and extended methods for <pre><code>SupportPlatforms</code></pre>.</p>
+      <h4><a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.html">SupportedPlatformsHelpers</a></h4>
+      <section><p>A class full of helper and extended methods for <see cref="!:SupportPlatforms"></see>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html">SupportedPlatformsHelpers.PlatformSupportArgs</a></h4>
+      <section><p>Argument for event <a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_OnAfterIsSupportedNoArgs">OnAfterIsSupportedNoArgs</a>.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.ThreadSafe-1.html">ThreadSafe&lt;T&gt;</a></h4>
       <section><p>Creates a thread-safe variable.  Only works on primitives.
-Note: if a thread-safe integer is in plans, use <pre><code>ThreadSafeInt</code></pre> instead.</p>
+<a class="xref" href="OmiyaGames.ThreadSafeInt.html">ThreadSafeInt</a>
+<a class="xref" href="OmiyaGames.ThreadSafeLong.html">ThreadSafeLong</a>
+<a class="xref" href="OmiyaGames.ThreadSafeStringBuilder.html">ThreadSafeStringBuilder</a></p>
 </section>
       <h4><a class="xref" href="OmiyaGames.ThreadSafeInt.html">ThreadSafeInt</a></h4>
-      <section></section>
+      <section><p>An int version of <a class="xref" href="OmiyaGames.ThreadSafe-1.html">ThreadSafe&lt;T&gt;</a> with more performant helper methods.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.ThreadSafeLong.html">ThreadSafeLong</a></h4>
-      <section></section>
+      <section><p>A long version of <a class="xref" href="OmiyaGames.ThreadSafe-1.html">ThreadSafe&lt;T&gt;</a> with more performant helper methods.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.ThreadSafeStringBuilder.html">ThreadSafeStringBuilder</a></h4>
-      <section></section>
+      <section><p>Creates a thread-safe <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a>.</p>
+</section>
     <h3 id="structs">Structs
   </h3>
       <h4><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a></h4>
@@ -164,9 +182,18 @@ The higher the frequency, the more often an element appears.</p>
       <section><p>Indicates whether the editor number is limited to being greater, less, or neither.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.FolderPathAttribute.RelativeTo.html">FolderPathAttribute.RelativeTo</a></h4>
-      <section></section>
+      <section><p>The directory <a class="xref" href="OmiyaGames.FolderPathAttribute.html">FolderPathAttribute</a> should be set local to.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.SupportedPlatforms.html">SupportedPlatforms</a></h4>
-      <section><p>An enum indicating supported platforms. Can be multi-selected in the Unity Editor.</p>
+      <section><p>An enum indicating supported platforms. Can be multi-selected in the Unity Editor.
+<a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.html">SupportedPlatformsHelpers</a>
+<a class="xref" href="OmiyaGames.Common.Editor.SupportedPlatformsDrawer.html">SupportedPlatformsDrawer</a></p>
+</section>
+    <h3 id="delegates">Delegates
+  </h3>
+      <h4><a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport.html">SupportedPlatformsHelpers.OverridePlatformSupport</a></h4>
+      <section><p>Delegate for <a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_OnAfterIsSupportedNoArgs">OnAfterIsSupportedNoArgs</a> event.
+<a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html">SupportedPlatformsHelpers.PlatformSupportArgs</a></p>
 </section>
 </article>
           </div>

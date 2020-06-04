@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct HsvColor
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -94,8 +94,33 @@
 public struct HsvColor</code></pre>
   </div>
   <h5 id="OmiyaGames_HsvColor_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Revision History:
-<table><thead><tr><th></th><th>DateNameDescription</th></tr></thead><tbody><tr><td></td><td>9/3/2015Jonathan CzeckWiki version</td></tr><tr><td></td><td>3/25/2020Taro OmiyaConverted the class to a package. Using Unity&apos;s own helper functions.</td></tr></tbody></table></p>
+  <div class="markdown level0 remarks"><p><copyright file="HsvColor.cs">
+<p>
+Code by Jonathan Czeck from Unify Community:
+<a href="http://wiki.unity3d.com/index.php/HSBColor">http://wiki.unity3d.com/index.php/HSBColor</a>
+</p><p>
+Licensed under Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0):
+<a href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>
+</p>
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 9/3/2015<br>
+<strong>Author:</strong> Jonathan Czeck
+</td><td>
+Initial wiki version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package. Using Unity&apos;s own helper functions.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -103,7 +128,8 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor__ctor_" data-uid="OmiyaGames.HsvColor.#ctor*"></a>
   <h4 id="OmiyaGames_HsvColor__ctor_Color_" data-uid="OmiyaGames.HsvColor.#ctor(Color)">HsvColor(Color)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor that converts <see cref="!:Color"></see> to <a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -122,7 +148,8 @@ public struct HsvColor</code></pre>
       <tr>
         <td><span class="xref">Color</span></td>
         <td><span class="parametername">col</span></td>
-        <td></td>
+        <td><p>Color to convert.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -130,7 +157,8 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor__ctor_" data-uid="OmiyaGames.HsvColor.#ctor*"></a>
   <h4 id="OmiyaGames_HsvColor__ctor_OmiyaGames_HsvColor_" data-uid="OmiyaGames.HsvColor.#ctor(OmiyaGames.HsvColor)">HsvColor(HsvColor)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Clone constructor: creates a duplicate of <code data-dev-comment-type="paramref" class="paramref">col</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -149,7 +177,8 @@ public struct HsvColor</code></pre>
       <tr>
         <td><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a></td>
         <td><span class="parametername">col</span></td>
-        <td></td>
+        <td><p>Color to duplicate.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -157,7 +186,10 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor__ctor_" data-uid="OmiyaGames.HsvColor.#ctor*"></a>
   <h4 id="OmiyaGames_HsvColor__ctor_System_Single_System_Single_System_Single_System_Single_" data-uid="OmiyaGames.HsvColor.#ctor(System.Single,System.Single,System.Single,System.Single)">HsvColor(Single, Single, Single, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructs a new color, setting <a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_Hue">Hue</a>,
+<a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_Saturation">Saturation</a>, <a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_Value">Value</a>, and
+<a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_Alpha">Alpha</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -176,22 +208,26 @@ public struct HsvColor</code></pre>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
         <td><span class="parametername">h</span></td>
-        <td></td>
+        <td><p>Sets <a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_Hue">Hue</a>.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
         <td><span class="parametername">s</span></td>
-        <td></td>
+        <td><p>Sets <a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_Saturation">Saturation</a>.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
         <td><span class="parametername">v</span></td>
-        <td></td>
+        <td><p>Sets <a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_Value">Value</a>.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
         <td><span class="parametername">a</span></td>
-        <td></td>
+        <td><p>Sets <a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor_Alpha">Alpha</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -201,7 +237,9 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor_Alpha_" data-uid="OmiyaGames.HsvColor.Alpha*"></a>
   <h4 id="OmiyaGames_HsvColor_Alpha" data-uid="OmiyaGames.HsvColor.Alpha">Alpha</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The alpha of the color, or its opacity.<br>
+Set as a fraction between 0 and 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -226,7 +264,9 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor_Hue_" data-uid="OmiyaGames.HsvColor.Hue*"></a>
   <h4 id="OmiyaGames_HsvColor_Hue" data-uid="OmiyaGames.HsvColor.Hue">Hue</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The hue of the color, or it&apos;s color type.<br>
+Set as a fraction between 0 and 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -251,7 +291,9 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor_Saturation_" data-uid="OmiyaGames.HsvColor.Saturation*"></a>
   <h4 id="OmiyaGames_HsvColor_Saturation" data-uid="OmiyaGames.HsvColor.Saturation">Saturation</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The saturation of the color, or its &quot;intenseness.&quot;<br>
+Set as a fraction between 0 and 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -276,7 +318,10 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor_Value_" data-uid="OmiyaGames.HsvColor.Value*"></a>
   <h4 id="OmiyaGames_HsvColor_Value" data-uid="OmiyaGames.HsvColor.Value">Value</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The value of the color.
+Also known as lightness, brightness, etc.<br>
+Set as a fraction between 0 and 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -303,7 +348,9 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor_FromColor_" data-uid="OmiyaGames.HsvColor.FromColor*"></a>
   <h4 id="OmiyaGames_HsvColor_FromColor_Color_" data-uid="OmiyaGames.HsvColor.FromColor(Color)">FromColor(Color)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts <see cref="!:Color"></see> to <a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a>.
+<a class="xref" href="OmiyaGames.HsvColor.html#OmiyaGames_HsvColor__ctor_Color_">HsvColor(Color)</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -322,7 +369,8 @@ public struct HsvColor</code></pre>
       <tr>
         <td><span class="xref">Color</span></td>
         <td><span class="parametername">color</span></td>
-        <td></td>
+        <td><p>Color to convert.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -337,7 +385,8 @@ public struct HsvColor</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a></td>
-        <td></td>
+        <td><p><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a> equivalent of <code data-dev-comment-type="paramref" class="paramref">color</code>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -345,11 +394,12 @@ public struct HsvColor</code></pre>
   
   <a id="OmiyaGames_HsvColor_Lerp_" data-uid="OmiyaGames.HsvColor.Lerp*"></a>
   <h4 id="OmiyaGames_HsvColor_Lerp_OmiyaGames_HsvColor_OmiyaGames_HsvColor_System_Single_" data-uid="OmiyaGames.HsvColor.Lerp(OmiyaGames.HsvColor,OmiyaGames.HsvColor,System.Single)">Lerp(HsvColor, HsvColor, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Linearly interpolates between two colors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static HsvColor Lerp(HsvColor a, HsvColor b, float t)</code></pre>
+    <pre><code class="lang-csharp hljs">public static HsvColor Lerp(HsvColor from, HsvColor to, float time)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -363,18 +413,21 @@ public struct HsvColor</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
+        <td><span class="parametername">from</span></td>
+        <td><p>The start color.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
+        <td><span class="parametername">to</span></td>
+        <td><p>The end color.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
-        <td><span class="parametername">t</span></td>
-        <td></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>A value between 0 to 1, with 0 as start, and 1 as end.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -389,40 +442,27 @@ public struct HsvColor</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a></td>
-        <td></td>
+        <td><p>A color in-between <code data-dev-comment-type="paramref" class="paramref">from</code> and <code data-dev-comment-type="paramref" class="paramref">to</code>,
+based on <code data-dev-comment-type="paramref" class="paramref">time</code>.</p>
+</td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="OmiyaGames_HsvColor_ToColor_" data-uid="OmiyaGames.HsvColor.ToColor*"></a>
-  <h4 id="OmiyaGames_HsvColor_ToColor" data-uid="OmiyaGames.HsvColor.ToColor">ToColor()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color ToColor()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Color</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 id="OmiyaGames_HsvColor_Lerp_OmiyaGames_HsvColor_OmiyaGames_HsvColor_System_Single__examples">Examples</h5>
+  <p>Output depends on <code data-dev-comment-type="paramref" class="paramref">time</code> in particular. For example:</p>
+<pre><code>Lerp(from, to, 0f);</code></pre>
+<p>...would return just &quot;from.&quot;  Similarly:</p>
+<pre><code>Lerp(from, to, 1f);</code></pre>
+<p>...would return just &quot;to.&quot;  Nautrally, it would follow that:</p>
+<pre><code>Lerp(from, to, 0.5f);</code></pre>
+<p>...gives a color midway between &quot;from&quot; and &quot;to.&quot;</p>
+
   
   
   <a id="OmiyaGames_HsvColor_ToColor_" data-uid="OmiyaGames.HsvColor.ToColor*"></a>
   <h4 id="OmiyaGames_HsvColor_ToColor_OmiyaGames_HsvColor_System_Boolean_" data-uid="OmiyaGames.HsvColor.ToColor(OmiyaGames.HsvColor,System.Boolean)">ToColor(HsvColor, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts <a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a> to <see cref="!:Color"></see>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -441,12 +481,14 @@ public struct HsvColor</code></pre>
       <tr>
         <td><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a></td>
         <td><span class="parametername">color</span></td>
-        <td></td>
+        <td><p>Color to convert.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">isHdr</span></td>
-        <td></td>
+        <td><p>Flag indicating whether High-Definition Range is on.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -461,7 +503,53 @@ public struct HsvColor</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">Color</span></td>
-        <td></td>
+        <td><p><see cref="!:Color"></see> equivalent of <code data-dev-comment-type="paramref" class="paramref">color</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_HsvColor_ToColor_" data-uid="OmiyaGames.HsvColor.ToColor*"></a>
+  <h4 id="OmiyaGames_HsvColor_ToColor_System_Boolean_" data-uid="OmiyaGames.HsvColor.ToColor(System.Boolean)">ToColor(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts this to a <see cref="!:Color"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color ToColor(bool isHdr = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">isHdr</span></td>
+        <td><p>Flag indicating whether High-Definition Range is on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Color</span></td>
+        <td><p><see cref="!:Color"></see> equivalent.</p>
+</td>
       </tr>
     </tbody>
   </table>

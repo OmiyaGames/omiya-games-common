@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ThreadSafeLong
    | Common documentation ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,8 @@
   
   <h1 id="OmiyaGames_ThreadSafeLong" data-uid="OmiyaGames.ThreadSafeLong" class="text-break">Class ThreadSafeLong
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A long version of <a class="xref" href="OmiyaGames.ThreadSafe-1.html">ThreadSafe&lt;T&gt;</a> with more performant helper methods.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -118,13 +119,53 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ThreadSafeLong : ThreadSafe&lt;long&gt;</code></pre>
   </div>
+  <h5 id="OmiyaGames_ThreadSafeLong_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p><copyright file="ThreadSafeLong.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2014-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Date:</strong> 10/2/2018<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.0-preview.1<br>
+<strong>Date:</strong> 3/25/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Converted the class to a package.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.1.4-preview.1<br>
+<strong>Date:</strong> 5/27/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updating documentation to be compatible with DocFX.
+</td></tr></tbody></table></p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   
   
   <a id="OmiyaGames_ThreadSafeLong__ctor_" data-uid="OmiyaGames.ThreadSafeLong.#ctor*"></a>
   <h4 id="OmiyaGames_ThreadSafeLong__ctor" data-uid="OmiyaGames.ThreadSafeLong.#ctor">ThreadSafeLong()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Default constructor that sets <a class="xref" href="OmiyaGames.ThreadSafe-1.html#OmiyaGames_ThreadSafe_1_Value">Value</a> to 0.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -134,7 +175,8 @@
   
   <a id="OmiyaGames_ThreadSafeLong__ctor_" data-uid="OmiyaGames.ThreadSafeLong.#ctor*"></a>
   <h4 id="OmiyaGames_ThreadSafeLong__ctor_System_Int64_" data-uid="OmiyaGames.ThreadSafeLong.#ctor(System.Int64)">ThreadSafeLong(Int64)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor that sets <a class="xref" href="OmiyaGames.ThreadSafe-1.html#OmiyaGames_ThreadSafe_1_Value">Value</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -153,7 +195,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int64">Int64</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The initial <a class="xref" href="OmiyaGames.ThreadSafe-1.html#OmiyaGames_ThreadSafe_1_Value">Value</a> should be set to.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -163,7 +206,7 @@
   
   <a id="OmiyaGames_ThreadSafeLong_Add_" data-uid="OmiyaGames.ThreadSafeLong.Add*"></a>
   <h4 id="OmiyaGames_ThreadSafeLong_Add_System_Int32_" data-uid="OmiyaGames.ThreadSafeLong.Add(System.Int32)">Add(Int32)</h4>
-  <div class="markdown level1 summary"><p>A more performant version of <pre><code>Value += addBy</code></pre>.</p>
+  <div class="markdown level1 summary"><p>A more performant version of <a class="xref" href="OmiyaGames.ThreadSafe-1.html#OmiyaGames_ThreadSafe_1_Value">Value</a> += addBy.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -191,7 +234,7 @@
   
   <a id="OmiyaGames_ThreadSafeLong_Decrement_" data-uid="OmiyaGames.ThreadSafeLong.Decrement*"></a>
   <h4 id="OmiyaGames_ThreadSafeLong_Decrement" data-uid="OmiyaGames.ThreadSafeLong.Decrement">Decrement()</h4>
-  <div class="markdown level1 summary"><p>A more performant version of <pre><code>Value--</code></pre>.</p>
+  <div class="markdown level1 summary"><p>A more performant version of <a class="xref" href="OmiyaGames.ThreadSafe-1.html#OmiyaGames_ThreadSafe_1_Value">Value</a>--.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -202,7 +245,7 @@
   
   <a id="OmiyaGames_ThreadSafeLong_Increment_" data-uid="OmiyaGames.ThreadSafeLong.Increment*"></a>
   <h4 id="OmiyaGames_ThreadSafeLong_Increment" data-uid="OmiyaGames.ThreadSafeLong.Increment">Increment()</h4>
-  <div class="markdown level1 summary"><p>A more performant version of <pre><code>Value++</code></pre>.</p>
+  <div class="markdown level1 summary"><p>A more performant version of <a class="xref" href="OmiyaGames.ThreadSafe-1.html#OmiyaGames_ThreadSafe_1_Value">Value</a>++.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -213,7 +256,7 @@
   
   <a id="OmiyaGames_ThreadSafeLong_Subtract_" data-uid="OmiyaGames.ThreadSafeLong.Subtract*"></a>
   <h4 id="OmiyaGames_ThreadSafeLong_Subtract_System_Int32_" data-uid="OmiyaGames.ThreadSafeLong.Subtract(System.Int32)">Subtract(Int32)</h4>
-  <div class="markdown level1 summary"><p>A more performant version of <pre><code>Value -= subtractBy</code></pre>.</p>
+  <div class="markdown level1 summary"><p>A more performant version of <a class="xref" href="OmiyaGames.ThreadSafe-1.html#OmiyaGames_ThreadSafe_1_Value">Value</a> -= subtractBy.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
