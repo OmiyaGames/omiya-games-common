@@ -1,6 +1,7 @@
 ﻿namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="ProgressReport.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -24,41 +25,60 @@
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>10/2/2018</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 10/2/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Helper method to report progress reports.  Thread-safe.
-    /// </summary>
     /// <seealso cref="ThreadSafeInt"/>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>10/2/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
+    /// </summary>
     public class ProgressReport
     {
         readonly ThreadSafeLong currentStep;
         readonly ThreadSafeLong totalSteps;
 
-        public ProgressReport() : this(1) { }
-
-        public ProgressReport(int totalSteps)
+        /// <summary>
+        /// Constructor to set <see cref="TotalSteps"/>.
+        /// </summary>
+        /// <param name="totalSteps">Sets <see cref="TotalSteps"/>.</param>
+        /// <exception cref="System.ArgumentException">
+        /// If <paramref name="totalSteps"/> is less than 1.
+        /// </exception>
+        public ProgressReport(int totalSteps = 1)
         {
             if (totalSteps < 1)
             {
@@ -68,6 +88,9 @@
             this.totalSteps = new ThreadSafeLong(totalSteps);
         }
 
+        /// <summary>
+        /// Amount of progress made, out of <see cref="TotalSteps"/>.
+        /// </summary>
         public long CurrentStep
         {
             get
@@ -93,6 +116,9 @@
             }
         }
 
+        /// <summary>
+        /// The total number of steps to make progress in.
+        /// </summary>
         public long TotalSteps
         {
             get
@@ -101,6 +127,9 @@
             }
         }
 
+        /// <summary>
+        /// Progress made, as a fraction between 0 and 1.
+        /// </summary>
         public float ProgressPercent
         {
             get
@@ -111,15 +140,21 @@
             }
         }
 
+        /// <summary>
+        /// Sets <see cref="CurrentStep"/> to 0.
+        /// </summary>
         public void Reset()
         {
             currentStep.Value = 0;
         }
 
         /// <summary>
-        /// Resets current step, then sets the total steps
+        /// Resets current step, then sets <see cref="TotalSteps"/>.
         /// </summary>
-        /// <param name="newTotalSteps"></param>
+        /// <param name="newTotalSteps">Sets <see cref="TotalSteps"/></param>
+        /// <exception cref="System.ArgumentException">
+        /// If <paramref name="newTotalSteps"/> is less than 1.
+        /// </exception>
         public void SetTotalSteps(long newTotalSteps)
         {
             if (newTotalSteps < 1)
@@ -130,6 +165,9 @@
             totalSteps.Value = newTotalSteps;
         }
 
+        /// <summary>
+        /// Increases <see cref="CurrentStep"/> by 1.
+        /// </summary>
         public void IncrementCurrentStep()
         {
             if (CurrentStep < TotalSteps)

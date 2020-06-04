@@ -3,6 +3,7 @@
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="ThreadSafeStringBuilder.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -26,36 +27,63 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>10/2/2018</date>
-    ///-----------------------------------------------------------------------
-    /// <summary cref="C < T >">
-    /// Creates a thread-safe <see cref="System.Text.StringBuilder">.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>10/2/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 10/2/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// Creates a thread-safe <see cref="StringBuilder"/>.
+    /// </summary>
     public class ThreadSafeStringBuilder : ThreadSafe<StringBuilder>
     {
+        /// <summary>
+        /// Default constructor: creates an empty <see cref="StringBuilder"/>.
+        /// </summary>
         public ThreadSafeStringBuilder() : base(new StringBuilder()) { }
 
+        /// <summary>
+        /// Sets up the initial capacity for <see cref="StringBuilder"/>.
+        /// </summary>
+        /// <param name="capacity"></param>
+        public ThreadSafeStringBuilder(int capacity) : base(new StringBuilder(capacity)) { }
+
+        /// <summary>
+        /// Length of string.
+        /// Same as <seealso cref="StringBuilder.Length"/>.
+        /// </summary>
         public int Length
         {
             get
@@ -67,6 +95,9 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// Same as <seealso cref="StringBuilder.Clear"/>.
+        /// </summary>
         public void Clear()
         {
             lock (ThreadLock)
@@ -75,6 +106,9 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// Same as <seealso cref="StringBuilder.Append(string)"/>.
+        /// </summary>
         public void Append(string append)
         {
             lock (ThreadLock)
@@ -83,14 +117,20 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// Same as <seealso cref="StringBuilder.Insert(int, string)"/>.
+        /// </summary>
         public void Insert(int index, string insert)
         {
-            lock(ThreadLock)
+            lock (ThreadLock)
             {
                 value.Insert(index, insert);
             }
         }
 
+        /// <summary>
+        /// Same as <seealso cref="StringBuilder.AppendLine()"/>.
+        /// </summary>
         public void AppendLine()
         {
             lock (ThreadLock)

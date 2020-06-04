@@ -7,6 +7,7 @@ using System.Collections.Generic;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="AssetHelpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -30,38 +31,70 @@ namespace OmiyaGames.Common.Editor
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>8/18/2015</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// A series of utilities used throughout the <code>OmiyaGames</code> namespace.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>8/18/2015</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 8/18/2015<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// A series of utilities used throughout the <see cref="OmiyaGames.Common.Editor"/> namespace.
+    /// This library focuses on assets-related static functions.
+    /// </summary>
     public static class AssetHelpers
     {
+        /// <summary>
+        /// Default folder relative to Project root to create assets in.
+        /// </summary>
         public const string CreateScriptableObjectAtFolder = "Assets/";
+        /// <summary>
+        /// File extension for manifest files.
+        /// </summary>
         public const string ManifestFileExtension = ".manifest";
+        /// <summary>
+        /// Dialog title for overwriting files.
+        /// </summary>
         public const string ConfirmationDialogTitle = "Overwrite File?";
 
+        /// <summary>
+        /// From an absolute path, grab the child-most folder name.
+        /// </summary>
+        /// <param name="path">The absolute path.</param>
+        /// <param name="pathIncludesFileName">
+        /// Flag indicating if <paramref name="path"/> contains a file name or not.
+        /// </param>
+        /// <returns>The child-most folder name.</returns>
         public static string GetLastFolderName(string path, bool pathIncludesFileName)
         {
             string returnPath = Path.GetFileName(path);
@@ -72,6 +105,18 @@ namespace OmiyaGames.Common.Editor
             return returnPath;
         }
 
+        /// <summary>
+        /// Starting with the child-most folder that does exist in
+        /// <paramref name="newFolderPath"/>, start creating folders
+        /// until <paramref name="newFolderPath"/> becomes an existing
+        /// absolute path.
+        /// <seealso cref="AssetDatabase.CreateFolder(string, string)"/>.
+        /// </summary>
+        /// <param name="newFolderPath">Absolute path to a non-existant folder.</param>
+        /// <returns>
+        /// <see cref="GUID"/> returned by the final call of
+        /// <see cref="AssetDatabase.CreateFolder(string, string)"/>.
+        /// </returns>
         public static string CreateFolderRecursively(string newFolderPath)
         {
             // Setup return value
@@ -111,6 +156,10 @@ namespace OmiyaGames.Common.Editor
             return returnGuid;
         }
 
+        /// <summary>
+        /// Retrieves the folder from the selected asset in the Project window.
+        /// </summary>
+        /// <returns>Folder name of the selected asset.</returns>
         public static string GetSelectedFolder()
         {
             string returnPath = null;
@@ -133,7 +182,23 @@ namespace OmiyaGames.Common.Editor
             return returnPath;
         }
 
-        public static bool ConfirmFileIsWriteable(string pathOfAsset, string nameOfFile, bool showWindow = true)
+        /// <summary>
+        /// Checks if a file exists, and if so, optionally prompts the user
+        /// if they want to overwrite it.
+        /// </summary>
+        /// <param name="pathOfAsset">
+        /// Absolute path of the asset to write to.
+        /// </param>
+        /// <param name="nameOfFile">
+        /// The name of the file, used to display the file that's going to be overwritten.
+        /// </param>
+        /// <param name="showWindow">
+        /// If true, show a pop-up window prompting the user if they want to overwrite the file.
+        /// </param>
+        /// <returns>
+        /// True if either file doesn't exist, or user confirms to overwrite it.
+        /// </returns>
+        public static bool ConfirmOverwriteFile(string pathOfAsset, string nameOfFile, bool showWindow = true)
         {
             // Check to see if file exists
             bool isBuildConfirmed = (File.Exists(pathOfAsset) == false);
@@ -146,11 +211,34 @@ namespace OmiyaGames.Common.Editor
                 builder.Append("\" already exists. Are you sure you want to overwrite this file?");
 
                 // Bring up a pop-up confirming the file will be overwritten
-                isBuildConfirmed = UnityEditor.EditorUtility.DisplayDialog(ConfirmationDialogTitle, builder.ToString(), "Yes", "No");
+                isBuildConfirmed = EditorUtility.DisplayDialog(ConfirmationDialogTitle, builder.ToString(), "Yes", "No");
             }
             return isBuildConfirmed;
         }
 
+        /// <summary>
+        /// Saves an asset bundle.
+        /// </summary>
+        /// <param name="newAsset">The single asset to bundle.</param>
+        /// <param name="newFolderName">
+        /// Path to the folder to create the asset bundle to.
+        /// If it doesn't exist yet, that folder will be created.
+        /// </param>
+        /// <param name="newFileName">Name of the asset bundle file.</param>
+        /// <param name="bundleId">
+        /// Sets <see cref="AssetImporter.assetBundleName"/>.
+        /// </param>
+        /// <param name="builder">
+        /// <see cref="StringBuilder"/> to create full path, etc.
+        /// </param>
+        /// <param name="relativeToProject">
+        /// Flag indicating if <paramref name="newFolderName"/> is relative to
+        /// the root of the project, or absolute path.
+        /// </param>
+        /// <param name="overwritePreviousFile">
+        /// If set to true, automatically overwrites the asset bundle that already exists.
+        /// </param>
+        /// <returns>Path of the new asset.</returns>
         public static string SaveAsAssetBundle(ScriptableObject newAsset, string newFolderName, string newFileName, string bundleId, StringBuilder builder, bool relativeToProject, bool overwritePreviousFile = false)
         {
             // Generate the asset bundle at the Assets folder
@@ -180,6 +268,14 @@ namespace OmiyaGames.Common.Editor
         }
 
         #region SaveAsAssetBundle helpers
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newAsset"></param>
+        /// <param name="fileName"></param>
+        /// <param name="bundleId"></param>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         private static string GenerateScriptableObject(ScriptableObject newAsset, string fileName, string bundleId, StringBuilder builder)
         {
             // Generate a path to create an AcceptedDomainList
@@ -203,6 +299,11 @@ namespace OmiyaGames.Common.Editor
             return pathOfAsset;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bundleId"></param>
+        /// <param name="objectPaths"></param>
         private static void GenerateAssetBundle(string bundleId, params string[] objectPaths)
         {
             // Create the array of bundle build details.
@@ -219,6 +320,15 @@ namespace OmiyaGames.Common.Editor
             AssetDatabase.Refresh();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="newFolderName"></param>
+        /// <param name="newFileName"></param>
+        /// <param name="bundleId"></param>
+        /// <param name="relativeToProject"></param>
+        /// <param name="overwritePreviousFile"></param>
         private static void MoveAssetBundleTo(StringBuilder builder, string newFolderName, string newFileName, string bundleId, bool relativeToProject, bool overwritePreviousFile)
         {
             // Generate paths for the old file, to move to the new one
@@ -266,6 +376,12 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="acceptedDomainListObjectPath"></param>
+        /// <param name="bundleId"></param>
         private static void CleanUpFiles(StringBuilder builder, string acceptedDomainListObjectPath, string bundleId)
         {
             // Clean-up the acceptedDomainListObject

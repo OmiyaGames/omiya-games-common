@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Text;
+using System.Globalization;
 
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="Helpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -27,51 +30,93 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>3/25/2020</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// A series of utilities used throughout the <code>OmiyaGames</code> namespace.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>8/18/2015</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>6/4/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Added method for shortening URL</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 8/18/2015<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial verison.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 6/4/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Added method for shortening URL.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converting the file to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation.  Moving method <see cref="ShortenUrl(string)"/> to Omiya Games - Web package.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// A series of utilities used throughout the <see cref="OmiyaGames"/> namespace.
+    /// </summary>
     public static class Helpers
     {
-        public const char PathDivider = '/';
-        public const float SnapToThreshold = 0.01f;
-        public const string FileExtensionScriptableObject = ".asset";
-        public const string FileExtensionText = ".txt";
-        public const string TimeStampPrint = "HH:mm:ss.ffff GMTzz";
+        /// <summary>
+        /// Flag whether <see cref="Log(string, bool)"/> prints the timestamp.
+        /// </summary>
         public const bool IsTimeStampPrintedByDefault = true;
-        public static readonly string[] stripStartOfUrl = new string[]
+        /// <summary>
+        /// Path divider Unity normalizes to.
+        /// </summary>
+        public const char PathDivider = '/';
+        /// <summary>
+        /// Distance between 2 UI elements before the animated one snaps to position.
+        /// </summary>
+        public const float SnapToThreshold = 0.01f;
+        /// <summary>
+        /// File extension for <see cref="ScriptableObjects"/> files.
+        /// </summary>
+        public const string FileExtensionScriptableObject = ".asset";
+        /// <summary>
+        /// File extension for text files.
+        /// </summary>
+        public const string FileExtensionText = ".txt";
+        /// <summary>
+        /// Timestamp format printed in <see cref="Log(string, bool)"/>.
+        /// </summary>
+        public const string TimeStampPrint = "HH:mm:ss.ffff GMTzz";
+        /// <summary>
+        /// Set of invalid folder chars: "/, \, :, *, ?, ", <, >, and |."
+        /// </summary>
+        public static readonly ISet<char> InvalidFileNameCharactersSet = new HashSet<char>()
         {
-            "https://www.",
-            "http://www.",
-            "https://",
-            "http://"
+            '\\',
+            '/',
+            ':',
+            '*',
+            '?',
+            '"',
+            '<',
+            '>',
+            '|'
         };
 
         /// <summary>
@@ -208,7 +253,15 @@ namespace OmiyaGames
             }
         }
 
-        public static void RemoveDuplicateEntries<H>(List<H> list, IEqualityComparer<H> comparer = null)
+        /// <summary>
+        /// Remove duplicate entries from a <paramref name="list"/>.
+        /// </summary>
+        /// <typeparam name="H">The type of List.</typeparam>
+        /// <param name="list">List to remove duplicates from.</param>
+        /// <param name="comparer">
+        /// Comparer to verify whether two elements are the same or not.
+        /// </param>
+        public static void RemoveDuplicateEntries<H>(IList<H> list, IEqualityComparer<H> comparer = null)
         {
             // Go through every list element
             int focusIndex = 0, compareIndex = 0;
@@ -239,6 +292,11 @@ namespace OmiyaGames
             }
         }
 
+        /// <summary>
+        /// Logs to the console <em>only if</em> DEBUG macro is turned on.
+        /// </summary>
+        /// <param name="message">Message to print.</param>
+        /// <param name="showTimestamp">Timestampe format.</param>
         public static void Log(string message, bool showTimestamp = IsTimeStampPrintedByDefault)
         {
 #if DEBUG
@@ -251,20 +309,16 @@ namespace OmiyaGames
 #endif
         }
 
-        public static string ShortenUrl(string url)
-        {
-            foreach (string stripFromStart in stripStartOfUrl)
-            {
-                if (url.StartsWith(stripFromStart) == true)
-                {
-                    url = url.Remove(0, stripFromStart.Length);
-                    break;
-                }
-            }
-            url = url.TrimEnd('/');
-            return url;
-        }
-
+        /// <summary>
+        /// Loops up the transform's parents, seeking for an instance of <see cref="Canvas"/>.
+        /// </summary>
+        /// <param name="checkTransform">
+        /// <see cref="Transform"/> to search for a <see cref="Canvas"/>.
+        /// </param>
+        /// <returns>
+        /// <see cref="Canvas"/> on <paramref name="checkTransform"/>,
+        /// its parent transforms, or null if none was found.
+        /// </returns>
         public static Canvas GetParentCanvas(Transform checkTransform)
         {
             // Check if it has a canvas
@@ -282,11 +336,27 @@ namespace OmiyaGames
             return parentCanvas;
         }
 
+        /// <summary>
+        /// Converts <see cref="int"/> to an <typeparamref name="ENUM"/>.
+        /// More useful for <see cref="UnityEditor.Editor"/>.
+        /// </summary>
+        /// <typeparam name="ENUM">Enum to convert to.</typeparam>
+        /// <param name="value"><see cref="int"/> to convert.</param>
+        /// <returns>
+        /// <paramref name="value"/> converted to an <typeparamref name="ENUM"/>.
+        /// </returns>
         public static ENUM ConvertToEnum<ENUM>(int value) where ENUM : System.Enum
         {
             return (ENUM)System.Enum.ToObject(typeof(ENUM), value);
         }
 
+        /// <summary>
+        /// Converts an <typeparamref name="ENUM"/> to <see cref="int"/>.
+        /// More useful for <see cref="UnityEditor.Editor"/>.
+        /// </summary>
+        /// <typeparam name="ENUM">Enum to convert from.</typeparam>
+        /// <param name="value"><typeparamref name="ENUM"/> to convert to.</param>
+        /// <returns><paramref name="value"/> converted into an <see cref="int"/></returns>
         public static int ConvertToInt<ENUM>(ENUM value) where ENUM : System.Enum
         {
             return System.Convert.ToInt32(value);
@@ -359,6 +429,48 @@ namespace OmiyaGames
                 cache = script.GetComponent<T>();
             }
             return cache;
+        }
+
+        /// <summary>
+        /// Removes any invalid characters for building a file name.
+        /// </summary>
+        /// <param name="text">Text to remove diacritics from.</param>
+        /// <param name="stringBuilder">
+        /// An optional <see cref="StringBuilder"/> this method will use to
+        /// generate the returned string. Good for performance.
+        /// </param>
+        /// <returns>
+        /// <paramref name="text"/> with invalid file characters removed.
+        /// </returns>
+        /// <remarks>
+        /// Taken from http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html
+        /// </remarks>
+        public static string RemoveDiacritics(string text, StringBuilder stringBuilder = null)
+        {
+            // Setup StringBuilder
+            if (stringBuilder == null)
+            {
+                stringBuilder = new StringBuilder(text.Length);
+            }
+            else
+            {
+                stringBuilder.Clear();
+            }
+
+            // Go through each character in the string.
+            string normalizedString = text.Normalize(NormalizationForm.FormD);
+            foreach (char c in normalizedString)
+            {
+                // Check if this character is valid
+                UnicodeCategory unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if ((unicodeCategory != UnicodeCategory.NonSpacingMark) && (InvalidFileNameCharactersSet.Contains(c) == false))
+                {
+                    // If so, append to the String Builder.
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
     }
 }

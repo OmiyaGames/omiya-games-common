@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 namespace OmiyaGames.Common.Runtime.Tests
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="TestRandomList.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -30,30 +31,35 @@ namespace OmiyaGames.Common.Runtime.Tests
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>4/6/2020</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.2-preview.1<br/>
+    /// <strong>Date:</strong> 4/6/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial version.</description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be more DocFX-friendly.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Unit test script for <see cref="RandomList{T}"/>.
     /// </summary>
-    /// 
-    /// <seealso cref="RandomList{T}"/>
-    /// 
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    /// <listheader>
-    ///   <description>Date</description>
-    ///   <description>Author</description>
-    ///   <description>Description</description>
-    /// </listheader>
-    /// <item>
-    ///   <description>4/6/2020</description>
-    ///   <description>Taro</description>
-    ///   <description>Initial verison</description>
-    /// </item>
-    /// </list>
-    /// </remarks>
     public class TestRandomList
     {
         /// <summary>
@@ -1534,11 +1540,26 @@ namespace OmiyaGames.Common.Runtime.Tests
         #endregion
 
         #region Helper Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testList"></param>
+        /// <param name="expectedSize"></param>
+        /// <param name="expectedCapacity"></param>
+        /// <param name="message"></param>
         private static void TestRandomListMeta(RandomList<int> testList, int expectedSize, int expectedCapacity, string message)
         {
             TestRandomListMeta(testList, expectedSize, expectedCapacity, null, message);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testList"></param>
+        /// <param name="expectedSize"></param>
+        /// <param name="expectedCapacity"></param>
+        /// <param name="expectedComparer"></param>
+        /// <param name="message"></param>
         private static void TestRandomListMeta(RandomList<int> testList, int expectedSize, int expectedCapacity, IEqualityComparer<int> expectedComparer, string message)
         {
             // Run tests
@@ -1551,6 +1572,12 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testList"></param>
+        /// <param name="expectedFrequency"></param>
+        /// <param name="message"></param>
         private static void TestRandomListContent(RandomList<int> testList, int expectedFrequency, string message)
         {
             // Make sure the list is initialized correctly
@@ -1563,6 +1590,13 @@ namespace OmiyaGames.Common.Runtime.Tests
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testList"></param>
+        /// <param name="expectedFrequencies"></param>
+        /// <param name="message"></param>
+        /// <typeparam name="T"></typeparam>
         private static void TestRandomListContent<T>(RandomList<T> testList, IDictionary<T, int> expectedFrequencies, string message)
         {
             // Make sure the list is initialized correctly

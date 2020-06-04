@@ -4,6 +4,7 @@ using UnityEditor;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="IDefaultDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -27,35 +28,49 @@ namespace OmiyaGames.Common.Editor
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>6/26/2018</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 6/26/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Helper class that unifies common methods in a few drawers.
-    /// </summary>
     /// <seealso cref="DefaultRangeDrawer"/>
     /// <seealso cref="DefaultObjectDrawer"/>
     /// <seealso cref="DefaultNumberDrawer"/>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>6/26/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
+    /// </summary>
     public abstract class IDefaultDrawer : PropertyDrawer
     {
         const int LabelWidth = 4;
@@ -66,10 +81,20 @@ namespace OmiyaGames.Common.Editor
         protected delegate void SetToDefault<ATTRIBUTE>(SerializedProperty property, ATTRIBUTE range) where ATTRIBUTE : PropertyAttribute;
 
         /// <summary>
-        /// Taken from https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs
+        /// Displays a checkbox and control for the value.
         /// </summary>
+        /// <remarks>
+        /// Taken from https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs
+        /// </remarks>
+        /// <typeparam name="ATTRIBUTE"></typeparam>
+        /// <typeparam name="VALUE"></typeparam>
         /// <param name="property"></param>
-        /// <param name="defaultValue"></param>
+        /// <param name="range"></param>
+        /// <param name="position"></param>
+        /// <param name="setToDefault"></param>
+        /// <param name="slider"></param>
+        /// <param name="show"></param>
+        /// <param name="value"></param>
         protected static void DisplayCheckboxAndControl<ATTRIBUTE, VALUE>(SerializedProperty property, ATTRIBUTE range, Rect position, SetToDefault<ATTRIBUTE> setToDefault, DisplayControl<ATTRIBUTE, VALUE> slider, ref bool show, ref VALUE value) where ATTRIBUTE : PropertyAttribute
         {
             Rect toggleRect, objectFieldRect;
@@ -98,10 +123,15 @@ namespace OmiyaGames.Common.Editor
         }
 
         /// <summary>
-        /// Taken from https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs
+        /// Sets up positioning.
         /// </summary>
+        /// <remarks>
+        /// Taken from https://bitbucket.org/Unity-Technologies/ui/src/2017.3/UnityEditor.UI/UI/LayoutElementEditor.cs
+        /// </remarks>
         /// <param name="property"></param>
-        /// <param name="defaultValue"></param>
+        /// <param name="position"></param>
+        /// <param name="toggleRect"></param>
+        /// <param name="fieldRect"></param>
         protected static void SetupPositioning(SerializedProperty property, Rect position, out Rect toggleRect, out Rect fieldRect)
         {
             // Label

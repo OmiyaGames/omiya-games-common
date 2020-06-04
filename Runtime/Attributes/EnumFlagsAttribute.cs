@@ -3,37 +3,51 @@
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="EnumFlagsAttribute.cs">
     /// Code by Aqibsadiq from Unity Forums:
     /// https://forum.unity.com/threads/multiple-enum-select-from-inspector.184729/
     /// </copyright>
-    /// <author>Aqibsadiq</author>
-    /// <author>Taro Omiya</author>
-    /// <date>11/20/2017</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// Makes an enum multi-selectable in the Unity editor with <code>[EnumFlags]</code>.
-    /// </summary>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>11/20/2017</description>
-    ///     <description>Aqibsadiq</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro Omiya</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 11/20/2017<br/>
+    /// <strong>Author:</strong> Aqibsadiq
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// Makes an enum multi-selectable in the Unity editor with [EnumFlags].
+    /// </summary>
     public class EnumFlagsAttribute : PropertyAttribute
     {
     }

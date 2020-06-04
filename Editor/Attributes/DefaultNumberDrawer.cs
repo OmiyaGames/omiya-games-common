@@ -4,6 +4,7 @@ using UnityEditor;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="DefaultNumberDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -27,36 +28,46 @@ namespace OmiyaGames.Common.Editor
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>6/26/2018</date>
-    ///-----------------------------------------------------------------------
-    /// <summary>
-    /// Editor for <code>DefaultNumberAttribute</code>.
-    /// </summary>
-    /// <seealso cref="DefaultNumberAttribute"/>
-    /// <remarks>
-    /// Revision History:
     /// <list type="table">
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>6/26/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 6/26/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// <see cref="PropertyDrawer"/> for <see cref="DefaultNumberAttribute"/>.
+    /// </summary>
     [CustomPropertyDrawer(typeof(DefaultNumberAttribute))]
     public class DefaultNumberDrawer : IDefaultDrawer
     {
@@ -64,6 +75,7 @@ namespace OmiyaGames.Common.Editor
         private float sliderValue = 0;
 
         // Draw the property inside the given rect
+        /// <inheritdoc/>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // First get the attribute since it contains the range for the slider
@@ -87,26 +99,56 @@ namespace OmiyaGames.Common.Editor
             }
         }
 
+        /// <summary>
+        /// Displays a text field for a <see cref="float"/>.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="range"></param>
+        /// <param name="position"></param>
+        /// <param name="value"></param>
         static void DisplayFloatField(SerializedProperty property, DefaultNumberAttribute range, Rect position, ref float value)
         {
             value = LimitValue(range, EditorGUI.FloatField(position, value));
         }
 
+        /// <summary>
+        /// Displays a text field for an <see cref="int"/>.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="range"></param>
+        /// <param name="position"></param>
+        /// <param name="value"></param>
         static void DisplayIntField(SerializedProperty property, DefaultNumberAttribute range, Rect position, ref float value)
         {
             value = LimitValue(range, EditorGUI.IntField(position, Mathf.RoundToInt(value)));
         }
 
+        /// <summary>
+        /// Sets a <see cref="float"/> to <see cref="DefaultNumberAttribute.DefaultNumber"/>.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="range"></param>
         static void SetToDefaultFloat(SerializedProperty property, DefaultNumberAttribute range)
         {
             property.floatValue = range.DefaultNumber;
         }
 
+        /// <summary>
+        /// Sets an <see cref="int"/> to <see cref="DefaultNumberAttribute.DefaultNumber"/>.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="range"></param>
         static void SetToDefaultInt(SerializedProperty property, DefaultNumberAttribute range)
         {
             property.floatValue = Mathf.RoundToInt(range.DefaultNumber);
         }
 
+        /// <summary>
+        /// Prevents number from exceding a certain range.
+        /// </summary>
+        /// <param name="range"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         static float LimitValue(DefaultNumberAttribute range, float value)
         {
             if ((range.NumberRange == DefaultNumberAttribute.Range.GreaterThanOrEqualTo) && (value < range.StartNumber))

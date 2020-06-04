@@ -3,6 +3,7 @@
 namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
+    /// <remarks>
     /// <copyright file="ThreadSafe.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
@@ -26,48 +27,72 @@ namespace OmiyaGames
     /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     /// THE SOFTWARE.
     /// </copyright>
-    /// <author>Taro Omiya</author>
-    /// <date>10/2/2018</date>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 10/2/2018<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
+    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Converted the class to a package.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
+    /// <strong>Date:</strong> 5/27/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Updating documentation to be compatible with DocFX.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// Creates a thread-safe variable.  Only works on primitives.
-    /// Note: if a thread-safe integer is in plans, use <code>ThreadSafeInt</code> instead.
-    /// </summary>
     /// <seealso cref="ThreadSafeInt"/>
-    /// <remarks>
-    /// Revision History:
-    /// <list type="table">
-    ///   <listheader>
-    ///     <description>Date</description>
-    ///     <description>Name</description>
-    ///     <description>Description</description>
-    ///   </listheader>
-    ///   <item>
-    ///     <description>10/2/2018</description>
-    ///     <description>Taro</description>
-    ///     <description>Initial version</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>3/25/2020</description>
-    ///     <description>Taro</description>
-    ///     <description>Converted the class to a package</description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
+    /// <seealso cref="ThreadSafeLong"/>
+    /// <seealso cref="ThreadSafeStringBuilder"/>
+    /// </summary>
     public class ThreadSafe<T>
     {
+        /// <summary>
+        /// The value variable.
+        /// </summary>
         protected T value;
 
-        // Constructors
+        /// <summary>
+        /// Default constructor: sets the <see cref="Value"/> to default.
+        /// </summary>
         public ThreadSafe() : this(default(T)) { }
 
+        /// <summary>
+        /// Constructor to set the initial value of <see cref="Value"/>.
+        /// </summary>
+        /// <param name="value">Sets <see cref="Value"/>.</param>
         public ThreadSafe(T value)
         {
             this.value = value;
         }
 
         /// <summary>
-        /// The lock
+        /// The lock.
         /// </summary>
         protected object ThreadLock
         {
@@ -95,6 +120,7 @@ namespace OmiyaGames
             }
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             lock (ThreadLock)
@@ -103,6 +129,7 @@ namespace OmiyaGames
             }
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             lock (ThreadLock)
