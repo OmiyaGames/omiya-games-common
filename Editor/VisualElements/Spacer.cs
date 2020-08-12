@@ -1,0 +1,73 @@
+﻿using UnityEngine.UIElements;
+
+namespace OmiyaGames.Common.Editor
+{
+    ///-----------------------------------------------------------------------
+    /// <remarks>
+    /// <copyright file="Spacer.cs" company="Omiya Games">
+    /// The MIT License (MIT)
+    /// 
+    /// Copyright (c) 2020-2020 Omiya Games
+    /// 
+    /// Permission is hereby granted, free of charge, to any person obtaining a copy
+    /// of this software and associated documentation files (the "Software"), to deal
+    /// in the Software without restriction, including without limitation the rights
+    /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    /// copies of the Software, and to permit persons to whom the Software is
+    /// furnished to do so, subject to the following conditions:
+    /// 
+    /// The above copyright notice and this permission notice shall be included in
+    /// all copies or substantial portions of the Software.
+    /// 
+    /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    /// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    /// THE SOFTWARE.
+    /// </copyright>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> TODO<br/>
+    /// <strong>Date:</strong> 8/10/2020<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>Initial verison.</description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// An empty <see cref="VisualElement"/> with a set height that can be overwritten by another USS.
+    /// </summary>
+    public class Spacer : VisualElement
+    {
+        /// <summary>
+        /// The default height, if not overridden by another USS.
+        /// </summary>
+        public const float DefaultHeight = 8;
+
+        /// <summary>
+        /// <seealso cref="UxmlFactory{TCreatedType, TTraits}"/> for <see cref="Spacer"/>.
+        /// </summary>
+        public new class UxmlFactory : UxmlFactory<Spacer, UxmlTraits> { }
+
+        /// <summary>
+        /// Constructs an empty <see cref="VisualElement"/> with
+        /// the height of <see cref="DefaultHeight"/>.
+        /// </summary>
+        public Spacer()
+        {
+            style.height = DefaultHeight;
+        }
+
+        /// <inheritdoc/>
+        public override bool canGrabFocus => false;
+    }
+}
