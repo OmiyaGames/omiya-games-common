@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
     /// <remarks>
-    /// <copyright file="IReorderableList.cs" company="Omiya Games">
+    /// <copyright file="ReorderableStringList.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2020-2020 Omiya Games
@@ -50,8 +49,20 @@ namespace OmiyaGames.Common.Editor
     /// <summary>
     /// TODO
     /// </summary>
-    public class ReorderableStringList : IReorderableList<string>
+    public class ReorderableStringList : BaseReorderableList<string>
     {
+        /// <summary>
+        /// FIXME: I don't know what I'm doing
+        /// </summary>
+        /// <param name="label"></param>
+        /// <param name="visualInput"></param>
+        public ReorderableStringList(string label, VisualElement visualInput) : base(label, visualInput) { }
+
+        /// <summary>
+        /// FIXME: I don't know what I'm doing
+        /// </summary>
+        public ReorderableStringList() : this(null, null) { }
+
         /// <inheritdoc/>
         protected override void DrawDomainElement(Rect rect, int index, bool isActive, bool isFocused)
         {
@@ -70,7 +81,7 @@ namespace OmiyaGames.Common.Editor
 
         public new class UxmlFactory : UxmlFactory<ReorderableStringList, UxmlTraits> { }
 
-        public new class UxmlTraits : IReorderableList<string>.UxmlTraits { }
+        public new class UxmlTraits : BaseReorderableList<string>.UxmlTraits { }
     }
 
 

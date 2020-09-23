@@ -9,7 +9,7 @@ namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
     /// <remarks>
-    /// <copyright file="IReorderableList.cs" company="Omiya Games">
+    /// <copyright file="BaseReorderableList.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2020-2020 Omiya Games
@@ -51,12 +51,16 @@ namespace OmiyaGames.Common.Editor
     /// <summary>
     /// TODO
     /// </summary>
-    public abstract class IReorderableList<T> : IMGUIContainer, IBindable, INotifyValueChanged<IList<T>>
+    public abstract class BaseReorderableList<T> : BaseField<IList<T>>//IMGUIContainer, IBindable, INotifyValueChanged<IList<T>>
     {
+        /// <summary>
+        /// Temporary placeholder list to display
+        /// </summary>
+        private static readonly IList<T> EmptyList = new T[0];
         /// <summary>
         /// TODO
         /// </summary>
-        private IList<T> bindedList = new T[0];
+        private readonly IMGUIContainer listDrawingElement;
         /// <summary>
         /// TODO
         /// </summary>
@@ -64,48 +68,50 @@ namespace OmiyaGames.Common.Editor
         /// <summary>
         /// TODO
         /// </summary>
-        public string Text { get; set; }
+        public string Text { get; set; } = null;
         /// <summary>
         /// TODO
         /// </summary>
         public bool IsExpanded { get; set; } = true;
-        /// <inheritdoc/>
-        public IBinding binding
-        {
-            get => throw new System.NotImplementedException();
-            set => throw new System.NotImplementedException();
-        }
-        /// <inheritdoc/>
-        public string bindingPath
-        {
-            get => throw new System.NotImplementedException();
-            set => throw new System.NotImplementedException();
-        }
-        /// <inheritdoc/>
-        public IList<T> value
-        {
-            get => bindedList;
-            set
-            {
-                SetValueWithoutNotify(value);
-                drawnList.list = (IList)bindedList;
-                MarkDirtyLayout();
-            }
-        }
 
         /// <summary>
         /// TODO
         /// </summary>
-        public IReorderableList()
+        public BaseReorderableList(string label, VisualElement visualInput) : base(label, visualInput)
         {
             // Setup domainMustContain list
-            drawnList = new ReorderableList((IList)value, typeof(T), true, true, true, true);
+            drawnList = new ReorderableList(((IList)EmptyList), typeof(T), true, true, true, true);
             drawnList.drawHeaderCallback = DrawDomainHeader;
             drawnList.drawElementCallback = DrawDomainElement;
             drawnList.elementHeightCallback = GetElementHeight;
 
             // TODO: consider creating an actual custom UXML tag than using an IMGUIContainer
-            onGUIHandler += DrawReorderableList;
+            listDrawingElement = new IMGUIContainer(DrawReorderableList);
+        }
+
+        /// <summary>
+        /// FIXME: this constructor likely does not work.
+        /// </summary>
+        public BaseReorderableList() : this(null, null) { }
+
+        /// <inheritdoc/>
+        public override void SetValueWithoutNotify(IList<T> newValue)
+        {
+            base.SetValueWithoutNotify(newValue);
+            drawnList.index = 0;
+            drawnList.list = (IList)newValue;
+        }
+
+        /// <inheritdoc/>
+        public override IList<T> value
+        {
+            get => base.value;
+            set
+            {
+                base.value = value;
+                drawnList.index = 0;
+                drawnList.list = (IList)value;
+            }
         }
 
         /// <summary>
@@ -116,7 +122,7 @@ namespace OmiyaGames.Common.Editor
             /// <summary>
             /// TODO
             /// </summary>
-            protected UxmlStringAttributeDescription text = new UxmlStringAttributeDescription { name = "text", defaultValue = "" };
+            protected UxmlStringAttributeDescription text = new UxmlStringAttributeDescription { name = "text", defaultValue = null };
             /// <summary>
             /// TODO
             /// </summary>
@@ -126,16 +132,18 @@ namespace OmiyaGames.Common.Editor
             public override void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc)
             {
                 base.Init(ve, bag, cc);
-                IReorderableList<T> ate = (IReorderableList<T>)ve;
-                ate.Text = text.GetValueFromBag(bag, cc);
-                ate.IsExpanded = expanded.GetValueFromBag(bag, cc);
-            }
-        }
+                if (ve is BaseReorderableList<T>)
+                {
+                    BaseReorderableList<T> list = (BaseReorderableList<T>)ve;
+                    list.IsExpanded = expanded.GetValueFromBag(bag, cc);
+                    list.Text = text.GetValueFromBag(bag, cc);
 
-        /// <inheritdoc/>
-        public void SetValueWithoutNotify(IList<T> newValue)
-        {
-            bindedList = newValue;
+                    // Force the element to contain only one child
+                    list.contentContainer.Clear();
+                    list.contentContainer.Add(list.listDrawingElement);
+                    //list.listDrawingElement.StretchToParentWidth();
+                }
+            }
         }
 
         /// <summary>
@@ -159,15 +167,16 @@ namespace OmiyaGames.Common.Editor
         /// </summary>
         protected virtual void DrawReorderableList()
         {
-            if(IsExpanded == true)
-            {
-                drawnList.DoLayoutList();
-                //drawnList.DoList(paddingRect);
-            }
-            else
-            {
-                IsExpanded = EditorGUILayout.Foldout(IsExpanded, Text);
-            }
+            EditorGUILayout.HelpBox("Blah, blah, blah!", MessageType.None);
+            drawnList.DoLayoutList();
+            //if (IsExpanded == true)
+            //{
+            //    drawnList.DoLayoutList();
+            //}
+            //else
+            //{
+            //    IsExpanded = EditorGUILayout.Foldout(IsExpanded, label, IsExpanded);
+            //}
         }
 
         /// <summary>
@@ -176,7 +185,8 @@ namespace OmiyaGames.Common.Editor
         /// <param name="rect"></param>
         protected virtual void DrawDomainHeader(Rect rect)
         {
-            IsExpanded = EditorGUI.Foldout(rect, IsExpanded, Text);
+            //IsExpanded = EditorGUILayout.Foldout(IsExpanded, label, IsExpanded);
+            EditorGUI.PrefixLabel(rect, new GUIContent(Text));
         }
     }
 }
