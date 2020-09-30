@@ -2,271 +2,301 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.BidirectionalDictionary-2.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.AssetHelpers.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.DefaultNumberDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.DefaultObjectDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.DefaultRangeDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.EditorHelpers.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.EnumFlagsDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.FilePathDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.FolderPathDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.HsvColorDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.IDefaultDrawer.DisplayControl-2.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.IDefaultDrawer.SetToDefault-1.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.IDefaultDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlFactory.html</loc>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.html</loc>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html</loc>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.ReadOnlyDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.ScenePathDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.Spacer.UxmlFactory.html</loc>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.Spacer.html</loc>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.SupportedPlatformsDrawer.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Common.Editor.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.DefaultNumberAttribute.Range.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.DefaultNumberAttribute.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.DefaultObjectAttribute.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.DefaultRangeAttribute.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.EnumFlagsAttribute.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.FilePathAttribute.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.FolderPathAttribute.RelativeTo.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.FolderPathAttribute.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.Helpers.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.HsvColor.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.ListSet-1.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.ProgressReport.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.RandomList-1.ElementFrequency.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.RandomList-1.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.ReadOnlyAttribute.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.ScenePathAttribute.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.SupportedPlatforms.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.SupportedPlatformsHelpers.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.ThreadSafe-1.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.ThreadSafeInt.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.ThreadSafeLong.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.ThreadSafeStringBuilder.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/api/OmiyaGames.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/index.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/manual/changelog.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-common/manual/README.html</loc>
-    <lastmod>2020-06-04T04:03:41+00:00</lastmod>
+    <lastmod>2020-09-30T11:27:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

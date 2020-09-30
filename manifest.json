@@ -28,7 +28,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.BidirectionalDictionary-2.html",
-          "hash": "5Q9aUdKPgjAkBQGM4ae6/g=="
+          "hash": "9MW5QPmNBWpvT2Acy00vcA=="
         }
       },
       "is_incremental": false,
@@ -40,7 +40,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.AssetHelpers.html",
-          "hash": "8x5NsutAVS58M4NLA6trXQ=="
+          "hash": "zvLCWJs/YTuJq6SOG1Q74A=="
         }
       },
       "is_incremental": false,
@@ -52,7 +52,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.DefaultNumberDrawer.html",
-          "hash": "60Jgo6GgW/Y1Nivd3QFQGA=="
+          "hash": "TKOy+mSIUvmHEqkg/AF4YA=="
         }
       },
       "is_incremental": false,
@@ -64,7 +64,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.DefaultObjectDrawer.html",
-          "hash": "PIs8WvAr2jpK8L1YYnJnYg=="
+          "hash": "B07Lc0FHzK62e0W45CJajQ=="
         }
       },
       "is_incremental": false,
@@ -76,7 +76,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.DefaultRangeDrawer.html",
-          "hash": "CMm3gLW8+nIyuKOTjM2DYA=="
+          "hash": "9oupAWj7FOPUNMXRbKxSUQ=="
         }
       },
       "is_incremental": false,
@@ -88,7 +88,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.EditorHelpers.html",
-          "hash": "BjXnxV2jEc8pjeHkzy0bOQ=="
+          "hash": "E9Jz1o8PP5LebXUuNCbNOg=="
         }
       },
       "is_incremental": false,
@@ -100,7 +100,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.EnumFlagsDrawer.html",
-          "hash": "TWm05xtAJlQvwWNYAShxbQ=="
+          "hash": "+POT7C+GemNfxGmg0OPwFw=="
         }
       },
       "is_incremental": false,
@@ -112,7 +112,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.FilePathDrawer.html",
-          "hash": "50Jpb7IFdTKk0bISTOhZ+A=="
+          "hash": "/1ulR1RZHcZlW8MD5RPcMg=="
         }
       },
       "is_incremental": false,
@@ -124,7 +124,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.FolderPathDrawer.html",
-          "hash": "VNyLHwDmxGchlLC1l1RYBg=="
+          "hash": "NEcFOO4fax84ogAY9893pg=="
         }
       },
       "is_incremental": false,
@@ -136,7 +136,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.HsvColorDrawer.html",
-          "hash": "xluAPQQhKNc7f8r2iMyD8g=="
+          "hash": "xj4g5J91LJSvWRtQghCBlw=="
         }
       },
       "is_incremental": false,
@@ -148,7 +148,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.IDefaultDrawer.DisplayControl-2.html",
-          "hash": "smfY6/PMIihbzZilkMTHvA=="
+          "hash": "zN1/739XYmajuehvzC0aYg=="
         }
       },
       "is_incremental": false,
@@ -160,7 +160,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.IDefaultDrawer.SetToDefault-1.html",
-          "hash": "vr3ZSBw2TvSnggl2gNmB4w=="
+          "hash": "M9HRH4oOIDLQJOmIAMicMg=="
         }
       },
       "is_incremental": false,
@@ -172,7 +172,43 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.IDefaultDrawer.html",
-          "hash": "OcX0Fy203qU0gGCbAECwbA=="
+          "hash": "xs2pWQxfakSLMo7e0FnxnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlFactory.html",
+          "hash": "3s3CiLLI+//c0zcmtqXOTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.html",
+          "hash": "yTW0YT7cmObQV1nj03eRug=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Common.Editor.ProjectSettingsHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html",
+          "hash": "oi7QyncA0xhudV6JSZbfNA=="
         }
       },
       "is_incremental": false,
@@ -184,7 +220,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.ReadOnlyDrawer.html",
-          "hash": "mAfa7DUrzRx9faO86BFeRw=="
+          "hash": "dNLYPmqW7WIMpYcapqxDjQ=="
         }
       },
       "is_incremental": false,
@@ -196,7 +232,31 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.ScenePathDrawer.html",
-          "hash": "xP7K4hPw/ivYxgI5cI+fqA=="
+          "hash": "N6wno1noKdjiVpaKdhQj1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Common.Editor.Spacer.UxmlFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Common.Editor.Spacer.UxmlFactory.html",
+          "hash": "RTaVG60nXYpll9BD7XA3wg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Common.Editor.Spacer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Common.Editor.Spacer.html",
+          "hash": "QD8nHJX71QIzMwxdlL4Gvg=="
         }
       },
       "is_incremental": false,
@@ -208,7 +268,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.SupportedPlatformsDrawer.html",
-          "hash": "9qaFxhutPkJhcjewC9Ctmw=="
+          "hash": "la1eztHNlrsYq2NnBREvCw=="
         }
       },
       "is_incremental": false,
@@ -220,7 +280,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.html",
-          "hash": "yz5xTQIuCaVc3FYFXtE+xw=="
+          "hash": "hNU693p3m01/m7uV3uuGqg=="
         }
       },
       "is_incremental": false,
@@ -232,7 +292,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.DefaultNumberAttribute.Range.html",
-          "hash": "BUy2DROQa3qsXwlstNBaZg=="
+          "hash": "a9CUGeGqPLlKK5moF4lvKg=="
         }
       },
       "is_incremental": false,
@@ -244,7 +304,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.DefaultNumberAttribute.html",
-          "hash": "AnwWc3zuUClOGoiAfE5aUQ=="
+          "hash": "luI34MXeguS8M85S8UmDFQ=="
         }
       },
       "is_incremental": false,
@@ -256,7 +316,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.DefaultObjectAttribute.html",
-          "hash": "FRTAgYJEAz5t/ns3TgnsVA=="
+          "hash": "78ZCb+W6z5QvJwGMETeVBg=="
         }
       },
       "is_incremental": false,
@@ -268,7 +328,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.DefaultRangeAttribute.html",
-          "hash": "QTx7nRYaBC65hfrYPaOC1Q=="
+          "hash": "EFB5PFSuFvCIluhb+r86Bw=="
         }
       },
       "is_incremental": false,
@@ -280,7 +340,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.EnumFlagsAttribute.html",
-          "hash": "Dq3kEBmaUrPO6r5CTVcMqA=="
+          "hash": "3U//oZTF+H2RwAH3MniTvQ=="
         }
       },
       "is_incremental": false,
@@ -292,7 +352,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.FilePathAttribute.html",
-          "hash": "vity/pbeiq4vE1dzIcRP0g=="
+          "hash": "hVlHOdZFGD5q6/qVMOwFlw=="
         }
       },
       "is_incremental": false,
@@ -304,7 +364,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.FolderPathAttribute.RelativeTo.html",
-          "hash": "YkKSoUK4p6l8LCYMDnaZPg=="
+          "hash": "LNZJzKfcRKe4AqzNb9KQdQ=="
         }
       },
       "is_incremental": false,
@@ -316,7 +376,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.FolderPathAttribute.html",
-          "hash": "DK+LWt4EcrWSjc5FyeTB2g=="
+          "hash": "ID5TK5DSX7FXnHQADhQ0qQ=="
         }
       },
       "is_incremental": false,
@@ -328,7 +388,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Helpers.html",
-          "hash": "3bNiAN16RT8H0QFfPchFBQ=="
+          "hash": "GASzdU3hsSdIqQ15hOGCEA=="
         }
       },
       "is_incremental": false,
@@ -340,7 +400,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.HsvColor.html",
-          "hash": "Y5GKHQa5uc5aNfIh8pl6vw=="
+          "hash": "mR4a4ImXoToT+EA2eGIk4A=="
         }
       },
       "is_incremental": false,
@@ -352,7 +412,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.ListSet-1.html",
-          "hash": "eSfAgIrySLW0uTPS1dtewQ=="
+          "hash": "JlQeaBltxytmdk/1TSU/SQ=="
         }
       },
       "is_incremental": false,
@@ -364,7 +424,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.ProgressReport.html",
-          "hash": "uN6Dc6CBtDnIYTgucyzZEQ=="
+          "hash": "T7+LbSk7iVLX+WwxdHG6JQ=="
         }
       },
       "is_incremental": false,
@@ -376,7 +436,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.RandomList-1.ElementFrequency.html",
-          "hash": "p05EwiX1NoXrNMZB0UmBtw=="
+          "hash": "fB0Bt8Dne6wAtiYP2bpPvQ=="
         }
       },
       "is_incremental": false,
@@ -388,7 +448,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.RandomList-1.html",
-          "hash": "b3Yraqm6YLpkjkZQaeCBbQ=="
+          "hash": "ZtvPQhSi/uebiPkg4v3uzg=="
         }
       },
       "is_incremental": false,
@@ -400,7 +460,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.ReadOnlyAttribute.html",
-          "hash": "7ZvahakOrP5F3OxheUpfbA=="
+          "hash": "9GU6qNQUSmtXCeBuK+YtEw=="
         }
       },
       "is_incremental": false,
@@ -412,7 +472,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.ScenePathAttribute.html",
-          "hash": "BkySHTUVAaNfS7miGf4iXg=="
+          "hash": "Myyjfc+XMAJ2oJxjCQSUEQ=="
         }
       },
       "is_incremental": false,
@@ -424,7 +484,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.SupportedPlatforms.html",
-          "hash": "Lpirp0lxRiDQIub9i7Gnzw=="
+          "hash": "7bDMiGORZSqZ4Z1UCeyamQ=="
         }
       },
       "is_incremental": false,
@@ -436,7 +496,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport.html",
-          "hash": "AbWZBUKAtrQUOvfB4M2p4g=="
+          "hash": "JTuka81FbrXiBRG1p5boEg=="
         }
       },
       "is_incremental": false,
@@ -448,7 +508,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html",
-          "hash": "dUhKSmOPktWgVWLCmatqeQ=="
+          "hash": "aAvPFFHwHqbL8kCOqDhIeA=="
         }
       },
       "is_incremental": false,
@@ -460,7 +520,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.SupportedPlatformsHelpers.html",
-          "hash": "3004RYA49g8Vd4PEiWhmWw=="
+          "hash": "+VFXPD5ID42NUIPGdZwpvg=="
         }
       },
       "is_incremental": false,
@@ -472,7 +532,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.ThreadSafe-1.html",
-          "hash": "DLA5lCNW3VVwpMPs35JW5g=="
+          "hash": "Ii5ic7IL0YtYM5w2e2R5ow=="
         }
       },
       "is_incremental": false,
@@ -484,7 +544,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.ThreadSafeInt.html",
-          "hash": "zPj3xwMDUbzt9QoODOv8tA=="
+          "hash": "SXp7t8NDJ2+MK4GysilOfA=="
         }
       },
       "is_incremental": false,
@@ -496,7 +556,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.ThreadSafeLong.html",
-          "hash": "T82IGTRt0L/tnwctWEJ+4w=="
+          "hash": "cEUFrnnDvPpCv8n6WF9xzw=="
         }
       },
       "is_incremental": false,
@@ -508,7 +568,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.ThreadSafeStringBuilder.html",
-          "hash": "dS9kZ7juJJXn5r/g5339ag=="
+          "hash": "kFvm+L/qiSb6u3iQUFDVPQ=="
         }
       },
       "is_incremental": false,
@@ -520,7 +580,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.html",
-          "hash": "V7hzox5oS8AmOxNODf9C2Q=="
+          "hash": "xK/uwx57bUenXkNT8c4TMA=="
         }
       },
       "is_incremental": false,
@@ -532,7 +592,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "OTs1SimYEGK3bwM++4QAow=="
+          "hash": "sks7C32ZmHc06KwRYI42+A=="
         }
       },
       "is_incremental": false,
@@ -544,7 +604,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "g6iUoi1uNW1xCu6bg/dymw=="
+          "hash": "RyIT//9pFnV81NP37uFfBg=="
         }
       },
       "is_incremental": false,
@@ -556,7 +616,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/README.html",
-          "hash": "muox0t/eJ2OMUvKHkRhwHA=="
+          "hash": "ihAZAC4+wSbLIHgoY7Wiig=="
         }
       },
       "is_incremental": false,
@@ -568,7 +628,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/changelog.html",
-          "hash": "LhJkp/wSa5ZJW5CUz/0pHQ=="
+          "hash": "Iw7b64BitYcX3+ljmeqgew=="
         }
       },
       "is_incremental": false,
@@ -630,7 +690,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 42,
+          "total_file_count": 47,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

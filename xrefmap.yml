@@ -1090,6 +1090,95 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Common.Editor.IDefaultDrawer.SetupPositioning
   nameWithType: IDefaultDrawer.SetupPositioning
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader
+  name: ProjectSettingsHeader
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html
+  commentId: T:OmiyaGames.Common.Editor.ProjectSettingsHeader
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader
+  nameWithType: ProjectSettingsHeader
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.#ctor
+  name: ProjectSettingsHeader()
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html#OmiyaGames_Common_Editor_ProjectSettingsHeader__ctor
+  commentId: M:OmiyaGames.Common.Editor.ProjectSettingsHeader.#ctor
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.ProjectSettingsHeader()
+  nameWithType: ProjectSettingsHeader.ProjectSettingsHeader()
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.#ctor*
+  name: ProjectSettingsHeader
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html#OmiyaGames_Common_Editor_ProjectSettingsHeader__ctor_
+  commentId: Overload:OmiyaGames.Common.Editor.ProjectSettingsHeader.#ctor
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.ProjectSettingsHeader
+  nameWithType: ProjectSettingsHeader.ProjectSettingsHeader
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.canGrabFocus
+  name: canGrabFocus
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_canGrabFocus
+  commentId: P:OmiyaGames.Common.Editor.ProjectSettingsHeader.canGrabFocus
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.canGrabFocus
+  nameWithType: ProjectSettingsHeader.canGrabFocus
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.canGrabFocus*
+  name: canGrabFocus
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_canGrabFocus_
+  commentId: Overload:OmiyaGames.Common.Editor.ProjectSettingsHeader.canGrabFocus
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.canGrabFocus
+  nameWithType: ProjectSettingsHeader.canGrabFocus
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpButton
+  name: HelpButton
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_HelpButton
+  commentId: P:OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpButton
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpButton
+  nameWithType: ProjectSettingsHeader.HelpButton
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpButton*
+  name: HelpButton
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_HelpButton_
+  commentId: Overload:OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpButton
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpButton
+  nameWithType: ProjectSettingsHeader.HelpButton
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpUrl
+  name: HelpUrl
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_HelpUrl
+  commentId: P:OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpUrl
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpUrl
+  nameWithType: ProjectSettingsHeader.HelpUrl
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpUrl*
+  name: HelpUrl
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_HelpUrl_
+  commentId: Overload:OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpUrl
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.HelpUrl
+  nameWithType: ProjectSettingsHeader.HelpUrl
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlFactory
+  name: ProjectSettingsHeader.UxmlFactory
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlFactory.html
+  commentId: T:OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlFactory
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlFactory
+  nameWithType: ProjectSettingsHeader.UxmlFactory
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits
+  name: ProjectSettingsHeader.UxmlTraits
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.html
+  commentId: T:OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits
+  nameWithType: ProjectSettingsHeader.UxmlTraits
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.helpUrlAttr
+  name: helpUrlAttr
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_UxmlTraits_helpUrlAttr
+  commentId: F:OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.helpUrlAttr
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.helpUrlAttr
+  nameWithType: ProjectSettingsHeader.UxmlTraits.helpUrlAttr
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.Init(VisualElement,IUxmlAttributes,CreationContext)
+  name: Init(VisualElement, IUxmlAttributes, CreationContext)
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_UxmlTraits_Init_VisualElement_IUxmlAttributes_CreationContext_
+  commentId: M:OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.Init(VisualElement,IUxmlAttributes,CreationContext)
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.Init(VisualElement, IUxmlAttributes, CreationContext)
+  nameWithType: ProjectSettingsHeader.UxmlTraits.Init(VisualElement, IUxmlAttributes, CreationContext)
+- uid: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.Init*
+  name: Init
+  href: api/OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.html#OmiyaGames_Common_Editor_ProjectSettingsHeader_UxmlTraits_Init_
+  commentId: Overload:OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.Init
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.Init
+  nameWithType: ProjectSettingsHeader.UxmlTraits.Init
 - uid: OmiyaGames.Common.Editor.ReadOnlyDrawer
   name: ReadOnlyDrawer
   href: api/OmiyaGames.Common.Editor.ReadOnlyDrawer.html
@@ -1154,6 +1243,50 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Common.Editor.ScenePathDrawer.OnGUI
   nameWithType: ScenePathDrawer.OnGUI
+- uid: OmiyaGames.Common.Editor.Spacer
+  name: Spacer
+  href: api/OmiyaGames.Common.Editor.Spacer.html
+  commentId: T:OmiyaGames.Common.Editor.Spacer
+  fullName: OmiyaGames.Common.Editor.Spacer
+  nameWithType: Spacer
+- uid: OmiyaGames.Common.Editor.Spacer.#ctor
+  name: Spacer()
+  href: api/OmiyaGames.Common.Editor.Spacer.html#OmiyaGames_Common_Editor_Spacer__ctor
+  commentId: M:OmiyaGames.Common.Editor.Spacer.#ctor
+  fullName: OmiyaGames.Common.Editor.Spacer.Spacer()
+  nameWithType: Spacer.Spacer()
+- uid: OmiyaGames.Common.Editor.Spacer.#ctor*
+  name: Spacer
+  href: api/OmiyaGames.Common.Editor.Spacer.html#OmiyaGames_Common_Editor_Spacer__ctor_
+  commentId: Overload:OmiyaGames.Common.Editor.Spacer.#ctor
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.Spacer.Spacer
+  nameWithType: Spacer.Spacer
+- uid: OmiyaGames.Common.Editor.Spacer.canGrabFocus
+  name: canGrabFocus
+  href: api/OmiyaGames.Common.Editor.Spacer.html#OmiyaGames_Common_Editor_Spacer_canGrabFocus
+  commentId: P:OmiyaGames.Common.Editor.Spacer.canGrabFocus
+  fullName: OmiyaGames.Common.Editor.Spacer.canGrabFocus
+  nameWithType: Spacer.canGrabFocus
+- uid: OmiyaGames.Common.Editor.Spacer.canGrabFocus*
+  name: canGrabFocus
+  href: api/OmiyaGames.Common.Editor.Spacer.html#OmiyaGames_Common_Editor_Spacer_canGrabFocus_
+  commentId: Overload:OmiyaGames.Common.Editor.Spacer.canGrabFocus
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.Spacer.canGrabFocus
+  nameWithType: Spacer.canGrabFocus
+- uid: OmiyaGames.Common.Editor.Spacer.DefaultHeight
+  name: DefaultHeight
+  href: api/OmiyaGames.Common.Editor.Spacer.html#OmiyaGames_Common_Editor_Spacer_DefaultHeight
+  commentId: F:OmiyaGames.Common.Editor.Spacer.DefaultHeight
+  fullName: OmiyaGames.Common.Editor.Spacer.DefaultHeight
+  nameWithType: Spacer.DefaultHeight
+- uid: OmiyaGames.Common.Editor.Spacer.UxmlFactory
+  name: Spacer.UxmlFactory
+  href: api/OmiyaGames.Common.Editor.Spacer.UxmlFactory.html
+  commentId: T:OmiyaGames.Common.Editor.Spacer.UxmlFactory
+  fullName: OmiyaGames.Common.Editor.Spacer.UxmlFactory
+  nameWithType: Spacer.UxmlFactory
 - uid: OmiyaGames.Common.Editor.SupportedPlatformsDrawer
   name: SupportedPlatformsDrawer
   href: api/OmiyaGames.Common.Editor.SupportedPlatformsDrawer.html

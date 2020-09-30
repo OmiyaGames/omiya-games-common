@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Delegate IDefaultDrawer.SetToDefault&lt;ATTRIBUTE&gt;
+    <title>Class Spacer
    | Common documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Delegate IDefaultDrawer.SetToDefault&lt;ATTRIBUTE&gt;
+    <meta name="title" content="Class Spacer
    | Common documentation ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -78,53 +78,115 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer.SetToDefault`1">
+            <article class="content wrap" id="_content" data-uid="OmiyaGames.Common.Editor.Spacer">
   
   
-  <h1 id="OmiyaGames_Common_Editor_IDefaultDrawer_SetToDefault_1" data-uid="OmiyaGames.Common.Editor.IDefaultDrawer.SetToDefault`1" class="text-break">Delegate IDefaultDrawer.SetToDefault&lt;ATTRIBUTE&gt;
+  <h1 id="OmiyaGames_Common_Editor_Spacer" data-uid="OmiyaGames.Common.Editor.Spacer" class="text-break">Class Spacer
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>An empty <see cref="!:VisualElement"></see> with a set height that can be overwritten by another USS.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">Spacer</span></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="OmiyaGames.Common.Editor.html">OmiyaGames.Common.Editor</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="OmiyaGames_Common_Editor_IDefaultDrawer_SetToDefault_1_syntax">Syntax</h5>
+  <h5 id="OmiyaGames_Common_Editor_Spacer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected delegate void SetToDefault&lt;ATTRIBUTE&gt;(SerializedProperty property, ATTRIBUTE range)
-    where ATTRIBUTE : PropertyAttribute;</code></pre>
+    <pre><code class="lang-csharp hljs">public class Spacer : VisualElement</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 id="OmiyaGames_Common_Editor_Spacer_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p><copyright file="Spacer.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2020-2020 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Version:</strong> 0.2.0-preview.1<br>
+<strong>Date:</strong> 8/10/2020<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>Initial verison.</td></tr></tbody></table></p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="OmiyaGames_Common_Editor_Spacer__ctor_" data-uid="OmiyaGames.Common.Editor.Spacer.#ctor*"></a>
+  <h4 id="OmiyaGames_Common_Editor_Spacer__ctor" data-uid="OmiyaGames.Common.Editor.Spacer.#ctor">Spacer()</h4>
+  <div class="markdown level1 summary"><p>Constructs an empty <see cref="!:VisualElement"></see> with
+the height of <a class="xref" href="OmiyaGames.Common.Editor.Spacer.html#OmiyaGames_Common_Editor_Spacer_DefaultHeight">DefaultHeight</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Spacer()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="OmiyaGames_Common_Editor_Spacer_DefaultHeight" data-uid="OmiyaGames.Common.Editor.Spacer.DefaultHeight">DefaultHeight</h4>
+  <div class="markdown level1 summary"><p>The default height, if not overridden by another USS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float DefaultHeight = 8F</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">SerializedProperty</span></td>
-        <td><span class="parametername">property</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">ATTRIBUTE</span></td>
-        <td><span class="parametername">range</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="typeParameters">Type Parameters</h5>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="OmiyaGames_Common_Editor_Spacer_canGrabFocus_" data-uid="OmiyaGames.Common.Editor.Spacer.canGrabFocus*"></a>
+  <h4 id="OmiyaGames_Common_Editor_Spacer_canGrabFocus" data-uid="OmiyaGames.Common.Editor.Spacer.canGrabFocus">canGrabFocus</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool canGrabFocus { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">ATTRIBUTE</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td></td>
       </tr>
     </tbody>
