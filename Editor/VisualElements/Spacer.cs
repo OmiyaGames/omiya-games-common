@@ -34,7 +34,7 @@ namespace OmiyaGames.Common.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Version:</strong> TODO<br/>
+    /// <strong>Version:</strong> 0.2.0-preview.1<br/>
     /// <strong>Date:</strong> 8/10/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
