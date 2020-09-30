@@ -4,7 +4,7 @@
   "version": "0.2.0-preview.1",
   "unity": "2020.1",
   "unityRelease": "6f1",
-  "description": "Common scripts used within Omiya Games' many tools and libraries.",
+  "description": "Common scripts and editor UIElements used within Omiya Games' many tools and libraries.",
   "category": "Library",
   "type": "library",
   "license": "MIT",
@@ -18,6 +18,10 @@
     "Scripts",
     "Base",
     "Common",
+    "UI",
+    "GUI",
+    "Editor",
+    "UIElements",
     "Library"
   ],
   "dependencies": {
