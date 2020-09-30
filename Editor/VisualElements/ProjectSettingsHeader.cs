@@ -36,7 +36,7 @@ namespace OmiyaGames.Common.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Version:</strong> TODO<br/>
+    /// <strong>Version:</strong> 0.2.0-preview.1<br/>
     /// <strong>Date:</strong> 9/27/2020<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
@@ -46,7 +46,7 @@ namespace OmiyaGames.Common.Editor
     /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// TODO.
+    /// The header label to the project settings dialog.
     /// </summary>
     public class ProjectSettingsHeader : TextElement
     {
@@ -99,7 +99,7 @@ namespace OmiyaGames.Common.Editor
         {
             // Setup default font styles
             style.unityFontStyleAndWeight = new StyleEnum<FontStyle>(FontStyle.Bold);
-            style.fontSize = new Length(18, LengthUnit.Pixel);
+            style.fontSize = new Length(19, LengthUnit.Pixel);
 
             // Setup default margins
             style.marginTop = new Length(2, LengthUnit.Pixel);
