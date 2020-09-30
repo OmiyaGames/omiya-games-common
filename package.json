@@ -1,9 +1,9 @@
 {
   "name": "com.omiyagames.common",
   "displayName": "Omiya Games - Common",
-  "version": "0.1.4-preview.1",
-  "unity": "2019.3",
-  "unityRelease": "15f1",
+  "version": "0.2.0-preview.1",
+  "unity": "2020.1",
+  "unityRelease": "6f1",
   "description": "Common scripts used within Omiya Games' many tools and libraries.",
   "category": "Library",
   "type": "library",
