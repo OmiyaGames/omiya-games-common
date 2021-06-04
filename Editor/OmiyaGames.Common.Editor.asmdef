@@ -1,7 +1,8 @@
 {
     "name": "OmiyaGames.Common.Editor",
+    "rootNamespace": "OmiyaGames.Common.Editor",
     "references": [
-        "OmiyaGames"
+        "GUID:cdda17712c724478898665290e9a02cc"
     ],
     "includePlatforms": [
         "Editor"
