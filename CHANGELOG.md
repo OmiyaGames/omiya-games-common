@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.0-preview.2
+
+- Enhancment: upgrading the assembly definitions and package files.
+
 ## 0.2.0-preview.1
 
 - **New Feature:** added new VisualElements, [`Spacer.cs`](https://github.com/OmiyaGames/omiya-games-common/blob/master/Editor/VisualElements/Spacer.cs) and [`ProjectSettingsHeader.cs`](https://github.com/OmiyaGames/omiya-games-common/blob/master/Editor/VisualElements/ProjectSettingsHeader.cs).

@@ -1,5 +1,6 @@
 {
     "name": "OmiyaGames",
+    "rootNamespace": "OmiyaGames",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
