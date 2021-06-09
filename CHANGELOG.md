@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.0
+
+- Bumping up the version number to stable, given this library has been battle tested for long enough.
+
 ## 0.2.0-preview.2
 
 - Enhancment: upgrading the assembly definitions and package files.
