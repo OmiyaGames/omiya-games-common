@@ -129,8 +129,13 @@ namespace OmiyaGames
             '|'
         };
         /// <summary>
-        /// Set of invalid folder chars: "/, \, :, *, ?, ", <, >, and |."
+        /// Delegate for tracking changes to a single value.
         /// </summary>
+        /// <typeparam name="SOURCE">Type of the object being changed.</typeparam>
+        /// <typeparam name="VALUE">Type of the object's member variable being changed.</typeparam>
+        /// <param name="eventSource">The object's member variable being changed.</param>
+        /// <param name="oldValue">The old member variable's value.</param>
+        /// <param name="newValue">The new value the member variable is going to be set to.</param>
         public delegate void ChangeEvent<SOURCE, VALUE>(SOURCE eventSource, VALUE oldValue, VALUE newValue);
 
         /// <summary>
