@@ -10,7 +10,7 @@ namespace OmiyaGames
     /// <copyright file="Helpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2014-2020 Omiya Games
+    /// Copyright (c) 2014-2021 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -71,6 +71,16 @@ namespace OmiyaGames
     /// Updating documentation.  Moving method <see cref="ShortenUrl(string)"/> to Omiya Games - Web package.
     /// </description>
     /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 1.1.0<br/>
+    /// <strong>Date:</strong> 6/28/2021<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Adding a delegate to monitor changing values.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
@@ -118,6 +128,10 @@ namespace OmiyaGames
             '>',
             '|'
         };
+        /// <summary>
+        /// Set of invalid folder chars: "/, \, :, *, ?, ", <, >, and |."
+        /// </summary>
+        public delegate void ChangeEvent<SOURCE, VALUE>(SOURCE eventSource, VALUE oldValue, VALUE newValue);
 
         /// <summary>
         /// Creates a clone of the components <code>GameObject</code>, places it under
