@@ -4,7 +4,8 @@ using UnityEditor;
 namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
-    /// <remarks><copyright file="DefaultObjectDrawer.cs" company="Omiya Games">
+    /// <remarks>
+    /// <copyright file="DefaultObjectDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2020 Omiya Games
