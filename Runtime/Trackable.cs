@@ -49,9 +49,15 @@ namespace OmiyaGames
     /// using <seealso cref="OnBeforeValueChanged"/> and
     /// <seealso cref="OnAfterValueChanged"/>.
     /// </summary>
+    /// <typeparam name="T">Type of value being tracked.</typeparam>
     [System.Serializable]
     public class Trackable<T>
     {
+        /// <summary>
+        /// Delegate for tracking changes to <seealso cref="Value"/>.
+        /// </summary>
+        public delegate void ChangeEvent(T oldValue, T newValue);
+
         [SerializeField]
         T value;
 
@@ -59,12 +65,12 @@ namespace OmiyaGames
         /// Event called before the value has changed.
         /// Will be called even if the new value is the same as old.
         /// </summary>
-        public Helpers.ChangeEvent<Trackable<T>, T> OnBeforeValueChanged;
+        public event ChangeEvent OnBeforeValueChanged;
         /// <summary>
         /// Event called after the value has changed.
         /// Will be called even if the new value is the same as old.
         /// </summary>
-        public Helpers.ChangeEvent<Trackable<T>, T> OnAfterValueChanged;
+        public event ChangeEvent OnAfterValueChanged;
 
         /// <summary>
         /// Constructor to set the initial value.
@@ -94,10 +100,10 @@ namespace OmiyaGames
             get => value;
             set
             {
-                OnBeforeValueChanged?.Invoke(this, this.value, value);
+                OnBeforeValueChanged?.Invoke(this.value, value);
                 T oldValue = this.value;
                 this.value = value;
-                OnAfterValueChanged?.Invoke(this, oldValue, this.value);
+                OnAfterValueChanged?.Invoke(oldValue, this.value);
             }
         }
     }
