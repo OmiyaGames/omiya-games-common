@@ -46,7 +46,8 @@ namespace OmiyaGames
     ///-----------------------------------------------------------------------
     /// <summary>
     /// A <see cref="System.Serializable"/> value one can track changes to by
-    /// using 
+    /// using <seealso cref="OnBeforeValueChanged"/> and
+    /// <seealso cref="OnAfterValueChanged"/>.
     /// </summary>
     [System.Serializable]
     public class Trackable<T>
@@ -64,6 +65,26 @@ namespace OmiyaGames
         /// Will be called even if the new value is the same as old.
         /// </summary>
         public Helpers.ChangeEvent<Trackable<T>, T> OnAfterValueChanged;
+
+        /// <summary>
+        /// Constructor to set the initial value.
+        /// No events will be called.
+        /// </summary>
+        /// <param name="value">The initial value.</param>
+        public Trackable(T value)
+        {
+            this.value = value;
+        }
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        public Trackable() : this(default(T)) { }
+
+        /// <summary>
+        /// Converts a <see cref="Trackable{T}"/> to its value type.
+        /// </summary>
+        public static implicit operator T(Trackable<T> trackable) => trackable.Value;
 
         /// <summary>
         /// The value this class represents.
