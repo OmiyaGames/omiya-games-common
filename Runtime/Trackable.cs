@@ -106,5 +106,10 @@ namespace OmiyaGames
                 OnAfterValueChanged?.Invoke(oldValue, this.value);
             }
         }
+
+        /// <summary>
+        /// Flag indicating if <see cref="Value"/> is not null.
+        /// </summary>
+        public bool HasValue => Value != null;
     }
 }
