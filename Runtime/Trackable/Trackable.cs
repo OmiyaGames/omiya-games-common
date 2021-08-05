@@ -4,7 +4,7 @@ namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
     /// <remarks>
-    /// <copyright file="RandomList.cs" company="Omiya Games">
+    /// <copyright file="Trackable.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2021 Omiya Games
@@ -51,26 +51,15 @@ namespace OmiyaGames
     /// </summary>
     /// <typeparam name="T">Type of value being tracked.</typeparam>
     [System.Serializable]
-    public class Trackable<T>
+    public class Trackable<T> : TrackableDecorator<T>
     {
-        /// <summary>
-        /// Delegate for tracking changes to <seealso cref="Value"/>.
-        /// </summary>
-        public delegate void ChangeEvent(T oldValue, T newValue);
-
         [SerializeField]
         T value;
 
-        /// <summary>
-        /// Event called before the value has changed.
-        /// Will be called even if the new value is the same as old.
-        /// </summary>
-        public event ChangeEvent OnBeforeValueChanged;
-        /// <summary>
-        /// Event called after the value has changed.
-        /// Will be called even if the new value is the same as old.
-        /// </summary>
-        public event ChangeEvent OnAfterValueChanged;
+        /// <inheritdoc/>
+        public override event ITrackable<T>.ChangeEvent OnBeforeValueChanged;
+        /// <inheritdoc/>
+        public override event ITrackable<T>.ChangeEvent OnAfterValueChanged;
 
         /// <summary>
         /// Constructor to set the initial value.
@@ -92,10 +81,8 @@ namespace OmiyaGames
         /// </summary>
         public static implicit operator T(Trackable<T> trackable) => trackable.Value;
 
-        /// <summary>
-        /// The value this class represents.
-        /// </summary>
-        public T Value
+        /// <inheritdoc/>
+        public override T Value
         {
             get => value;
             set
@@ -106,10 +93,5 @@ namespace OmiyaGames
                 OnAfterValueChanged?.Invoke(oldValue, this.value);
             }
         }
-
-        /// <summary>
-        /// Flag indicating if <see cref="Value"/> is not null.
-        /// </summary>
-        public bool HasValue => Value != null;
     }
 }
