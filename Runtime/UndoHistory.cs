@@ -4,263 +4,306 @@ using UnityEngine;
 
 namespace OmiyaGames
 {
-	/// <summary>
-	/// Allows user to undo or redo previous actions.
-	/// </summary>
-	public class UndoHistory : IReadOnlyCollection<UndoHistory.IRecord>
-	{
-		/// <summary>
-		/// A record stored in <seealso cref="UndoHistory"/>.
-		/// </summary>
-		public interface IRecord
-		{
-			/// <summary>
-			/// Brief description of this action.
-			/// </summary>
-			public string Name
-			{
-				get;
-			}
-			/// <summary>
-			/// Longer description of this action.
-			/// </summary>
-			public string Description
-			{
-				get;
-			}
+    ///-----------------------------------------------------------------------
+    /// <remarks>
+    /// <copyright file="UndoHistory.cs" company="Omiya Games">
+    /// The MIT License (MIT)
+    /// 
+    /// Copyright (c) 2014-2021 Omiya Games
+    /// 
+    /// Permission is hereby granted, free of charge, to any person obtaining a copy
+    /// of this software and associated documentation files (the "Software"), to deal
+    /// in the Software without restriction, including without limitation the rights
+    /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    /// copies of the Software, and to permit persons to whom the Software is
+    /// furnished to do so, subject to the following conditions:
+    /// 
+    /// The above copyright notice and this permission notice shall be included in
+    /// all copies or substantial portions of the Software.
+    /// 
+    /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    /// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    /// THE SOFTWARE.
+    /// </copyright>
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Revision</term>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <term>
+    /// <strong>Date:</strong> 8/18/2015<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Initial version.
+    /// </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///-----------------------------------------------------------------------
+    /// <summary>
+    /// Records a list of previous actions, and allows user to undo or redo
+    /// them.
+    /// </summary>
+    public class UndoHistory : IReadOnlyCollection<UndoHistory.IRecord>
+    {
+        /// <summary>
+        /// A record stored in <seealso cref="UndoHistory"/>.
+        /// </summary>
+        public interface IRecord
+        {
+            /// <summary>
+            /// Brief description of this action.
+            /// </summary>
+            public string Name
+            {
+                get;
+            }
+            /// <summary>
+            /// Longer description of this action.
+            /// </summary>
+            public string Description
+            {
+                get;
+            }
 
-			/// <summary>
-			/// Un-does an action.  Called by <seealso cref="UndoHistory.Undo(Object)"/>.
-			/// </summary>
-			/// <param name="source">The caller of this method.</param>
-			/// <param name="history">The history this record is in.</param>
-			public void Undo(Object source, UndoHistory history);
-			/// <summary>
-			/// Re-does an action.  Called by <seealso cref="UndoHistory.Redo(Object)"/>.
-			/// </summary>
-			/// <param name="source">The caller of this method.</param>
-			/// <param name="history">The history this record is in.</param>
-			public void Redo(Object source, UndoHistory history);
-		}
+            /// <summary>
+            /// Un-does an action.  Called by <seealso cref="UndoHistory.Undo(Object)"/>.
+            /// </summary>
+            /// <param name="source">The caller of this method.</param>
+            /// <param name="history">The history this record is in.</param>
+            public void Undo(Object source, UndoHistory history);
+            /// <summary>
+            /// Re-does an action.  Called by <seealso cref="UndoHistory.Redo(Object)"/>.
+            /// </summary>
+            /// <param name="source">The caller of this method.</param>
+            /// <param name="history">The history this record is in.</param>
+            public void Redo(Object source, UndoHistory history);
+        }
 
-		/// <summary>
-		/// History of actions, up to <see cref="Capacity"/>.
-		/// First node is oldest, while last is latest.
-		/// </summary>
-		protected readonly LinkedList<IRecord> history = new LinkedList<IRecord>();
-		LinkedListNode<IRecord> undoMarker = null;
+        /// <summary>
+        /// History of actions, up to <see cref="Capacity"/>.
+        /// First node is oldest, while last is latest.
+        /// </summary>
+        protected readonly LinkedList<IRecord> history = new LinkedList<IRecord>();
+        LinkedListNode<IRecord> undoMarker = null;
 
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public event System.Action<UndoHistory> OnBeforeChanged;
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public event System.Action<UndoHistory> OnAfterChanged;
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public event System.Action<Object, UndoHistory> OnBeforeUndo;
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public event System.Action<Object, UndoHistory> OnAfterUndo;
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public event System.Action<Object, UndoHistory> OnBeforeRedo;
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public event System.Action<Object, UndoHistory> OnAfterRedo;
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public event System.Action<UndoHistory> OnBeforeChanged;
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public event System.Action<UndoHistory> OnAfterChanged;
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public event System.Action<Object, UndoHistory> OnBeforeUndo;
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public event System.Action<Object, UndoHistory> OnAfterUndo;
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public event System.Action<Object, UndoHistory> OnBeforeRedo;
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public event System.Action<Object, UndoHistory> OnAfterRedo;
 
-		/// <summary>
-		/// Constructs an Undo history.
-		/// </summary>
-		/// <param name="capacity">How many records this list stores.  Defaults to <see cref="int.MaxValue"/></param>
-		public UndoHistory(int capacity = int.MaxValue)
-		{
-			Capacity = capacity;
-		}
+        /// <summary>
+        /// Constructs an Undo history.
+        /// </summary>
+        /// <param name="capacity">How many records this list stores.  Defaults to <see cref="int.MaxValue"/></param>
+        public UndoHistory(int capacity = int.MaxValue)
+        {
+            Capacity = capacity;
+        }
 
-		/// <summary>
-		/// The max number of actions stored.
-		/// </summary>
-		public int Capacity
-		{
-			get;
-		}
-		/// <summary>
-		/// Actual number of actions stored.
-		/// </summary>
-		public int Count => history.Count;
-		/// <summary>
-		/// The node in <see cref="history"/> that <seealso cref="Undo(Object)"/> will call.
-		/// </summary>
-		protected LinkedListNode<IRecord> UndoMarker
-		{
-			get => undoMarker;
-			set => undoMarker = value;
-		}
-		/// <summary>
-		/// The node in <see cref="history"/> that <seealso cref="Redo(Object)"/> will call.
-		/// </summary>
-		protected LinkedListNode<IRecord> RedoMarker
-		{
-			get
-			{
-				if(UndoMarker != null)
-				{
-					return UndoMarker.Next;
-				}
-				else
-				{
-					return history.First;
-				}
-			}
-		}
-		/// <summary>
-		/// The record that would be called by <seealso cref="Undo(Object)"/>, or <c>null</c> if can't undo.
-		/// </summary>
-		public IRecord UndoRecord => UndoMarker?.Value;
-		/// <summary>
-		/// Provides the description of what will be redone, or <c>null</c> if can't redo.
-		/// </summary>
-		public IRecord RedoRecord => RedoMarker?.Value;
-		/// <summary>
-		/// Indicates whether there's an action to undo.
-		/// </summary>
-		public bool CanUndo => (UndoMarker != null);
-		/// <summary>
-		/// Indicates whether there's an action to redo.
-		/// </summary>
-		public bool CanRedo => (RedoMarker != null);
+        /// <summary>
+        /// The max number of actions stored.
+        /// </summary>
+        public int Capacity
+        {
+            get;
+        }
+        /// <summary>
+        /// Actual number of actions stored.
+        /// </summary>
+        public int Count => history.Count;
+        /// <summary>
+        /// The node in <see cref="history"/> that <seealso cref="Undo(Object)"/> will call.
+        /// </summary>
+        protected virtual LinkedListNode<IRecord> UndoMarker
+        {
+            get => undoMarker;
+            set => undoMarker = value;
+        }
+        /// <summary>
+        /// The node in <see cref="history"/> that <seealso cref="Redo(Object)"/> will call.
+        /// </summary>
+        protected LinkedListNode<IRecord> RedoMarker
+        {
+            get
+            {
+                if(UndoMarker != null)
+                {
+                    return UndoMarker.Next;
+                }
+                else
+                {
+                    return history.First;
+                }
+            }
+        }
+        /// <summary>
+        /// The record that would be called by <seealso cref="Undo(Object)"/>, or <c>null</c> if can't undo.
+        /// </summary>
+        public IRecord UndoRecord => UndoMarker?.Value;
+        /// <summary>
+        /// Provides the description of what will be redone, or <c>null</c> if can't redo.
+        /// </summary>
+        public IRecord RedoRecord => RedoMarker?.Value;
+        /// <summary>
+        /// Indicates whether there's an action to undo.
+        /// </summary>
+        public bool CanUndo => (UndoMarker != null);
+        /// <summary>
+        /// Indicates whether there's an action to redo.
+        /// </summary>
+        public bool CanRedo => (RedoMarker != null);
 
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="record"></param>
-		public virtual void Add(IRecord record)
-		{
-			if(record == null)
-			{
-				throw new System.ArgumentNullException("record");
-			}
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="record"></param>
+        public virtual void Add(IRecord record)
+        {
+            if(record == null)
+            {
+                throw new System.ArgumentNullException("record");
+            }
 
-			// Call before events
-			OnBeforeChanged?.Invoke(this);
+            // Call before events
+            OnBeforeChanged?.Invoke(this);
 
-			// Check if there are any action after the marker (from a result of undo)
-			if(UndoMarker != null)
-			{
-				// If so, remove all recent actions after the latest
-				while(UndoMarker.Next != null)
-				{
-					history.RemoveLast();
-				}
-			}
-			else if(history.Count > 0)
-			{
-				// If at the last undo, clear the entire history
-				history.Clear();
-			}
+            // Check if there are any action after the marker (from a result of undo)
+            if(UndoMarker != null)
+            {
+                // If so, remove all recent actions after the latest
+                while(UndoMarker.Next != null)
+                {
+                    history.RemoveLast();
+                }
+            }
+            else if(history.Count > 0)
+            {
+                // If at the last undo, clear the entire history
+                history.Clear();
+            }
 
-			// Add a new action at the end of history
-			UndoMarker = history.AddLast(record);
+            // Add a new action at the end of history
+            UndoMarker = history.AddLast(record);
 
-			// Check if the history is over-capacity
-			while(history.Count > Capacity)
-			{
-				// Remove the earliest actions
-				history.RemoveFirst();
-			}
+            // Check if the history is over-capacity
+            while(history.Count > Capacity)
+            {
+                // Remove the earliest actions
+                history.RemoveFirst();
+            }
 
-			// Call after events
-			OnAfterChanged?.Invoke(this);
-		}
+            // Call after events
+            OnAfterChanged?.Invoke(this);
+        }
 
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="source"></param>
-		public virtual bool Undo(Object source)
-		{
-			// Check if we can even undo
-			if(UndoMarker != null)
-			{
-				// Call before events
-				OnBeforeChanged?.Invoke(this);
-				OnBeforeUndo?.Invoke(source, this);
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="source"></param>
+        public virtual bool Undo(Object source)
+        {
+            // Check if we can even undo
+            if(UndoMarker != null)
+            {
+                // Call before events
+                OnBeforeChanged?.Invoke(this);
+                OnBeforeUndo?.Invoke(source, this);
 
-				// Perform undo
-				UndoMarker.Value.Undo(source, this);
+                // Perform undo
+                UndoMarker.Value.Undo(source, this);
 
-				// Move the marker to the previous history entry
-				UndoMarker = UndoMarker.Previous;
+                // Move the marker to the previous history entry
+                UndoMarker = UndoMarker.Previous;
 
-				// Call after events
-				OnAfterUndo?.Invoke(source, this);
-				OnAfterChanged?.Invoke(this);
-				return true;
-			}
-			return false;
-		}
+                // Call after events
+                OnAfterUndo?.Invoke(source, this);
+                OnAfterChanged?.Invoke(this);
+                return true;
+            }
+            return false;
+        }
 
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="source"></param>
-		public virtual bool Redo(Object source)
-		{
-			// Check if we can even redo
-			LinkedListNode<IRecord> newMarker = RedoMarker;
-			if(newMarker != null)
-			{
-				// Call before events
-				OnBeforeChanged?.Invoke(this);
-				OnBeforeRedo?.Invoke(source, this);
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="source"></param>
+        public virtual bool Redo(Object source)
+        {
+            // Check if we can even redo
+            LinkedListNode<IRecord> newMarker = RedoMarker;
+            if(newMarker != null)
+            {
+                // Call before events
+                OnBeforeChanged?.Invoke(this);
+                OnBeforeRedo?.Invoke(source, this);
 
-				// Perform redo
-				newMarker.Value.Redo(source, this);
+                // Perform redo
+                newMarker.Value.Redo(source, this);
 
-				// Move the marker to the next history entry
-				UndoMarker = newMarker;
+                // Move the marker to the next history entry
+                UndoMarker = newMarker;
 
-				// Call after events
-				OnAfterRedo?.Invoke(source, this);
-				OnAfterChanged?.Invoke(this);
-				return true;
-			}
-			return false;
-		}
+                // Call after events
+                OnAfterRedo?.Invoke(source, this);
+                OnAfterChanged?.Invoke(this);
+                return true;
+            }
+            return false;
+        }
 
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public virtual void Clear()
-		{
-			// Call before events
-			OnBeforeChanged?.Invoke(this);
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public virtual void Clear()
+        {
+            // Call before events
+            OnBeforeChanged?.Invoke(this);
 
-			// Reset records
-			UndoMarker = null;
-			history.Clear();
+            // Reset records
+            UndoMarker = null;
+            history.Clear();
 
-			// Call after events
-			OnAfterChanged?.Invoke(this);
-		}
+            // Call after events
+            OnAfterChanged?.Invoke(this);
+        }
 
-		/// <inheritdoc/>
-		public IEnumerator<IRecord> GetEnumerator()
-		{
-			return ((IEnumerable<IRecord>)history).GetEnumerator();
-		}
+        /// <inheritdoc/>
+        public IEnumerator<IRecord> GetEnumerator()
+        {
+            return ((IEnumerable<IRecord>)history).GetEnumerator();
+        }
 
-		/// <inheritdoc/>
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			return ((IEnumerable)history).GetEnumerator();
-		}
-	}
+        /// <inheritdoc/>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)history).GetEnumerator();
+        }
+    }
 }
