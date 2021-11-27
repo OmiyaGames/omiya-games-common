@@ -71,13 +71,13 @@ namespace OmiyaGames
             /// </summary>
             /// <param name="source">The caller of this method.</param>
             /// <param name="history">The history this record is in.</param>
-            public void OnUndo(Object source, UndoHistory history);
+            public void OnUndo(object source, UndoHistory history);
             /// <summary>
             /// Called by <seealso cref="UndoHistory.Redo(Object)"/>.
             /// </summary>
             /// <param name="source">The caller of this method.</param>
             /// <param name="history">The history this record is in.</param>
-            public void OnRedo(Object source, UndoHistory history);
+            public void OnRedo(object source, UndoHistory history);
         }
 
         public const int DefaultCapacity = int.MaxValue;
@@ -100,19 +100,19 @@ namespace OmiyaGames
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<Object, UndoHistory> OnBeforeUndo;
+        public event System.Action<object, UndoHistory> OnBeforeUndo;
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<Object, UndoHistory> OnAfterUndo;
+        public event System.Action<object, UndoHistory> OnAfterUndo;
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<Object, UndoHistory> OnBeforeRedo;
+        public event System.Action<object, UndoHistory> OnBeforeRedo;
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<Object, UndoHistory> OnAfterRedo;
+        public event System.Action<object, UndoHistory> OnAfterRedo;
 
         /// <summary>
         /// Constructs an Undo history.
@@ -229,7 +229,7 @@ namespace OmiyaGames
         /// TODO
         /// </summary>
         /// <param name="source"></param>
-        public virtual bool Undo(Object source)
+        public virtual bool Undo(object source)
         {
             // Check if we can even undo
             if(UndoMarker != null)
@@ -256,7 +256,7 @@ namespace OmiyaGames
         /// TODO
         /// </summary>
         /// <param name="source"></param>
-        public virtual bool Redo(Object source)
+        public virtual bool Redo(object source)
         {
             // Check if we can even redo
             LinkedListNode<IRecord> newMarker = RedoMarker;
