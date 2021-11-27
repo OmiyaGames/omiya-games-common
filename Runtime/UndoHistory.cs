@@ -9,7 +9,7 @@ namespace OmiyaGames
     /// <copyright file="UndoHistory.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2014-2021 Omiya Games
+    /// Copyright (c) 2021 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,8 @@ namespace OmiyaGames
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Date:</strong> 8/18/2015<br/>
+    /// <strong>Version:</strong> 1.1.0<br/>
+    /// <strong>Date:</strong> 11/27/2021<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
     /// <description>
@@ -58,14 +59,7 @@ namespace OmiyaGames
         public interface IRecord
         {
             /// <summary>
-            /// Brief description of this action.
-            /// </summary>
-            public string Name
-            {
-                get;
-            }
-            /// <summary>
-            /// Longer description of this action.
+            /// Description of this action.
             /// </summary>
             public string Description
             {
@@ -73,18 +67,20 @@ namespace OmiyaGames
             }
 
             /// <summary>
-            /// Un-does an action.  Called by <seealso cref="UndoHistory.Undo(Object)"/>.
+            /// Called by <seealso cref="UndoHistory.Undo(Object)"/>.
             /// </summary>
             /// <param name="source">The caller of this method.</param>
             /// <param name="history">The history this record is in.</param>
-            public void Undo(Object source, UndoHistory history);
+            public void OnUndo(Object source, UndoHistory history);
             /// <summary>
-            /// Re-does an action.  Called by <seealso cref="UndoHistory.Redo(Object)"/>.
+            /// Called by <seealso cref="UndoHistory.Redo(Object)"/>.
             /// </summary>
             /// <param name="source">The caller of this method.</param>
             /// <param name="history">The history this record is in.</param>
-            public void Redo(Object source, UndoHistory history);
+            public void OnRedo(Object source, UndoHistory history);
         }
+
+        public const int DefaultCapacity = int.MaxValue;
 
         /// <summary>
         /// History of actions, up to <see cref="Capacity"/>.
@@ -122,8 +118,13 @@ namespace OmiyaGames
         /// Constructs an Undo history.
         /// </summary>
         /// <param name="capacity">How many records this list stores.  Defaults to <see cref="int.MaxValue"/></param>
-        public UndoHistory(int capacity = int.MaxValue)
+        /// <exception cref="System.ArgumentException">If <paramref name="capacity"/> is less than 1.</exception>
+        public UndoHistory(int capacity = DefaultCapacity)
         {
+            if(capacity < 1)
+            {
+                throw new System.ArgumentException("Capacity is below one.", "capacity");
+            }
             Capacity = capacity;
         }
 
@@ -184,6 +185,7 @@ namespace OmiyaGames
         /// TODO
         /// </summary>
         /// <param name="record"></param>
+        /// <exception cref="System.ArgumentNullException">If <paramref name="record"/> is <c>null</c>.</exception>
         public virtual void Add(IRecord record)
         {
             if(record == null)
@@ -237,7 +239,7 @@ namespace OmiyaGames
                 OnBeforeUndo?.Invoke(source, this);
 
                 // Perform undo
-                UndoMarker.Value.Undo(source, this);
+                UndoMarker.Value.OnUndo(source, this);
 
                 // Move the marker to the previous history entry
                 UndoMarker = UndoMarker.Previous;
@@ -265,7 +267,7 @@ namespace OmiyaGames
                 OnBeforeRedo?.Invoke(source, this);
 
                 // Perform redo
-                newMarker.Value.Redo(source, this);
+                newMarker.Value.OnRedo(source, this);
 
                 // Move the marker to the next history entry
                 UndoMarker = newMarker;
