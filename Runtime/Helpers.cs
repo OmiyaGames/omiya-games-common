@@ -491,5 +491,31 @@ namespace OmiyaGames
 
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
+
+        /// <summary>
+        /// Destroys an <see cref="Object"/> safely.
+        /// </summary>
+        /// <remarks>
+        /// Code from Unity's Core RenderPipeline package (<c>CoreUtils.Destroy(obj)</c>.)
+        /// </remarks>
+        /// <param name="obj">Object to be destroyed.</param>
+        public static void Destroy(Object obj)
+        {
+            if (obj != null)
+            {
+#if UNITY_EDITOR
+                if ((Application.isPlaying == true) && (UnityEditor.EditorApplication.isPaused == false))
+                {
+                    Object.Destroy(obj);
+                }
+                else
+                {
+                    Object.DestroyImmediate(obj);
+                }
+#else
+                Object.Destroy(obj);
+#endif
+            }
+        }
     }
 }
