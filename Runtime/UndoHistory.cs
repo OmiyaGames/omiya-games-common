@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,6 +52,7 @@ namespace OmiyaGames
     /// Records a list of previous actions, and allows user to undo or redo
     /// them.
     /// </summary>
+    [Serializable]
     public class UndoHistory : IReadOnlyCollection<UndoHistory.IRecord>
     {
         /// <summary>
@@ -82,52 +84,57 @@ namespace OmiyaGames
 
         public const int DefaultCapacity = int.MaxValue;
 
-        /// <summary>
-        /// History of actions, up to <see cref="Capacity"/>.
-        /// First node is oldest, while last is latest.
-        /// </summary>
-        protected readonly LinkedList<IRecord> history = new LinkedList<IRecord>();
+        [SerializeField]
         LinkedListNode<IRecord> undoMarker = null;
 
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<UndoHistory> OnBeforeChanged;
+        public event Action<UndoHistory> OnBeforeChanged;
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<UndoHistory> OnAfterChanged;
+        public event Action<UndoHistory> OnAfterChanged;
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<object, UndoHistory> OnBeforeUndo;
+        public event Action<object, UndoHistory> OnBeforeUndo;
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<object, UndoHistory> OnAfterUndo;
+        public event Action<object, UndoHistory> OnAfterUndo;
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<object, UndoHistory> OnBeforeRedo;
+        public event Action<object, UndoHistory> OnBeforeRedo;
         /// <summary>
         /// TODO
         /// </summary>
-        public event System.Action<object, UndoHistory> OnAfterRedo;
+        public event Action<object, UndoHistory> OnAfterRedo;
 
         /// <summary>
         /// Constructs an Undo history.
         /// </summary>
         /// <param name="capacity">How many records this list stores.  Defaults to <see cref="int.MaxValue"/></param>
-        /// <exception cref="System.ArgumentException">If <paramref name="capacity"/> is less than 1.</exception>
+        /// <exception cref="ArgumentException">If <paramref name="capacity"/> is less than 1.</exception>
         public UndoHistory(int capacity = DefaultCapacity)
         {
             if(capacity < 1)
             {
-                throw new System.ArgumentException("Capacity is below one.", "capacity");
+                throw new ArgumentException("Capacity is below one.", "capacity");
             }
             Capacity = capacity;
         }
 
+        /// <summary>
+        /// History of actions, up to <see cref="Capacity"/>.
+        /// First node is oldest, while last is latest.
+        /// </summary>
+        [field: SerializeField]
+        protected LinkedList<IRecord> History
+        {
+            get;
+        } = new LinkedList<IRecord>();
         /// <summary>
         /// The max number of actions stored.
         /// </summary>
@@ -138,9 +145,9 @@ namespace OmiyaGames
         /// <summary>
         /// Actual number of actions stored.
         /// </summary>
-        public int Count => history.Count;
+        public int Count => History.Count;
         /// <summary>
-        /// The node in <see cref="history"/> that <seealso cref="Undo(Object)"/> will call.
+        /// The node in <see cref="History"/> that <seealso cref="Undo(Object)"/> will call.
         /// </summary>
         protected virtual LinkedListNode<IRecord> UndoMarker
         {
@@ -148,7 +155,7 @@ namespace OmiyaGames
             set => undoMarker = value;
         }
         /// <summary>
-        /// The node in <see cref="history"/> that <seealso cref="Redo(Object)"/> will call.
+        /// The node in <see cref="History"/> that <seealso cref="Redo(Object)"/> will call.
         /// </summary>
         protected LinkedListNode<IRecord> RedoMarker
         {
@@ -160,7 +167,7 @@ namespace OmiyaGames
                 }
                 else
                 {
-                    return history.First;
+                    return History.First;
                 }
             }
         }
@@ -185,12 +192,12 @@ namespace OmiyaGames
         /// TODO
         /// </summary>
         /// <param name="record"></param>
-        /// <exception cref="System.ArgumentNullException">If <paramref name="record"/> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentNullException">If <paramref name="record"/> is <c>null</c>.</exception>
         public virtual void Add(IRecord record)
         {
             if(record == null)
             {
-                throw new System.ArgumentNullException("record");
+                throw new ArgumentNullException("record");
             }
 
             // Call before events
@@ -202,23 +209,23 @@ namespace OmiyaGames
                 // If so, remove all recent actions after the latest
                 while(UndoMarker.Next != null)
                 {
-                    history.RemoveLast();
+                    History.RemoveLast();
                 }
             }
-            else if(history.Count > 0)
+            else if(History.Count > 0)
             {
                 // If at the last undo, clear the entire history
-                history.Clear();
+                History.Clear();
             }
 
             // Add a new action at the end of history
-            UndoMarker = history.AddLast(record);
+            UndoMarker = History.AddLast(record);
 
             // Check if the history is over-capacity
-            while(history.Count > Capacity)
+            while(History.Count > Capacity)
             {
                 // Remove the earliest actions
-                history.RemoveFirst();
+                History.RemoveFirst();
             }
 
             // Call after events
@@ -290,7 +297,7 @@ namespace OmiyaGames
 
             // Reset records
             UndoMarker = null;
-            history.Clear();
+            History.Clear();
 
             // Call after events
             OnAfterChanged?.Invoke(this);
@@ -299,13 +306,13 @@ namespace OmiyaGames
         /// <inheritdoc/>
         public IEnumerator<IRecord> GetEnumerator()
         {
-            return ((IEnumerable<IRecord>)history).GetEnumerator();
+            return ((IEnumerable<IRecord>)History).GetEnumerator();
         }
 
         /// <inheritdoc/>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable)history).GetEnumerator();
+            return ((IEnumerable)History).GetEnumerator();
         }
     }
 }
