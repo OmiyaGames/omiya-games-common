@@ -52,7 +52,6 @@ namespace OmiyaGames
     /// Records a list of previous actions, and allows user to undo or redo
     /// them.
     /// </summary>
-    [Serializable]
     public class UndoHistory : IReadOnlyCollection<UndoHistory.IRecord>
     {
         /// <summary>
@@ -84,7 +83,6 @@ namespace OmiyaGames
 
         public const int DefaultCapacity = int.MaxValue;
 
-        [SerializeField]
         LinkedListNode<IRecord> undoMarker = null;
 
         /// <summary>
@@ -130,7 +128,6 @@ namespace OmiyaGames
         /// History of actions, up to <see cref="Capacity"/>.
         /// First node is oldest, while last is latest.
         /// </summary>
-        [field: SerializeField]
         protected LinkedList<IRecord> History
         {
             get;
