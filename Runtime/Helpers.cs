@@ -10,7 +10,7 @@ namespace OmiyaGames
     /// <copyright file="Helpers.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
-    /// Copyright (c) 2014-2020 Omiya Games
+    /// Copyright (c) 2014-2021 Omiya Games
     /// 
     /// Permission is hereby granted, free of charge, to any person obtaining a copy
     /// of this software and associated documentation files (the "Software"), to deal
@@ -71,6 +71,16 @@ namespace OmiyaGames
     /// Updating documentation.  Moving method <see cref="ShortenUrl(string)"/> to Omiya Games - Web package.
     /// </description>
     /// </item>
+    /// <item>
+    /// <term>
+    /// <strong>Version:</strong> 1.1.0<br/>
+    /// <strong>Date:</strong> 6/28/2021<br/>
+    /// <strong>Author:</strong> Taro Omiya
+    /// </term>
+    /// <description>
+    /// Adding a delegate to monitor changing values.
+    /// </description>
+    /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
@@ -118,6 +128,15 @@ namespace OmiyaGames
             '>',
             '|'
         };
+        /// <summary>
+        /// Delegate for tracking changes to a single value.
+        /// </summary>
+        /// <typeparam name="SOURCE">Type of the object being changed.</typeparam>
+        /// <typeparam name="VALUE">Type of the object's member variable being changed.</typeparam>
+        /// <param name="eventSource">The object's member variable being changed.</param>
+        /// <param name="oldValue">The old member variable's value.</param>
+        /// <param name="newValue">The new value the member variable is going to be set to.</param>
+        public delegate void ChangeEvent<SOURCE, VALUE>(SOURCE eventSource, VALUE oldValue, VALUE newValue);
 
         /// <summary>
         /// Creates a clone of the components <code>GameObject</code>, places it under
@@ -471,6 +490,32 @@ namespace OmiyaGames
             }
 
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+        /// <summary>
+        /// Destroys an <see cref="Object"/> safely.
+        /// </summary>
+        /// <remarks>
+        /// Code from Unity's Core RenderPipeline package (<c>CoreUtils.Destroy(obj)</c>.)
+        /// </remarks>
+        /// <param name="obj">Object to be destroyed.</param>
+        public static void Destroy(Object obj)
+        {
+            if (obj != null)
+            {
+#if UNITY_EDITOR
+                if ((Application.isPlaying == true) && (UnityEditor.EditorApplication.isPaused == false))
+                {
+                    Object.Destroy(obj);
+                }
+                else
+                {
+                    Object.DestroyImmediate(obj);
+                }
+#else
+                Object.Destroy(obj);
+#endif
+            }
         }
     }
 }

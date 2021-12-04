@@ -5,7 +5,7 @@ namespace OmiyaGames.Common.Editor
 {
     ///-----------------------------------------------------------------------
     /// <remarks>
-    /// <copyright file="HsvColorDrawer.cs" company="Omiya Games">
+    /// <copyright file="TrackableDrawer.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2021 Omiya Games
@@ -35,51 +35,22 @@ namespace OmiyaGames.Common.Editor
     /// </listheader>
     /// <item>
     /// <term>
-    /// <strong>Date:</strong> 10/12/2018<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>
-    /// Initial version.
-    /// </description>
-    /// </item>
-    /// <item>
-    /// <term>
-    /// <strong>Version:</strong> 0.1.0-preview.1<br/>
-    /// <strong>Date:</strong> 3/25/2020<br/>
+    /// <strong>Version:</strong> 1.1.0<br/>
+    /// <strong>Date:</strong> 6/28/2021<br/>
     /// <strong>Author:</strong> Taro Omiya
     /// </term>
     /// <description>
     /// Converted the class to a package.
     /// </description>
     /// </item>
-    /// <item>
-    /// <term>
-    /// <strong>Version:</strong> 0.1.4-preview.1<br/>
-    /// <strong>Date:</strong> 5/27/2020<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>
-    /// Updating documentation to be compatible with DocFX.
-    /// </description>
-    /// </item>
-    /// <item>
-    /// <term>
-    /// <strong>Version:</strong> 1.1.0<br/>
-    /// <strong>Date:</strong> 6/28/2021<br/>
-    /// <strong>Author:</strong> Taro Omiya
-    /// </term>
-    /// <description>
-    /// Small refactor.
-    /// </description>
-    /// </item>
     /// </list>
     /// </remarks>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// Property Drawer for <see cref="HsvColor"/> by...just making it into a color picker.
+    /// Property Drawer for <see cref="Trackable{T}}"/> that draws the value directly.
     /// </summary>
-    [CustomPropertyDrawer(typeof(HsvColor))]
-    public class HsvColorDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(Trackable<>))]
+    public class TrackableDrawer : PropertyDrawer
     {
         /// <inheritdoc/>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -88,26 +59,15 @@ namespace OmiyaGames.Common.Editor
             // prefab override logic works on the entire property.
             using (var scope = new EditorGUI.PropertyScope(position, label, property))
             {
-                // Grab all values
-                SerializedProperty hue = property.FindPropertyRelative("hue");
-                SerializedProperty saturation = property.FindPropertyRelative("saturation");
-                SerializedProperty value = property.FindPropertyRelative("value");
-                SerializedProperty alpha = property.FindPropertyRelative("alpha");
-
-                // Convert these values into a color
-                HsvColor color = new HsvColor(hue.floatValue, saturation.floatValue, value.floatValue, alpha.floatValue);
-                Color convertedColor = color.ToColor();
-
-                // Draw the color field
-                convertedColor = EditorGUI.ColorField(position, label, convertedColor);
-
-                // Convert the color back to the values
-                color = HsvColor.FromColor(convertedColor);
-                hue.floatValue = color.Hue;
-                saturation.floatValue = color.Saturation;
-                value.floatValue = color.Value;
-                alpha.floatValue = color.Alpha;
+                // Draw the value as a typical property
+                EditorGUI.PropertyField(position, property.FindPropertyRelative("value"), label, true);
             }
+        }
+
+        /// <inheritdoc/>
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        {
+            return EditorGUI.GetPropertyHeight(property.FindPropertyRelative("value"), label, true);
         }
     }
 }

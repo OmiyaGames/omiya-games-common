@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.1.0
+
+- **New Feature:** added new class, [`UndoHistory`](https://github.com/OmiyaGames/omiya-games-common/blob/master/Runtime/UndoHistory.cs)
+- **New Enhancement:** added new helper function, [`Helpers.Destroy(Object)`](https://github.com/OmiyaGames/omiya-games-common/blob/master/Runtime/Helpers.cs), which actually was copy-pasted from Unity's Core RP Library package.
+
 ## 1.0.0
 
 - Bumping up the version number to stable, given this library has been battle tested for long enough.
