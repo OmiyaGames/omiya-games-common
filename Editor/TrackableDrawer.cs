@@ -52,22 +52,37 @@ namespace OmiyaGames.Common.Editor
     [CustomPropertyDrawer(typeof(Trackable<>))]
     public class TrackableDrawer : PropertyDrawer
     {
+        bool includeChildren = false;
+
         /// <inheritdoc/>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // Using PropertyScope on the parent property means that
             // prefab override logic works on the entire property.
-            using (var scope = new EditorGUI.PropertyScope(position, label, property))
+            using (var propertyScope = new EditorGUI.PropertyScope(position, label, property))
+            using (var changeScope = new EditorGUI.ChangeCheckScope())
             {
+                // Cache the old value
+                SerializedProperty childProperty = property.FindPropertyRelative("value");
+                object oldValue = property.serializedObject.targetObject;
+
                 // Draw the value as a typical property
-                EditorGUI.PropertyField(position, property.FindPropertyRelative("value"), label, true);
+                includeChildren = EditorGUI.PropertyField(position, childProperty, label, includeChildren);
+
+                // Check if the child property changed
+                if(changeScope.changed)
+                {
+                    // Notify the object value has changed
+                    var trackable = (IEditorTrackable)property.serializedObject.targetObject;
+                    trackable.OnValueChangedInEditor(oldValue, childProperty.serializedObject.targetObject);
+                }
             }
         }
 
         /// <inheritdoc/>
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return EditorGUI.GetPropertyHeight(property.FindPropertyRelative("value"), label, true);
+            return EditorGUI.GetPropertyHeight(property.FindPropertyRelative("value"), label, includeChildren);
         }
     }
 }
