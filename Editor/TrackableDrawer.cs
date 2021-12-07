@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEditor;
 
 namespace OmiyaGames.Common.Editor
@@ -52,7 +53,14 @@ namespace OmiyaGames.Common.Editor
     [CustomPropertyDrawer(typeof(Trackable<>))]
     public class TrackableDrawer : PropertyDrawer
     {
-        bool includeChildren = false;
+        class FoldoutState
+        {
+            // TODO: add a mechanism to detect stale dictionary values to later remove
+            //public double lastUpdated = EditorApplication.timeSinceStartup;
+            public bool isExpanded = false;
+        }
+
+        readonly Dictionary<string, FoldoutState> typeToExpandedMap = new Dictionary<string, FoldoutState>();
 
         /// <inheritdoc/>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -64,17 +72,18 @@ namespace OmiyaGames.Common.Editor
             {
                 // Cache the old value
                 SerializedProperty childProperty = property.FindPropertyRelative("value");
-                object oldValue = property.serializedObject.targetObject;
+                object oldValue = GetValue(childProperty);
 
                 // Draw the value as a typical property
-                includeChildren = EditorGUI.PropertyField(position, childProperty, label, includeChildren);
+                FoldoutState state = GetFoldoutState(childProperty);
+                state.isExpanded = EditorGUI.PropertyField(position, childProperty, label, state.isExpanded);
 
                 // Check if the child property changed
-                if(changeScope.changed)
+                if (changeScope.changed)
                 {
                     // Notify the object value has changed
-                    var trackable = (IEditorTrackable)property.serializedObject.targetObject;
-                    trackable.OnValueChangedInEditor(oldValue, childProperty.serializedObject.targetObject);
+                    IEditorTrackable trackable = (IEditorTrackable)fieldInfo.GetValue(property.serializedObject.targetObject);
+                    trackable.OnValueChangedInEditor(oldValue, GetValue(childProperty));
                 }
             }
         }
@@ -82,7 +91,68 @@ namespace OmiyaGames.Common.Editor
         /// <inheritdoc/>
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return EditorGUI.GetPropertyHeight(property.FindPropertyRelative("value"), label, includeChildren);
+            // Check if this property is expanded
+            SerializedProperty childProperty = property.FindPropertyRelative("value");
+            FoldoutState state = GetFoldoutState(childProperty);
+            return EditorGUI.GetPropertyHeight(childProperty, label, state.isExpanded);
         }
+
+        FoldoutState GetFoldoutState(SerializedProperty childProperty)
+        {
+            if (typeToExpandedMap.TryGetValue(childProperty.type, out FoldoutState state) == false)
+            {
+                state = new FoldoutState();
+                typeToExpandedMap.Add(childProperty.type, state);
+            }
+            return state;
+        }
+
+        object GetValue(SerializedProperty childProperty)
+        {
+            switch (childProperty.propertyType)
+            {
+                case SerializedPropertyType.Integer:
+                    return childProperty.intValue;
+                case SerializedPropertyType.Float:
+                    return childProperty.floatValue;
+                case SerializedPropertyType.Enum:
+                    return childProperty.enumValueIndex;
+                case SerializedPropertyType.Boolean:
+                    return childProperty.boolValue;
+                case SerializedPropertyType.String:
+                    return childProperty.stringValue;
+                case SerializedPropertyType.Vector2:
+                    return childProperty.vector2Value;
+                case SerializedPropertyType.Vector3:
+                    return childProperty.vector3Value;
+                case SerializedPropertyType.Quaternion:
+                    return childProperty.quaternionValue;
+                case SerializedPropertyType.Color:
+                    return childProperty.colorValue;
+                case SerializedPropertyType.Vector2Int:
+                    return childProperty.vector2IntValue;
+                case SerializedPropertyType.Vector3Int:
+                    return childProperty.vector3IntValue;
+                case SerializedPropertyType.Vector4:
+                    return childProperty.vector4Value;
+                case SerializedPropertyType.Rect:
+                    return childProperty.rectValue;
+                case SerializedPropertyType.Bounds:
+                    return childProperty.boundsValue;
+                case SerializedPropertyType.RectInt:
+                    return childProperty.rectIntValue;
+                case SerializedPropertyType.BoundsInt:
+                    return childProperty.boundsIntValue;
+                case SerializedPropertyType.AnimationCurve:
+                    return childProperty.animationCurveValue;
+                case SerializedPropertyType.Hash128:
+                    return childProperty.hash128Value;
+                case SerializedPropertyType.ManagedReference:
+                    return childProperty.managedReferenceValue;
+                default:
+                    return childProperty.objectReferenceValue;
+            }
+        }
+
     }
 }
