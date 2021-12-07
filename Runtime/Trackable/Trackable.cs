@@ -99,6 +99,9 @@ namespace OmiyaGames
         }
 
         /// <inheritdoc/>
+        public object EditorValue => Value;
+
+        /// <inheritdoc/>
         public void OnValueChangedInEditor(object oldValue, object newValue)
         {
             OnAfterValueChanged?.Invoke((T)oldValue, (T)newValue);

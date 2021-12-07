@@ -51,5 +51,12 @@ namespace OmiyaGames
         /// Called from editor when change is detected.
         /// </summary>
         public void OnValueChangedInEditor(object oldValue, object newValue);
+        /// <summary>
+        /// Called from editor when change is detected.
+        /// </summary>
+        public object EditorValue
+        {
+            get;
+        }
     }
 }
