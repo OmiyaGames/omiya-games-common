@@ -44,7 +44,6 @@ namespace OmiyaGames
     ///-----------------------------------------------------------------------
     /// <summary>
     /// A value that allows tracking changes via C# events.
-    /// See <seealso cref="Trackable{T}"/>.
     /// </summary>
     /// <typeparam name="T">Type of value being tracked.</typeparam>
     public interface ITrackable<T>

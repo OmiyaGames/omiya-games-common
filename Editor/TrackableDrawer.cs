@@ -83,9 +83,7 @@ namespace OmiyaGames.Common.Editor
 		/// <inheritdoc/>
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
-			// Check if this property is expanded
-			SerializedProperty childProperty = property.FindPropertyRelative("value");
-			return EditorGUI.GetPropertyHeight(childProperty, label, isExpanded);
+			return EditorGUI.GetPropertyHeight(property.FindPropertyRelative("value"), label, isExpanded);
 		}
 
 		object GetValue(SerializedProperty childProperty, IEditorTrackable trackable)

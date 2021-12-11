@@ -60,8 +60,9 @@ namespace OmiyaGames
         public override event ITrackable<T>.ChangeEvent OnBeforeValueChanged;
         /// <inheritdoc/>
         /// <remarks>
-        /// This event will also be called from the editor, although the oldValue
-        /// argument may not be accurate.
+        /// This event will also be called from the editor, although arguments
+        /// may not be updated to the latest if <typeparamref name="T"/>
+        /// is a <see cref="System.SerializableAttribute"/> class or struct instance.
         /// </remarks>
         public override event ITrackable<T>.ChangeEvent OnAfterValueChanged;
 
@@ -102,6 +103,10 @@ namespace OmiyaGames
         public object EditorValue => Value;
 
         /// <inheritdoc/>
+        /// <remarks>
+        /// Arguments may not be updated to the latest if <typeparamref name="T"/>
+        /// is a <see cref="System.SerializableAttribute"/> class or struct instance.
+        /// </remarks>
         public void OnValueChangedInEditor(object oldValue, object newValue)
         {
             OnAfterValueChanged?.Invoke((T)oldValue, (T)newValue);
