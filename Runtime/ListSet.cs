@@ -118,7 +118,6 @@ namespace OmiyaGames
             list = new List<T>();
         }
 
-
         /// <summary>
         /// Constructor to set the <see cref="IEqualityComparer{T}"/>,
         /// used to check if two elements matches.

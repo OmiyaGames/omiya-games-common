@@ -54,87 +54,104 @@ namespace OmiyaGames
 	[Serializable]
 	public class SerializableListSet<T> : ListSet<T>, ISerializationCallbackReceiver
 	{
-		const int MIN_CAPACITY = 2;
-
 		[SerializeField]
 		List<T> serializedList;
 		[SerializeField, HideInInspector]
 		bool isSerializing = false;
 
+		/// <summary>
+		/// Default constructor that sets up an empty list.
+		/// </summary>
 		public SerializableListSet()
 		{
 			serializedList = new List<T>();
 		}
 
+		/// <summary>
+		/// Constructor an empty list with initial capacity defined.
+		/// </summary>
+		/// <param name="capacity">Initial capacity of this list.</param>
 		public SerializableListSet(int capacity) : base(capacity)
 		{
 			serializedList = new List<T>(capacity);
 		}
 
+		/// <summary>
+		/// Constructor to set the <see cref="IEqualityComparer{T}"/>,
+		/// used to check if two elements matches.
+		/// </summary>
+		/// <param name="comparer">
+		/// Comparer to check if two elements matches.
+		/// </param>
 		public SerializableListSet(IEqualityComparer<T> comparer) : base(comparer)
 		{
 			serializedList = new List<T>();
 		}
 
+		/// <summary>
+		/// Constructor to set the <see cref="IEqualityComparer{T}"/>,
+		/// used to check if two elements matches.
+		/// </summary>
+		/// <param name="capacity">Initial capacity of this list.</param>
+		/// <param name="comparer">
+		/// Comparer to check if two elements matches.
+		/// </param>
 		public SerializableListSet(int capacity, IEqualityComparer<T> comparer) : base(capacity, comparer)
 		{
 			serializedList = new List<T>(capacity);
 		}
 
+		/// <summary>
+		/// Indicates if this collection is in the middle of serializing.
+		/// </summary>
 		public bool IsSerializing => isSerializing;
-		public IReadOnlyList<T> SerializedList => serializedList.AsReadOnly();
 
-
+		/// <inheritdoc/>
 		[Obsolete("Manual call not supported.", true)]
 		public void OnBeforeSerialize()
 		{
 			// Indicate we started serializing
 			isSerializing = true;
 
-			// Clear serializedList content
-			ClearSerializedList();
-
-			// Populate the list
-			foreach (T item in this)
+			// Remove entries that are not in the list
+			for (int i = 0; i < serializedList.Count;)
 			{
-				serializedList.Add(item);
+				if (Contains(serializedList[i]))
+				{
+					++i;
+				}
+				else
+				{
+					serializedList.RemoveAt(i);
+				}
+			}
+
+			// Populate the list with new entries
+			var cur = new HashSet<T>(serializedList);
+			foreach (var val in this)
+			{
+				if (cur.Contains(val) == false)
+				{
+					serializedList.Add(val);
+				}
 			}
 		}
 
+		/// <inheritdoc/>
 		[Obsolete("Manual call not supported.", true)]
 		public void OnAfterDeserialize()
 		{
 			// Clear this HashSet's contents
 			Clear();
 
-			if (serializedList != null)
+			// Populate this HashSet
+			foreach (T item in serializedList)
 			{
-				// Populate this HashSet
-				foreach (T item in serializedList)
-				{
-					Add(item);
-				}
+				Add(item);
 			}
 
 			// Indicate we're done serializing
 			isSerializing = false;
-
-			// Reset the serialization
-			ClearSerializedList();
-		}
-
-		void ClearSerializedList()
-		{
-			int capacity = Mathf.Max(Count, MIN_CAPACITY);
-			if (serializedList == null)
-			{
-				serializedList = new List<T>(capacity);
-			}
-			else
-			{
-				serializedList.Clear();
-				serializedList.Capacity = capacity;
-			}
 		}
 	}
 }
