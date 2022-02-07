@@ -113,42 +113,16 @@ namespace OmiyaGames
 			// Indicate we started serializing
 			isSerializing = true;
 
-			// Remove entries that are not in the list
-			for (int i = 0; i < serializedList.Count;)
-			{
-				if (Contains(serializedList[i]))
-				{
-					++i;
-				}
-				else
-				{
-					serializedList.RemoveAt(i);
-				}
-			}
-
-			// Populate the list with new entries
-			var cur = new HashSet<T>(serializedList);
-			foreach (var val in this)
-			{
-				if (cur.Contains(val) == false)
-				{
-					serializedList.Add(val);
-				}
-			}
+			// Sync this set's data into the list
+			SerializableHelpers.PushSetIntoSerializedList(this, serializedList);
 		}
 
 		/// <inheritdoc/>
 		[Obsolete("Manual call not supported.", true)]
 		public void OnAfterDeserialize()
 		{
-			// Clear this HashSet's contents
-			Clear();
-
-			// Populate this HashSet
-			foreach (T item in serializedList)
-			{
-				Add(item);
-			}
+			// Sync the list's data into the set.
+			SerializableHelpers.PushSerializedListIntoSet(serializedList, this);
 
 			// Indicate we're done serializing
 			isSerializing = false;
