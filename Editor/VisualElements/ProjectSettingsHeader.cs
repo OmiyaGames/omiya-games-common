@@ -127,7 +127,7 @@ namespace OmiyaGames.Common.Editor
         public string HelpUrl
         {
             get;
-            private set;
+            set;
         } = null;
 
         /// <summary>
