@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.2.0
+
+- **New Feature:** added new class, [`SerializableHashSet`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableHashSet.cs) -- a Set that can be adjusted in the inspector.
+- **New Feature:** added new class, [`SerializableListSet`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableListSet.cs) -- a sorted Set that can be adjusted in the inspector.
+- **New Enhancement:** allowing edits to [`Trackables`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Trackable/Trackable.cs) from the inspector trigger events.
+- **New Enhancement:** improving inspector interface for [`RandomList`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/RAndomList.cs).
+
 ## 1.1.0
 
 - **New Feature:** added new class, [`UndoHistory`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/UndoHistory.cs)
