@@ -51,7 +51,7 @@ namespace OmiyaGames
     /// </summary>
     /// <typeparam name="T">Type of value being tracked.</typeparam>
     [System.Serializable]
-    public class Trackable<T> : TrackableDecorator<T>
+    public class Trackable<T> : TrackableDecorator<T>, IEditorTrackable
     {
         [SerializeField]
         T value;
@@ -59,6 +59,11 @@ namespace OmiyaGames
         /// <inheritdoc/>
         public override event ITrackable<T>.ChangeEvent OnBeforeValueChanged;
         /// <inheritdoc/>
+        /// <remarks>
+        /// This event will also be called from the editor, although arguments
+        /// may not be updated to the latest if <typeparamref name="T"/>
+        /// is a <see cref="System.SerializableAttribute"/> class or struct instance.
+        /// </remarks>
         public override event ITrackable<T>.ChangeEvent OnAfterValueChanged;
 
         /// <summary>
@@ -92,6 +97,19 @@ namespace OmiyaGames
                 this.value = value;
                 OnAfterValueChanged?.Invoke(oldValue, this.value);
             }
+        }
+
+        /// <inheritdoc/>
+        public object EditorValue => Value;
+
+        /// <inheritdoc/>
+        /// <remarks>
+        /// Arguments may not be updated to the latest if <typeparamref name="T"/>
+        /// is a <see cref="System.SerializableAttribute"/> class or struct instance.
+        /// </remarks>
+        public void OnValueChangedInEditor(object oldValue, object newValue)
+        {
+            OnAfterValueChanged?.Invoke((T)oldValue, (T)newValue);
         }
     }
 }
