@@ -7,6 +7,30 @@ references:
   commentId: N:OmiyaGames
   fullName: OmiyaGames
   nameWithType: OmiyaGames
+- uid: OmiyaGames.Axis3D
+  name: Axis3D
+  href: api/OmiyaGames.Axis3D.html
+  commentId: T:OmiyaGames.Axis3D
+  fullName: OmiyaGames.Axis3D
+  nameWithType: Axis3D
+- uid: OmiyaGames.Axis3D.X
+  name: X
+  href: api/OmiyaGames.Axis3D.html#OmiyaGames_Axis3D_X
+  commentId: F:OmiyaGames.Axis3D.X
+  fullName: OmiyaGames.Axis3D.X
+  nameWithType: Axis3D.X
+- uid: OmiyaGames.Axis3D.Y
+  name: Y
+  href: api/OmiyaGames.Axis3D.html#OmiyaGames_Axis3D_Y
+  commentId: F:OmiyaGames.Axis3D.Y
+  fullName: OmiyaGames.Axis3D.Y
+  nameWithType: Axis3D.Y
+- uid: OmiyaGames.Axis3D.Z
+  name: Z
+  href: api/OmiyaGames.Axis3D.html#OmiyaGames_Axis3D_Z
+  commentId: F:OmiyaGames.Axis3D.Z
+  fullName: OmiyaGames.Axis3D.Z
+  nameWithType: Axis3D.Z
 - uid: OmiyaGames.BidirectionalDictionary`2
   name: BidirectionalDictionary<KEY, VALUE>
   href: api/OmiyaGames.BidirectionalDictionary-2.html
@@ -1179,6 +1203,57 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.Init
   nameWithType: ProjectSettingsHeader.UxmlTraits.Init
+- uid: OmiyaGames.Common.Editor.RandomListDrawer
+  name: RandomListDrawer
+  href: api/OmiyaGames.Common.Editor.RandomListDrawer.html
+  commentId: T:OmiyaGames.Common.Editor.RandomListDrawer
+  fullName: OmiyaGames.Common.Editor.RandomListDrawer
+  nameWithType: RandomListDrawer
+- uid: OmiyaGames.Common.Editor.RandomListDrawer.SerializedVariableName
+  name: SerializedVariableName
+  href: api/OmiyaGames.Common.Editor.RandomListDrawer.html#OmiyaGames_Common_Editor_RandomListDrawer_SerializedVariableName
+  commentId: P:OmiyaGames.Common.Editor.RandomListDrawer.SerializedVariableName
+  fullName: OmiyaGames.Common.Editor.RandomListDrawer.SerializedVariableName
+  nameWithType: RandomListDrawer.SerializedVariableName
+- uid: OmiyaGames.Common.Editor.RandomListDrawer.SerializedVariableName*
+  name: SerializedVariableName
+  href: api/OmiyaGames.Common.Editor.RandomListDrawer.html#OmiyaGames_Common_Editor_RandomListDrawer_SerializedVariableName_
+  commentId: Overload:OmiyaGames.Common.Editor.RandomListDrawer.SerializedVariableName
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.RandomListDrawer.SerializedVariableName
+  nameWithType: RandomListDrawer.SerializedVariableName
+- uid: OmiyaGames.Common.Editor.RandomListElementDrawer
+  name: RandomListElementDrawer
+  href: api/OmiyaGames.Common.Editor.RandomListElementDrawer.html
+  commentId: T:OmiyaGames.Common.Editor.RandomListElementDrawer
+  fullName: OmiyaGames.Common.Editor.RandomListElementDrawer
+  nameWithType: RandomListElementDrawer
+- uid: OmiyaGames.Common.Editor.RandomListElementDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  name: GetPropertyHeight(SerializedProperty, GUIContent)
+  href: api/OmiyaGames.Common.Editor.RandomListElementDrawer.html#OmiyaGames_Common_Editor_RandomListElementDrawer_GetPropertyHeight_SerializedProperty_GUIContent_
+  commentId: M:OmiyaGames.Common.Editor.RandomListElementDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  fullName: OmiyaGames.Common.Editor.RandomListElementDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+  nameWithType: RandomListElementDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+- uid: OmiyaGames.Common.Editor.RandomListElementDrawer.GetPropertyHeight*
+  name: GetPropertyHeight
+  href: api/OmiyaGames.Common.Editor.RandomListElementDrawer.html#OmiyaGames_Common_Editor_RandomListElementDrawer_GetPropertyHeight_
+  commentId: Overload:OmiyaGames.Common.Editor.RandomListElementDrawer.GetPropertyHeight
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.RandomListElementDrawer.GetPropertyHeight
+  nameWithType: RandomListElementDrawer.GetPropertyHeight
+- uid: OmiyaGames.Common.Editor.RandomListElementDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  name: OnGUI(Rect, SerializedProperty, GUIContent)
+  href: api/OmiyaGames.Common.Editor.RandomListElementDrawer.html#OmiyaGames_Common_Editor_RandomListElementDrawer_OnGUI_Rect_SerializedProperty_GUIContent_
+  commentId: M:OmiyaGames.Common.Editor.RandomListElementDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  fullName: OmiyaGames.Common.Editor.RandomListElementDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+  nameWithType: RandomListElementDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+- uid: OmiyaGames.Common.Editor.RandomListElementDrawer.OnGUI*
+  name: OnGUI
+  href: api/OmiyaGames.Common.Editor.RandomListElementDrawer.html#OmiyaGames_Common_Editor_RandomListElementDrawer_OnGUI_
+  commentId: Overload:OmiyaGames.Common.Editor.RandomListElementDrawer.OnGUI
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.RandomListElementDrawer.OnGUI
+  nameWithType: RandomListElementDrawer.OnGUI
 - uid: OmiyaGames.Common.Editor.ReadOnlyDrawer
   name: ReadOnlyDrawer
   href: api/OmiyaGames.Common.Editor.ReadOnlyDrawer.html
@@ -1243,6 +1318,102 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Common.Editor.ScenePathDrawer.OnGUI
   nameWithType: ScenePathDrawer.OnGUI
+- uid: OmiyaGames.Common.Editor.SerializableHashSetDrawer
+  name: SerializableHashSetDrawer
+  href: api/OmiyaGames.Common.Editor.SerializableHashSetDrawer.html
+  commentId: T:OmiyaGames.Common.Editor.SerializableHashSetDrawer
+  fullName: OmiyaGames.Common.Editor.SerializableHashSetDrawer
+  nameWithType: SerializableHashSetDrawer
+- uid: OmiyaGames.Common.Editor.SerializableHashSetDrawer.SerializedVariableName
+  name: SerializedVariableName
+  href: api/OmiyaGames.Common.Editor.SerializableHashSetDrawer.html#OmiyaGames_Common_Editor_SerializableHashSetDrawer_SerializedVariableName
+  commentId: P:OmiyaGames.Common.Editor.SerializableHashSetDrawer.SerializedVariableName
+  fullName: OmiyaGames.Common.Editor.SerializableHashSetDrawer.SerializedVariableName
+  nameWithType: SerializableHashSetDrawer.SerializedVariableName
+- uid: OmiyaGames.Common.Editor.SerializableHashSetDrawer.SerializedVariableName*
+  name: SerializedVariableName
+  href: api/OmiyaGames.Common.Editor.SerializableHashSetDrawer.html#OmiyaGames_Common_Editor_SerializableHashSetDrawer_SerializedVariableName_
+  commentId: Overload:OmiyaGames.Common.Editor.SerializableHashSetDrawer.SerializedVariableName
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.SerializableHashSetDrawer.SerializedVariableName
+  nameWithType: SerializableHashSetDrawer.SerializedVariableName
+- uid: OmiyaGames.Common.Editor.SerializableListSetDrawer
+  name: SerializableListSetDrawer
+  href: api/OmiyaGames.Common.Editor.SerializableListSetDrawer.html
+  commentId: T:OmiyaGames.Common.Editor.SerializableListSetDrawer
+  fullName: OmiyaGames.Common.Editor.SerializableListSetDrawer
+  nameWithType: SerializableListSetDrawer
+- uid: OmiyaGames.Common.Editor.SerializableListSetDrawer.SerializedVariableName
+  name: SerializedVariableName
+  href: api/OmiyaGames.Common.Editor.SerializableListSetDrawer.html#OmiyaGames_Common_Editor_SerializableListSetDrawer_SerializedVariableName
+  commentId: P:OmiyaGames.Common.Editor.SerializableListSetDrawer.SerializedVariableName
+  fullName: OmiyaGames.Common.Editor.SerializableListSetDrawer.SerializedVariableName
+  nameWithType: SerializableListSetDrawer.SerializedVariableName
+- uid: OmiyaGames.Common.Editor.SerializableListSetDrawer.SerializedVariableName*
+  name: SerializedVariableName
+  href: api/OmiyaGames.Common.Editor.SerializableListSetDrawer.html#OmiyaGames_Common_Editor_SerializableListSetDrawer_SerializedVariableName_
+  commentId: Overload:OmiyaGames.Common.Editor.SerializableListSetDrawer.SerializedVariableName
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.SerializableListSetDrawer.SerializedVariableName
+  nameWithType: SerializableListSetDrawer.SerializedVariableName
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer
+  name: SingleChildDrawer
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html
+  commentId: T:OmiyaGames.Common.Editor.SingleChildDrawer
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer
+  nameWithType: SingleChildDrawer
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer.ChildProperty(SerializedProperty)
+  name: ChildProperty(SerializedProperty)
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html#OmiyaGames_Common_Editor_SingleChildDrawer_ChildProperty_SerializedProperty_
+  commentId: M:OmiyaGames.Common.Editor.SingleChildDrawer.ChildProperty(SerializedProperty)
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer.ChildProperty(SerializedProperty)
+  nameWithType: SingleChildDrawer.ChildProperty(SerializedProperty)
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer.ChildProperty*
+  name: ChildProperty
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html#OmiyaGames_Common_Editor_SingleChildDrawer_ChildProperty_
+  commentId: Overload:OmiyaGames.Common.Editor.SingleChildDrawer.ChildProperty
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer.ChildProperty
+  nameWithType: SingleChildDrawer.ChildProperty
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  name: GetPropertyHeight(SerializedProperty, GUIContent)
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html#OmiyaGames_Common_Editor_SingleChildDrawer_GetPropertyHeight_SerializedProperty_GUIContent_
+  commentId: M:OmiyaGames.Common.Editor.SingleChildDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+  nameWithType: SingleChildDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer.GetPropertyHeight*
+  name: GetPropertyHeight
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html#OmiyaGames_Common_Editor_SingleChildDrawer_GetPropertyHeight_
+  commentId: Overload:OmiyaGames.Common.Editor.SingleChildDrawer.GetPropertyHeight
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer.GetPropertyHeight
+  nameWithType: SingleChildDrawer.GetPropertyHeight
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  name: OnGUI(Rect, SerializedProperty, GUIContent)
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html#OmiyaGames_Common_Editor_SingleChildDrawer_OnGUI_Rect_SerializedProperty_GUIContent_
+  commentId: M:OmiyaGames.Common.Editor.SingleChildDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+  nameWithType: SingleChildDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer.OnGUI*
+  name: OnGUI
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html#OmiyaGames_Common_Editor_SingleChildDrawer_OnGUI_
+  commentId: Overload:OmiyaGames.Common.Editor.SingleChildDrawer.OnGUI
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer.OnGUI
+  nameWithType: SingleChildDrawer.OnGUI
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer.SerializedVariableName
+  name: SerializedVariableName
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html#OmiyaGames_Common_Editor_SingleChildDrawer_SerializedVariableName
+  commentId: P:OmiyaGames.Common.Editor.SingleChildDrawer.SerializedVariableName
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer.SerializedVariableName
+  nameWithType: SingleChildDrawer.SerializedVariableName
+- uid: OmiyaGames.Common.Editor.SingleChildDrawer.SerializedVariableName*
+  name: SerializedVariableName
+  href: api/OmiyaGames.Common.Editor.SingleChildDrawer.html#OmiyaGames_Common_Editor_SingleChildDrawer_SerializedVariableName_
+  commentId: Overload:OmiyaGames.Common.Editor.SingleChildDrawer.SerializedVariableName
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.SingleChildDrawer.SerializedVariableName
+  nameWithType: SingleChildDrawer.SerializedVariableName
 - uid: OmiyaGames.Common.Editor.Spacer
   name: Spacer
   href: api/OmiyaGames.Common.Editor.Spacer.html
@@ -1306,6 +1477,38 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Common.Editor.SupportedPlatformsDrawer.OnGUI
   nameWithType: SupportedPlatformsDrawer.OnGUI
+- uid: OmiyaGames.Common.Editor.TrackableDrawer
+  name: TrackableDrawer
+  href: api/OmiyaGames.Common.Editor.TrackableDrawer.html
+  commentId: T:OmiyaGames.Common.Editor.TrackableDrawer
+  fullName: OmiyaGames.Common.Editor.TrackableDrawer
+  nameWithType: TrackableDrawer
+- uid: OmiyaGames.Common.Editor.TrackableDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  name: GetPropertyHeight(SerializedProperty, GUIContent)
+  href: api/OmiyaGames.Common.Editor.TrackableDrawer.html#OmiyaGames_Common_Editor_TrackableDrawer_GetPropertyHeight_SerializedProperty_GUIContent_
+  commentId: M:OmiyaGames.Common.Editor.TrackableDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  fullName: OmiyaGames.Common.Editor.TrackableDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+  nameWithType: TrackableDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+- uid: OmiyaGames.Common.Editor.TrackableDrawer.GetPropertyHeight*
+  name: GetPropertyHeight
+  href: api/OmiyaGames.Common.Editor.TrackableDrawer.html#OmiyaGames_Common_Editor_TrackableDrawer_GetPropertyHeight_
+  commentId: Overload:OmiyaGames.Common.Editor.TrackableDrawer.GetPropertyHeight
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.TrackableDrawer.GetPropertyHeight
+  nameWithType: TrackableDrawer.GetPropertyHeight
+- uid: OmiyaGames.Common.Editor.TrackableDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  name: OnGUI(Rect, SerializedProperty, GUIContent)
+  href: api/OmiyaGames.Common.Editor.TrackableDrawer.html#OmiyaGames_Common_Editor_TrackableDrawer_OnGUI_Rect_SerializedProperty_GUIContent_
+  commentId: M:OmiyaGames.Common.Editor.TrackableDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  fullName: OmiyaGames.Common.Editor.TrackableDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+  nameWithType: TrackableDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+- uid: OmiyaGames.Common.Editor.TrackableDrawer.OnGUI*
+  name: OnGUI
+  href: api/OmiyaGames.Common.Editor.TrackableDrawer.html#OmiyaGames_Common_Editor_TrackableDrawer_OnGUI_
+  commentId: Overload:OmiyaGames.Common.Editor.TrackableDrawer.OnGUI
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.TrackableDrawer.OnGUI
+  nameWithType: TrackableDrawer.OnGUI
 - uid: OmiyaGames.DefaultNumberAttribute
   name: DefaultNumberAttribute
   href: api/OmiyaGames.DefaultNumberAttribute.html
@@ -1603,6 +1806,15 @@ references:
   commentId: T:OmiyaGames.Helpers
   fullName: OmiyaGames.Helpers
   nameWithType: Helpers
+- uid: OmiyaGames.Helpers.ChangeEvent`2
+  name: Helpers.ChangeEvent<SOURCE, VALUE>
+  href: api/OmiyaGames.Helpers.ChangeEvent-2.html
+  commentId: T:OmiyaGames.Helpers.ChangeEvent`2
+  name.vb: Helpers.ChangeEvent(Of SOURCE, VALUE)
+  fullName: OmiyaGames.Helpers.ChangeEvent<SOURCE, VALUE>
+  fullName.vb: OmiyaGames.Helpers.ChangeEvent(Of SOURCE, VALUE)
+  nameWithType: Helpers.ChangeEvent<SOURCE, VALUE>
+  nameWithType.vb: Helpers.ChangeEvent(Of SOURCE, VALUE)
 - uid: OmiyaGames.Helpers.ConvertToEnum*
   name: ConvertToEnum
   href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_ConvertToEnum_
@@ -1660,6 +1872,19 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Helpers.DecrementVector
   nameWithType: Helpers.DecrementVector
+- uid: OmiyaGames.Helpers.Destroy(Object)
+  name: Destroy(Object)
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_Destroy_Object_
+  commentId: M:OmiyaGames.Helpers.Destroy(Object)
+  fullName: OmiyaGames.Helpers.Destroy(Object)
+  nameWithType: Helpers.Destroy(Object)
+- uid: OmiyaGames.Helpers.Destroy*
+  name: Destroy
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_Destroy_
+  commentId: Overload:OmiyaGames.Helpers.Destroy
+  isSpec: "True"
+  fullName: OmiyaGames.Helpers.Destroy
+  nameWithType: Helpers.Destroy
 - uid: OmiyaGames.Helpers.FileExtensionScriptableObject
   name: FileExtensionScriptableObject
   href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_FileExtensionScriptableObject
@@ -2017,6 +2242,106 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.HsvColor.Value
   nameWithType: HsvColor.Value
+- uid: OmiyaGames.IEditorTrackable
+  name: IEditorTrackable
+  href: api/OmiyaGames.IEditorTrackable.html
+  commentId: T:OmiyaGames.IEditorTrackable
+  fullName: OmiyaGames.IEditorTrackable
+  nameWithType: IEditorTrackable
+- uid: OmiyaGames.IEditorTrackable.EditorValue
+  name: EditorValue
+  href: api/OmiyaGames.IEditorTrackable.html#OmiyaGames_IEditorTrackable_EditorValue
+  commentId: P:OmiyaGames.IEditorTrackable.EditorValue
+  fullName: OmiyaGames.IEditorTrackable.EditorValue
+  nameWithType: IEditorTrackable.EditorValue
+- uid: OmiyaGames.IEditorTrackable.EditorValue*
+  name: EditorValue
+  href: api/OmiyaGames.IEditorTrackable.html#OmiyaGames_IEditorTrackable_EditorValue_
+  commentId: Overload:OmiyaGames.IEditorTrackable.EditorValue
+  isSpec: "True"
+  fullName: OmiyaGames.IEditorTrackable.EditorValue
+  nameWithType: IEditorTrackable.EditorValue
+- uid: OmiyaGames.IEditorTrackable.OnValueChangedInEditor(System.Object,System.Object)
+  name: OnValueChangedInEditor(Object, Object)
+  href: api/OmiyaGames.IEditorTrackable.html#OmiyaGames_IEditorTrackable_OnValueChangedInEditor_System_Object_System_Object_
+  commentId: M:OmiyaGames.IEditorTrackable.OnValueChangedInEditor(System.Object,System.Object)
+  fullName: OmiyaGames.IEditorTrackable.OnValueChangedInEditor(System.Object, System.Object)
+  nameWithType: IEditorTrackable.OnValueChangedInEditor(Object, Object)
+- uid: OmiyaGames.IEditorTrackable.OnValueChangedInEditor*
+  name: OnValueChangedInEditor
+  href: api/OmiyaGames.IEditorTrackable.html#OmiyaGames_IEditorTrackable_OnValueChangedInEditor_
+  commentId: Overload:OmiyaGames.IEditorTrackable.OnValueChangedInEditor
+  isSpec: "True"
+  fullName: OmiyaGames.IEditorTrackable.OnValueChangedInEditor
+  nameWithType: IEditorTrackable.OnValueChangedInEditor
+- uid: OmiyaGames.ITrackable`1
+  name: ITrackable<T>
+  href: api/OmiyaGames.ITrackable-1.html
+  commentId: T:OmiyaGames.ITrackable`1
+  name.vb: ITrackable(Of T)
+  fullName: OmiyaGames.ITrackable<T>
+  fullName.vb: OmiyaGames.ITrackable(Of T)
+  nameWithType: ITrackable<T>
+  nameWithType.vb: ITrackable(Of T)
+- uid: OmiyaGames.ITrackable`1.ChangeEvent
+  name: ITrackable<T>.ChangeEvent
+  href: api/OmiyaGames.ITrackable-1.ChangeEvent.html
+  commentId: T:OmiyaGames.ITrackable`1.ChangeEvent
+  name.vb: ITrackable(Of T).ChangeEvent
+  fullName: OmiyaGames.ITrackable<T>.ChangeEvent
+  fullName.vb: OmiyaGames.ITrackable(Of T).ChangeEvent
+  nameWithType: ITrackable<T>.ChangeEvent
+  nameWithType.vb: ITrackable(Of T).ChangeEvent
+- uid: OmiyaGames.ITrackable`1.HasValue
+  name: HasValue
+  href: api/OmiyaGames.ITrackable-1.html#OmiyaGames_ITrackable_1_HasValue
+  commentId: P:OmiyaGames.ITrackable`1.HasValue
+  fullName: OmiyaGames.ITrackable<T>.HasValue
+  fullName.vb: OmiyaGames.ITrackable(Of T).HasValue
+  nameWithType: ITrackable<T>.HasValue
+  nameWithType.vb: ITrackable(Of T).HasValue
+- uid: OmiyaGames.ITrackable`1.HasValue*
+  name: HasValue
+  href: api/OmiyaGames.ITrackable-1.html#OmiyaGames_ITrackable_1_HasValue_
+  commentId: Overload:OmiyaGames.ITrackable`1.HasValue
+  isSpec: "True"
+  fullName: OmiyaGames.ITrackable<T>.HasValue
+  fullName.vb: OmiyaGames.ITrackable(Of T).HasValue
+  nameWithType: ITrackable<T>.HasValue
+  nameWithType.vb: ITrackable(Of T).HasValue
+- uid: OmiyaGames.ITrackable`1.OnAfterValueChanged
+  name: OnAfterValueChanged
+  href: api/OmiyaGames.ITrackable-1.html#OmiyaGames_ITrackable_1_OnAfterValueChanged
+  commentId: E:OmiyaGames.ITrackable`1.OnAfterValueChanged
+  fullName: OmiyaGames.ITrackable<T>.OnAfterValueChanged
+  fullName.vb: OmiyaGames.ITrackable(Of T).OnAfterValueChanged
+  nameWithType: ITrackable<T>.OnAfterValueChanged
+  nameWithType.vb: ITrackable(Of T).OnAfterValueChanged
+- uid: OmiyaGames.ITrackable`1.OnBeforeValueChanged
+  name: OnBeforeValueChanged
+  href: api/OmiyaGames.ITrackable-1.html#OmiyaGames_ITrackable_1_OnBeforeValueChanged
+  commentId: E:OmiyaGames.ITrackable`1.OnBeforeValueChanged
+  fullName: OmiyaGames.ITrackable<T>.OnBeforeValueChanged
+  fullName.vb: OmiyaGames.ITrackable(Of T).OnBeforeValueChanged
+  nameWithType: ITrackable<T>.OnBeforeValueChanged
+  nameWithType.vb: ITrackable(Of T).OnBeforeValueChanged
+- uid: OmiyaGames.ITrackable`1.Value
+  name: Value
+  href: api/OmiyaGames.ITrackable-1.html#OmiyaGames_ITrackable_1_Value
+  commentId: P:OmiyaGames.ITrackable`1.Value
+  fullName: OmiyaGames.ITrackable<T>.Value
+  fullName.vb: OmiyaGames.ITrackable(Of T).Value
+  nameWithType: ITrackable<T>.Value
+  nameWithType.vb: ITrackable(Of T).Value
+- uid: OmiyaGames.ITrackable`1.Value*
+  name: Value
+  href: api/OmiyaGames.ITrackable-1.html#OmiyaGames_ITrackable_1_Value_
+  commentId: Overload:OmiyaGames.ITrackable`1.Value
+  isSpec: "True"
+  fullName: OmiyaGames.ITrackable<T>.Value
+  fullName.vb: OmiyaGames.ITrackable(Of T).Value
+  nameWithType: ITrackable<T>.Value
+  nameWithType.vb: ITrackable(Of T).Value
 - uid: OmiyaGames.ListSet`1
   name: ListSet<T>
   href: api/OmiyaGames.ListSet-1.html
@@ -3160,6 +3485,567 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.ScenePathAttribute.ScenePathAttribute
   nameWithType: ScenePathAttribute.ScenePathAttribute
+- uid: OmiyaGames.SerializableHashSet`1
+  name: SerializableHashSet<T>
+  href: api/OmiyaGames.SerializableHashSet-1.html
+  commentId: T:OmiyaGames.SerializableHashSet`1
+  name.vb: SerializableHashSet(Of T)
+  fullName: OmiyaGames.SerializableHashSet<T>
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T)
+  nameWithType: SerializableHashSet<T>
+  nameWithType.vb: SerializableHashSet(Of T)
+- uid: OmiyaGames.SerializableHashSet`1.#ctor
+  name: SerializableHashSet()
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1__ctor
+  commentId: M:OmiyaGames.SerializableHashSet`1.#ctor
+  fullName: OmiyaGames.SerializableHashSet<T>.SerializableHashSet()
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SerializableHashSet()
+  nameWithType: SerializableHashSet<T>.SerializableHashSet()
+  nameWithType.vb: SerializableHashSet(Of T).SerializableHashSet()
+- uid: OmiyaGames.SerializableHashSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  name: SerializableHashSet(IEqualityComparer<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1__ctor_System_Collections_Generic_IEqualityComparer__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  name.vb: SerializableHashSet(IEqualityComparer(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.SerializableHashSet(System.Collections.Generic.IEqualityComparer<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SerializableHashSet(System.Collections.Generic.IEqualityComparer(Of T))
+  nameWithType: SerializableHashSet<T>.SerializableHashSet(IEqualityComparer<T>)
+  nameWithType.vb: SerializableHashSet(Of T).SerializableHashSet(IEqualityComparer(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.#ctor(System.Int32)
+  name: SerializableHashSet(Int32)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1__ctor_System_Int32_
+  commentId: M:OmiyaGames.SerializableHashSet`1.#ctor(System.Int32)
+  fullName: OmiyaGames.SerializableHashSet<T>.SerializableHashSet(System.Int32)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SerializableHashSet(System.Int32)
+  nameWithType: SerializableHashSet<T>.SerializableHashSet(Int32)
+  nameWithType.vb: SerializableHashSet(Of T).SerializableHashSet(Int32)
+- uid: OmiyaGames.SerializableHashSet`1.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})
+  name: SerializableHashSet(Int32, IEqualityComparer<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1__ctor_System_Int32_System_Collections_Generic_IEqualityComparer__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})
+  name.vb: SerializableHashSet(Int32, IEqualityComparer(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.SerializableHashSet(System.Int32, System.Collections.Generic.IEqualityComparer<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SerializableHashSet(System.Int32, System.Collections.Generic.IEqualityComparer(Of T))
+  nameWithType: SerializableHashSet<T>.SerializableHashSet(Int32, IEqualityComparer<T>)
+  nameWithType.vb: SerializableHashSet(Of T).SerializableHashSet(Int32, IEqualityComparer(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.#ctor*
+  name: SerializableHashSet
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1__ctor_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.#ctor
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.SerializableHashSet
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SerializableHashSet
+  nameWithType: SerializableHashSet<T>.SerializableHashSet
+  nameWithType.vb: SerializableHashSet(Of T).SerializableHashSet
+- uid: OmiyaGames.SerializableHashSet`1.Add(`0)
+  name: Add(T)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Add__0_
+  commentId: M:OmiyaGames.SerializableHashSet`1.Add(`0)
+  fullName: OmiyaGames.SerializableHashSet<T>.Add(T)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Add(T)
+  nameWithType: SerializableHashSet<T>.Add(T)
+  nameWithType.vb: SerializableHashSet(Of T).Add(T)
+- uid: OmiyaGames.SerializableHashSet`1.Add*
+  name: Add
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Add_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.Add
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.Add
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Add
+  nameWithType: SerializableHashSet<T>.Add
+  nameWithType.vb: SerializableHashSet(Of T).Add
+- uid: OmiyaGames.SerializableHashSet`1.Clear
+  name: Clear()
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Clear
+  commentId: M:OmiyaGames.SerializableHashSet`1.Clear
+  fullName: OmiyaGames.SerializableHashSet<T>.Clear()
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Clear()
+  nameWithType: SerializableHashSet<T>.Clear()
+  nameWithType.vb: SerializableHashSet(Of T).Clear()
+- uid: OmiyaGames.SerializableHashSet`1.Clear*
+  name: Clear
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Clear_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.Clear
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.Clear
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Clear
+  nameWithType: SerializableHashSet<T>.Clear
+  nameWithType.vb: SerializableHashSet(Of T).Clear
+- uid: OmiyaGames.SerializableHashSet`1.Contains(`0)
+  name: Contains(T)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Contains__0_
+  commentId: M:OmiyaGames.SerializableHashSet`1.Contains(`0)
+  fullName: OmiyaGames.SerializableHashSet<T>.Contains(T)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Contains(T)
+  nameWithType: SerializableHashSet<T>.Contains(T)
+  nameWithType.vb: SerializableHashSet(Of T).Contains(T)
+- uid: OmiyaGames.SerializableHashSet`1.Contains*
+  name: Contains
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Contains_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.Contains
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.Contains
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Contains
+  nameWithType: SerializableHashSet<T>.Contains
+  nameWithType.vb: SerializableHashSet(Of T).Contains
+- uid: OmiyaGames.SerializableHashSet`1.CopyTo(`0[],System.Int32)
+  name: CopyTo(T[], Int32)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_CopyTo__0___System_Int32_
+  commentId: M:OmiyaGames.SerializableHashSet`1.CopyTo(`0[],System.Int32)
+  name.vb: CopyTo(T(), Int32)
+  fullName: OmiyaGames.SerializableHashSet<T>.CopyTo(T[], System.Int32)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).CopyTo(T(), System.Int32)
+  nameWithType: SerializableHashSet<T>.CopyTo(T[], Int32)
+  nameWithType.vb: SerializableHashSet(Of T).CopyTo(T(), Int32)
+- uid: OmiyaGames.SerializableHashSet`1.CopyTo*
+  name: CopyTo
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_CopyTo_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.CopyTo
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.CopyTo
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).CopyTo
+  nameWithType: SerializableHashSet<T>.CopyTo
+  nameWithType.vb: SerializableHashSet(Of T).CopyTo
+- uid: OmiyaGames.SerializableHashSet`1.Count
+  name: Count
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Count
+  commentId: P:OmiyaGames.SerializableHashSet`1.Count
+  fullName: OmiyaGames.SerializableHashSet<T>.Count
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Count
+  nameWithType: SerializableHashSet<T>.Count
+  nameWithType.vb: SerializableHashSet(Of T).Count
+- uid: OmiyaGames.SerializableHashSet`1.Count*
+  name: Count
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Count_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.Count
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.Count
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Count
+  nameWithType: SerializableHashSet<T>.Count
+  nameWithType.vb: SerializableHashSet(Of T).Count
+- uid: OmiyaGames.SerializableHashSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})
+  name: ExceptWith(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_ExceptWith_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})
+  name.vb: ExceptWith(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.ExceptWith(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).ExceptWith(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.ExceptWith(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).ExceptWith(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.ExceptWith*
+  name: ExceptWith
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_ExceptWith_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.ExceptWith
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.ExceptWith
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).ExceptWith
+  nameWithType: SerializableHashSet<T>.ExceptWith
+  nameWithType.vb: SerializableHashSet(Of T).ExceptWith
+- uid: OmiyaGames.SerializableHashSet`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_GetEnumerator
+  commentId: M:OmiyaGames.SerializableHashSet`1.GetEnumerator
+  fullName: OmiyaGames.SerializableHashSet<T>.GetEnumerator()
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).GetEnumerator()
+  nameWithType: SerializableHashSet<T>.GetEnumerator()
+  nameWithType.vb: SerializableHashSet(Of T).GetEnumerator()
+- uid: OmiyaGames.SerializableHashSet`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_GetEnumerator_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.GetEnumerator
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.GetEnumerator
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).GetEnumerator
+  nameWithType: SerializableHashSet<T>.GetEnumerator
+  nameWithType.vb: SerializableHashSet(Of T).GetEnumerator
+- uid: OmiyaGames.SerializableHashSet`1.IntersectWith(System.Collections.Generic.IEnumerable{`0})
+  name: IntersectWith(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IntersectWith_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.IntersectWith(System.Collections.Generic.IEnumerable{`0})
+  name.vb: IntersectWith(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.IntersectWith(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IntersectWith(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.IntersectWith(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).IntersectWith(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.IntersectWith*
+  name: IntersectWith
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IntersectWith_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.IntersectWith
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.IntersectWith
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IntersectWith
+  nameWithType: SerializableHashSet<T>.IntersectWith
+  nameWithType.vb: SerializableHashSet(Of T).IntersectWith
+- uid: OmiyaGames.SerializableHashSet`1.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  name: IsProperSubsetOf(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsProperSubsetOf_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  name.vb: IsProperSubsetOf(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.IsProperSubsetOf(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsProperSubsetOf(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.IsProperSubsetOf(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).IsProperSubsetOf(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.IsProperSubsetOf*
+  name: IsProperSubsetOf
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsProperSubsetOf_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.IsProperSubsetOf
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.IsProperSubsetOf
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsProperSubsetOf
+  nameWithType: SerializableHashSet<T>.IsProperSubsetOf
+  nameWithType.vb: SerializableHashSet(Of T).IsProperSubsetOf
+- uid: OmiyaGames.SerializableHashSet`1.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  name: IsProperSupersetOf(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsProperSupersetOf_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  name.vb: IsProperSupersetOf(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.IsProperSupersetOf(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsProperSupersetOf(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.IsProperSupersetOf(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).IsProperSupersetOf(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.IsProperSupersetOf*
+  name: IsProperSupersetOf
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsProperSupersetOf_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.IsProperSupersetOf
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.IsProperSupersetOf
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsProperSupersetOf
+  nameWithType: SerializableHashSet<T>.IsProperSupersetOf
+  nameWithType.vb: SerializableHashSet(Of T).IsProperSupersetOf
+- uid: OmiyaGames.SerializableHashSet`1.IsReadOnly
+  name: IsReadOnly
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsReadOnly
+  commentId: P:OmiyaGames.SerializableHashSet`1.IsReadOnly
+  fullName: OmiyaGames.SerializableHashSet<T>.IsReadOnly
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsReadOnly
+  nameWithType: SerializableHashSet<T>.IsReadOnly
+  nameWithType.vb: SerializableHashSet(Of T).IsReadOnly
+- uid: OmiyaGames.SerializableHashSet`1.IsReadOnly*
+  name: IsReadOnly
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsReadOnly_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.IsReadOnly
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.IsReadOnly
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsReadOnly
+  nameWithType: SerializableHashSet<T>.IsReadOnly
+  nameWithType.vb: SerializableHashSet(Of T).IsReadOnly
+- uid: OmiyaGames.SerializableHashSet`1.IsSerializing
+  name: IsSerializing
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsSerializing
+  commentId: P:OmiyaGames.SerializableHashSet`1.IsSerializing
+  fullName: OmiyaGames.SerializableHashSet<T>.IsSerializing
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsSerializing
+  nameWithType: SerializableHashSet<T>.IsSerializing
+  nameWithType.vb: SerializableHashSet(Of T).IsSerializing
+- uid: OmiyaGames.SerializableHashSet`1.IsSerializing*
+  name: IsSerializing
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsSerializing_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.IsSerializing
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.IsSerializing
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsSerializing
+  nameWithType: SerializableHashSet<T>.IsSerializing
+  nameWithType.vb: SerializableHashSet(Of T).IsSerializing
+- uid: OmiyaGames.SerializableHashSet`1.IsSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  name: IsSubsetOf(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsSubsetOf_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.IsSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  name.vb: IsSubsetOf(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.IsSubsetOf(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsSubsetOf(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.IsSubsetOf(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).IsSubsetOf(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.IsSubsetOf*
+  name: IsSubsetOf
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsSubsetOf_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.IsSubsetOf
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.IsSubsetOf
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsSubsetOf
+  nameWithType: SerializableHashSet<T>.IsSubsetOf
+  nameWithType.vb: SerializableHashSet(Of T).IsSubsetOf
+- uid: OmiyaGames.SerializableHashSet`1.IsSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  name: IsSupersetOf(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsSupersetOf_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.IsSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  name.vb: IsSupersetOf(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.IsSupersetOf(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsSupersetOf(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.IsSupersetOf(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).IsSupersetOf(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.IsSupersetOf*
+  name: IsSupersetOf
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_IsSupersetOf_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.IsSupersetOf
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.IsSupersetOf
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).IsSupersetOf
+  nameWithType: SerializableHashSet<T>.IsSupersetOf
+  nameWithType.vb: SerializableHashSet(Of T).IsSupersetOf
+- uid: OmiyaGames.SerializableHashSet`1.OnAfterDeserialize
+  name: OnAfterDeserialize()
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_OnAfterDeserialize
+  commentId: M:OmiyaGames.SerializableHashSet`1.OnAfterDeserialize
+  fullName: OmiyaGames.SerializableHashSet<T>.OnAfterDeserialize()
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).OnAfterDeserialize()
+  nameWithType: SerializableHashSet<T>.OnAfterDeserialize()
+  nameWithType.vb: SerializableHashSet(Of T).OnAfterDeserialize()
+- uid: OmiyaGames.SerializableHashSet`1.OnAfterDeserialize*
+  name: OnAfterDeserialize
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_OnAfterDeserialize_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.OnAfterDeserialize
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.OnAfterDeserialize
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).OnAfterDeserialize
+  nameWithType: SerializableHashSet<T>.OnAfterDeserialize
+  nameWithType.vb: SerializableHashSet(Of T).OnAfterDeserialize
+- uid: OmiyaGames.SerializableHashSet`1.OnBeforeSerialize
+  name: OnBeforeSerialize()
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_OnBeforeSerialize
+  commentId: M:OmiyaGames.SerializableHashSet`1.OnBeforeSerialize
+  fullName: OmiyaGames.SerializableHashSet<T>.OnBeforeSerialize()
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).OnBeforeSerialize()
+  nameWithType: SerializableHashSet<T>.OnBeforeSerialize()
+  nameWithType.vb: SerializableHashSet(Of T).OnBeforeSerialize()
+- uid: OmiyaGames.SerializableHashSet`1.OnBeforeSerialize*
+  name: OnBeforeSerialize
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_OnBeforeSerialize_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.OnBeforeSerialize
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.OnBeforeSerialize
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).OnBeforeSerialize
+  nameWithType: SerializableHashSet<T>.OnBeforeSerialize
+  nameWithType.vb: SerializableHashSet(Of T).OnBeforeSerialize
+- uid: OmiyaGames.SerializableHashSet`1.Overlaps(System.Collections.Generic.IEnumerable{`0})
+  name: Overlaps(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Overlaps_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.Overlaps(System.Collections.Generic.IEnumerable{`0})
+  name.vb: Overlaps(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.Overlaps(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Overlaps(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.Overlaps(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).Overlaps(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.Overlaps*
+  name: Overlaps
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Overlaps_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.Overlaps
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.Overlaps
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Overlaps
+  nameWithType: SerializableHashSet<T>.Overlaps
+  nameWithType.vb: SerializableHashSet(Of T).Overlaps
+- uid: OmiyaGames.SerializableHashSet`1.Remove(`0)
+  name: Remove(T)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Remove__0_
+  commentId: M:OmiyaGames.SerializableHashSet`1.Remove(`0)
+  fullName: OmiyaGames.SerializableHashSet<T>.Remove(T)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Remove(T)
+  nameWithType: SerializableHashSet<T>.Remove(T)
+  nameWithType.vb: SerializableHashSet(Of T).Remove(T)
+- uid: OmiyaGames.SerializableHashSet`1.Remove*
+  name: Remove
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_Remove_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.Remove
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.Remove
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).Remove
+  nameWithType: SerializableHashSet<T>.Remove
+  nameWithType.vb: SerializableHashSet(Of T).Remove
+- uid: OmiyaGames.SerializableHashSet`1.SetEquals(System.Collections.Generic.IEnumerable{`0})
+  name: SetEquals(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_SetEquals_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.SetEquals(System.Collections.Generic.IEnumerable{`0})
+  name.vb: SetEquals(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.SetEquals(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SetEquals(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.SetEquals(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).SetEquals(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.SetEquals*
+  name: SetEquals
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_SetEquals_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.SetEquals
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.SetEquals
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SetEquals
+  nameWithType: SerializableHashSet<T>.SetEquals
+  nameWithType.vb: SerializableHashSet(Of T).SetEquals
+- uid: OmiyaGames.SerializableHashSet`1.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`0})
+  name: SymmetricExceptWith(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_SymmetricExceptWith_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`0})
+  name.vb: SymmetricExceptWith(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.SymmetricExceptWith(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SymmetricExceptWith(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.SymmetricExceptWith(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).SymmetricExceptWith(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.SymmetricExceptWith*
+  name: SymmetricExceptWith
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_SymmetricExceptWith_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.SymmetricExceptWith
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.SymmetricExceptWith
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).SymmetricExceptWith
+  nameWithType: SerializableHashSet<T>.SymmetricExceptWith
+  nameWithType.vb: SerializableHashSet(Of T).SymmetricExceptWith
+- uid: OmiyaGames.SerializableHashSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})
+  name: UnionWith(IEnumerable<T>)
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_UnionWith_System_Collections_Generic_IEnumerable__0__
+  commentId: M:OmiyaGames.SerializableHashSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})
+  name.vb: UnionWith(IEnumerable(Of T))
+  fullName: OmiyaGames.SerializableHashSet<T>.UnionWith(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).UnionWith(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: SerializableHashSet<T>.UnionWith(IEnumerable<T>)
+  nameWithType.vb: SerializableHashSet(Of T).UnionWith(IEnumerable(Of T))
+- uid: OmiyaGames.SerializableHashSet`1.UnionWith*
+  name: UnionWith
+  href: api/OmiyaGames.SerializableHashSet-1.html#OmiyaGames_SerializableHashSet_1_UnionWith_
+  commentId: Overload:OmiyaGames.SerializableHashSet`1.UnionWith
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHashSet<T>.UnionWith
+  fullName.vb: OmiyaGames.SerializableHashSet(Of T).UnionWith
+  nameWithType: SerializableHashSet<T>.UnionWith
+  nameWithType.vb: SerializableHashSet(Of T).UnionWith
+- uid: OmiyaGames.SerializableHelpers
+  name: SerializableHelpers
+  href: api/OmiyaGames.SerializableHelpers.html
+  commentId: T:OmiyaGames.SerializableHelpers
+  fullName: OmiyaGames.SerializableHelpers
+  nameWithType: SerializableHelpers
+- uid: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet*
+  name: PushSerializedListIntoSet
+  href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSerializedListIntoSet_
+  commentId: Overload:OmiyaGames.SerializableHelpers.PushSerializedListIntoSet
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet
+  nameWithType: SerializableHelpers.PushSerializedListIntoSet
+- uid: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet``1(System.Collections.Generic.IList{``0},System.Collections.Generic.ISet{``0})
+  name: PushSerializedListIntoSet<T>(IList<T>, ISet<T>)
+  href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSerializedListIntoSet__1_System_Collections_Generic_IList___0__System_Collections_Generic_ISet___0__
+  commentId: M:OmiyaGames.SerializableHelpers.PushSerializedListIntoSet``1(System.Collections.Generic.IList{``0},System.Collections.Generic.ISet{``0})
+  name.vb: PushSerializedListIntoSet(Of T)(IList(Of T), ISet(Of T))
+  fullName: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet<T>(System.Collections.Generic.IList<T>, System.Collections.Generic.ISet<T>)
+  fullName.vb: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet(Of T)(System.Collections.Generic.IList(Of T), System.Collections.Generic.ISet(Of T))
+  nameWithType: SerializableHelpers.PushSerializedListIntoSet<T>(IList<T>, ISet<T>)
+  nameWithType.vb: SerializableHelpers.PushSerializedListIntoSet(Of T)(IList(Of T), ISet(Of T))
+- uid: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList*
+  name: PushSetIntoSerializedList
+  href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSetIntoSerializedList_
+  commentId: Overload:OmiyaGames.SerializableHelpers.PushSetIntoSerializedList
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList
+  nameWithType: SerializableHelpers.PushSetIntoSerializedList
+- uid: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IList{``0})
+  name: PushSetIntoSerializedList<T>(ISet<T>, IList<T>)
+  href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSetIntoSerializedList__1_System_Collections_Generic_ISet___0__System_Collections_Generic_IList___0__
+  commentId: M:OmiyaGames.SerializableHelpers.PushSetIntoSerializedList``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IList{``0})
+  name.vb: PushSetIntoSerializedList(Of T)(ISet(Of T), IList(Of T))
+  fullName: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList<T>(System.Collections.Generic.ISet<T>, System.Collections.Generic.IList<T>)
+  fullName.vb: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList(Of T)(System.Collections.Generic.ISet(Of T), System.Collections.Generic.IList(Of T))
+  nameWithType: SerializableHelpers.PushSetIntoSerializedList<T>(ISet<T>, IList<T>)
+  nameWithType.vb: SerializableHelpers.PushSetIntoSerializedList(Of T)(ISet(Of T), IList(Of T))
+- uid: OmiyaGames.SerializableListSet`1
+  name: SerializableListSet<T>
+  href: api/OmiyaGames.SerializableListSet-1.html
+  commentId: T:OmiyaGames.SerializableListSet`1
+  name.vb: SerializableListSet(Of T)
+  fullName: OmiyaGames.SerializableListSet<T>
+  fullName.vb: OmiyaGames.SerializableListSet(Of T)
+  nameWithType: SerializableListSet<T>
+  nameWithType.vb: SerializableListSet(Of T)
+- uid: OmiyaGames.SerializableListSet`1.#ctor
+  name: SerializableListSet()
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1__ctor
+  commentId: M:OmiyaGames.SerializableListSet`1.#ctor
+  fullName: OmiyaGames.SerializableListSet<T>.SerializableListSet()
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).SerializableListSet()
+  nameWithType: SerializableListSet<T>.SerializableListSet()
+  nameWithType.vb: SerializableListSet(Of T).SerializableListSet()
+- uid: OmiyaGames.SerializableListSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  name: SerializableListSet(IEqualityComparer<T>)
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1__ctor_System_Collections_Generic_IEqualityComparer__0__
+  commentId: M:OmiyaGames.SerializableListSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  name.vb: SerializableListSet(IEqualityComparer(Of T))
+  fullName: OmiyaGames.SerializableListSet<T>.SerializableListSet(System.Collections.Generic.IEqualityComparer<T>)
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).SerializableListSet(System.Collections.Generic.IEqualityComparer(Of T))
+  nameWithType: SerializableListSet<T>.SerializableListSet(IEqualityComparer<T>)
+  nameWithType.vb: SerializableListSet(Of T).SerializableListSet(IEqualityComparer(Of T))
+- uid: OmiyaGames.SerializableListSet`1.#ctor(System.Int32)
+  name: SerializableListSet(Int32)
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1__ctor_System_Int32_
+  commentId: M:OmiyaGames.SerializableListSet`1.#ctor(System.Int32)
+  fullName: OmiyaGames.SerializableListSet<T>.SerializableListSet(System.Int32)
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).SerializableListSet(System.Int32)
+  nameWithType: SerializableListSet<T>.SerializableListSet(Int32)
+  nameWithType.vb: SerializableListSet(Of T).SerializableListSet(Int32)
+- uid: OmiyaGames.SerializableListSet`1.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})
+  name: SerializableListSet(Int32, IEqualityComparer<T>)
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1__ctor_System_Int32_System_Collections_Generic_IEqualityComparer__0__
+  commentId: M:OmiyaGames.SerializableListSet`1.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})
+  name.vb: SerializableListSet(Int32, IEqualityComparer(Of T))
+  fullName: OmiyaGames.SerializableListSet<T>.SerializableListSet(System.Int32, System.Collections.Generic.IEqualityComparer<T>)
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).SerializableListSet(System.Int32, System.Collections.Generic.IEqualityComparer(Of T))
+  nameWithType: SerializableListSet<T>.SerializableListSet(Int32, IEqualityComparer<T>)
+  nameWithType.vb: SerializableListSet(Of T).SerializableListSet(Int32, IEqualityComparer(Of T))
+- uid: OmiyaGames.SerializableListSet`1.#ctor*
+  name: SerializableListSet
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1__ctor_
+  commentId: Overload:OmiyaGames.SerializableListSet`1.#ctor
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableListSet<T>.SerializableListSet
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).SerializableListSet
+  nameWithType: SerializableListSet<T>.SerializableListSet
+  nameWithType.vb: SerializableListSet(Of T).SerializableListSet
+- uid: OmiyaGames.SerializableListSet`1.IsSerializing
+  name: IsSerializing
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1_IsSerializing
+  commentId: P:OmiyaGames.SerializableListSet`1.IsSerializing
+  fullName: OmiyaGames.SerializableListSet<T>.IsSerializing
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).IsSerializing
+  nameWithType: SerializableListSet<T>.IsSerializing
+  nameWithType.vb: SerializableListSet(Of T).IsSerializing
+- uid: OmiyaGames.SerializableListSet`1.IsSerializing*
+  name: IsSerializing
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1_IsSerializing_
+  commentId: Overload:OmiyaGames.SerializableListSet`1.IsSerializing
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableListSet<T>.IsSerializing
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).IsSerializing
+  nameWithType: SerializableListSet<T>.IsSerializing
+  nameWithType.vb: SerializableListSet(Of T).IsSerializing
+- uid: OmiyaGames.SerializableListSet`1.OnAfterDeserialize
+  name: OnAfterDeserialize()
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1_OnAfterDeserialize
+  commentId: M:OmiyaGames.SerializableListSet`1.OnAfterDeserialize
+  fullName: OmiyaGames.SerializableListSet<T>.OnAfterDeserialize()
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).OnAfterDeserialize()
+  nameWithType: SerializableListSet<T>.OnAfterDeserialize()
+  nameWithType.vb: SerializableListSet(Of T).OnAfterDeserialize()
+- uid: OmiyaGames.SerializableListSet`1.OnAfterDeserialize*
+  name: OnAfterDeserialize
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1_OnAfterDeserialize_
+  commentId: Overload:OmiyaGames.SerializableListSet`1.OnAfterDeserialize
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableListSet<T>.OnAfterDeserialize
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).OnAfterDeserialize
+  nameWithType: SerializableListSet<T>.OnAfterDeserialize
+  nameWithType.vb: SerializableListSet(Of T).OnAfterDeserialize
+- uid: OmiyaGames.SerializableListSet`1.OnBeforeSerialize
+  name: OnBeforeSerialize()
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1_OnBeforeSerialize
+  commentId: M:OmiyaGames.SerializableListSet`1.OnBeforeSerialize
+  fullName: OmiyaGames.SerializableListSet<T>.OnBeforeSerialize()
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).OnBeforeSerialize()
+  nameWithType: SerializableListSet<T>.OnBeforeSerialize()
+  nameWithType.vb: SerializableListSet(Of T).OnBeforeSerialize()
+- uid: OmiyaGames.SerializableListSet`1.OnBeforeSerialize*
+  name: OnBeforeSerialize
+  href: api/OmiyaGames.SerializableListSet-1.html#OmiyaGames_SerializableListSet_1_OnBeforeSerialize_
+  commentId: Overload:OmiyaGames.SerializableListSet`1.OnBeforeSerialize
+  isSpec: "True"
+  fullName: OmiyaGames.SerializableListSet<T>.OnBeforeSerialize
+  fullName.vb: OmiyaGames.SerializableListSet(Of T).OnBeforeSerialize
+  nameWithType: SerializableListSet<T>.OnBeforeSerialize
+  nameWithType.vb: SerializableListSet(Of T).OnBeforeSerialize
 - uid: OmiyaGames.SupportedPlatforms
   name: SupportedPlatforms
   href: api/OmiyaGames.SupportedPlatforms.html
@@ -3699,3 +4585,470 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.ThreadSafeStringBuilder.Length
   nameWithType: ThreadSafeStringBuilder.Length
+- uid: OmiyaGames.Trackable`1
+  name: Trackable<T>
+  href: api/OmiyaGames.Trackable-1.html
+  commentId: T:OmiyaGames.Trackable`1
+  name.vb: Trackable(Of T)
+  fullName: OmiyaGames.Trackable<T>
+  fullName.vb: OmiyaGames.Trackable(Of T)
+  nameWithType: Trackable<T>
+  nameWithType.vb: Trackable(Of T)
+- uid: OmiyaGames.Trackable`1.#ctor
+  name: Trackable()
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1__ctor
+  commentId: M:OmiyaGames.Trackable`1.#ctor
+  fullName: OmiyaGames.Trackable<T>.Trackable()
+  fullName.vb: OmiyaGames.Trackable(Of T).Trackable()
+  nameWithType: Trackable<T>.Trackable()
+  nameWithType.vb: Trackable(Of T).Trackable()
+- uid: OmiyaGames.Trackable`1.#ctor(`0)
+  name: Trackable(T)
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1__ctor__0_
+  commentId: M:OmiyaGames.Trackable`1.#ctor(`0)
+  fullName: OmiyaGames.Trackable<T>.Trackable(T)
+  fullName.vb: OmiyaGames.Trackable(Of T).Trackable(T)
+  nameWithType: Trackable<T>.Trackable(T)
+  nameWithType.vb: Trackable(Of T).Trackable(T)
+- uid: OmiyaGames.Trackable`1.#ctor*
+  name: Trackable
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1__ctor_
+  commentId: Overload:OmiyaGames.Trackable`1.#ctor
+  isSpec: "True"
+  fullName: OmiyaGames.Trackable<T>.Trackable
+  fullName.vb: OmiyaGames.Trackable(Of T).Trackable
+  nameWithType: Trackable<T>.Trackable
+  nameWithType.vb: Trackable(Of T).Trackable
+- uid: OmiyaGames.Trackable`1.EditorValue
+  name: EditorValue
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_EditorValue
+  commentId: P:OmiyaGames.Trackable`1.EditorValue
+  fullName: OmiyaGames.Trackable<T>.EditorValue
+  fullName.vb: OmiyaGames.Trackable(Of T).EditorValue
+  nameWithType: Trackable<T>.EditorValue
+  nameWithType.vb: Trackable(Of T).EditorValue
+- uid: OmiyaGames.Trackable`1.EditorValue*
+  name: EditorValue
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_EditorValue_
+  commentId: Overload:OmiyaGames.Trackable`1.EditorValue
+  isSpec: "True"
+  fullName: OmiyaGames.Trackable<T>.EditorValue
+  fullName.vb: OmiyaGames.Trackable(Of T).EditorValue
+  nameWithType: Trackable<T>.EditorValue
+  nameWithType.vb: Trackable(Of T).EditorValue
+- uid: OmiyaGames.Trackable`1.OnAfterValueChanged
+  name: OnAfterValueChanged
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_OnAfterValueChanged
+  commentId: E:OmiyaGames.Trackable`1.OnAfterValueChanged
+  fullName: OmiyaGames.Trackable<T>.OnAfterValueChanged
+  fullName.vb: OmiyaGames.Trackable(Of T).OnAfterValueChanged
+  nameWithType: Trackable<T>.OnAfterValueChanged
+  nameWithType.vb: Trackable(Of T).OnAfterValueChanged
+- uid: OmiyaGames.Trackable`1.OnBeforeValueChanged
+  name: OnBeforeValueChanged
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_OnBeforeValueChanged
+  commentId: E:OmiyaGames.Trackable`1.OnBeforeValueChanged
+  fullName: OmiyaGames.Trackable<T>.OnBeforeValueChanged
+  fullName.vb: OmiyaGames.Trackable(Of T).OnBeforeValueChanged
+  nameWithType: Trackable<T>.OnBeforeValueChanged
+  nameWithType.vb: Trackable(Of T).OnBeforeValueChanged
+- uid: OmiyaGames.Trackable`1.OnValueChangedInEditor(System.Object,System.Object)
+  name: OnValueChangedInEditor(Object, Object)
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_OnValueChangedInEditor_System_Object_System_Object_
+  commentId: M:OmiyaGames.Trackable`1.OnValueChangedInEditor(System.Object,System.Object)
+  fullName: OmiyaGames.Trackable<T>.OnValueChangedInEditor(System.Object, System.Object)
+  fullName.vb: OmiyaGames.Trackable(Of T).OnValueChangedInEditor(System.Object, System.Object)
+  nameWithType: Trackable<T>.OnValueChangedInEditor(Object, Object)
+  nameWithType.vb: Trackable(Of T).OnValueChangedInEditor(Object, Object)
+- uid: OmiyaGames.Trackable`1.OnValueChangedInEditor*
+  name: OnValueChangedInEditor
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_OnValueChangedInEditor_
+  commentId: Overload:OmiyaGames.Trackable`1.OnValueChangedInEditor
+  isSpec: "True"
+  fullName: OmiyaGames.Trackable<T>.OnValueChangedInEditor
+  fullName.vb: OmiyaGames.Trackable(Of T).OnValueChangedInEditor
+  nameWithType: Trackable<T>.OnValueChangedInEditor
+  nameWithType.vb: Trackable(Of T).OnValueChangedInEditor
+- uid: OmiyaGames.Trackable`1.op_Implicit(OmiyaGames.Trackable{`0})~`0
+  name: Implicit(Trackable<T> to T)
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_op_Implicit_OmiyaGames_Trackable__0____0
+  commentId: M:OmiyaGames.Trackable`1.op_Implicit(OmiyaGames.Trackable{`0})~`0
+  name.vb: Widening(Trackable(Of T) to T)
+  fullName: OmiyaGames.Trackable<T>.Implicit(OmiyaGames.Trackable<T> to T)
+  fullName.vb: OmiyaGames.Trackable(Of T).Widening(OmiyaGames.Trackable(Of T) to T)
+  nameWithType: Trackable<T>.Implicit(Trackable<T> to T)
+  nameWithType.vb: Trackable(Of T).Widening(Trackable(Of T) to T)
+- uid: OmiyaGames.Trackable`1.op_Implicit*
+  name: Implicit
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_op_Implicit_
+  commentId: Overload:OmiyaGames.Trackable`1.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: OmiyaGames.Trackable<T>.Implicit
+  fullName.vb: OmiyaGames.Trackable(Of T).Widening
+  nameWithType: Trackable<T>.Implicit
+  nameWithType.vb: Trackable(Of T).Widening
+- uid: OmiyaGames.Trackable`1.Value
+  name: Value
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_Value
+  commentId: P:OmiyaGames.Trackable`1.Value
+  fullName: OmiyaGames.Trackable<T>.Value
+  fullName.vb: OmiyaGames.Trackable(Of T).Value
+  nameWithType: Trackable<T>.Value
+  nameWithType.vb: Trackable(Of T).Value
+- uid: OmiyaGames.Trackable`1.Value*
+  name: Value
+  href: api/OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_Value_
+  commentId: Overload:OmiyaGames.Trackable`1.Value
+  isSpec: "True"
+  fullName: OmiyaGames.Trackable<T>.Value
+  fullName.vb: OmiyaGames.Trackable(Of T).Value
+  nameWithType: Trackable<T>.Value
+  nameWithType.vb: Trackable(Of T).Value
+- uid: OmiyaGames.TrackableDecorator`1
+  name: TrackableDecorator<T>
+  href: api/OmiyaGames.TrackableDecorator-1.html
+  commentId: T:OmiyaGames.TrackableDecorator`1
+  name.vb: TrackableDecorator(Of T)
+  fullName: OmiyaGames.TrackableDecorator<T>
+  fullName.vb: OmiyaGames.TrackableDecorator(Of T)
+  nameWithType: TrackableDecorator<T>
+  nameWithType.vb: TrackableDecorator(Of T)
+- uid: OmiyaGames.TrackableDecorator`1.HasValue
+  name: HasValue
+  href: api/OmiyaGames.TrackableDecorator-1.html#OmiyaGames_TrackableDecorator_1_HasValue
+  commentId: P:OmiyaGames.TrackableDecorator`1.HasValue
+  fullName: OmiyaGames.TrackableDecorator<T>.HasValue
+  fullName.vb: OmiyaGames.TrackableDecorator(Of T).HasValue
+  nameWithType: TrackableDecorator<T>.HasValue
+  nameWithType.vb: TrackableDecorator(Of T).HasValue
+- uid: OmiyaGames.TrackableDecorator`1.HasValue*
+  name: HasValue
+  href: api/OmiyaGames.TrackableDecorator-1.html#OmiyaGames_TrackableDecorator_1_HasValue_
+  commentId: Overload:OmiyaGames.TrackableDecorator`1.HasValue
+  isSpec: "True"
+  fullName: OmiyaGames.TrackableDecorator<T>.HasValue
+  fullName.vb: OmiyaGames.TrackableDecorator(Of T).HasValue
+  nameWithType: TrackableDecorator<T>.HasValue
+  nameWithType.vb: TrackableDecorator(Of T).HasValue
+- uid: OmiyaGames.TrackableDecorator`1.OnAfterValueChanged
+  name: OnAfterValueChanged
+  href: api/OmiyaGames.TrackableDecorator-1.html#OmiyaGames_TrackableDecorator_1_OnAfterValueChanged
+  commentId: E:OmiyaGames.TrackableDecorator`1.OnAfterValueChanged
+  fullName: OmiyaGames.TrackableDecorator<T>.OnAfterValueChanged
+  fullName.vb: OmiyaGames.TrackableDecorator(Of T).OnAfterValueChanged
+  nameWithType: TrackableDecorator<T>.OnAfterValueChanged
+  nameWithType.vb: TrackableDecorator(Of T).OnAfterValueChanged
+- uid: OmiyaGames.TrackableDecorator`1.OnBeforeValueChanged
+  name: OnBeforeValueChanged
+  href: api/OmiyaGames.TrackableDecorator-1.html#OmiyaGames_TrackableDecorator_1_OnBeforeValueChanged
+  commentId: E:OmiyaGames.TrackableDecorator`1.OnBeforeValueChanged
+  fullName: OmiyaGames.TrackableDecorator<T>.OnBeforeValueChanged
+  fullName.vb: OmiyaGames.TrackableDecorator(Of T).OnBeforeValueChanged
+  nameWithType: TrackableDecorator<T>.OnBeforeValueChanged
+  nameWithType.vb: TrackableDecorator(Of T).OnBeforeValueChanged
+- uid: OmiyaGames.TrackableDecorator`1.Value
+  name: Value
+  href: api/OmiyaGames.TrackableDecorator-1.html#OmiyaGames_TrackableDecorator_1_Value
+  commentId: P:OmiyaGames.TrackableDecorator`1.Value
+  fullName: OmiyaGames.TrackableDecorator<T>.Value
+  fullName.vb: OmiyaGames.TrackableDecorator(Of T).Value
+  nameWithType: TrackableDecorator<T>.Value
+  nameWithType.vb: TrackableDecorator(Of T).Value
+- uid: OmiyaGames.TrackableDecorator`1.Value*
+  name: Value
+  href: api/OmiyaGames.TrackableDecorator-1.html#OmiyaGames_TrackableDecorator_1_Value_
+  commentId: Overload:OmiyaGames.TrackableDecorator`1.Value
+  isSpec: "True"
+  fullName: OmiyaGames.TrackableDecorator<T>.Value
+  fullName.vb: OmiyaGames.TrackableDecorator(Of T).Value
+  nameWithType: TrackableDecorator<T>.Value
+  nameWithType.vb: TrackableDecorator(Of T).Value
+- uid: OmiyaGames.UndoHistory
+  name: UndoHistory
+  href: api/OmiyaGames.UndoHistory.html
+  commentId: T:OmiyaGames.UndoHistory
+  fullName: OmiyaGames.UndoHistory
+  nameWithType: UndoHistory
+- uid: OmiyaGames.UndoHistory.#ctor(System.Int32)
+  name: UndoHistory(Int32)
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory__ctor_System_Int32_
+  commentId: M:OmiyaGames.UndoHistory.#ctor(System.Int32)
+  fullName: OmiyaGames.UndoHistory.UndoHistory(System.Int32)
+  nameWithType: UndoHistory.UndoHistory(Int32)
+- uid: OmiyaGames.UndoHistory.#ctor*
+  name: UndoHistory
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory__ctor_
+  commentId: Overload:OmiyaGames.UndoHistory.#ctor
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.UndoHistory
+  nameWithType: UndoHistory.UndoHistory
+- uid: OmiyaGames.UndoHistory.Add(OmiyaGames.UndoHistory.IRecord)
+  name: Add(UndoHistory.IRecord)
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Add_OmiyaGames_UndoHistory_IRecord_
+  commentId: M:OmiyaGames.UndoHistory.Add(OmiyaGames.UndoHistory.IRecord)
+  fullName: OmiyaGames.UndoHistory.Add(OmiyaGames.UndoHistory.IRecord)
+  nameWithType: UndoHistory.Add(UndoHistory.IRecord)
+- uid: OmiyaGames.UndoHistory.Add*
+  name: Add
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Add_
+  commentId: Overload:OmiyaGames.UndoHistory.Add
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.Add
+  nameWithType: UndoHistory.Add
+- uid: OmiyaGames.UndoHistory.CanRedo
+  name: CanRedo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_CanRedo
+  commentId: P:OmiyaGames.UndoHistory.CanRedo
+  fullName: OmiyaGames.UndoHistory.CanRedo
+  nameWithType: UndoHistory.CanRedo
+- uid: OmiyaGames.UndoHistory.CanRedo*
+  name: CanRedo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_CanRedo_
+  commentId: Overload:OmiyaGames.UndoHistory.CanRedo
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.CanRedo
+  nameWithType: UndoHistory.CanRedo
+- uid: OmiyaGames.UndoHistory.CanUndo
+  name: CanUndo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_CanUndo
+  commentId: P:OmiyaGames.UndoHistory.CanUndo
+  fullName: OmiyaGames.UndoHistory.CanUndo
+  nameWithType: UndoHistory.CanUndo
+- uid: OmiyaGames.UndoHistory.CanUndo*
+  name: CanUndo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_CanUndo_
+  commentId: Overload:OmiyaGames.UndoHistory.CanUndo
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.CanUndo
+  nameWithType: UndoHistory.CanUndo
+- uid: OmiyaGames.UndoHistory.Capacity
+  name: Capacity
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Capacity
+  commentId: P:OmiyaGames.UndoHistory.Capacity
+  fullName: OmiyaGames.UndoHistory.Capacity
+  nameWithType: UndoHistory.Capacity
+- uid: OmiyaGames.UndoHistory.Capacity*
+  name: Capacity
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Capacity_
+  commentId: Overload:OmiyaGames.UndoHistory.Capacity
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.Capacity
+  nameWithType: UndoHistory.Capacity
+- uid: OmiyaGames.UndoHistory.Clear
+  name: Clear()
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Clear
+  commentId: M:OmiyaGames.UndoHistory.Clear
+  fullName: OmiyaGames.UndoHistory.Clear()
+  nameWithType: UndoHistory.Clear()
+- uid: OmiyaGames.UndoHistory.Clear*
+  name: Clear
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Clear_
+  commentId: Overload:OmiyaGames.UndoHistory.Clear
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.Clear
+  nameWithType: UndoHistory.Clear
+- uid: OmiyaGames.UndoHistory.Count
+  name: Count
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Count
+  commentId: P:OmiyaGames.UndoHistory.Count
+  fullName: OmiyaGames.UndoHistory.Count
+  nameWithType: UndoHistory.Count
+- uid: OmiyaGames.UndoHistory.Count*
+  name: Count
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Count_
+  commentId: Overload:OmiyaGames.UndoHistory.Count
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.Count
+  nameWithType: UndoHistory.Count
+- uid: OmiyaGames.UndoHistory.DefaultCapacity
+  name: DefaultCapacity
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_DefaultCapacity
+  commentId: F:OmiyaGames.UndoHistory.DefaultCapacity
+  fullName: OmiyaGames.UndoHistory.DefaultCapacity
+  nameWithType: UndoHistory.DefaultCapacity
+- uid: OmiyaGames.UndoHistory.GetEnumerator
+  name: GetEnumerator()
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_GetEnumerator
+  commentId: M:OmiyaGames.UndoHistory.GetEnumerator
+  fullName: OmiyaGames.UndoHistory.GetEnumerator()
+  nameWithType: UndoHistory.GetEnumerator()
+- uid: OmiyaGames.UndoHistory.GetEnumerator*
+  name: GetEnumerator
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_GetEnumerator_
+  commentId: Overload:OmiyaGames.UndoHistory.GetEnumerator
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.GetEnumerator
+  nameWithType: UndoHistory.GetEnumerator
+- uid: OmiyaGames.UndoHistory.History
+  name: History
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_History
+  commentId: P:OmiyaGames.UndoHistory.History
+  fullName: OmiyaGames.UndoHistory.History
+  nameWithType: UndoHistory.History
+- uid: OmiyaGames.UndoHistory.History*
+  name: History
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_History_
+  commentId: Overload:OmiyaGames.UndoHistory.History
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.History
+  nameWithType: UndoHistory.History
+- uid: OmiyaGames.UndoHistory.IRecord
+  name: UndoHistory.IRecord
+  href: api/OmiyaGames.UndoHistory.IRecord.html
+  commentId: T:OmiyaGames.UndoHistory.IRecord
+  fullName: OmiyaGames.UndoHistory.IRecord
+  nameWithType: UndoHistory.IRecord
+- uid: OmiyaGames.UndoHistory.IRecord.Description
+  name: Description
+  href: api/OmiyaGames.UndoHistory.IRecord.html#OmiyaGames_UndoHistory_IRecord_Description
+  commentId: P:OmiyaGames.UndoHistory.IRecord.Description
+  fullName: OmiyaGames.UndoHistory.IRecord.Description
+  nameWithType: UndoHistory.IRecord.Description
+- uid: OmiyaGames.UndoHistory.IRecord.Description*
+  name: Description
+  href: api/OmiyaGames.UndoHistory.IRecord.html#OmiyaGames_UndoHistory_IRecord_Description_
+  commentId: Overload:OmiyaGames.UndoHistory.IRecord.Description
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.IRecord.Description
+  nameWithType: UndoHistory.IRecord.Description
+- uid: OmiyaGames.UndoHistory.IRecord.OnRedo(System.Object,OmiyaGames.UndoHistory)
+  name: OnRedo(Object, UndoHistory)
+  href: api/OmiyaGames.UndoHistory.IRecord.html#OmiyaGames_UndoHistory_IRecord_OnRedo_System_Object_OmiyaGames_UndoHistory_
+  commentId: M:OmiyaGames.UndoHistory.IRecord.OnRedo(System.Object,OmiyaGames.UndoHistory)
+  fullName: OmiyaGames.UndoHistory.IRecord.OnRedo(System.Object, OmiyaGames.UndoHistory)
+  nameWithType: UndoHistory.IRecord.OnRedo(Object, UndoHistory)
+- uid: OmiyaGames.UndoHistory.IRecord.OnRedo*
+  name: OnRedo
+  href: api/OmiyaGames.UndoHistory.IRecord.html#OmiyaGames_UndoHistory_IRecord_OnRedo_
+  commentId: Overload:OmiyaGames.UndoHistory.IRecord.OnRedo
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.IRecord.OnRedo
+  nameWithType: UndoHistory.IRecord.OnRedo
+- uid: OmiyaGames.UndoHistory.IRecord.OnUndo(System.Object,OmiyaGames.UndoHistory)
+  name: OnUndo(Object, UndoHistory)
+  href: api/OmiyaGames.UndoHistory.IRecord.html#OmiyaGames_UndoHistory_IRecord_OnUndo_System_Object_OmiyaGames_UndoHistory_
+  commentId: M:OmiyaGames.UndoHistory.IRecord.OnUndo(System.Object,OmiyaGames.UndoHistory)
+  fullName: OmiyaGames.UndoHistory.IRecord.OnUndo(System.Object, OmiyaGames.UndoHistory)
+  nameWithType: UndoHistory.IRecord.OnUndo(Object, UndoHistory)
+- uid: OmiyaGames.UndoHistory.IRecord.OnUndo*
+  name: OnUndo
+  href: api/OmiyaGames.UndoHistory.IRecord.html#OmiyaGames_UndoHistory_IRecord_OnUndo_
+  commentId: Overload:OmiyaGames.UndoHistory.IRecord.OnUndo
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.IRecord.OnUndo
+  nameWithType: UndoHistory.IRecord.OnUndo
+- uid: OmiyaGames.UndoHistory.OnAfterChanged
+  name: OnAfterChanged
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_OnAfterChanged
+  commentId: E:OmiyaGames.UndoHistory.OnAfterChanged
+  fullName: OmiyaGames.UndoHistory.OnAfterChanged
+  nameWithType: UndoHistory.OnAfterChanged
+- uid: OmiyaGames.UndoHistory.OnAfterRedo
+  name: OnAfterRedo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_OnAfterRedo
+  commentId: E:OmiyaGames.UndoHistory.OnAfterRedo
+  fullName: OmiyaGames.UndoHistory.OnAfterRedo
+  nameWithType: UndoHistory.OnAfterRedo
+- uid: OmiyaGames.UndoHistory.OnAfterUndo
+  name: OnAfterUndo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_OnAfterUndo
+  commentId: E:OmiyaGames.UndoHistory.OnAfterUndo
+  fullName: OmiyaGames.UndoHistory.OnAfterUndo
+  nameWithType: UndoHistory.OnAfterUndo
+- uid: OmiyaGames.UndoHistory.OnBeforeChanged
+  name: OnBeforeChanged
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_OnBeforeChanged
+  commentId: E:OmiyaGames.UndoHistory.OnBeforeChanged
+  fullName: OmiyaGames.UndoHistory.OnBeforeChanged
+  nameWithType: UndoHistory.OnBeforeChanged
+- uid: OmiyaGames.UndoHistory.OnBeforeRedo
+  name: OnBeforeRedo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_OnBeforeRedo
+  commentId: E:OmiyaGames.UndoHistory.OnBeforeRedo
+  fullName: OmiyaGames.UndoHistory.OnBeforeRedo
+  nameWithType: UndoHistory.OnBeforeRedo
+- uid: OmiyaGames.UndoHistory.OnBeforeUndo
+  name: OnBeforeUndo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_OnBeforeUndo
+  commentId: E:OmiyaGames.UndoHistory.OnBeforeUndo
+  fullName: OmiyaGames.UndoHistory.OnBeforeUndo
+  nameWithType: UndoHistory.OnBeforeUndo
+- uid: OmiyaGames.UndoHistory.Redo(System.Object)
+  name: Redo(Object)
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Redo_System_Object_
+  commentId: M:OmiyaGames.UndoHistory.Redo(System.Object)
+  fullName: OmiyaGames.UndoHistory.Redo(System.Object)
+  nameWithType: UndoHistory.Redo(Object)
+- uid: OmiyaGames.UndoHistory.Redo*
+  name: Redo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Redo_
+  commentId: Overload:OmiyaGames.UndoHistory.Redo
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.Redo
+  nameWithType: UndoHistory.Redo
+- uid: OmiyaGames.UndoHistory.RedoMarker
+  name: RedoMarker
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_RedoMarker
+  commentId: P:OmiyaGames.UndoHistory.RedoMarker
+  fullName: OmiyaGames.UndoHistory.RedoMarker
+  nameWithType: UndoHistory.RedoMarker
+- uid: OmiyaGames.UndoHistory.RedoMarker*
+  name: RedoMarker
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_RedoMarker_
+  commentId: Overload:OmiyaGames.UndoHistory.RedoMarker
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.RedoMarker
+  nameWithType: UndoHistory.RedoMarker
+- uid: OmiyaGames.UndoHistory.RedoRecord
+  name: RedoRecord
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_RedoRecord
+  commentId: P:OmiyaGames.UndoHistory.RedoRecord
+  fullName: OmiyaGames.UndoHistory.RedoRecord
+  nameWithType: UndoHistory.RedoRecord
+- uid: OmiyaGames.UndoHistory.RedoRecord*
+  name: RedoRecord
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_RedoRecord_
+  commentId: Overload:OmiyaGames.UndoHistory.RedoRecord
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.RedoRecord
+  nameWithType: UndoHistory.RedoRecord
+- uid: OmiyaGames.UndoHistory.Undo(System.Object)
+  name: Undo(Object)
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Undo_System_Object_
+  commentId: M:OmiyaGames.UndoHistory.Undo(System.Object)
+  fullName: OmiyaGames.UndoHistory.Undo(System.Object)
+  nameWithType: UndoHistory.Undo(Object)
+- uid: OmiyaGames.UndoHistory.Undo*
+  name: Undo
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Undo_
+  commentId: Overload:OmiyaGames.UndoHistory.Undo
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.Undo
+  nameWithType: UndoHistory.Undo
+- uid: OmiyaGames.UndoHistory.UndoMarker
+  name: UndoMarker
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_UndoMarker
+  commentId: P:OmiyaGames.UndoHistory.UndoMarker
+  fullName: OmiyaGames.UndoHistory.UndoMarker
+  nameWithType: UndoHistory.UndoMarker
+- uid: OmiyaGames.UndoHistory.UndoMarker*
+  name: UndoMarker
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_UndoMarker_
+  commentId: Overload:OmiyaGames.UndoHistory.UndoMarker
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.UndoMarker
+  nameWithType: UndoHistory.UndoMarker
+- uid: OmiyaGames.UndoHistory.UndoRecord
+  name: UndoRecord
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_UndoRecord
+  commentId: P:OmiyaGames.UndoHistory.UndoRecord
+  fullName: OmiyaGames.UndoHistory.UndoRecord
+  nameWithType: UndoHistory.UndoRecord
+- uid: OmiyaGames.UndoHistory.UndoRecord*
+  name: UndoRecord
+  href: api/OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_UndoRecord_
+  commentId: Overload:OmiyaGames.UndoHistory.UndoRecord
+  isSpec: "True"
+  fullName: OmiyaGames.UndoHistory.UndoRecord
+  nameWithType: UndoHistory.UndoRecord

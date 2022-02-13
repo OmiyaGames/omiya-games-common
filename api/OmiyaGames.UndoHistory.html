@@ -1,0 +1,763 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class UndoHistory
+   | Common documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class UndoHistory
+   | Common documentation ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OmiyaGames.UndoHistory">
+  
+  
+  <h1 id="OmiyaGames_UndoHistory" data-uid="OmiyaGames.UndoHistory" class="text-break">Class UndoHistory
+  </h1>
+  <div class="markdown level0 summary"><p>Records a list of previous actions, and allows user to undo or redo
+them.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">UndoHistory</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OmiyaGames.html">OmiyaGames</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="OmiyaGames_UndoHistory_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UndoHistory : IReadOnlyCollection&lt;UndoHistory.IRecord&gt;, IEnumerable&lt;UndoHistory.IRecord&gt;, IEnumerable</code></pre>
+  </div>
+  <h5 id="OmiyaGames_UndoHistory_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p><copyright file="UndoHistory.cs" company="Omiya Games">
+The MIT License (MIT)<p>
+<p>Copyright (c) 2021 Omiya Games</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</copyright>
+<table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
+<strong>Version:</strong> 1.1.0<br>
+<strong>Date:</strong> 11/27/2021<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Initial version.
+</td></tr></tbody></table></p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="OmiyaGames_UndoHistory__ctor_" data-uid="OmiyaGames.UndoHistory.#ctor*"></a>
+  <h4 id="OmiyaGames_UndoHistory__ctor_System_Int32_" data-uid="OmiyaGames.UndoHistory.#ctor(System.Int32)">UndoHistory(Int32)</h4>
+  <div class="markdown level1 summary"><p>Constructs an Undo history.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UndoHistory(int capacity = 2147483647)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>How many records this list stores.  Defaults to <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="OmiyaGames_UndoHistory_DefaultCapacity" data-uid="OmiyaGames.UndoHistory.DefaultCapacity">DefaultCapacity</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultCapacity = 2147483647</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="OmiyaGames_UndoHistory_CanRedo_" data-uid="OmiyaGames.UndoHistory.CanRedo*"></a>
+  <h4 id="OmiyaGames_UndoHistory_CanRedo" data-uid="OmiyaGames.UndoHistory.CanRedo">CanRedo</h4>
+  <div class="markdown level1 summary"><p>Indicates whether there&apos;s an action to redo.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanRedo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_CanUndo_" data-uid="OmiyaGames.UndoHistory.CanUndo*"></a>
+  <h4 id="OmiyaGames_UndoHistory_CanUndo" data-uid="OmiyaGames.UndoHistory.CanUndo">CanUndo</h4>
+  <div class="markdown level1 summary"><p>Indicates whether there&apos;s an action to undo.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanUndo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_Capacity_" data-uid="OmiyaGames.UndoHistory.Capacity*"></a>
+  <h4 id="OmiyaGames_UndoHistory_Capacity" data-uid="OmiyaGames.UndoHistory.Capacity">Capacity</h4>
+  <div class="markdown level1 summary"><p>The max number of actions stored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Capacity { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_Count_" data-uid="OmiyaGames.UndoHistory.Count*"></a>
+  <h4 id="OmiyaGames_UndoHistory_Count" data-uid="OmiyaGames.UndoHistory.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Actual number of actions stored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_History_" data-uid="OmiyaGames.UndoHistory.History*"></a>
+  <h4 id="OmiyaGames_UndoHistory_History" data-uid="OmiyaGames.UndoHistory.History">History</h4>
+  <div class="markdown level1 summary"><p>History of actions, up to <a class="xref" href="OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_Capacity">Capacity</a>.
+First node is oldest, while last is latest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected LinkedList&lt;UndoHistory.IRecord&gt; History { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.linkedlist-1">LinkedList</a>&lt;<a class="xref" href="OmiyaGames.UndoHistory.IRecord.html">UndoHistory.IRecord</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_RedoMarker_" data-uid="OmiyaGames.UndoHistory.RedoMarker*"></a>
+  <h4 id="OmiyaGames_UndoHistory_RedoMarker" data-uid="OmiyaGames.UndoHistory.RedoMarker">RedoMarker</h4>
+  <div class="markdown level1 summary"><p>The node in <a class="xref" href="OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_History">History</a> that <seealso cref="!:Redo(Object)"></seealso> will call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected LinkedListNode&lt;UndoHistory.IRecord&gt; RedoMarker { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.linkedlistnode-1">LinkedListNode</a>&lt;<a class="xref" href="OmiyaGames.UndoHistory.IRecord.html">UndoHistory.IRecord</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_RedoRecord_" data-uid="OmiyaGames.UndoHistory.RedoRecord*"></a>
+  <h4 id="OmiyaGames_UndoHistory_RedoRecord" data-uid="OmiyaGames.UndoHistory.RedoRecord">RedoRecord</h4>
+  <div class="markdown level1 summary"><p>Provides the description of what will be redone, or <code>null</code> if can&apos;t redo.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UndoHistory.IRecord RedoRecord { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.UndoHistory.IRecord.html">UndoHistory.IRecord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_UndoMarker_" data-uid="OmiyaGames.UndoHistory.UndoMarker*"></a>
+  <h4 id="OmiyaGames_UndoHistory_UndoMarker" data-uid="OmiyaGames.UndoHistory.UndoMarker">UndoMarker</h4>
+  <div class="markdown level1 summary"><p>The node in <a class="xref" href="OmiyaGames.UndoHistory.html#OmiyaGames_UndoHistory_History">History</a> that <seealso cref="!:Undo(Object)"></seealso> will call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual LinkedListNode&lt;UndoHistory.IRecord&gt; UndoMarker { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.linkedlistnode-1">LinkedListNode</a>&lt;<a class="xref" href="OmiyaGames.UndoHistory.IRecord.html">UndoHistory.IRecord</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_UndoRecord_" data-uid="OmiyaGames.UndoHistory.UndoRecord*"></a>
+  <h4 id="OmiyaGames_UndoHistory_UndoRecord" data-uid="OmiyaGames.UndoHistory.UndoRecord">UndoRecord</h4>
+  <div class="markdown level1 summary"><p>The record that would be called by <seealso cref="!:Undo(Object)"></seealso>, or <code>null</code> if can&apos;t undo.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UndoHistory.IRecord UndoRecord { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.UndoHistory.IRecord.html">UndoHistory.IRecord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="OmiyaGames_UndoHistory_Add_" data-uid="OmiyaGames.UndoHistory.Add*"></a>
+  <h4 id="OmiyaGames_UndoHistory_Add_OmiyaGames_UndoHistory_IRecord_" data-uid="OmiyaGames.UndoHistory.Add(OmiyaGames.UndoHistory.IRecord)">Add(UndoHistory.IRecord)</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Add(UndoHistory.IRecord record)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.UndoHistory.IRecord.html">UndoHistory.IRecord</a></td>
+        <td><span class="parametername">record</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_Clear_" data-uid="OmiyaGames.UndoHistory.Clear*"></a>
+  <h4 id="OmiyaGames_UndoHistory_Clear" data-uid="OmiyaGames.UndoHistory.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Clear()</code></pre>
+  </div>
+  
+  
+  <a id="OmiyaGames_UndoHistory_GetEnumerator_" data-uid="OmiyaGames.UndoHistory.GetEnumerator*"></a>
+  <h4 id="OmiyaGames_UndoHistory_GetEnumerator" data-uid="OmiyaGames.UndoHistory.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;UndoHistory.IRecord&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="OmiyaGames.UndoHistory.IRecord.html">UndoHistory.IRecord</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_Redo_" data-uid="OmiyaGames.UndoHistory.Redo*"></a>
+  <h4 id="OmiyaGames_UndoHistory_Redo_System_Object_" data-uid="OmiyaGames.UndoHistory.Redo(System.Object)">Redo(Object)</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Redo(object source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_UndoHistory_Undo_" data-uid="OmiyaGames.UndoHistory.Undo*"></a>
+  <h4 id="OmiyaGames_UndoHistory_Undo_System_Object_" data-uid="OmiyaGames.UndoHistory.Undo(System.Object)">Undo(Object)</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Undo(object source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="OmiyaGames_UndoHistory_OnAfterChanged" data-uid="OmiyaGames.UndoHistory.OnAfterChanged">OnAfterChanged</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;UndoHistory&gt; OnAfterChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="OmiyaGames.UndoHistory.html">UndoHistory</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="OmiyaGames_UndoHistory_OnAfterRedo" data-uid="OmiyaGames.UndoHistory.OnAfterRedo">OnAfterRedo</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;object, UndoHistory&gt; OnAfterRedo</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>, <a class="xref" href="OmiyaGames.UndoHistory.html">UndoHistory</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="OmiyaGames_UndoHistory_OnAfterUndo" data-uid="OmiyaGames.UndoHistory.OnAfterUndo">OnAfterUndo</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;object, UndoHistory&gt; OnAfterUndo</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>, <a class="xref" href="OmiyaGames.UndoHistory.html">UndoHistory</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="OmiyaGames_UndoHistory_OnBeforeChanged" data-uid="OmiyaGames.UndoHistory.OnBeforeChanged">OnBeforeChanged</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;UndoHistory&gt; OnBeforeChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="OmiyaGames.UndoHistory.html">UndoHistory</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="OmiyaGames_UndoHistory_OnBeforeRedo" data-uid="OmiyaGames.UndoHistory.OnBeforeRedo">OnBeforeRedo</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;object, UndoHistory&gt; OnBeforeRedo</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>, <a class="xref" href="OmiyaGames.UndoHistory.html">UndoHistory</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="OmiyaGames_UndoHistory_OnBeforeUndo" data-uid="OmiyaGames.UndoHistory.OnBeforeUndo">OnBeforeUndo</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;object, UndoHistory&gt; OnBeforeUndo</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>, <a class="xref" href="OmiyaGames.UndoHistory.html">UndoHistory</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2020-2022 Omiya Games
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

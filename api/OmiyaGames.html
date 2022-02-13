@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace OmiyaGames
    | Common documentation ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -146,6 +146,17 @@ for(int i = 0; i &lt; allNumbers.Length; ++i)
       <h4><a class="xref" href="OmiyaGames.ScenePathAttribute.html">ScenePathAttribute</a></h4>
       <section><p>Makes a string field accept scenes-only in the Unity editor with [ScenePath].</p>
 </section>
+      <h4><a class="xref" href="OmiyaGames.SerializableHashSet-1.html">SerializableHashSet&lt;T&gt;</a></h4>
+      <section><p>A serializable <seealso cref="!:HashSet&lt;T>"></seealso>. Expose it on the inspector
+like a normal list.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.SerializableHelpers.html">SerializableHelpers</a></h4>
+      <section><p>Helper methods for serialization.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.SerializableListSet-1.html">SerializableListSet&lt;T&gt;</a></h4>
+      <section><p>A serializable <a class="xref" href="OmiyaGames.ListSet-1.html">ListSet&lt;T&gt;</a>. Expose it on the inspector
+like a normal list.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.html">SupportedPlatformsHelpers</a></h4>
       <section><p>A class full of helper and extended methods for <see cref="!:SupportPlatforms"></see>.</p>
 </section>
@@ -167,6 +178,19 @@ for(int i = 0; i &lt; allNumbers.Length; ++i)
       <h4><a class="xref" href="OmiyaGames.ThreadSafeStringBuilder.html">ThreadSafeStringBuilder</a></h4>
       <section><p>Creates a thread-safe <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a>.</p>
 </section>
+      <h4><a class="xref" href="OmiyaGames.Trackable-1.html">Trackable&lt;T&gt;</a></h4>
+      <section><p>A <see cref="!:System.Serializable"></see> value one can track changes to by
+using <a class="xref" href="OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_OnBeforeValueChanged">OnBeforeValueChanged</a> and
+<a class="xref" href="OmiyaGames.Trackable-1.html#OmiyaGames_Trackable_1_OnAfterValueChanged">OnAfterValueChanged</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.TrackableDecorator-1.html">TrackableDecorator&lt;T&gt;</a></h4>
+      <section><p>A helper class to implement
+<a class="xref" href="OmiyaGames.ITrackable-1.html">ITrackable&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.UndoHistory.html">UndoHistory</a></h4>
+      <section><p>Records a list of previous actions, and allows user to undo or redo
+them.</p>
+</section>
     <h3 id="structs">Structs
   </h3>
       <h4><a class="xref" href="OmiyaGames.HsvColor.html">HsvColor</a></h4>
@@ -176,8 +200,23 @@ for(int i = 0; i &lt; allNumbers.Length; ++i)
       <section><p>Indicates the frequency an element is going to be added into the index list,
 The higher the frequency, the more often an element appears.</p>
 </section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="OmiyaGames.IEditorTrackable.html">IEditorTrackable</a></h4>
+      <section><p>Interface used by editor to track changes.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.ITrackable-1.html">ITrackable&lt;T&gt;</a></h4>
+      <section><p>A value that allows tracking changes via C# events.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.UndoHistory.IRecord.html">UndoHistory.IRecord</a></h4>
+      <section><p>A record stored in <a class="xref" href="OmiyaGames.UndoHistory.html">UndoHistory</a>.</p>
+</section>
     <h3 id="enums">Enums
   </h3>
+      <h4><a class="xref" href="OmiyaGames.Axis3D.html">Axis3D</a></h4>
+      <section><p>An enum representing an axis in 3D. Multiple axis can be combined in
+the Unity inspector using <code>[EnumFlags]</code> (<a class="xref" href="OmiyaGames.EnumFlagsAttribute.html">EnumFlagsAttribute</a>).</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.DefaultNumberAttribute.Range.html">DefaultNumberAttribute.Range</a></h4>
       <section><p>Indicates whether the editor number is limited to being greater, less, or neither.</p>
 </section>
@@ -191,6 +230,12 @@ The higher the frequency, the more often an element appears.</p>
 </section>
     <h3 id="delegates">Delegates
   </h3>
+      <h4><a class="xref" href="OmiyaGames.Helpers.ChangeEvent-2.html">Helpers.ChangeEvent&lt;SOURCE, VALUE&gt;</a></h4>
+      <section><p>Delegate for tracking changes to a single value.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.ITrackable-1.ChangeEvent.html">ITrackable&lt;T&gt;.ChangeEvent</a></h4>
+      <section><p>Delegate for tracking changes to <a class="xref" href="OmiyaGames.ITrackable-1.html#OmiyaGames_ITrackable_1_Value">Value</a>.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.OverridePlatformSupport.html">SupportedPlatformsHelpers.OverridePlatformSupport</a></h4>
       <section><p>Delegate for <a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.html#OmiyaGames_SupportedPlatformsHelpers_OnAfterIsSupportedNoArgs">OnAfterIsSupportedNoArgs</a> event.
 <a class="xref" href="OmiyaGames.SupportedPlatformsHelpers.PlatformSupportArgs.html">SupportedPlatformsHelpers.PlatformSupportArgs</a></p>
@@ -205,7 +250,8 @@ The higher the frequency, the more often an element appears.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
@@ -219,7 +265,7 @@ The higher the frequency, the more often an element appears.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2020 Omiya Games
+            Copyright © 2020-2022 Omiya Games
             
           </div>
         </div>

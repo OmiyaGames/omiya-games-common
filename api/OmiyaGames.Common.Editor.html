@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace OmiyaGames.Common.Editor
    | Common documentation ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -132,11 +132,28 @@ This library focuses on editor-related static functions.</p>
       <h4><a class="xref" href="OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.html">ProjectSettingsHeader.UxmlTraits</a></h4>
       <section><p><a class="xref" href="OmiyaGames.Common.Editor.ProjectSettingsHeader.UxmlTraits.html">ProjectSettingsHeader.UxmlTraits</a> for <a class="xref" href="OmiyaGames.Common.Editor.ProjectSettingsHeader.html">ProjectSettingsHeader</a>.</p>
 </section>
+      <h4><a class="xref" href="OmiyaGames.Common.Editor.RandomListDrawer.html">RandomListDrawer</a></h4>
+      <section><p><see cref="!:PropertyDrawer"></see> for <a class="xref" href="OmiyaGames.RandomList-1.html">RandomList&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Common.Editor.RandomListElementDrawer.html">RandomListElementDrawer</a></h4>
+      <section><p><see cref="!:PropertyDrawer"></see> for <a class="xref" href="OmiyaGames.RandomList-1.ElementFrequency.html">RandomList&lt;T&gt;.ElementFrequency</a>.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.Common.Editor.ReadOnlyDrawer.html">ReadOnlyDrawer</a></h4>
       <section><p><see cref="!:PropertyDrawer"></see> for <a class="xref" href="OmiyaGames.ReadOnlyAttribute.html">ReadOnlyAttribute</a>.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Common.Editor.ScenePathDrawer.html">ScenePathDrawer</a></h4>
       <section><p><see cref="!:PropertyDrawer"></see> for <a class="xref" href="OmiyaGames.ScenePathAttribute.html">ScenePathAttribute</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Common.Editor.SerializableHashSetDrawer.html">SerializableHashSetDrawer</a></h4>
+      <section><p><see cref="!:PropertyDrawer"></see> for <a class="xref" href="OmiyaGames.SerializableHashSet-1.html">SerializableHashSet&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Common.Editor.SerializableListSetDrawer.html">SerializableListSetDrawer</a></h4>
+      <section><p><see cref="!:PropertyDrawer"></see> for <a class="xref" href="OmiyaGames.SerializableListSet-1.html">SerializableListSet&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Common.Editor.SingleChildDrawer.html">SingleChildDrawer</a></h4>
+      <section><p>Helper <see cref="!:PropertyDrawer"></see> for drawing any classes that has only
+a single child property in the inspector.  It will use Unity&apos;s default
+method of drawing said variable.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Common.Editor.Spacer.html">Spacer</a></h4>
       <section><p>An empty <see cref="!:VisualElement"></see> with a set height that can be overwritten by another USS.</p>
@@ -146,6 +163,9 @@ This library focuses on editor-related static functions.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Common.Editor.SupportedPlatformsDrawer.html">SupportedPlatformsDrawer</a></h4>
       <section><p>Property drawer for <a class="xref" href="OmiyaGames.SupportedPlatforms.html">SupportedPlatforms</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Common.Editor.TrackableDrawer.html">TrackableDrawer</a></h4>
+      <section><p>Property Drawer for <a class="xref" href="OmiyaGames.Trackable-1.html">Trackable&lt;T&gt;</a> that draws the value directly.</p>
 </section>
     <h3 id="delegates">Delegates
   </h3>
@@ -163,7 +183,8 @@ This library focuses on editor-related static functions.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
@@ -177,7 +198,7 @@ This library focuses on editor-related static functions.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2020 Omiya Games
+            Copyright © 2020-2022 Omiya Games
             
           </div>
         </div>
