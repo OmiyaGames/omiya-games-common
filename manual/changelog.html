@@ -79,12 +79,16 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="change-log">Change Log</h1>
 
+<h2 id="121">1.2.1</h2>
+<ul>
+<li><strong>Bug Fix:</strong> slightly fixing how a random element is grabbed from <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/RandomList.cs"><code>RandomList</code></a>: if <code>CurrentElement</code> or <code>NextElement</code> is called while list is empty or only has one element, the reshuffle flag is now set in case the coder adds new elements to the list.</li>
+</ul>
 <h2 id="120">1.2.0</h2>
 <ul>
 <li><strong>New Feature:</strong> added new class, <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableHashSet.cs"><code>SerializableHashSet</code></a> -- a Set that can be adjusted in the inspector.</li>
 <li><strong>New Feature:</strong> added new class, <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableListSet.cs"><code>SerializableListSet</code></a> -- a sorted Set that can be adjusted in the inspector.</li>
 <li><strong>New Enhancement:</strong> allowing edits to <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Trackable/Trackable.cs"><code>Trackables</code></a> from the inspector trigger events.</li>
-<li><strong>New Enhancement:</strong> improving inspector interface for <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/RAndomList.cs"><code>RandomList</code></a>.</li>
+<li><strong>New Enhancement:</strong> improving inspector interface for <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/RandomList.cs"><code>RandomList</code></a>.</li>
 </ul>
 <h2 id="110">1.1.0</h2>
 <ul>
