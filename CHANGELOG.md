@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.2
+
+- **Refactor:** using `nameof()` for any argument-related exceptions.
+
 ## 1.2.1
 
 - **Bug Fix:** slightly fixing how a random element is grabbed from [`RandomList`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/RandomList.cs): if `CurrentElement` or `NextElement` is called while list is empty or only has one element, the reshuffle flag is now set in case the coder adds new elements to the list.
