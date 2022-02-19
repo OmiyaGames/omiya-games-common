@@ -40,11 +40,8 @@ namespace OmiyaGames
 	/// <strong>Date:</strong> 8/18/2015<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
-	/// <description>
-	/// Initial version.
-	/// </description>
-	/// </item>
-	/// <item>
+	/// <description>Initial version.</description>
+	/// </item><item>
 	/// <term>
 	/// <strong>Version:</strong> 0.1.0-preview.1<br/>
 	/// <strong>Date:</strong> 3/25/2020<br/>
@@ -53,8 +50,7 @@ namespace OmiyaGames
 	/// <description>
 	/// Converted the class to a package.
 	/// </description>
-	/// </item>
-	/// <item>
+	/// </item><item>
 	/// <term>
 	/// <strong>Version:</strong> 0.1.2-preview.1<br/>
 	/// <strong>Date:</strong> 4/5/2020<br/>
@@ -63,8 +59,7 @@ namespace OmiyaGames
 	/// <description>
 	/// Updating to be serializable...albeit, in Unity 2020.1.
 	/// </description>
-	/// </item>
-	/// <item>
+	/// </item><item>
 	/// <term>
 	/// <strong>Version:</strong> 0.1.4-preview.1<br/>
 	/// <strong>Date:</strong> 5/27/2020<br/>
@@ -72,6 +67,25 @@ namespace OmiyaGames
 	/// </term>
 	/// <description>
 	/// Upgrading documentation to be DocFX compatible.
+	/// </description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Version:</strong> 1.2.1<br/>
+	/// <strong>Date:</strong> 2/18/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Updating <see cref="CurrentElement"/> to always flag shuffle
+	/// if list <see cref="Count"/> is 1 or less.
+	/// </description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Version:</strong> 1.2.2<br/>
+	/// <strong>Date:</strong> 2/18/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Using <see cref="nameof()"/> for throwing argument exceptions.
 	/// </description>
 	/// </item>
 	/// </list>
@@ -493,7 +507,7 @@ namespace OmiyaGames
 			// Make sure the frequency is a number larger than zero
 			if (numberOfItemsToAdd <= 0)
 			{
-				throw new ArgumentOutOfRangeException("numberOfItemsToAdd");
+				throw new ArgumentOutOfRangeException(nameof(numberOfItemsToAdd));
 			}
 
 			// Check if the item is already in the list
@@ -536,7 +550,7 @@ namespace OmiyaGames
 			// Make sure the frequency is a number larger than zero
 			if (numberOfItemsToRemove <= 0)
 			{
-				throw new ArgumentOutOfRangeException("numberOfItemsToRemove");
+				throw new ArgumentOutOfRangeException(nameof(numberOfItemsToRemove));
 			}
 
 			// Setup default return value
@@ -675,11 +689,11 @@ namespace OmiyaGames
 		{
 			if (array == null)
 			{
-				throw new ArgumentNullException("array");
+				throw new ArgumentNullException(nameof(array));
 			}
 			else if (arrayIndex < 0)
 			{
-				throw new ArgumentOutOfRangeException("arrayIndex");
+				throw new ArgumentOutOfRangeException(nameof(arrayIndex));
 			}
 			else if (array.Rank > 1)
 			{
@@ -701,11 +715,11 @@ namespace OmiyaGames
 		{
 			if (array == null)
 			{
-				throw new ArgumentNullException("array");
+				throw new ArgumentNullException(nameof(array));
 			}
 			else if (arrayIndex < 0)
 			{
-				throw new ArgumentOutOfRangeException("arrayIndex");
+				throw new ArgumentOutOfRangeException(nameof(arrayIndex));
 			}
 			else if (array.Rank > 1)
 			{
