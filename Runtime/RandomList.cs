@@ -449,7 +449,7 @@ namespace OmiyaGames
 					}
 
 					// Force index to reset
-					index = 0;
+					Reshuffle();
 				}
 				return returnElement;
 			}
