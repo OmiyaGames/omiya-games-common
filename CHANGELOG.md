@@ -1,11 +1,15 @@
 # Change Log
 
+## 1.2.1
+
+- **Bug Fix:** slightly fixing how a random element is grabbed from [`RandomList`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/RandomList.cs): if `CurrentElement` or `NextElement` is called while list is empty or only has one element, the reshuffle flag is now set in case the coder adds new elements to the list.
+
 ## 1.2.0
 
 - **New Feature:** added new class, [`SerializableHashSet`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableHashSet.cs) -- a Set that can be adjusted in the inspector.
 - **New Feature:** added new class, [`SerializableListSet`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableListSet.cs) -- a sorted Set that can be adjusted in the inspector.
 - **New Enhancement:** allowing edits to [`Trackables`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Trackable/Trackable.cs) from the inspector trigger events.
-- **New Enhancement:** improving inspector interface for [`RandomList`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/RAndomList.cs).
+- **New Enhancement:** improving inspector interface for [`RandomList`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/RandomList.cs).
 
 ## 1.1.0
 
