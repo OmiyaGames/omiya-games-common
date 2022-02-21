@@ -1,7 +1,7 @@
 {
   "name": "com.omiyagames.common",
   "displayName": "Omiya Games - Common",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "unity": "2021.2",
   "unityRelease": "12f1",
   "description": "Common scripts and editor UIElements used within Omiya Games' many tools and libraries.",

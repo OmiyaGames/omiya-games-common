@@ -43,6 +43,15 @@ namespace OmiyaGames
 	/// <description>
 	/// Initial version.
 	/// </description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Date:</strong> 2/20/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Updating to match with <see cref="SerializableHelpers"/>'s new
+	/// function arguments.
+	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>
@@ -162,7 +171,7 @@ namespace OmiyaGames
 			isSerializing = true;
 
 			// Sync this set's data into the list
-			SerializableHelpers.PushSetIntoSerializedList(this, serializedList);
+			SerializableHelpers.PushSetIntoSerializedList(this, serializedList, false);
 		}
 
 		/// <inheritdoc/>
@@ -170,7 +179,7 @@ namespace OmiyaGames
 		public void OnAfterDeserialize()
 		{
 			// Sync the list's data into the set.
-			SerializableHelpers.PushSerializedListIntoSet(serializedList, this);
+			SerializableHelpers.PushSerializedListIntoSet(serializedList, this, false);
 
 			// Indicate we're done serializing
 			isSerializing = false;
