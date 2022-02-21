@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.3
+
+- **Bug Fix:** Fixed editors of [`SerializableHashSet`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableHashSet.cs) and [`SerializableListSet`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableListSet.cs) to allow `null`/none elements, and stop throwing errors.
+
 ## 1.2.2
 
 - **Refactor:** using `nameof()` for any argument-related exceptions.

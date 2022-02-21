@@ -42,6 +42,15 @@ namespace OmiyaGames
 	/// <description>
 	/// Initial version.
 	/// </description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Date:</strong> 2/20/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Updating to match with <see cref="SerializableHelpers"/>'s new
+	/// function arguments.
+	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>

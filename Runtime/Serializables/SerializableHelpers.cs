@@ -42,6 +42,17 @@ namespace OmiyaGames
 	/// <description>
 	/// Initial version.
 	/// </description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Date:</strong> 2/20/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Adding <c>allowNull</c> arguments to
+	/// <see cref="PushSerializedListIntoSet{T}(IList{T}, ISet{T}, bool)"/>
+	/// and
+	/// <see cref="PushSetIntoSerializedList{T}(ISet{T}, IList{T}, bool)"/>.
+	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>
