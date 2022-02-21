@@ -60,18 +60,21 @@ namespace OmiyaGames
 		/// The serialized list, used to display elements
 		/// in the inspector.
 		/// </param>
-		public static void PushSetIntoSerializedList<T>(ISet<T> baseSet, IList<T> listToSerialize)
+		/// <param name="allowNull">
+		/// If <c>true</c>, checks for <c>null</c> elements in
+		/// <paramref name="baseSet"/>.
+		/// </param>
+		public static void PushSetIntoSerializedList<T>(ISet<T> baseSet, IList<T> listToSerialize, bool allowNull)
 		{
-			// Remove entries that are not in the list
-			for (int i = 0; i < listToSerialize.Count;)
+			// Remove entries from the serialized list that are not in the set
+			T element;
+			for (int i = 0; i < listToSerialize.Count; ++i)
 			{
-				if (baseSet.Contains(listToSerialize[i]))
-				{
-					++i;
-				}
-				else
+				element = listToSerialize[i];
+				if (Allow(element, allowNull) && (baseSet.Contains(element) == false))
 				{
 					listToSerialize.RemoveAt(i);
+					--i;
 				}
 			}
 
@@ -95,7 +98,11 @@ namespace OmiyaGames
 		/// The serialized list, used to display elements
 		/// in the inspector.
 		/// </param>
-		public static void PushSerializedListIntoSet<T>(IList<T> serializedList, ISet<T> setToSync)
+		/// <param name="allowNull">
+		/// If <c>true</c>, let's <c>null</c> be added into
+		/// <paramref name="setToSync"/>.
+		/// </param>
+		public static void PushSerializedListIntoSet<T>(IList<T> serializedList, ISet<T> setToSync, bool allowNull)
 		{
 			// Clear this HashSet's contents
 			setToSync.Clear();
@@ -103,8 +110,13 @@ namespace OmiyaGames
 			// Populate this HashSet
 			foreach (T item in serializedList)
 			{
-				setToSync.Add(item);
+				if (Allow(item, allowNull))
+				{
+					setToSync.Add(item);
+				}
 			}
 		}
+
+		static bool Allow<T>(T item, bool allowNull) => (allowNull || item != null);
 	}
 }
