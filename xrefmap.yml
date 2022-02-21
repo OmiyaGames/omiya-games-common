@@ -3918,15 +3918,15 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet
   nameWithType: SerializableHelpers.PushSerializedListIntoSet
-- uid: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet``1(System.Collections.Generic.IList{``0},System.Collections.Generic.ISet{``0})
-  name: PushSerializedListIntoSet<T>(IList<T>, ISet<T>)
-  href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSerializedListIntoSet__1_System_Collections_Generic_IList___0__System_Collections_Generic_ISet___0__
-  commentId: M:OmiyaGames.SerializableHelpers.PushSerializedListIntoSet``1(System.Collections.Generic.IList{``0},System.Collections.Generic.ISet{``0})
-  name.vb: PushSerializedListIntoSet(Of T)(IList(Of T), ISet(Of T))
-  fullName: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet<T>(System.Collections.Generic.IList<T>, System.Collections.Generic.ISet<T>)
-  fullName.vb: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet(Of T)(System.Collections.Generic.IList(Of T), System.Collections.Generic.ISet(Of T))
-  nameWithType: SerializableHelpers.PushSerializedListIntoSet<T>(IList<T>, ISet<T>)
-  nameWithType.vb: SerializableHelpers.PushSerializedListIntoSet(Of T)(IList(Of T), ISet(Of T))
+- uid: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet``1(System.Collections.Generic.IList{``0},System.Collections.Generic.ISet{``0},System.Boolean)
+  name: PushSerializedListIntoSet<T>(IList<T>, ISet<T>, Boolean)
+  href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSerializedListIntoSet__1_System_Collections_Generic_IList___0__System_Collections_Generic_ISet___0__System_Boolean_
+  commentId: M:OmiyaGames.SerializableHelpers.PushSerializedListIntoSet``1(System.Collections.Generic.IList{``0},System.Collections.Generic.ISet{``0},System.Boolean)
+  name.vb: PushSerializedListIntoSet(Of T)(IList(Of T), ISet(Of T), Boolean)
+  fullName: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet<T>(System.Collections.Generic.IList<T>, System.Collections.Generic.ISet<T>, System.Boolean)
+  fullName.vb: OmiyaGames.SerializableHelpers.PushSerializedListIntoSet(Of T)(System.Collections.Generic.IList(Of T), System.Collections.Generic.ISet(Of T), System.Boolean)
+  nameWithType: SerializableHelpers.PushSerializedListIntoSet<T>(IList<T>, ISet<T>, Boolean)
+  nameWithType.vb: SerializableHelpers.PushSerializedListIntoSet(Of T)(IList(Of T), ISet(Of T), Boolean)
 - uid: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList*
   name: PushSetIntoSerializedList
   href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSetIntoSerializedList_
@@ -3934,15 +3934,15 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList
   nameWithType: SerializableHelpers.PushSetIntoSerializedList
-- uid: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IList{``0})
-  name: PushSetIntoSerializedList<T>(ISet<T>, IList<T>)
-  href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSetIntoSerializedList__1_System_Collections_Generic_ISet___0__System_Collections_Generic_IList___0__
-  commentId: M:OmiyaGames.SerializableHelpers.PushSetIntoSerializedList``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IList{``0})
-  name.vb: PushSetIntoSerializedList(Of T)(ISet(Of T), IList(Of T))
-  fullName: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList<T>(System.Collections.Generic.ISet<T>, System.Collections.Generic.IList<T>)
-  fullName.vb: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList(Of T)(System.Collections.Generic.ISet(Of T), System.Collections.Generic.IList(Of T))
-  nameWithType: SerializableHelpers.PushSetIntoSerializedList<T>(ISet<T>, IList<T>)
-  nameWithType.vb: SerializableHelpers.PushSetIntoSerializedList(Of T)(ISet(Of T), IList(Of T))
+- uid: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IList{``0},System.Boolean)
+  name: PushSetIntoSerializedList<T>(ISet<T>, IList<T>, Boolean)
+  href: api/OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSetIntoSerializedList__1_System_Collections_Generic_ISet___0__System_Collections_Generic_IList___0__System_Boolean_
+  commentId: M:OmiyaGames.SerializableHelpers.PushSetIntoSerializedList``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IList{``0},System.Boolean)
+  name.vb: PushSetIntoSerializedList(Of T)(ISet(Of T), IList(Of T), Boolean)
+  fullName: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList<T>(System.Collections.Generic.ISet<T>, System.Collections.Generic.IList<T>, System.Boolean)
+  fullName.vb: OmiyaGames.SerializableHelpers.PushSetIntoSerializedList(Of T)(System.Collections.Generic.ISet(Of T), System.Collections.Generic.IList(Of T), System.Boolean)
+  nameWithType: SerializableHelpers.PushSetIntoSerializedList<T>(ISet<T>, IList<T>, Boolean)
+  nameWithType.vb: SerializableHelpers.PushSetIntoSerializedList(Of T)(ISet(Of T), IList(Of T), Boolean)
 - uid: OmiyaGames.SerializableListSet`1
   name: SerializableListSet<T>
   href: api/OmiyaGames.SerializableListSet-1.html

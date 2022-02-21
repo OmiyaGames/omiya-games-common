@@ -122,6 +122,14 @@ THE SOFTWARE.
 <strong>Author:</strong> Taro Omiya
 </td><td>
 Initial version.
+</td></tr><tr><td>
+<strong>Date:</strong> 2/20/2022<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Adding <code>allowNull</code> arguments to
+<a class="xref" href="OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSerializedListIntoSet__1_System_Collections_Generic_IList___0__System_Collections_Generic_ISet___0__System_Boolean_">PushSerializedListIntoSet&lt;T&gt;(IList&lt;T&gt;, ISet&lt;T&gt;, Boolean)</a>
+and
+<a class="xref" href="OmiyaGames.SerializableHelpers.html#OmiyaGames_SerializableHelpers_PushSetIntoSerializedList__1_System_Collections_Generic_ISet___0__System_Collections_Generic_IList___0__System_Boolean_">PushSetIntoSerializedList&lt;T&gt;(ISet&lt;T&gt;, IList&lt;T&gt;, Boolean)</a>.
 </td></tr></tbody></table></p>
 </div>
   <h3 id="methods">Methods
@@ -129,14 +137,14 @@ Initial version.
   
   
   <a id="OmiyaGames_SerializableHelpers_PushSerializedListIntoSet_" data-uid="OmiyaGames.SerializableHelpers.PushSerializedListIntoSet*"></a>
-  <h4 id="OmiyaGames_SerializableHelpers_PushSerializedListIntoSet__1_System_Collections_Generic_IList___0__System_Collections_Generic_ISet___0__" data-uid="OmiyaGames.SerializableHelpers.PushSerializedListIntoSet``1(System.Collections.Generic.IList{``0},System.Collections.Generic.ISet{``0})">PushSerializedListIntoSet&lt;T&gt;(IList&lt;T&gt;, ISet&lt;T&gt;)</h4>
+  <h4 id="OmiyaGames_SerializableHelpers_PushSerializedListIntoSet__1_System_Collections_Generic_IList___0__System_Collections_Generic_ISet___0__System_Boolean_" data-uid="OmiyaGames.SerializableHelpers.PushSerializedListIntoSet``1(System.Collections.Generic.IList{``0},System.Collections.Generic.ISet{``0},System.Boolean)">PushSerializedListIntoSet&lt;T&gt;(IList&lt;T&gt;, ISet&lt;T&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Pushes the data from <code data-dev-comment-type="paramref" class="paramref">serializedList</code>
 into <code data-dev-comment-type="paramref" class="paramref">setToSync</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void PushSerializedListIntoSet&lt;T&gt;(IList&lt;T&gt; serializedList, ISet&lt;T&gt; setToSync)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void PushSerializedListIntoSet&lt;T&gt;(IList&lt;T&gt; serializedList, ISet&lt;T&gt; setToSync, bool allowNull)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -161,6 +169,13 @@ in the inspector.</p>
         <td><p>The original data.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">allowNull</span></td>
+        <td><p>If <code>true</code>, let&apos;s <code>null</code> be added into
+<code data-dev-comment-type="paramref" class="paramref">setToSync</code>.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
@@ -181,14 +196,14 @@ in the inspector.</p>
   
   
   <a id="OmiyaGames_SerializableHelpers_PushSetIntoSerializedList_" data-uid="OmiyaGames.SerializableHelpers.PushSetIntoSerializedList*"></a>
-  <h4 id="OmiyaGames_SerializableHelpers_PushSetIntoSerializedList__1_System_Collections_Generic_ISet___0__System_Collections_Generic_IList___0__" data-uid="OmiyaGames.SerializableHelpers.PushSetIntoSerializedList``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IList{``0})">PushSetIntoSerializedList&lt;T&gt;(ISet&lt;T&gt;, IList&lt;T&gt;)</h4>
+  <h4 id="OmiyaGames_SerializableHelpers_PushSetIntoSerializedList__1_System_Collections_Generic_ISet___0__System_Collections_Generic_IList___0__System_Boolean_" data-uid="OmiyaGames.SerializableHelpers.PushSetIntoSerializedList``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IList{``0},System.Boolean)">PushSetIntoSerializedList&lt;T&gt;(ISet&lt;T&gt;, IList&lt;T&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Pushes the data from <code data-dev-comment-type="paramref" class="paramref">baseSet</code>
 into <code data-dev-comment-type="paramref" class="paramref">listToSerialize</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void PushSetIntoSerializedList&lt;T&gt;(ISet&lt;T&gt; baseSet, IList&lt;T&gt; listToSerialize)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void PushSetIntoSerializedList&lt;T&gt;(ISet&lt;T&gt; baseSet, IList&lt;T&gt; listToSerialize, bool allowNull)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -211,6 +226,13 @@ into <code data-dev-comment-type="paramref" class="paramref">listToSerialize</co
         <td><span class="parametername">listToSerialize</span></td>
         <td><p>The serialized list, used to display elements
 in the inspector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">allowNull</span></td>
+        <td><p>If <code>true</code>, checks for <code>null</code> elements in
+<code data-dev-comment-type="paramref" class="paramref">baseSet</code>.</p>
 </td>
       </tr>
     </tbody>
