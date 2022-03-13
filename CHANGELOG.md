@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.3.0
+
+- **New Feature:** added new editor `UIElement`, [`RangeSlider`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Editor/VisualElements/RangeSlider.cs) -- a slider where one can set the minimum and maximum `float` value.  More importantly, unlike the built-in `MinMaxSlider`, the `RangeSlider` provides text fields to display and provide finer adjustments to the min and max values.
+- **New Feature:** added new helper method, [`Helpers.CloneComponent<T>(Component original, GameObject destination)`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Helpers.cs) -- a method that adds a `Component` to a desginated `GameObject`, and copies over the fields from `original`.
+
 ## 1.2.3
 
 - **Bug Fix:** Fixed editors of [`SerializableHashSet`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableHashSet.cs) and [`SerializableListSet`](https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableListSet.cs) to allow `null`/none elements, and stop throwing errors.

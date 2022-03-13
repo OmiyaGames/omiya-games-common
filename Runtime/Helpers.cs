@@ -144,13 +144,13 @@ namespace OmiyaGames
 		public delegate void ChangeEvent<SOURCE, VALUE>(SOURCE eventSource, VALUE oldValue, VALUE newValue);
 
 		/// <summary>
-		/// Creates a clone of the components <code>GameObject</code>, places it under
+		/// Creates a clone of the components <see cref="GameObject"/>, places it under
 		/// the same parent on the hierarchy, and finally returns the copy of a component
 		/// attached to that clone.
 		/// </summary>
-		/// <typeparam name="T">Component attached to a <code>GameObject</code></typeparam>
-		/// <param name="copyFrom">The component to grab its <code>GameObject</code>.
-		/// This will be used  to clone a new <code>GameObject</code>.</param>
+		/// <typeparam name="T">Component attached to a <see cref="GameObject"/></typeparam>
+		/// <param name="copyFrom">The component to grab its <see cref="GameObject"/>.
+		/// This will be used  to clone a new <see cref="GameObject"/>.</param>
 		/// <param name="setActive">Whether the clone is active or not</param>
 		/// <param name="copyPosition">Whether the clone will be at the same position
 		/// as the original or not</param>
@@ -169,13 +169,13 @@ namespace OmiyaGames
 		}
 
 		/// <summary>
-		/// Creates a clone of the provided <code>GameObject</code> and places it under
+		/// Creates a clone of the provided <see cref="GameObject"/> and places it under
 		/// the assigned transform on the hierarchy.
 		/// </summary>
-		/// <typeparam name="T">Component attached to a <code>GameObject</code></typeparam>
-		/// <param name="copyFrom">The component to grab its <code>GameObject</code>.
-		/// <param name="attachTo">The <code>Transform</code> to make the clone a child of.
-		/// <code>null</code> will place the clone at the hierarchy's root.</param>
+		/// <typeparam name="T">Component attached to a <see cref="GameObject"/></typeparam>
+		/// <param name="copyFrom">The component to grab its <see cref="GameObject"/>.
+		/// <param name="attachTo">The <see cref="Transform"/> to make the clone a child of.
+		/// <c>null</c> will place the clone at the hierarchy's root.</param>
 		/// <param name="setActive">Whether the clone is active or not</param>
 		/// <param name="copyLocalPosition">Whether the clone will be at the same position
 		/// as the original or not</param>
@@ -194,24 +194,24 @@ namespace OmiyaGames
 		}
 
 		/// <summary>
-		/// Creates a clone of the provided <code>GameObject</code> and places it under
+		/// Creates a clone of the provided <see cref="GameObject"/> and places it under
 		/// the same parent on the hierarchy.
 		/// </summary>
-		/// <param name="copyFrom">The <code>GameObject</code> to clone off of.</param>
+		/// <param name="copyFrom">The <see cref="GameObject"/> to clone off of.</param>
 		/// <param name="setActive">Whether the clone is active or not</param>
-		/// <returns>A clone of <code>GameObject</code></returns>
+		/// <returns>A clone of <see cref="GameObject"/></returns>
 		public static GameObject Replicate(GameObject copyFrom, bool setActive = true)
 		{
 			return Replicate(copyFrom, copyFrom.transform.parent, setActive, true, true, true);
 		}
 
 		/// <summary>
-		/// Creates a clone of the provided <code>GameObject</code> and places it under
+		/// Creates a clone of the provided <see cref="GameObject"/> and places it under
 		/// the assigned transform on the hierarchy.
 		/// </summary>
-		/// <param name="copyFrom">The <code>GameObject</code> to clone off of.</param>
-		/// <param name="attachTo">The <code>Transform</code> to make the clone a child of.
-		/// <code>null</code> will place the clone at the hierarchy's root.</param>
+		/// <param name="copyFrom">The <see cref="GameObject"/> to clone off of.</param>
+		/// <param name="attachTo">The <see cref="Transform"/> to make the clone a child of.
+		/// <c>null</c> will place the clone at the hierarchy's root.</param>
 		/// <param name="setActive">Whether the clone is active or not</param>
 		/// <param name="copyLocalPosition">Whether the clone will be at the same position
 		/// as the original or not</param>
@@ -219,11 +219,11 @@ namespace OmiyaGames
 		/// as the original or not</param>
 		/// <param name="copyLocalScale">Whether the clone will be scaled the same as the
 		/// original or not</param>
-		/// <returns>A clone of <code>GameObject</code></returns>
+		/// <returns>A clone of <see cref="GameObject"/></returns>
 		public static GameObject Replicate(GameObject copyFrom, Transform attachTo, bool setActive = true, bool copyLocalPosition = true, bool copyLocalRotation = true, bool copyLocalScale = true)
 		{
 			// Create a clone
-			GameObject clone = MonoBehaviour.Instantiate<GameObject>(copyFrom);
+			GameObject clone = Object.Instantiate(copyFrom);
 
 			// Setup its transform
 			clone.transform.SetParent(attachTo, true);
@@ -467,7 +467,10 @@ namespace OmiyaGames
 		/// <paramref name="text"/> with invalid file characters removed.
 		/// </returns>
 		/// <remarks>
-		/// Taken from http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html
+		/// Taken from
+		/// <a href="http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html">
+		/// archives.miloush.net/michkap/archive/2007/05/14/2629747.html
+		/// </a>
 		/// </remarks>
 		public static string RemoveDiacritics(string text, StringBuilder stringBuilder = null)
 		{
@@ -524,8 +527,8 @@ namespace OmiyaGames
 		}
 
 		/// <summary>
-		/// Clones a component onto the same <c>GameObject</c>
-		/// the component is attached to.
+		/// Clones a component onto the same <see cref="GameObject"/>
+		/// <paramref name="original"/> is attached to.
 		/// </summary>
 		/// <typeparam name="T">
 		/// Component type.
@@ -550,7 +553,7 @@ namespace OmiyaGames
 		}
 
 		/// <summary>
-		/// Clones a component to another <c>GameObject</c>.
+		/// Clones a component to another <see cref="GameObject"/>.
 		/// </summary>
 		/// <typeparam name="T">
 		/// Component type.
@@ -559,7 +562,7 @@ namespace OmiyaGames
 		/// The original component to clone.
 		/// </param>
 		/// <param name="destination">
-		/// The <c>GameObject</c> to attach the cloned
+		/// The <see cref="GameObject"/> to attach the cloned
 		/// component to.
 		/// </param>
 		/// <returns>
@@ -633,8 +636,7 @@ namespace OmiyaGames
 			}
 			else if (clone is AudioSource clonedAudioSource)
 			{
-				// Edge case: for audio source, forcing time to be 0
-				// to prevent errors.
+				// Edge case: for audio source, forcing time to be 0 to prevent errors.
 				clonedAudioSource.time = 0;
 				clonedAudioSource.Stop();
 			}
