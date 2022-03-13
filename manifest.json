@@ -252,6 +252,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Common.Editor.RangeSlider.UxmlFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Common.Editor.RangeSlider.UxmlFactory.html",
+          "hash": "/7dpOyJxCNng19qAFu56U9/5u/ZlysLP1OHFYoFa6o8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Common.Editor.RangeSlider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Common.Editor.RangeSlider.html",
+          "hash": "G/iwK+/903bVJDwoaonmLgMJ17Cqqa+dUJgsATaeWuU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/OmiyaGames.Common.Editor.ReadOnlyDrawer.yml",
       "output": {
         ".html": {
@@ -364,7 +388,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Common.Editor.html",
-          "hash": "dPvTsHDCMMpQSchkgkUELrBym+Fb2kVra8a3ezxd9S4="
+          "hash": "Gn9y8aDN+dAfLujYLXAGx8eTHP+gf+2mqnzgs+yRxBc="
         }
       },
       "is_incremental": false,
@@ -484,7 +508,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Helpers.html",
-          "hash": "hER0iaqevA1PivQz8biFr18BY2+GTyrHsKDYAfa23Hc="
+          "hash": "djO6ahRARmUKBcOlAlRDPDJMJCS7EIffsj5qSCwudhw="
         }
       },
       "is_incremental": false,
@@ -808,7 +832,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "nhzB54+DYq6ccqWRvxJOpCbZkYGmFhhfYJ2OmeG6PFQ="
+          "hash": "pNIPFacUaMF6KXFe4b5iKXcxUdrCBMbazjXmAFJCz/Q="
         }
       },
       "is_incremental": false,
@@ -844,7 +868,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/changelog.html",
-          "hash": "AkmOdToF1AQXwJQQVgpY7Antr9Zp3ASg02pHZVg3DU4="
+          "hash": "172lTKzBhb8zMJGJTc+JgGBV/xAYRsqtBdsUy33JezA="
         }
       },
       "is_incremental": false,
@@ -906,7 +930,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 65,
+          "total_file_count": 67,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

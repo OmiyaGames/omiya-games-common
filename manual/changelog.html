@@ -79,6 +79,11 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="change-log">Change Log</h1>
 
+<h2 id="130">1.3.0</h2>
+<ul>
+<li><strong>New Feature:</strong> added new editor <code>UIElement</code>, <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Editor/VisualElements/RangeSlider.cs"><code>RangeSlider</code></a> -- a slider where one can set the minimum and maximum <code>float</code> value.  More importantly, unlike the built-in <code>MinMaxSlider</code>, the <code>RangeSlider</code> provides text fields to display and provide finer adjustments to the min and max values.</li>
+<li><strong>New Feature:</strong> added new helper method, <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Helpers.cs"><code>Helpers.CloneComponent&lt;T&gt;(Component original, GameObject destination)</code></a> -- a method that adds a <code>Component</code> to a desginated <code>GameObject</code>, and copies over the fields from <code>original</code>.</li>
+</ul>
 <h2 id="123">1.2.3</h2>
 <ul>
 <li><strong>Bug Fix:</strong> Fixed editors of <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableHashSet.cs"><code>SerializableHashSet</code></a> and <a href="https://github.com/OmiyaGames/omiya-games-common/blob/main/Runtime/Serializables/SerializableListSet.cs"><code>SerializableListSet</code></a> to allow <code>null</code>/none elements, and stop throwing errors.</li>

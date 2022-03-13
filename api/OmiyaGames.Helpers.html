@@ -143,6 +143,12 @@ Updating documentation.  Moving method <see cref="!:ShortenUrl(string)"></see> t
 <strong>Author:</strong> Taro Omiya
 </td><td>
 Adding a delegate to monitor changing values.
+</td></tr><tr><td>
+<strong>Version:</strong> 1.3.0<br>
+<strong>Date:</strong> 3/13/2022<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Adding <a class="xref" href="OmiyaGames.Helpers.html#OmiyaGames_Helpers_CloneComponent__1___0_GameObject_">CloneComponent&lt;T&gt;(T, GameObject)</a> and its aliases.
 </td></tr></tbody></table></p>
 </div>
   <h3 id="fields">Fields
@@ -323,6 +329,177 @@ Adding a delegate to monitor changing values.
   </table>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="OmiyaGames_Helpers_CloneComponent_" data-uid="OmiyaGames.Helpers.CloneComponent*"></a>
+  <h4 id="OmiyaGames_Helpers_CloneComponent__1___0_" data-uid="OmiyaGames.Helpers.CloneComponent``1(``0)">CloneComponent&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"><p>Clones a component onto the same <see cref="!:GameObject"></see>
+<code data-dev-comment-type="paramref" class="paramref">original</code> is attached to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T CloneComponent&lt;T&gt;(T original)
+    where T : Component</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">original</span></td>
+        <td><p>The original component to clone.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The new component with fields copied
+from <code data-dev-comment-type="paramref" class="paramref">original</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Component type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">original</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Helpers_CloneComponent_" data-uid="OmiyaGames.Helpers.CloneComponent*"></a>
+  <h4 id="OmiyaGames_Helpers_CloneComponent__1___0_GameObject_" data-uid="OmiyaGames.Helpers.CloneComponent``1(``0,GameObject)">CloneComponent&lt;T&gt;(T, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Clones a component to another <see cref="!:GameObject"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T CloneComponent&lt;T&gt;(T original, GameObject destination)
+    where T : Component</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">original</span></td>
+        <td><p>The original component to clone.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">destination</span></td>
+        <td><p>The <see cref="!:GameObject"></see> to attach the cloned
+component to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The new component with fields copied
+from <code data-dev-comment-type="paramref" class="paramref">original</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Component type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OmiyaGames_Helpers_CloneComponent__1___0_GameObject__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Original source from 
+<a href="http://answers.unity.com/answers/1118416/view.html">turbanov</a>.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">original</code> and/or
+<code data-dev-comment-type="paramref" class="paramref">destination</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="OmiyaGames_Helpers_ConvertToEnum_" data-uid="OmiyaGames.Helpers.ConvertToEnum*"></a>
@@ -811,7 +988,10 @@ generate the returned string. Good for performance.</p>
     </tbody>
   </table>
   <h5 id="OmiyaGames_Helpers_RemoveDiacritics_System_String_System_Text_StringBuilder__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Taken from <a href="http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html">http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html</a></p>
+  <div class="markdown level1 remarks"><p>Taken from
+<a href="http://archives.miloush.net/michkap/archive/2007/05/14/2629747.html">
+archives.miloush.net/michkap/archive/2007/05/14/2629747.html
+</a></p>
 </div>
   
   
@@ -868,7 +1048,7 @@ generate the returned string. Good for performance.</p>
   
   <a id="OmiyaGames_Helpers_Replicate_" data-uid="OmiyaGames.Helpers.Replicate*"></a>
   <h4 id="OmiyaGames_Helpers_Replicate_GameObject_System_Boolean_" data-uid="OmiyaGames.Helpers.Replicate(GameObject,System.Boolean)">Replicate(GameObject, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Creates a clone of the provided <pre><code>GameObject</code></pre> and places it under
+  <div class="markdown level1 summary"><p>Creates a clone of the provided <see cref="!:GameObject"></see> and places it under
 the same parent on the hierarchy.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -889,7 +1069,7 @@ the same parent on the hierarchy.</p>
       <tr>
         <td><span class="xref">GameObject</span></td>
         <td><span class="parametername">copyFrom</span></td>
-        <td><p>The <pre><code>GameObject</code></pre> to clone off of.</p>
+        <td><p>The <see cref="!:GameObject"></see> to clone off of.</p>
 </td>
       </tr>
       <tr>
@@ -911,7 +1091,7 @@ the same parent on the hierarchy.</p>
     <tbody>
       <tr>
         <td><span class="xref">GameObject</span></td>
-        <td><p>A clone of <pre><code>GameObject</code></pre></p>
+        <td><p>A clone of <see cref="!:GameObject"></see></p>
 </td>
       </tr>
     </tbody>
@@ -920,7 +1100,7 @@ the same parent on the hierarchy.</p>
   
   <a id="OmiyaGames_Helpers_Replicate_" data-uid="OmiyaGames.Helpers.Replicate*"></a>
   <h4 id="OmiyaGames_Helpers_Replicate_GameObject_Transform_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="OmiyaGames.Helpers.Replicate(GameObject,Transform,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">Replicate(GameObject, Transform, Boolean, Boolean, Boolean, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Creates a clone of the provided <pre><code>GameObject</code></pre> and places it under
+  <div class="markdown level1 summary"><p>Creates a clone of the provided <see cref="!:GameObject"></see> and places it under
 the assigned transform on the hierarchy.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -941,14 +1121,15 @@ the assigned transform on the hierarchy.</p>
       <tr>
         <td><span class="xref">GameObject</span></td>
         <td><span class="parametername">copyFrom</span></td>
-        <td><p>The <pre><code>GameObject</code></pre> to clone off of.</p>
+        <td><p>The <see cref="!:GameObject"></see> to clone off of.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Transform</span></td>
         <td><span class="parametername">attachTo</span></td>
-        <td><p>The <pre><code>Transform</code></pre> to make the clone a child of.</p>
-<pre><code>null</code></pre> will place the clone at the hierarchy&apos;s root.</td>
+        <td><p>The <see cref="!:Transform"></see> to make the clone a child of.
+<code>null</code> will place the clone at the hierarchy&apos;s root.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
@@ -990,7 +1171,7 @@ original or not</p>
     <tbody>
       <tr>
         <td><span class="xref">GameObject</span></td>
-        <td><p>A clone of <pre><code>GameObject</code></pre></p>
+        <td><p>A clone of <see cref="!:GameObject"></see></p>
 </td>
       </tr>
     </tbody>
@@ -999,7 +1180,7 @@ original or not</p>
   
   <a id="OmiyaGames_Helpers_Replicate_" data-uid="OmiyaGames.Helpers.Replicate*"></a>
   <h4 id="OmiyaGames_Helpers_Replicate__1___0_System_Boolean_" data-uid="OmiyaGames.Helpers.Replicate``1(``0,System.Boolean)">Replicate&lt;T&gt;(T, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Creates a clone of the components <pre><code>GameObject</code></pre>, places it under
+  <div class="markdown level1 summary"><p>Creates a clone of the components <see cref="!:GameObject"></see>, places it under
 the same parent on the hierarchy, and finally returns the copy of a component
 attached to that clone.</p>
 </div>
@@ -1022,8 +1203,8 @@ attached to that clone.</p>
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">copyFrom</span></td>
-        <td><p>The component to grab its <pre><code>GameObject</code></pre>.
-This will be used  to clone a new <pre><code>GameObject</code></pre>.</p>
+        <td><p>The component to grab its <see cref="!:GameObject"></see>.
+This will be used  to clone a new <see cref="!:GameObject"></see>.</p>
 </td>
       </tr>
       <tr>
@@ -1061,7 +1242,7 @@ This will be used  to clone a new <pre><code>GameObject</code></pre>.</p>
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td><p>Component attached to a <pre><code>GameObject</code></pre></p>
+        <td><p>Component attached to a <see cref="!:GameObject"></see></p>
 </td>
       </tr>
     </tbody>

@@ -1254,6 +1254,81 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Common.Editor.RandomListElementDrawer.OnGUI
   nameWithType: RandomListElementDrawer.OnGUI
+- uid: OmiyaGames.Common.Editor.RangeSlider
+  name: RangeSlider
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html
+  commentId: T:OmiyaGames.Common.Editor.RangeSlider
+  fullName: OmiyaGames.Common.Editor.RangeSlider
+  nameWithType: RangeSlider
+- uid: OmiyaGames.Common.Editor.RangeSlider.#ctor
+  name: RangeSlider()
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider__ctor
+  commentId: M:OmiyaGames.Common.Editor.RangeSlider.#ctor
+  fullName: OmiyaGames.Common.Editor.RangeSlider.RangeSlider()
+  nameWithType: RangeSlider.RangeSlider()
+- uid: OmiyaGames.Common.Editor.RangeSlider.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name: RangeSlider(Single, Single, Single, Single)
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider__ctor_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:OmiyaGames.Common.Editor.RangeSlider.#ctor(System.Single,System.Single,System.Single,System.Single)
+  fullName: OmiyaGames.Common.Editor.RangeSlider.RangeSlider(System.Single, System.Single, System.Single, System.Single)
+  nameWithType: RangeSlider.RangeSlider(Single, Single, Single, Single)
+- uid: OmiyaGames.Common.Editor.RangeSlider.#ctor(System.String,System.Single,System.Single,System.Single,System.Single)
+  name: RangeSlider(String, Single, Single, Single, Single)
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider__ctor_System_String_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:OmiyaGames.Common.Editor.RangeSlider.#ctor(System.String,System.Single,System.Single,System.Single,System.Single)
+  fullName: OmiyaGames.Common.Editor.RangeSlider.RangeSlider(System.String, System.Single, System.Single, System.Single, System.Single)
+  nameWithType: RangeSlider.RangeSlider(String, Single, Single, Single, Single)
+- uid: OmiyaGames.Common.Editor.RangeSlider.#ctor*
+  name: RangeSlider
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider__ctor_
+  commentId: Overload:OmiyaGames.Common.Editor.RangeSlider.#ctor
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.RangeSlider.RangeSlider
+  nameWithType: RangeSlider.RangeSlider
+- uid: OmiyaGames.Common.Editor.RangeSlider.maxFieldUssClassName
+  name: maxFieldUssClassName
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider_maxFieldUssClassName
+  commentId: F:OmiyaGames.Common.Editor.RangeSlider.maxFieldUssClassName
+  fullName: OmiyaGames.Common.Editor.RangeSlider.maxFieldUssClassName
+  nameWithType: RangeSlider.maxFieldUssClassName
+- uid: OmiyaGames.Common.Editor.RangeSlider.minFieldUssClassName
+  name: minFieldUssClassName
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider_minFieldUssClassName
+  commentId: F:OmiyaGames.Common.Editor.RangeSlider.minFieldUssClassName
+  fullName: OmiyaGames.Common.Editor.RangeSlider.minFieldUssClassName
+  nameWithType: RangeSlider.minFieldUssClassName
+- uid: OmiyaGames.Common.Editor.RangeSlider.SetValueWithoutNotify(Vector2)
+  name: SetValueWithoutNotify(Vector2)
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider_SetValueWithoutNotify_Vector2_
+  commentId: M:OmiyaGames.Common.Editor.RangeSlider.SetValueWithoutNotify(Vector2)
+  fullName: OmiyaGames.Common.Editor.RangeSlider.SetValueWithoutNotify(Vector2)
+  nameWithType: RangeSlider.SetValueWithoutNotify(Vector2)
+- uid: OmiyaGames.Common.Editor.RangeSlider.SetValueWithoutNotify*
+  name: SetValueWithoutNotify
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider_SetValueWithoutNotify_
+  commentId: Overload:OmiyaGames.Common.Editor.RangeSlider.SetValueWithoutNotify
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.RangeSlider.SetValueWithoutNotify
+  nameWithType: RangeSlider.SetValueWithoutNotify
+- uid: OmiyaGames.Common.Editor.RangeSlider.UxmlFactory
+  name: RangeSlider.UxmlFactory
+  href: api/OmiyaGames.Common.Editor.RangeSlider.UxmlFactory.html
+  commentId: T:OmiyaGames.Common.Editor.RangeSlider.UxmlFactory
+  fullName: OmiyaGames.Common.Editor.RangeSlider.UxmlFactory
+  nameWithType: RangeSlider.UxmlFactory
+- uid: OmiyaGames.Common.Editor.RangeSlider.value
+  name: value
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider_value
+  commentId: P:OmiyaGames.Common.Editor.RangeSlider.value
+  fullName: OmiyaGames.Common.Editor.RangeSlider.value
+  nameWithType: RangeSlider.value
+- uid: OmiyaGames.Common.Editor.RangeSlider.value*
+  name: value
+  href: api/OmiyaGames.Common.Editor.RangeSlider.html#OmiyaGames_Common_Editor_RangeSlider_value_
+  commentId: Overload:OmiyaGames.Common.Editor.RangeSlider.value
+  isSpec: "True"
+  fullName: OmiyaGames.Common.Editor.RangeSlider.value
+  nameWithType: RangeSlider.value
 - uid: OmiyaGames.Common.Editor.ReadOnlyDrawer
   name: ReadOnlyDrawer
   href: api/OmiyaGames.Common.Editor.ReadOnlyDrawer.html
@@ -1815,6 +1890,31 @@ references:
   fullName.vb: OmiyaGames.Helpers.ChangeEvent(Of SOURCE, VALUE)
   nameWithType: Helpers.ChangeEvent<SOURCE, VALUE>
   nameWithType.vb: Helpers.ChangeEvent(Of SOURCE, VALUE)
+- uid: OmiyaGames.Helpers.CloneComponent*
+  name: CloneComponent
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_CloneComponent_
+  commentId: Overload:OmiyaGames.Helpers.CloneComponent
+  isSpec: "True"
+  fullName: OmiyaGames.Helpers.CloneComponent
+  nameWithType: Helpers.CloneComponent
+- uid: OmiyaGames.Helpers.CloneComponent``1(``0)
+  name: CloneComponent<T>(T)
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_CloneComponent__1___0_
+  commentId: M:OmiyaGames.Helpers.CloneComponent``1(``0)
+  name.vb: CloneComponent(Of T)(T)
+  fullName: OmiyaGames.Helpers.CloneComponent<T>(T)
+  fullName.vb: OmiyaGames.Helpers.CloneComponent(Of T)(T)
+  nameWithType: Helpers.CloneComponent<T>(T)
+  nameWithType.vb: Helpers.CloneComponent(Of T)(T)
+- uid: OmiyaGames.Helpers.CloneComponent``1(``0,GameObject)
+  name: CloneComponent<T>(T, GameObject)
+  href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_CloneComponent__1___0_GameObject_
+  commentId: M:OmiyaGames.Helpers.CloneComponent``1(``0,GameObject)
+  name.vb: CloneComponent(Of T)(T, GameObject)
+  fullName: OmiyaGames.Helpers.CloneComponent<T>(T, GameObject)
+  fullName.vb: OmiyaGames.Helpers.CloneComponent(Of T)(T, GameObject)
+  nameWithType: Helpers.CloneComponent<T>(T, GameObject)
+  nameWithType.vb: Helpers.CloneComponent(Of T)(T, GameObject)
 - uid: OmiyaGames.Helpers.ConvertToEnum*
   name: ConvertToEnum
   href: api/OmiyaGames.Helpers.html#OmiyaGames_Helpers_ConvertToEnum_
